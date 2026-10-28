@@ -21,6 +21,18 @@ BINARY_SUFFIXES = {
 }
 
 
+def submodule_roots(root: pathlib.Path) -> list:
+    """Paths declared in .gitmodules; their content is upstream code."""
+    config = root / ".gitmodules"
+    roots = []
+    if config.is_file():
+        for line in config.read_text(encoding="utf-8").splitlines():
+            match = re.match(r"\s*path\s*=\s*(.+)", line)
+            if match:
+                roots.append(pathlib.PurePosixPath(match.group(1).strip()).parts)
+    return roots
+
+
 def is_copy_location(path: pathlib.Path) -> bool:
     parts = path.parts
     if parts and parts[0] == "scripts":
@@ -30,12 +42,15 @@ def is_copy_location(path: pathlib.Path) -> bool:
 
 def main() -> int:
     root = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+    upstreams = submodule_roots(root)
     violations = []
     for path in sorted(root.rglob("*")):
         if not path.is_file():
             continue
         rel = path.relative_to(root)
         if any(part in SKIP_DIRS for part in rel.parts):
+            continue
+        if any(rel.parts[: len(up)] == up for up in upstreams):
             continue
         if path.suffix.lower() in BINARY_SUFFIXES:
             continue

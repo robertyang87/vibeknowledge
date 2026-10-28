@@ -62,6 +62,33 @@ docs/         Workflow notes, style rules, and reusable checklists
 tools/        Small checkers and helpers, including the language check
 ```
 
+## Production library: Lemo-Opuscar
+
+Films in this project are made in code with
+[Lemo-Opuscar](https://github.com/lemomo-ai/lemo-opuscar), a library of
+59 film styles for Claude Code by Lemomo (MIT license). It is vendored
+here as a git submodule at `vendor/lemo-opuscar`, pinned to a fixed
+upstream commit so every episode renders against a known version.
+
+```bash
+git clone --recurse-submodules <this repo>
+# or, in an existing clone:
+git submodule update --init
+```
+
+Rules for the vendored copy:
+
+- Never edit files inside `vendor/lemo-opuscar`. Copy what an episode
+  needs into that episode's project folder and change it there.
+- The English-only language rule covers our own files. Upstream
+  submodule content is third-party code under its own license and is
+  excluded from the language check (the checker skips submodule
+  paths).
+- Bump the pin deliberately, in its own commit, and record the new
+  commit in the episode log of the next film made with it.
+
+How we use it, step by step: see `docs/lemo-opuscar.md`.
+
 ## Language policy
 
 **English only, with one narrow exception.**
