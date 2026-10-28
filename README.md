@@ -59,7 +59,24 @@ storyboards/  Shot-by-shot plans for each episode
 assets/       Generated images, clips, audio, and music references
 episodes/     One folder per finished video, with its final script and log
 docs/         Workflow notes, style rules, and reusable checklists
+tools/        Small checkers and helpers, including the language check
 ```
+
+## Language policy
+
+**English only, with one narrow exception.**
+
+- All code, code comments, documentation, file and folder names, branch
+  names, issues, and commit messages in this repository must be in English.
+- The only place another language may appear is in the audience-facing
+  copy of a video itself: its narration script, on-screen text, captions,
+  title, and publishing copy, when that video is made in that language.
+- Copy files live only in `scripts/` or in an episode's `copy/` folder
+  (`episodes/<episode>/copy/`). Anywhere else, non-English text is a
+  defect and must be removed, even inside a quote or an example.
+- Run `python3 tools/check_language.py` before committing. It fails if
+  Chinese characters appear outside the copy locations above.
+
 
 ## Status
 
