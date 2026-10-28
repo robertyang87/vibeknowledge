@@ -124,3 +124,79 @@ Prior-work status for every entry below: check running on
   execution bar is higher, which is the moat.
 - One topic (6) is timed to the season instead of to a device
   release or a contest theme.
+
+## Prior-work check (Douyin, 2026-10-29)
+
+Method: Douyin web search, video tab; figures are likes shown on
+search cards, not views. Verdict scale: (a) a hit owns the topic,
+(b) exists but weak or differently angled, (c) basically
+untouched. All six finalists scored (b); they differ sharply in
+how weak the occupation is.
+
+1. **Motion sickness in a car — (b), window narrowing.** The
+   exact spine (phone in car, eyes still versus inner ear moving,
+   brain concludes poisoned) already has a small wave of
+   vibe-style posts from the last two weeks, all tiny (single
+   digits to 141 likes). A broader "principles plus remedies"
+   version already reached 24k likes. Viable only fast, or
+   re-angled onto the driver-never-sick spine.
+2. **Subway piston wind — (b), weakest occupation in the
+   batch.** Every existing explainer sits between 17 and 411
+   likes; the highest is a four-year-old official ventilation
+   video on a broader angle. Two recent AI schematic attempts
+   exist (17 and 72 likes), but no video combines this topic,
+   the vibe dark-schematic style and the contest tag. The
+   vibe-style single-point slot is open.
+3. **Mirror left-right — (b), but the resolution itself is
+   occupied.** A top science account's talking-head explainer
+   stating the full front-back answer holds 397k likes; the
+   "aha" is no longer an information gap. Vibe attempts exist
+   but are tiny (225 likes at best). Downgraded: remaining
+   space is execution or a side angle such as selfie asymmetry.
+4. **Dark adaptation — (b).** Two very recent vibe attempts
+   (6 and 56 likes, 2026-10-19 and 2026-10-25) did not take
+   off; the closest one's summaries never surfaced the
+   roughly 30-minute rhodopsin figure. Other results are
+   children's animation, medical classroom, exam prep or
+   fiction. Room to differentiate with the complete two-clock
+   story as an in-retina journey.
+5. **High-speed rail versus plane seatbelts — (b); the vibe
+   full-comparison niche is near-untouched.** The general
+   topic has an 846k-like talking-head hit (2024), but direct
+   comparison videos sit at 121 to 1,804 likes, and the only
+   two vibe-style attempts on the full comparison are days old
+   at 6 and 3 likes. One already uses the 1999 Finland trial
+   story, so the facts are known; the execution got no
+   traction.
+6. **Winter static shocks — (b), precise angle open.** Head
+   results run on other angles: fabric and polyester (59k
+   likes) and a general how-it-forms plus prevention explainer
+   (15k). The tens-of-thousands-of-volts hook appears in one
+   small AI series episode (1,498 likes). No video makes "dry
+   air cannot carry the charge away, so the voltage keeps
+   building" its headline argument, and no vibe-style hit
+   exists on the topic. Late-October timing is seasonally
+   ideal.
+
+## Final order after the prior-work check
+
+1. **Subway piston wind** — least occupied, local, and the
+   piston journey is native to the library's schematic styles.
+2. **Winter static shocks** — precise angle open and the
+   season is arriving; value decays as winter passes.
+3. **High-speed rail versus plane seatbelts** — niche
+   near-untouched; the contrast structure is strong, but the
+   facts are already circulating, so execution must carry it.
+4. **Dark adaptation** — good journey, but two vibe attempts
+   appeared within the last ten days; differentiate on the
+   two-clock timeline or wait.
+5. **Motion sickness in a car** — the exact spine is already
+   crowded with small posts and the general angle has a
+   winner; only with the driver re-angle.
+6. **Mirror left-right** — the answer is owned by a 397k-like
+   explainer; weakest information gap of the batch.
+
+Cross-batch note: the Batch 1 candidate "deleted photos,
+re-angled" remains open and is not displaced by this order;
+the Episode 1 choice between that topic and the order above
+belongs to the owner.
