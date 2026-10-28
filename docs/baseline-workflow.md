@@ -39,6 +39,18 @@ A topic passes only if all four are true:
 Best-fitting categories per the creator: general science,
 psychology, Nobel Prize stories. [Creator]
 
+## Step 1.5. Prior-work check [Ours, added 2026-10-29]
+
+Before the fact card, search Douyin for the topic and the
+intended spine, with several query variants. Record what exists:
+titles, creators, likes, format, and which sub-angles are taken.
+A topic that a hit already owns is dead; a topic the contest
+crowd strip-mined in the last month needs a new spine or a
+parking spot, however clean its gate scores look. The first run
+of this check (2026-10-29) found every Batch 1 topic already
+attempted in vibe form and none of them broken out, and it
+reordered the pool. See `docs/topic-pool-001.md`.
+
 ## Step 2. Fact card [Ours]
 
 Before any scripting, write the episode's fact card in the topic
