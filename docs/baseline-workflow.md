@@ -39,6 +39,13 @@ A topic passes only if all four are true:
 Best-fitting categories per the creator: general science,
 psychology, Nobel Prize stories. [Creator]
 
+Title patterns (check the episode's title against all four
+before scripting; at least one should fit): (1) a
+counter-intuitive number or formula; (2) a current hotspot with
+the jargon translated into plain words; (3) an emotional pain
+point; (4) a classic or canonical motif run as a series. [Field
+report, filed in `docs/tooling-landscape-002.md` section 1]
+
 ## Step 1.5. Prior-work check [Ours, added 2026-10-29]
 
 Before the fact card, search Douyin for the topic and the
@@ -71,6 +78,17 @@ creator ships with **no voiceover** [Creator]; the library
 workflow defaults to a synthesized voice [Library]. This project
 decides per episode, at brief time, and records the decision.
 
+When the look is anchored on a reference film, extract its style
+as numbers at this step, before any content prompt is written —
+palette (background, main, accent, exact values), light (key
+direction, contrast, glow and vignette), texture (grain, noise,
+particles, blur), subtitle spec (font, size hierarchy, position,
+in/out motion and hold), rhythm (average shot length, cut style,
+relation to the music's beats), composition (subject position,
+negative space, title and subtitle zones). Free invention
+unanchored to a reference drifts toward an old-PPT look. [Field
+report, filed in `docs/tooling-landscape-002.md` section 1]
+
 ## Step 4. Treatment, then prompts
 
 - Write `TREATMENT.md` with three candidate structures and the
@@ -94,6 +112,11 @@ Two checks that are the same gate, seen from both sources:
   [Creator]
 - Render the sample with the real drawing code and check the
   look against the style's `STYLE.md`. [Library]
+- Before the sample render, build a contact sheet of about 9
+  key-moment stills and self-check it for occlusion, composition
+  and exposure; revise for at least two rounds before any full
+  render. [Field report, filed in
+  `docs/tooling-landscape-002.md` section 1]
 
 The sample must pass three tests before full production:
 
@@ -124,6 +147,10 @@ timestamp ("brighten second 8"), never regenerations. [Creator]
   platform's same-track feature where one exists.
 - Record the track name and where it came from in the episode
   log; a track we cannot name does not ship.
+- Royalty-free is not copyright-free: when a library track is
+  used, record its licence evidence in the episode's CREDITS
+  alongside the track name. [Field report, filed in
+  `docs/tooling-landscape-002.md` section 2]
 
 ## Step 8. Self-check before delivery [Library checklist, plus Ours]
 
