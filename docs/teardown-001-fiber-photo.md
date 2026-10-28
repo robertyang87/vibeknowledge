@@ -163,3 +163,20 @@ Hybrid, not fully generated:
 - Generated schematic shots drift: fibers change diameter, light
   paths stop reflecting, globes gain extra routes. Dense frame
   checks are part of the workflow, not an optional review step.
+
+## Correction, added later on 2026-10-28
+
+The section above said no tool could be assigned to this video.
+The project owner then identified the production library behind
+this format as Lemo-Opuscar, a code-made film style library, and
+this repository adopted it the same day (see
+`docs/lemo-opuscar.md`). A code-made pipeline explains the
+observations recorded above better than a video generation model
+does: sharp type at every size, exact scales and diagrams, and
+controlled geometry in the reflection shots.
+
+One boundary stays as written: the library author's own long post
+about the library (X, 2026-10-22) describes the library and its 59
+styles but does not name this creator. The attribution therefore
+rests on the owner's information, not on an independent public
+source this project has verified.
