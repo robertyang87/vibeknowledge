@@ -93,6 +93,10 @@ report, filed in `docs/tooling-landscape-002.md` section 1]
 
 - Write `TREATMENT.md` with three candidate structures and the
   chosen one, before opening any demo code. [Library]
+- When writing the shot list, the shot vocabulary source is
+  video-shotcraft's recipe cards (`docs/tooling-index.md`,
+  reference shelf). [Field report, filed in
+  `docs/tooling-landscape-006.md`]
 - Then write the two-part prompt [Creator]:
   1. the standing general prompt (house style: caption size,
      color, highlight color, title cards, palette, safe areas);
@@ -136,6 +140,14 @@ The sample must pass three tests before full production:
    then finish the picture against it. [Library: music grid
    first]
 4. Mix and render against the pinned library version.
+   Render backend: the pinned library renderer is the production
+   backend. HyperFrames is the designated candidate if its
+   throughput becomes the bottleneck (Ep1 measured roughly
+   7 seconds per frame of screenshot drain on this machine); it
+   is admitted only through the A/B protocol in
+   `docs/tooling-index.md`, and never benchmarked while an
+   episode render is running. [Field report, filed in
+   `docs/tooling-landscape-006.md`]
 
 Change requests after this point are code edits with a named
 timestamp ("brighten second 8"), never regenerations. [Creator]
