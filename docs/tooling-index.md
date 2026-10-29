@@ -1,13 +1,13 @@
 # Tooling Index
 
-Status: consolidated 2026-10-29. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md`, `-002.md` and `-003.md`; this index is the summary that an episode kickoff should read first.
+Status: consolidated 2026-10-29, updated the same day with landscape 004. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-004.md`; this index is the summary that an episode kickoff should read first.
 
 ## Main line (adopted, in production)
 
 ### Lemo-Opuscar — the engine and the directing discipline
 - lemomo-ai/lemo-opuscar, MIT, pinned at commit 413a6bd6 (upstream main, 2026-10-24) as the repo submodule `vendor/lemo-opuscar` and installed locally for production.
 - How used: pick one of the 59 film styles as the episode's visual system; write the Treatment first (three structures, one chosen; shot list; beat sheet; sound design); prove the look on stills rendered with the real code; one timeline drives picture, subtitles and sound; render with the library's `core/render` tools; subtitle dwell checked by its readcheck; mux to -14 LUFS; deliver against the DIRECTOR section 11 checklist.
-- Upstream watch: the author has since moved toward real-footage documentary styles and a style-making toolbox. Diff upstream against the pin before a new episode starts; never change the pin mid-episode.
+- Upstream watch: the author has since moved toward real-footage documentary styles and a style-making toolbox. Checked 2026-10-29 (landscape 004): upstream is at 9,270 stars and its description now reads 66 ready-to-use styles, pushed the same day — the pre-episode diff has a concrete delta of seven added styles over our pin. Diff upstream against the pin before a new episode starts; never change the pin mid-episode.
 
 ### Our baseline layer — the account's own gates around the engine
 - `docs/baseline-workflow.md` plus `docs/topic-selection-standard.md`. Topic gate with a Douyin prior-work check, FACTS.md before any copy, the sample gate (one-second hook, caption-picture sync, facts), two still-sheet revision rounds before a full render, dense-frame self-review of the finished file, and a per-episode log with 24-hour and 7-day numbers. The engine guarantees a film can be drawn; this layer guarantees it is right.
@@ -32,6 +32,11 @@ Status: consolidated 2026-10-29. This is the lookup table for every tool, librar
 - **sweety-handdraw-video** — hand-drawn style plus a VoxCPM 2 voice option; the trial route if an episode ever needs hand-drawn visuals or narration.
 - **The broll-sketch format** (from the space-video suite) — a way to sketch b-roll inside a treatment; format reference only, suite not adopted.
 - **motion2code / cutloupe** — motion and cut analysis references for teardown work, not production.
+- **Vincentwei1021/mg-styles-15** — 15 motion-design styles, each generated from one prompt (2,571 stars, MIT; first-hand check in landscape 004). The style cross-check when a motion-design look is wanted and the main line's styles do not fit.
+- **JohnHeibel/ClaudeAnimationBase** — a starter kit for hand-painted cartoon animation (p5.js + p5.brush; 2,270 stars, MIT). The cartoon lane only, if a future topic wants that register.
+- **PDoomVideo** — a complete worked example of a code-rendered music video. Borrow from the MIT re-release (mexicat/pdoom-video, 3,620 stars), not the unlicensed original (JohnHeibel/PDoomVideo, 2,694 stars).
+- **joeseesun/opus-video-prompts** — 54 cases with copy-ready prompts (822 stars, no licence). Second prompt source after the shelf primary; prompts as inspiration only.
+- **athemeroy/awesome-claude-5-5-videos** — a smaller workflow-oriented list (827 stars, CC-BY-4.0). Recorded but not consulted in parallel with the shelf primary: two galleries of the same phenomenon would double-count the same evidence. Fallback if the primary goes stale.
 
 ## Fallback route (not installed)
 - **arjun988/blender-skills** — 94 Blender skills driven over MCP, aimed at game-asset pipelines (blockout to engine export); last pushed 2026-07-10. Its only slot here: if a future episode needs one hero 3D asset that Three.js cannot model well, build and render that single asset in Blender and composite it in. Its camera references overlap video-shotcraft, which we already hold.
