@@ -1,6 +1,6 @@
 # Tooling Index
 
-Status: consolidated 2026-10-29, updated the same day with landscapes 004 and 005. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-005.md`; this index is the summary that an episode kickoff should read first.
+Status: consolidated 2026-10-29, updated 2026-10-30 with landscape 006. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-006.md`; this index is the summary that an episode kickoff should read first.
 
 ## Main line (adopted, in production)
 
@@ -15,6 +15,7 @@ Status: consolidated 2026-10-29, updated the same day with landscapes 004 and 00
 ## Evaluation queue (decided order, not yet installed)
 1. **huashu-art-motion** (alchaincyf) — first-hand figures from landscape 005: 5,734 stars, MIT, created 2026-10-06, last pushed 2026-10-16; its own description states 35 art styles and 9 explainer grammars (the 36-style figure in landscape 001 came from a third-party article). A no-voiceover method. Test protocol: render the same topic as a sample against the main line; adopt only if its explainer grammar measurably beats our layered structure on that sample. A user-reported Douyin science video passed 100k plays in 5 hours; that is a lead, not evidence.
 2. **HeyChengC/vibe-knowledge-film** — a skill built for this exact contest format, two styles ("nocturne" for deep topics, "fable" for psychology and behaviour shown rather than told), plus an engine document with an up-front pitfall checklist (subtitle band placement, glow colours darkened first, particles as plain rectangles, a quantified longest-subtitle width check). First step is documentary only: diff its checklist against our gates and absorb what strengthens them; test the styles when a shown-not-told topic arrives.
+3. **heygen-com/hyperframes** — a render-backend candidate only (75,310 stars, Apache-2.0, pushed 2026-10-29; landscape 006). HeyGen's HTML-to-video framework, built for agents; the designated A/B challenger to the library renderer's roughly 7-seconds-per-frame screenshot drain measured on Ep1. Protocol: re-render one existing segment through it; compare wall-clock per frame, frame identity against approved stills, and post-mux integrity. Never benchmark while an episode render is running on this machine. Baseline Step 6 names it.
 
 ## Methodology reference (top of the reference shelf)
 
@@ -28,8 +29,8 @@ Status: consolidated 2026-10-29, updated the same day with landscapes 004 and 00
 ## Reference shelf (borrow the idea, not the tool)
 - **huashu-motion** — one interaction only: point at a frame to request a revision. Already our sample-gate feedback habit; the tool is not installed.
 - **yihui-dev/awesome-opus5-5-videos** — 703 viral videos with the prompts behind them (12,346 stars at the 2026-10-29 check). Consulted when a shot cannot be described to the model. Evidence caution recorded by video-director's methodology: its "featured" flag mostly tracks early virality and curator taste, so its statistics are suggestive, not causal.
-- **Vincentwei1021/video-shotcraft** — 152 shot cards; the vocabulary source when writing shot lists.
-- **sweety-handdraw-video** — hand-drawn style plus a VoxCPM 2 voice option; the trial route if an episode ever needs hand-drawn visuals or narration.
+- **Vincentwei1021/video-shotcraft** — 14,624 stars, Apache-2.0, pushed 2026-10-29 (landscape 006): 124 shot recipe cards; the vocabulary source when writing shot lists, now named in baseline Step 4. Its own production route (Remotion-based editable product promos) is a reference for any future product-style episode.
+- **threerocks/sweety-handdraw-video** — 963 stars, MIT, pushed 2026-10-27: hand-drawn explainer (stroke-by-stroke drawing, per-character writing) plus a VoxCPM 2 voice option; the trial route if an episode ever needs hand-drawn visuals or narration. Second reference for the same lane: gnipbao/story-to-handdrawn-video (2,318 stars, MIT), story copy to hand-drawn diary-comic animation, silent output.
 - **The broll-sketch format** (from the space-video suite) — a way to sketch b-roll inside a treatment; format reference only, suite not adopted.
 - **motion2code / cutloupe** — motion and cut analysis references for teardown work, not production.
 - **Vincentwei1021/mg-styles-15** — 15 motion-design styles, each generated from one prompt (2,571 stars, MIT; first-hand check in landscape 004). The style cross-check when a motion-design look is wanted and the main line's styles do not fit.
@@ -47,5 +48,7 @@ Status: consolidated 2026-10-29, updated the same day with landscapes 004 and 00
 - Generative video-model lane — LTX-2, CogVideoX, ComfyUI WanVideoWrapper, VACE, DiffSynth-Studio, MuseTalk: we draw with code, and generated footage cannot be trusted for physical correctness.
 - Bulk faceless factories — MoneyPrinterTurbo, YILS-LIN/short-video-factory: copywriting plus stock montage with no fact discipline; the opposite of this account's model.
 - Editor-type tools — OpenChatCut, FireRed-OpenStoryline, Editly, AutoSubs: our timeline and subtitles are generated exactly from code, so a timeline editor has nothing to attach to.
-- video-use and the digital-human / music-video projects: landscape awareness only.
+- video-use and the digital-human / music-video projects: landscape awareness only. video-use first-hand figures (landscape 006): browser-use/video-use, 30,081 stars, MIT — it edits real footage, which our drawn films do not contain; the named exception is a future real-footage side piece, where it is the first tool to re-check.
+- Remotion (remotion-dev/remotion, 68,838 stars, custom licence) — the React programmatic-video engine under several shelf skills. Not adopted: the single-harness rule keeps the directing discipline in the adopted library. Recorded as ecosystem context.
+- Seedance2 prompt skills (dexhunter/seedance2-skill; liangdabiao/Seedance2-Storyboard-Generator) — they write prompts and storyboards FOR the Seedance 2.0 generative video model; nothing is drawn in code. Rejected with the generative lane, and recorded because a compiled list mislabelled them as code-route tools (landscape 006).
 - tuzhechen2005/opus-video-skills — a per-style skill pack (374 stars) with no licence stated, so its code is not borrowable; quiet since two days after its 2026-09-26 creation. Landscape record only (landscape 005); its kinetic-typography register is noted there.
