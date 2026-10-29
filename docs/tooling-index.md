@@ -1,6 +1,6 @@
 # Tooling Index
 
-Status: consolidated 2026-10-29, updated 2026-10-30 with landscape 006. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-006.md`; this index is the summary that an episode kickoff should read first.
+Status: consolidated 2026-10-29, updated 2026-10-30 with landscapes 006 and 007. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-007.md`; this index is the summary that an episode kickoff should read first.
 
 ## Main line (adopted, in production)
 
@@ -40,6 +40,7 @@ Status: consolidated 2026-10-29, updated 2026-10-30 with landscape 006. This is 
 - **athemeroy/awesome-claude-5-5-videos** — a smaller workflow-oriented list (827 stars, CC-BY-4.0). Recorded but not consulted in parallel with the shelf primary: two galleries of the same phenomenon would double-count the same evidence. Fallback if the primary goes stale.
 - **cth9191/animate** — a Claude Code animation skill (1,064 stars, MIT) borrowed for one idea: its storyboard check-ins, the same human-gate pattern as our sample gate applied per storyboard. Not a harness candidate (7 styles, single-file canvas route).
 - **Kianzzz/xilo-opus-video** — methodology evidence only (310 stars, MIT; landscape 005): an independent author converged on three proposals plus previews, a confirmation gate, then frame-by-frame rendering — external validation of our Treatment-plus-sample-gate shape. Not installed.
+- **openfilm/openfilm** — an open-source video-agent harness with a real editor (3,562 stars, MIT, pushed 2026-10-29; landscape 007). Films are one HTML file, each shot a page drawing frame(t) — the same model as ours. Not adopted as a second harness, and its headless-Chromium render does not displace HyperFrames as the backend challenger. Two borrowables by name: Studio, its local editor (move, scale, restyle any element; trim on a timeline) as the reference design for a human-tweak surface if an episode ever needs one — our changes stay code edits (baseline Step 6); and its `look` command (contact sheet, frame, range) as convergence on our stills gates.
 
 ## Fallback route (not installed)
 - **arjun988/blender-skills** — 94 Blender skills driven over MCP, aimed at game-asset pipelines (blockout to engine export); last pushed 2026-07-10. Its only slot here: if a future episode needs one hero 3D asset that Three.js cannot model well, build and render that single asset in Blender and composite it in. Its camera references overlap video-shotcraft, which we already hold.
