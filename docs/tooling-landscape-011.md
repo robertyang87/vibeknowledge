@@ -89,3 +89,31 @@ the bound repository's licence before touching its code; remix one tennis
 ranking sequence as a sample and compare it against a main-line build of
 the same sequence on accuracy, styling fit and total effort. Adopt per
 clip, never per platform.
+
+## Trial outcome (2026-10-31, owner-authorised)
+
+The owner authorised the trial the same day: GitHub OAuth login (app name
+"motion-recorder", sole scope read-only email addresses), then the full
+10 Face new-account balance was spent unlocking the ranking-climb clip
+(valid until 2026-11-30; balance now 0). Findings:
+
+- Four bound repositories were revealed. Two are dead links (404: one
+  single-purpose "repo" repository, one ADAS OTA ranking repository).
+  Two are alive Remotion projects (1080 x 1920, 30 fps, 8 s): one climbing
+  an AI-model arena leaderboard, one adapting the same template and the
+  same score data to A-share companies. Neither carries a licence file.
+- Because no bound repository states a licence, no code was reused. The
+  sample was built clean-room from the generic grammar (highlighted row
+  climbing a ladder, milestone lines, easing, final hold) in our own
+  renderer and series tokens at 1080 x 1440, using Zheng Qinwen's verified
+  2026 climb (No.160 to No.54 to No.23 to No.22). Sample and script are
+  kept locally under the motionface-trial workspace folder.
+- Measured platform quality on this clip: 50 percent link rot among bound
+  repositories, no licence discipline, and replicas of replicas (the
+  second live repository inherits the first one's data table verbatim).
+
+Revised verdict: trial closed. Motion Face stays a concept-level
+reference (watch what forms the community replicates), not a code source:
+do not unlock further clips unless a specific clip is worth an originality
+and licence check in advance, and never budget Face purchases for it.
+The evaluation-queue slot is released; the main line is unchanged.
