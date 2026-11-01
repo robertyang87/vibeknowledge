@@ -106,8 +106,7 @@ The owner authorised the trial the same day: GitHub OAuth login (app name
   sample was built clean-room from the generic grammar (highlighted row
   climbing a ladder, milestone lines, easing, final hold) in our own
   renderer and series tokens at 1080 x 1440, using Zheng Qinwen's verified
-  2026 climb (No.160 to No.54 to No.23 to No.22). Sample and script are
-  kept locally under the motionface-trial workspace folder.
+  2026 climb (No.160 to No.54 to No.23 to No.22). Both finished samples (the ladder version and a curve-chart version built the next day) plus their scripts were filed by the owner on 2026-11-01 into the tennis material library at templates/ranking-motion/, as the standing starting point for future ranking-change animations; working copies remain in the motionface-trial workspace folder.
 - Measured platform quality on this clip: 50 percent link rot among bound
   repositories, no licence discipline, and replicas of replicas (the
   second live repository inherits the first one's data table verbatim).
