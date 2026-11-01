@@ -21,6 +21,49 @@ entirely in code, with music doing the emotional work. [Creator]
 - The standing general prompt (step 4) lives in this repository
   and is versioned like code. [Creator: the two-part prompt]
 
+## Step 0.5. Episode start checklist [Ours, added 2026-11-01]
+
+Run this list at the start of every episode, before scripting.
+Items 1-5 are adopted from the Iwanau audit
+(`docs/teardown-006-creator-iwanau.md`); each names where it is
+enforced later in this workflow.
+
+- [ ] **Device sheet.** Two or three persistent information
+  devices are chosen for the episode (an age or progress
+  counter, a year-and-place tag, an A/B direction pill, an
+  x-of-3 checklist, a formula board, a skeuomorphic app
+  screen), each with a fixed screen position for the whole
+  runtime. The sheet is written into `TREATMENT.md` at step 4;
+  the renderer builds to it and step 8 checks against it.
+  [Iwanau]
+- [ ] **Information-beat grid.** The shot list marks an
+  information beat at least every 15 seconds or so: a number
+  landing, a diagram state changing, a counter advancing.
+  A stretch of pure scene or motion with no information change
+  is a defect, found at the step 8 audit, not a style choice.
+  [Iwanau]
+- [ ] **Show, then name.** The script order is fixed:
+  phenomenon first, one variable flipped on screen, the concept
+  named only after the viewer has seen it happen, then one step
+  of mapping to daily life. A definition-first opening fails
+  this gate and is rewritten before the treatment is locked.
+  [Iwanau]
+- [ ] **One ending, locked first.** Exactly one ending type is
+  chosen from the menu — a borrowed verdict (a historical
+  figure's or the subject's own one-line judgement), the
+  decision handed to the viewer, an x-of-3 action checklist, a
+  wish reduction (a cosmic story closed on its smallest human
+  wish), a classical reframe — and the ending is written before
+  the middle of the script. No episode ships with two endings
+  or with an ending improvised at the end of writing. [Iwanau]
+- [ ] **Disputes staged, copy as synopsis.** Where sources
+  genuinely disagree, the fact card (step 2) records both sides
+  and the script stages the dispute instead of silently picking
+  one. The publishing description (step 9) is written as a
+  compressed synopsis of the finished script: it is the
+  episode's search text and its promise, and it must not promise
+  anything the film does not deliver. [Iwanau, dispute rule Ours]
+
 ## Step 1. Topic gate
 
 A topic passes only if all four are true:
@@ -171,6 +214,10 @@ timestamp ("brighten second 8"), never regenerations. [Creator]
 - Dense frame check (at most 2 second intervals) for drift:
   geometry that changes size, light paths that stop obeying the
   diagram, text that garbles, routes that multiply.
+- Information-beat audit (Step 0.5): step through the finished
+  timeline and mark every information beat; any window longer
+  than about 15 seconds without one is reworked or cut. Device
+  positions and states match the episode's device sheet.
 - Opening check: first frame, first second, first line, in that
   order.
 - Language check: `python3 tools/check_language.py` passes.
@@ -179,6 +226,9 @@ timestamp ("brighten second 8"), never regenerations. [Creator]
 
 ## Step 9. Publish and log
 
+- Write the publishing description as a compressed synopsis of
+  the finished script (Step 0.5), in the platform copy's own
+  language slot per `CONTRIBUTING.md`. [Iwanau]
 - Publish to Douyin, Kuaishou, and Xiaohongshu; the reference
   creator's flagship drew meaningfully on all three. [Creator]
 - Log the episode in its folder: topic, fact card, treatment,
