@@ -1,6 +1,6 @@
 # Tooling Index
 
-Status: consolidated 2026-10-29, updated 2026-10-31 with landscapes 011 to 013. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-013.md`; this index is the summary that an episode kickoff should read first.
+Status: consolidated 2026-10-29, updated 2026-11-01 with landscapes 011 to 014. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-014.md`; this index is the summary that an episode kickoff should read first.
 
 ## Main line (adopted, in production)
 
@@ -52,7 +52,7 @@ Status: consolidated 2026-10-29, updated 2026-10-31 with landscapes 011 to 013. 
 - **arjun988/blender-skills** — 94 Blender skills driven over MCP, aimed at game-asset pipelines (blockout to engine export); last pushed 2026-07-10. Its only slot here: if a future episode needs one hero 3D asset that Three.js cannot model well, build and render that single asset in Blender and composite it in. Its camera references overlap video-shotcraft, which we already hold.
 
 ## Checked and rejected (landscape record only)
-- Generative video-model lane — LTX-2, CogVideoX, ComfyUI WanVideoWrapper, VACE, DiffSynth-Studio, MuseTalk: we draw with code, and generated footage cannot be trusted for physical correctness.
+- Generative video-model lane — LTX-2, CogVideoX, ComfyUI WanVideoWrapper, VACE, DiffSynth-Studio, MuseTalk: we draw with code, and generated footage cannot be trusted for physical correctness. Rechecked first-hand 2026-11-01 (landscape 014): the LTX-2 line now stands at LTX-2.5 with pipeline v1.5.0 (2026-10-18, no pushes since), under a community licence with a gated download of about 66 GiB and a CUDA-only local profile; verdict unchanged, with one conditional slot noted there - a hosted-API atmosphere-only test if a named need ever arises.
 - Bulk faceless factories — MoneyPrinterTurbo, YILS-LIN/short-video-factory: copywriting plus stock montage with no fact discipline; the opposite of this account's model.
 - Editor-type tools — OpenChatCut, FireRed-OpenStoryline, Editly, AutoSubs: our timeline and subtitles are generated exactly from code, so a timeline editor has nothing to attach to.
 - video-use and the digital-human / music-video projects: landscape awareness only. video-use first-hand figures (landscape 006): browser-use/video-use, 30,081 stars, MIT — it edits real footage, which our drawn films do not contain; the named exception is a future real-footage side piece, where it is the first tool to re-check.
