@@ -66,7 +66,7 @@ and this repo should keep:
   monetisation path at all: viewers arrive for the question,
   leave satisfied, and remember nothing; the traffic cannot
   settle into a person or a product.
-- Application here, recorded plainly: this account (AI词元新说)
+- Application here, recorded plainly: this account
   shares the generic-knowledge risk and should treat conversion
   as an open question, not an assumption. The owner's tennis
   brand is the opposite shape (a named vertical with a
