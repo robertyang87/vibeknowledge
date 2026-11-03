@@ -76,8 +76,18 @@ each at the end.
   character rig with 31 emotions; built in two days in
   September 2026 and quiet since.
 - athemeroy/awesome-claude-5-5-videos (928 stars,
-  CC-BY-4.0): a second catalogue of the same wave, 424
-  videos with sources.
+  CC-BY-4.0): a catalogue of the same wave, 424 videos with
+  sources - and, corrected here on 2026-11-04 after a second
+  source post (@Ryrenz) described its research layer, more
+  than a catalogue: nine-frame preview sampling for 199 of
+  the 424 entries, an analysis pass over 1,119 files (games
+  and interactive pieces about 70 percent 3D-rendered, ads
+  and launches over 70 percent motion graphics and UI,
+  median coloured-pixel share 45.5 percent for music videos
+  against 17.6 percent for ads), per-piece cost cases, and
+  honest labelling where a model attribution is only the
+  creator's own claim. A benchmark corpus with statistics;
+  still a corpus, not a tool.
 - joeseesun/opus-video-prompts (922 stars, no licence,
   about 40 KB, created and last pushed the same day): a thin
   prompt dump.
