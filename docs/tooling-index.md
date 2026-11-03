@@ -1,6 +1,6 @@
 # Tooling Index
 
-Status: consolidated 2026-10-29, updated 2026-11-03 with landscapes 011 to 019. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-019.md`; this index is the summary that an episode kickoff should read first.
+Status: consolidated 2026-10-29, updated 2026-11-03 with landscapes 011 to 020. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-020.md`; this index is the summary that an episode kickoff should read first.
 
 ## Main line (adopted, in production)
 
@@ -34,6 +34,7 @@ Status: consolidated 2026-10-29, updated 2026-11-03 with landscapes 011 to 019. 
 - **threerocks/sweety-handdraw-video** — 963 stars, MIT, pushed 2026-10-27: hand-drawn explainer (stroke-by-stroke drawing, per-character writing) plus a VoxCPM 2 voice option; the trial route if an episode ever needs hand-drawn visuals or narration. Second reference for the same lane: gnipbao/story-to-handdrawn-video (2,318 stars, MIT), story copy to hand-drawn diary-comic animation, silent output.
 - **The broll-sketch format** (from the space-video suite) — a way to sketch b-roll inside a treatment; format reference only, suite not adopted.
 - **motion2code / cutloupe** — motion and cut analysis references for teardown work, not production.
+- **Methodology: the Opus 5.5 Motion Lab guide** (landscape 020): Florence's long-form account (1.47M views, 8,630 bookmarks) of the same rendering contract the main line runs on - the model outputs code, never pixels. Filed for its prompt anatomy (nine fields including a NEVER exclusions field worth borrowing for Treatments), its directed-vs-vague experiment (448 words and 90 minutes beat 27 words and 30), its lab defaults (text dwell at least 0.3s per word plus 0.5s; -14 LUFS; CRF 18) and its per-piece receipts habit. No fact layer; her numbers are one lab's defaults, not replacements for the baseline's gates.
 - **Vincentwei1021/mg-styles-15** — 15 motion-design styles, each generated from one prompt (2,571 stars, MIT; first-hand check in landscape 004). The style cross-check when a motion-design look is wanted and the main line's styles do not fit.
 - **JohnHeibel/ClaudeAnimationBase** — a starter kit for hand-painted cartoon animation (p5.js + p5.brush; 2,270 stars, MIT). The cartoon lane only, if a future topic wants that register.
 - **PDoomVideo** — a complete worked example of a code-rendered music video. Borrow from the MIT re-release (mexicat/pdoom-video, 3,620 stars), not the unlicensed original (JohnHeibel/PDoomVideo, 2,694 stars).
