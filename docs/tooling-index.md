@@ -1,6 +1,6 @@
 # Tooling Index
 
-Status: consolidated 2026-10-29, updated 2026-11-03 with landscapes 011 to 021. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-021.md`; this index is the summary that an episode kickoff should read first.
+Status: consolidated 2026-10-29, updated 2026-11-05 with landscapes 011 to 022. This is the lookup table for every tool, library and repository evaluated for this account: what it is, where it sits, and exactly how it is used. Full evaluations live in `docs/tooling-landscape-001.md` through `-022.md`; this index is the summary that an episode kickoff should read first.
 
 ## Main line (adopted, in production)
 
@@ -58,6 +58,10 @@ Status: consolidated 2026-10-29, updated 2026-11-03 with landscapes 011 to 021. 
 - **cth9191/animate** (landscape 017): procedural canvas films in seven plug-in styles plus a custom look from references, behind a three-gate approval chain (beat table with facts web-checked, style frames, storyboard panels) and a measured delivery check. Converges on our own baseline discipline; borrow the gate chain and the style plug-in split by reading. Quiet since 2026-10-05.
 - **patch-gg/pixelfx** - 873 stars, 110 forks, MIT, created 2026-10-30 (landscape 013): 232 pixel art game effects plus 12 character moves, every one drawn by a small JavaScript file, playable in a web gallery, recoloured by palette and exportable as transparent sprite sheets with Aseprite-style JSON for Godot, Unity and browser engines; a bundled Claude Code skill authors new effects. Shelf only by owner direction, no trial: its register fits neither the code-film main line nor the real-footage tennis line. Its only slots are a future pixel-style game project, used as-is under MIT with a pinned commit, or its transitions and UI categories as inspiration redrawn in the account's own styles.
 - **Field list, 20 code-driven video tools** - an X post by a hands-on Japanese reviewer account (2026-10-29; landscape 008): half the list confirms our stack (Remotion, HyperFrames, Three.js, Paper.js, faster-whisper, FFmpeg). Three names newly shelved for future needs: Chatterbox (open narration TTS), GL Transitions (shader transition library), Matter.js / Rapier (physics solvers for precise mechanics demonstrations).
+- **LottieFiles/motion-design-skill** (landscape 022): the principles layer - timing, easing, choreography and the Disney principles rewritten for agents, from LottieFiles (2,777 stars, MIT, about 34 KB). Read when a motion question is about principle rather than style; reading it is the adoption, nothing to install.
+- **alchaincyf/huashu-art-motion** (landscape 022): the art-animation sibling of huashu-motion (017) - 35 art styles and 9 explainer grammars (6,226 stars, MIT). Reference shelf; the grammar inventory is the borrowable part.
+- **feitangyuan/onetake** (landscape 022): one-take films - a continuous camera where every beat grows out of the previous one (3,728 stars). NO LICENCE: the aesthetic may be read, nothing may be reused.
+
 
 ## Fallback route (not installed)
 - **arjun988/blender-skills** — 94 Blender skills driven over MCP, aimed at game-asset pipelines (blockout to engine export); last pushed 2026-07-10. Its only slot here: if a future episode needs one hero 3D asset that Three.js cannot model well, build and render that single asset in Blender and composite it in. Its camera references overlap video-shotcraft, which we already hold.
