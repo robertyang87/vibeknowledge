@@ -1,6 +1,6 @@
 # Film treatment: Karl Bushby, the full walk (one film)
 
-Status: 2026-11-06, brief settled with the user. Facts come only from
+Status: 2026-11-06, brief and style settled with the user (sample v3). Facts come only from
 `episodes/bushby/FACTS.md` (v2); on-screen copy lives in
 `episodes/bushby/copy/`.
 
@@ -11,13 +11,23 @@ Status: 2026-11-06, brief settled with the user. Facts come only from
 - Picture: the story is his journey, so every beat gets a scene of
   its own (place, weather, what happened). The track map is a support
   device, not the film.
-- Style: Lemo-Opuscar Risograph (`styles/risograph/STYLE.md`): a small
-  figure in a large world, flat colour fields, overprinted spot inks.
-  Chosen because the walk is literally a small person crossing very
-  large places, and because "plates as narrative" lets an ink stand
-  for something in the story.
-- Sound: no voiceover. Captions carry the story; music and printing
-  foley carry the feeling. The publish copy may swap in a platform
+- Style (settled 2026-11-06, sample v3; replaces the Risograph and flat-vector tries,
+  which the user found childish): two kinds of shot, never shown side by side.
+  - **Map shots** carry the distance: a dark 3D globe with real shaded relief
+    (Terrarium elevation patches, z7 to z11 along the route), a shader-drawn
+    coastline, faint Natural Earth roads, rivers and lakes, and the walked route
+    as a thin gold line. The camera follows the line's head and zooms from the
+    whole globe down to regional and town scale. Chapter titles and the status
+    block (day count, date, age, where he sleeps, plan 12 years vs actual) sit
+    on the map shots only.
+  - **Story scenes** carry the events: dark cinematic 3D environments of the
+    place at that moment (Patagonian steppe at dawn, the Darien canopy by day,
+    the cell with tally marks), the walker a small silhouette at human
+    proportions, never a face. A place tag and the date sit top left.
+  - Real photos were tried and set aside by the user; his own photos would need
+    a free licence first.
+- Sound: no voiceover. Captions carry the story; music and foley carry
+  the feeling. The user asked to review a version without music first. The publish copy may swap in a platform
   track via the same-track feature; the film ships with its own score.
 - Frame: 16:9, 1920x1080, 24 fps.
 - Language: Chinese on screen.
@@ -42,23 +52,23 @@ Status: 2026-11-06, brief settled with the user. Facts come only from
    Weakness: the homecoming lane is already taken by another creator,
    and the ending would compete with the opening.
 
-## Device sheet (fixed positions for the whole runtime)
+## Device sheet (v3)
 
-| Device | Position | Behaviour |
+| Device | Shot | Behaviour |
 |---|---|---|
-| Year-and-place tag | top left | date and place of the current scene, printed on the blue plate |
-| Two counters | top right | "distance walked" and "days since he left"; when he is stopped the distance freezes and the days keep rolling (the thesis) |
-| Route inset | bottom right, small | a printed strip of the world with the line so far; shown at turning points only |
-| Rule stamp | centre, on demand | "not advanced" stamp in red when a vehicle moves him without moving the line |
+| Chapter block | map, top left | kicker, large serif title, English name, one line |
+| Status block | map, top right | day count, date, age, where he sleeps tonight, plan 12 years vs years so far |
+| Place tag and date | scene, top left | where and when the scene happens |
+| Days held | the cell, top right | counts with the tally marks on the wall |
+| Escort line | map | dashed red, labelled; never part of the gold line |
+| Rule card | map | "it does not count" when a vehicle moved him and he walks it again |
+| Caption | both | one line, bottom centre, key word in gold |
 
-## Inks (plates as narrative)
+## Colour
 
-- Plate 1, Federal Blue `#3D5588`: the world, the figure, the tag.
-  Every main colour contains it, so a one-ink frame still reads.
-- Plate 2, Sunflower `#FFB511`: sun, warmth, home; the moving line.
-- Plate 3, Red `#FF665E`: paper and power (stamps, borders, bans,
-  courts). It arrives only when the walk is stopped by someone, and
-  leaves when he walks again.
+Near-black ground. Gold only for the walked route and the key word. Cool blue
+for coastline and water. Red only for what stopped or moved him (custody, the
+escort). Story scenes keep the same dark grade, each with one light source.
 
 ## Ending (locked first)
 
@@ -66,19 +76,21 @@ Hand the decision to the viewer: "Swimming the Caspian and the
 Channel, he swam more than 310 km. Does a walk around the world
 count if part of it was swum?" Pinned comment uses the same words.
 
-## 15-second sample plan
+## Sample v3 (36.3 s, built in `build/v3/`)
 
-| t (s) | Beat | Information |
+| t (s) | Shot | What it shows |
 |---|---|---|
-| 0.0-1.0 | Question printed on the paper | the question is legible within the first second |
-| 1.0-5.0 | Wide lateral track, small figure pushing a cart under a big sun, Patagonia | tag 1998-11-01 Punta Arenas; counters start |
-| 5.0-9.0 | Match cuts on flat shapes: Darien jungle (2001), Alaska winter (2004), Bering sea ice (2006); the figure keeps walking | distance counter climbs with the days |
-| 9.0-13.0 | Landing in Chukotka, 2006: the red plate arrives as a stamp; distance freezes, days keep rolling | caption: of 28 years, only 13 to 15 were walking (FACTS C6) |
-| 13.0-15.0 | Title printed with a double hit | film title |
+| 0.0-4.6 | map | the globe; "if you were Karl Bushby / you decide to walk home" |
+| 4.6-8.0 | map | descend to Punta Arenas, chapter 1 "depart" |
+| 8.0-12.8 | scene | Patagonian steppe at dawn, he pushes the cart north |
+| 12.8-17.0 | map | follow the line up the Andes; "you head north" |
+| 17.0-21.0 | map | chapter 2 "Darien", the one gap in the Pan-American Highway |
+| 21.0-25.8 | scene | the canopy by day, on foot with a sack; about ten days by compass |
+| 25.8-30.8 | scene | the cell, tally marks, days held |
+| 30.8-36.3 | map | the escort dashed red; he walks Boca de Cupe to Meteti again; rule card |
 
-Facts used in the sample: C4 (dates, 28 years), C6 (13-15 years
-walking), E1 Bering landing and detention. The distance counter is the
-share of the schematic route walked by that date (from
-`map/data/points.json`) scaled to the sourced total of about
-50,000 km (C5), shown with "about"; it freezes exactly when the route
-line stops. Its only job is to make the stop visible.
+Facts used: start date and place (C4), the Darien crossing (report section C:
+disguise, sack, about ten days by compass to Paya), arrest at Boca de Cupe,
+escort by boat to La Palma and Meteti, about 18 days held, the re-walk (E1-9,
+E1-10). Elevation data: Terrarium tiles (AWS Open Data; SRTM, GMTED, ETOPO1);
+lines: Natural Earth. Both credited at the end.
