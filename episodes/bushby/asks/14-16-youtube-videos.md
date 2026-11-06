@@ -24,7 +24,7 @@ Targets as given in MUSE-ASKS: **"The Camels STTW" (2017-08-20)** and **"STTW fi
 
 ## Item 16 — Melaque storm videos (2020 storm; 2021 Hurricane Nora)
 
-Targets as given in MUSE-ASKS: Bushby's own YouTube uploads of the 2020 El Niño storm and of Hurricane Nora ("He walked into Hurricane Nora"-type titles), filmed during his Melaque, Jalisco base years.
+Targets as given in MUSE-ASKS: Bushby's own YouTube uploads of the 2020 storm （埃尔南 / Hernan, as named in MUSE-ASKS) and of Hurricane Nora ("He walked into Hurricane Nora"-type titles), filmed during his Melaque, Jalisco base years.
 
 | Field | 2020 storm video | Hurricane Nora video (2021) |
 |---|---|---|
@@ -33,7 +33,7 @@ Targets as given in MUSE-ASKS: Bushby's own YouTube uploads of the 2020 El Niño
 | What it shows | Not viewable; existence not corroborated by any retrieved source | Not viewable; existence not corroborated by any retrieved source |
 | Licensing status | APPLICATION REQUIRED (if located) — his own uploads: Press-and-rights route at karlbushby.world / Westward Productions (item 04). NOT AVAILABLE self-serve | Same |
 
-**Context the checklist may want to correct** — the documented 2020 storm event of his Melaque period is **Tropical Storm Hernan (26–28 Aug 2020)**, not an "El Niño storm": ExplorersWeb, "Where in the World is Karl Bushby?" (2021-05-05, https://explorersweb.com/where-in-the-world-is-karl-bushby/) records that he "recently helped with rescue efforts after tropical storm Hernan flooded towns in southwest Mexico." No retrieved source uses an "El Niño" label for his 2020 storm experience; the checklist's wording may conflate the two. Hurricane Nora itself is documented (Category 1 landfall in Jalisco near Melaque/Barra de Navidad, 28 Aug 2021), and his base in Melaque during those years is multiply attested (Men's Journal; the 2015 Jordan Tappis interview, motionpictures.org) — but no source retrieved mentions him filming or uploading either storm.
+**The 2020 storm is Tropical Storm Hernan (26–28 Aug 2020)** — the same storm MUSE-ASKS names （埃尔南 is the Chinese transliteration of "Hernan"; see the correction note at the end of this file). ExplorersWeb, "Where in the World is Karl Bushby?" (2021-05-05, https://explorersweb.com/where-in-the-world-is-karl-bushby/) records that he "recently helped with rescue efforts after tropical storm Hernan flooded towns in southwest Mexico." Hurricane Nora itself is documented (Category 1 landfall in Jalisco near Melaque/Barra de Navidad, 28 Aug 2021), and his base in Melaque during those years is multiply attested (Men's Journal; the 2015 Jordan Tappis interview, motionpictures.org) — but no source retrieved mentions him filming or uploading either storm. Nora is era background only: the script must not say he filmed or recorded it.
 
 ## Adjacent videos that WERE located (not targets — orientation only)
 
@@ -57,5 +57,10 @@ Blocked/dead routes, not retried per the no-bypass rule:
 ## Bottom line for the episodes
 
 - **#14**: A Camels series part 1 existed on YouTube as of Sept 2019 (one secondary source), but neither named video is locatable through public search today, and the hosting channel is unidentified. If Ep1/Ep3 needs the camel-camp or first-days-west beats, plan on maps/illustration unless a licence enquiry (Westward / Press-and-rights) also surfaces the uploads.
-- **#16**: No video located and no existence corroboration; only the storm events are documented (Hernan rescue help, Aug 2020; Nora landfall at his base town, 28 Aug 2021 — and note the "El Niño" label in the checklist appears to be a conflation). Do not write "his storm videos" into FACTS or the script as located material.
+- **#16**: No video located and no existence corroboration; only the storm events are documented (Hernan rescue help, Aug 2020; Nora landfall at his base town, 28 Aug 2021). Do not write "his storm videos" into FACTS or the script as located material, and do not present Nora as something he filmed.
+
+## Correction and additions (author's adjudication, 2026-11-06)
+1. **Hernan naming**: MUSE-ASKS' "埃尔南风暴" is the transliteration of "Hernan," not "厄尔尼诺" (El Niño) — the checklist was not wrong; this file's earlier "conflation" flag was a misreading on our side and is withdrawn. Uniform rendering from now on: 热带风暴埃尔南（Hernan）.
+2. **Nora**: era background only. No source shows Bushby filming it; the script must not say he recorded Nora.
+3. **Licensing consolidation**: because every STTW participant signed a release for Westward Productions' use of expedition footage (per Maxwell's recruitment page, item #14 above), the camel-expedition footage and the documentary footage can go to Westward in ONE combined application — no need to knock on two doors.
 - Both items remain retrievable in principle by a human browsing YouTube search/channel pages while signed in, or by asking via the Press-and-rights route — both outside this round's no-login, no-contact rules.
