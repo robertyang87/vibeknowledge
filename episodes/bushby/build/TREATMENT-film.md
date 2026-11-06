@@ -97,3 +97,27 @@ disguise, sack, about ten days by compass to Paya), arrest at Boca de Cupe,
 escort by boat to La Palma and Meteti, about 18 days held, the re-walk (E1-9,
 E1-10). Elevation data: Terrarium tiles (AWS Open Data; SRTM, GMTED, ETOPO1);
 lines: Natural Earth. Both credited at the end.
+
+## The full film (built in `build/film/`)
+
+About 7.5 minutes, 51 beats, copy in `copy/film.json` (every line traced to
+FACTS.md). Chapters: prologue (title, who he is, the line drawn with his
+father, the two rules); 1 depart; 2 Darien (disguise, the Atrato, the
+canopy, the cell, the re-walk); 3 North America (Las Vegas visa run, the
+cart stolen in Shelby, Alaska); 4 the Bering Strait (fourteen days on the
+ice, arrested on landing); 5 the line stops (fine and appeal, two short
+seasons, no sponsor, Kolyma 2011, refusal and ban, the protest walk with
+Adam, the ban lifted, the Aldan, Ulaanbaatar); 6 west (camel caravan,
+Xinjiang, Bukhara, Turkmenistan under escort, Iran refused); 7 four years
+(Melaque, the pandemic, the storm, every land route sealed, the decision
+to swim); 8 the Caspian; 9 Europe (Istanbul, Schengen seasons, tunnel and
+coast refused, the Channel); final chapter home (England, the Humber
+Bridge in fog, his mother's door), then the totals and the question the
+film leaves to the viewer: about 316 km of it was swum; is it still a walk
+home?
+
+Map: all 194 route segments in order, walk in gold, swims in blue,
+unknown stretches dashed, the 2019 Turkmen line red once voided, the
+protest walk shown apart and labelled as not counted. Imagery: a global
+Sentinel-2 cloudless base plus regional patches loaded on demand.
+Sound: effects only (`build/film/sfx.py`, timed from the beat sheet).
