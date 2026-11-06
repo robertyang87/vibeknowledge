@@ -8,7 +8,7 @@ import soundfile as sf
 sys.path.insert(0, os.path.expanduser("~/lemo-opuscar/core/audio"))
 from sfx import SR, t_, env_exp, lp, hp, bp, noise, norm, brown, whoosh, thump, creak, add, compress, limit  # noqa: E402
 
-DUR = 54.5
+DUR = 57.5   # 54.5 s of film and a 3 s credits card
 buf = np.zeros((int(DUR * SR), 2))
 rng = np.random.default_rng(5)
 T = dict(who=0, plan=7.2, rules=14.6, depart=20.6, departS=24.8, andes=29.6, darien=33.8, darienS=38.4, jail=44.0, rewalk=49.0)
@@ -141,7 +141,7 @@ add(buf, pen(.7, .1), T['rewalk'] + .2, pan=-.2)
 add(buf, stamp(.75), RULE_T)
 for i in range(8): add(buf, crunch(.07), RULE_T + .5 + i * .45, pan=.1)
 
-fadeout = np.ones(len(buf)); nf = int(.5 * SR); fadeout[-nf:] = np.linspace(1, 0, nf); buf *= fadeout[:, None]
+fadeout = np.ones(len(buf)); a0, a1 = int(54.0 * SR), int(55.5 * SR); fadeout[a0:a1] = np.linspace(1, 0, a1 - a0); fadeout[a1:] = 0; buf *= fadeout[:, None]
 for ch in range(2): buf[:, ch] = limit(compress(buf[:, ch], .3, 2.5), .89)
 os.makedirs("out", exist_ok=True)
 sf.write(sys.argv[1] if len(sys.argv) > 1 else "out/sfx.wav", buf.astype(np.float32), SR)

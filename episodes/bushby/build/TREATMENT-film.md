@@ -13,7 +13,8 @@ Status: 2026-11-06, brief and style settled with the user (sample v3). Facts com
   device, not the film.
 - Style (settled 2026-11-06, sample v3; replaces the Risograph and flat-vector tries,
   which the user found childish): two kinds of shot, never shown side by side.
-  - **Map shots** carry the distance: a dark 3D globe with real shaded relief
+  - **Map shots** carry the distance (look settled 2026-11-06: satellite colour, EOX
+    Sentinel-2 cloudless 2016, CC BY 4.0, graded dark and cinematic): a 3D globe with real shaded relief
     (Terrarium elevation patches, z7 to z11 along the route), a shader-drawn
     coastline, faint Natural Earth roads, rivers and lakes, and the walked route
     as a thin gold line. The camera follows the line's head and zooms from the
@@ -26,8 +27,10 @@ Status: 2026-11-06, brief and style settled with the user (sample v3). Facts com
     proportions, never a face. A place tag and the date sit top left.
   - Real photos were tried and set aside by the user; his own photos would need
     a free licence first.
-- Sound: no voiceover. Captions carry the story; music and foley carry
-  the feeling. The user asked to review a version without music first. The publish copy may swap in a platform
+- Sound: no voiceover, no background music (user, 2026-11-06). Sound effects
+  only, each one tied to something on screen (`build/v3/sfx.py`).
+- Story: third person ("he"), never "if you were". The film opens on who he is,
+  the line he and his father drew, and his two rules. The publish copy may swap in a platform
   track via the same-track feature; the film ships with its own score.
 - Frame: 16:9, 1920x1080, 24 fps.
 - Language: Chinese on screen.
