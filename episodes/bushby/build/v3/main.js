@@ -162,12 +162,23 @@ const halo = new Line2(routeGeo, lineMat(10, GOLD.clone().multiplyScalar(.5), .2
 core.renderOrder = 3; halo.renderOrder = 2; world.add(halo, core);
 const setDrawn = s => { let n = ARC.findIndex(a => a >= s); if (n < 0) n = RP.length - 1; routeGeo.instanceCount = Math.max(0, n); };
 // the plan he and his father drew: a schematic line, dashed, never the walked route
-const PLAN = [[-70.9, -53.2], [-71.5, -33], [-77, -12], [-79.5, 9], [-99, 19.4], [-118, 34], [-123, 49], [-150, 61], [-165.4, 64.5], [-169.7, 65.9], [-180, 66.5], [170, 67], [150, 65], [130, 62.0], [100, 58], [60, 56.5], [37.6, 55.8], [13.4, 52.5], [-0.33, 53.74]];
+// overland waypoints (towns), so the drawn line stays on land; it crosses water only at the Bering Strait and the Strait of Dover
+const PLAN = [[-70.9, -53.2], [-69.2, -51.6], [-71.3, -42.9], [-70.6, -33.4], [-69.6, -23.6], [-70.3, -18.5], [-71.5, -16.4], [-76.9, -12.0],
+  [-79.0, -8.1], [-80.6, -4.9], [-78.5, -0.2], [-76.5, 3.4], [-75.6, 6.2], [-77.2, 7.9], [-79.5, 9.0], [-82.4, 8.4], [-84.1, 9.9], [-86.3, 12.1],
+  [-89.2, 13.7], [-90.5, 14.6], [-93.1, 16.75], [-96.7, 17.1], [-99.1, 19.4], [-103.3, 20.7], [-105.4, 23.2], [-107.4, 24.8], [-110.95, 29.1],
+  [-112.0, 33.4], [-115.1, 36.2], [-111.9, 40.8], [-112.0, 46.6], [-111.3, 47.5], [-114.1, 51.0], [-117.6, 54.5], [-122.7, 58.8], [-128.7, 60.1],
+  [-135.1, 60.7], [-141.0, 62.6], [-147.7, 64.8], [-156.8, 64.7], [-165.4, 64.5], [-168.1, 65.6], [-169.8, 66.15], [-173.2, 66.0], [-178.9, 66.3],
+  [176.1, 64.7], [170.3, 67.0], [166.4, 68.05], [158.0, 66.5], [150.9, 65.7], [148.2, 62.8], [140.0, 62.6], [129.7, 62.0], [124.7, 56.7],
+  [118.3, 54.0], [113.5, 52.0], [107.6, 51.8], [104.3, 52.3], [99.2, 54.9], [92.9, 56.0], [82.9, 55.0], [73.4, 55.0], [65.5, 57.15], [60.6, 56.8],
+  [56.2, 58.0], [49.1, 55.8], [44.0, 56.3], [37.6, 55.75], [32.0, 54.8], [27.6, 53.9], [23.7, 52.1], [21.0, 52.2], [16.9, 52.4], [13.4, 52.5],
+  [10.0, 52.0], [6.9, 51.0], [4.4, 50.85], [3.1, 50.6], [1.86, 50.95], [1.31, 51.13], [-0.13, 51.5], [-0.9, 52.6], [-0.33, 53.74]];
 const PLAN_P = []; for (let i = 0; i < PLAN.length - 1; i++) { const a = ll(...PLAN[i]), b = ll(...PLAN[i + 1]); const n = Math.max(2, Math.ceil(a.angleTo(b) / .004)); for (let k = 0; k < n; k++) PLAN_P.push(a.clone().lerp(b, k / n).normalize().multiplyScalar(1.004)); }
 PLAN_P.push(ll(...PLAN[PLAN.length - 1], 1.004));
 const planGeo = new LineGeometry(); planGeo.setPositions(PLAN_P.flatMap(p => [p.x, p.y, p.z]));
-const planMat = new LineMaterial({ color: 0xF2DDB0, linewidth: 2, dashed: true, dashSize: .012, gapSize: .009, transparent: true, opacity: .85, depthWrite: false, toneMapped: false, resolution: new THREE.Vector2(W, H) });
-const plan = new Line2(planGeo, planMat); plan.computeLineDistances(); world.add(plan);
+const planMat = new LineMaterial({ color: new THREE.Color(1.0, .72, .32), linewidth: 4.5, dashed: true, dashSize: .016, gapSize: .008, transparent: true, opacity: 1, depthWrite: false, toneMapped: false, resolution: new THREE.Vector2(W, H) });
+const plan = new Line2(planGeo, planMat); plan.computeLineDistances(); plan.renderOrder = 5;
+const planGlowMat = new LineMaterial({ color: new THREE.Color(1.0, .62, .22), linewidth: 16, transparent: true, opacity: .28, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false, resolution: new THREE.Vector2(W, H) });
+const planGlow = new Line2(planGeo, planGlowMat); planGlow.renderOrder = 4; world.add(planGlow, plan);
 const planTip = k => PLAN_P[Math.min(PLAN_P.length - 1, Math.floor(k * (PLAN_P.length - 1)))];
 // the escorted stretch (boat and helicopter, Boca de Cupe -> La Palma -> Meteti): dashed red, never part of the walk
 const ESC = [[-77.58, 8.03], [-77.85, 8.2], [-78.14, 8.41], [-78.05, 8.47], [-77.98, 8.5]];
@@ -178,6 +189,7 @@ const spr = (c, s, o = 1) => { const cv = document.createElement('canvas'); cv.w
   const g = x.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.18, c); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, 128, 128);
   const m = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(cv), blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, toneMapped: false, opacity: o }));
   m.scale.setScalar(s); return m; };
+const pen = spr('rgba(255,210,140,.95)', .05, 1); world.add(pen); pen.visible = false;
 const h1 = spr('rgba(255,190,90,.9)', .022, .85), h2 = spr('rgba(255,170,70,.35)', .07, .3); world.add(h1, h2);
 // labels.rewalk in the copy lists Boca de Cupe, Yaviza, Meteti, La Palma in this order
 const PLACES = { ...R.pts }; [[-77.58, 8.03], [-77.69, 8.16], [-77.98, 8.5], [-78.14, 8.41]].forEach((c, i) => PLACES[C.labels.rewalk[i]] = c);
@@ -386,7 +398,8 @@ function renderAt(t) {
     post.dof.scene = world; post.dof.camera = camera;
     const s = routeS(t); setDrawn(s); head = worldPose(t);
     const hv = head.clone().multiplyScalar(1.0003); h1.position.copy(hv); h2.position.copy(hv); const dc = camera.position.distanceTo(hv); h1.scale.setScalar(dc * .03); h2.scale.setScalar(dc * .075);
-    h1.visible = h2.visible = !INTRO.has(b.id); plan.visible = (INTRO.has(b.id) && t >= T_PLAN) || b.id === 'depart'; planGeo.instanceCount = Math.floor((b.id === 'plan' ? planK(t) : t < T_PLAN ? 0 : 1) * (PLAN_P.length - 1)); planMat.opacity = b.id === 'depart' ? .85 * (1 - seg(t, b.t0, b.t0 + 1.5)) : .85;
+    h1.visible = h2.visible = !INTRO.has(b.id); plan.visible = planGlow.visible = (INTRO.has(b.id) && t >= T_PLAN) || b.id === 'depart'; planGeo.instanceCount = Math.floor((b.id === 'plan' ? planK(t) : t < T_PLAN ? 0 : 1) * (PLAN_P.length - 1)); planMat.opacity = b.id === 'depart' ? 1 - seg(t, b.t0, b.t0 + 1.5) : 1; planGlowMat.opacity = .28 * planMat.opacity;
+    { const drawing = b.id === 'plan' && planK(t) > 0 && planK(t) < 1; const tp = planTip(planK(t)); pen.position.copy(tp); pen.visible = drawing; pen.scale.setScalar(camera.position.distanceTo(tp) * .045); }
     core.visible = halo.visible = !INTRO.has(b.id);
     { const alt = camera.position.length() - 1; for (const [o, top] of DETAIL_LINES) o.material.opacity = o.userData.op * clamp((top - alt) / (top * .6)); }
   }
