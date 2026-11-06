@@ -7342,15 +7342,15 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     1.08,
-     51.28
+     0.73,
+     51.36
     ]
    },
    "properties": {
     "order": 180,
-    "name": "坎特伯雷",
-    "date": "2026-10-10",
-    "status": "inferred",
+    "name": "锡廷伯恩以北",
+    "date": "2026-10-11/12",
+    "status": "verified",
     "segment": "英吉利海峡与归乡",
     "leg_into": "walk"
    }
@@ -7365,47 +7365,6 @@
       51.115
      ],
      [
-      1.08,
-      51.28
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "walk",
-    "to": "坎特伯雷",
-    "date": "2026-10-10",
-    "inferred": true,
-    "segment": "英吉利海峡与归乡"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     0.73,
-     51.36
-    ]
-   },
-   "properties": {
-    "order": 181,
-    "name": "锡廷伯恩以北",
-    "date": "2026-10-11/12",
-    "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      1.08,
-      51.28
-     ],
-     [
       0.73,
       51.36
      ]
@@ -7415,7 +7374,7 @@
     "kind": "walk",
     "to": "锡廷伯恩以北",
     "date": "2026-10-11/12",
-    "inferred": true,
+    "inferred": false,
     "segment": "英吉利海峡与归乡"
    }
   },
@@ -7429,7 +7388,7 @@
     ]
    },
    "properties": {
-    "order": 182,
+    "order": 181,
     "name": "格林尼治步行隧道",
     "date": "2026-10-16/17",
     "status": "verified",
@@ -7470,7 +7429,7 @@
     ]
    },
    "properties": {
-    "order": 183,
+    "order": 182,
     "name": "金丝雀码头",
     "date": "2026-10-16/17",
     "status": "verified",
@@ -7506,53 +7465,12 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -0.02,
-     51.7
-    ]
-   },
-   "properties": {
-    "order": 184,
-    "name": "利河谷（示意）",
-    "date": "2026-10-18",
-    "status": "inferred",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -0.02,
-      51.505
-     ],
-     [
-      -0.02,
-      51.7
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "walk",
-    "to": "利河谷（示意）",
-    "date": "2026-10-18",
-    "inferred": true,
-    "segment": "英吉利海峡与归乡"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -0.24,
      52.57
     ]
    },
    "properties": {
-    "order": 185,
+    "order": 183,
     "name": "彼得伯勒",
     "date": "2026-10-22",
     "status": "verified",
@@ -7567,7 +7485,7 @@
     "coordinates": [
      [
       -0.02,
-      51.7
+      51.505
      ],
      [
       -0.24,
@@ -7579,7 +7497,7 @@
     "kind": "walk",
     "to": "彼得伯勒",
     "date": "2026-10-22",
-    "inferred": true,
+    "inferred": false,
     "segment": "英吉利海峡与归乡"
    }
   },
@@ -7593,7 +7511,7 @@
     ]
    },
    "properties": {
-    "order": 186,
+    "order": 184,
     "name": "斯伯丁",
     "date": "2026-10-24",
     "status": "verified",
@@ -7634,7 +7552,7 @@
     ]
    },
    "properties": {
-    "order": 187,
+    "order": 185,
     "name": "戈斯伯顿",
     "date": "2026-10-25",
     "status": "verified",
@@ -7675,7 +7593,7 @@
     ]
    },
    "properties": {
-    "order": 188,
+    "order": 186,
     "name": "马基特雷森",
     "date": "2026-10-28",
     "status": "verified",
@@ -7716,7 +7634,7 @@
     ]
    },
    "properties": {
-    "order": 189,
+    "order": 187,
     "name": "亨伯河畔巴顿",
     "date": "2026-10-31",
     "status": "verified",
@@ -7757,7 +7675,7 @@
     ]
    },
    "properties": {
-    "order": 190,
+    "order": 188,
     "name": "亨伯大桥",
     "date": "2026-11-01",
     "status": "verified",
@@ -7798,7 +7716,7 @@
     ]
    },
    "properties": {
-    "order": 191,
+    "order": 189,
     "name": "赫塞尔",
     "date": "2026-11-02",
     "status": "verified",
@@ -7839,7 +7757,7 @@
     ]
    },
    "properties": {
-    "order": 192,
+    "order": 190,
     "name": "赫尔（母亲家）",
     "date": "2026-11-02",
     "status": "verified",
