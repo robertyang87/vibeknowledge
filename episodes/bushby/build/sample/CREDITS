@@ -1,0 +1,3 @@
+riso.js, draw.js: copied from Lemo-Opuscar (styles/risograph/demo), MIT License, pinned commit 413a6bd6d78ebd3bdd5abaec9538a26867f890df.
+fonts/NotoSansSC-*-subset.woff2: Noto Sans SC (Google Fonts), SIL Open Font License 1.1, subset to the characters used.
+Score and sound effects: made in code for this film (mix.py), using Lemo-Opuscar core/audio/sfx.py at run time.
