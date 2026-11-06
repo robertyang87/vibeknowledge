@@ -19,7 +19,7 @@
   2. **规则印章「不推进」**（章）：每次离线/被送回/续走后落章；方向向后的落「方向向后」变体；最后一案不落章，挂「待判」。
   3. **家庭时钟**（钟）：每集结尾一次，只一两行，人物带身份（C11）。
   4. **「我们核过」角标**（核）：每集 1–2 次，纠一个流传错误，屏上给来源+日期。
-- **画面来源代码**：地＝地图自制（`map/` 轨迹图，Lemo 出图）｜卡＝自制文字卡（Lemo）｜通＝通讯社自助（AP/Reuters 含 ITN/Getty）｜W＝待 Westward 申请｜P＝待官网 Press-and-rights｜插＝2D 插画（视差）｜档＝真实存档图（标来源+存档日期）。
+- **画面来源代码**：地＝地图自制（`map/` 轨迹图，Lemo 出图）｜卡＝自制文字卡（Lemo）｜通＝通讯社（AP/Reuters 含 ITN/Getty；需付费，已停用）｜W＝待 Westward 申请｜P＝待官网 Press-and-rights｜插＝2D 插画（视差）｜档＝真实存档图（标来源+存档日期）。
 - 地图列写 `map/track.html` 预设：all / panama / tulcan / bogota / bering / russia / yakutia / caspian / uk；无预设处写"全图"。所有地图上屏标"路线为示意"（城镇级坐标，直线连点）。
 
 ---
@@ -107,8 +107,8 @@
 | 14 | 3:15 | 9 月回欧；法国禁止从本国海岸起游；"Turned out that is not the case." | 线历 | uk | E3-15,E3-16 | 卡 |
 | 15 | 3:30 | 三天约 20 小时仰面漂游，起游点未公开；角标：34 公里是海峡宽度，他自估游了约 28 公里 | 核 | uk | E3-17,E3-18,X7 | 地 |
 | 16 | 3:45 | 10-05 莎士比亚海滩上岸 "UK soil…"；英格兰锚点链，空白段不标镇 | 线历 | uk | E3-19,E3-20 | 地+通（ITN） |
-| 17 | 4:00 | 家庭时钟：母亲 Angela"十年未见"（AP）；Adam："There are moments in your life when you need your dad." | 钟 | — | E3-23,C11 | 通 |
-| 18 | 4:10 | 11-01 雾中过亨伯大桥；"I'm just a homeless guy pushing a shopping trolley…" | 线历 | uk | E3-21 | 通/待 Reach、BBC 申请 |
+| 17 | 4:00 | 家庭时钟：母亲 Angela"十年未见"（AP）；Adam："There are moments in your life when you need your dad." | 钟 | — | E3-23,C11 | 卡（通讯社图付费，不用） |
+| 18 | 4:10 | 11-01 雾中过亨伯大桥；"I'm just a homeless guy pushing a shopping trolley…" | 线历 | uk | E3-21 | 地+插；Reach/BBC 仅免费许可时用 |
 | 19 | 4:22 | 赫尔佐格："真美。雾和雨。这就是纯粹的生活。" | — | uk | E3-22 | W（纪录片）/卡 |
 | 20 | 4:32 | 总账并表：约 5 万公里／28 年零 1 天（副标题：官网"Kept, both of them, for ten thousand days."）／走路 13–15 年；线与日历最后一次并排 | 线历 | all | C1a,C4,C5,C6 | 地 |
 | 21 | 4:45 | 定夺问句卡（下） | — | all | E3-25 | 卡 |
@@ -123,7 +123,7 @@
 
 ## 生产路线
 - **Tesseract 撤出**：试制门只测了机制与光质，从未测"可发布的画面质量"；静帧读作无纹理白模；用户 Mac 上的渲染成本没测过。三集不再排任何 Tesseract 镜头；`proof-bering/` 只留档。
-- **氛围镜头**：授权的真实素材（通讯社自助、Westward、官网 Press-and-rights）或 2D 插画加视差；不演"他正在做某事"的纪实假象。
+- **氛围镜头**：免费许可的真实素材（Westward、官网 Press-and-rights）、公有领域/CC 许可素材，或 2D 插画加视差；不演"他正在做某事"的纪实假象。
 - **信息镜头**：Lemo-Opuscar 出地图、法条卡、印章、日历账本、引文卡。
 - **主干**：`episodes/bushby/map/` 轨迹图（`route.geojson` 实线=两端有源、虚线=推断、蒙→新点线=不明；交通工具单独成层，不进进度线＝装置 1）。待改：预设标签仍是单集 S 编号，需改为三集节拍号；中亚、欧陆无预设（现用全图，可补 `centralasia`/`europe` 预设）；土库曼段需"变灰"动画，德国链按 asks/23 标签。
 - **渡轮考证**：只用真实存档缩略图，屏上写来源与存档日期；绝不用渲染图充当证据。
@@ -134,7 +134,7 @@
 |---|---|---|---|
 | 纪录片《Walk of Life》、他的素材档案、2014 NatGeo 特辑、STTW 骆驼队素材 | Westward Productions | westward-productions.com Contact | **合并一份申请** |
 | 他本人照片/帖子（出发照、里海、上岸等） | 远征队 | karlbushby.world "Press and rights" | 申请 |
-| 归乡/上岸新闻图与视频 | AP / Reuters（含 ITN）/ Getty | 自助平台 | 可用（编辑类） |
+| 归乡/上岸新闻图与视频 | AP / Reuters（含 ITN）/ Getty | 自助平台 | **不用**（只能付费，2026-11-06 定：不报价、不付费） |
 | BBC 报道与 Radio Humberside | BBC | 广播机构授权 | 申请 |
 | HDM、Grimsby Telegraph 图片 | Reach plc | Mirrorpix | 申请 |
 | EFE 出发对照图 | EFE | 社方 | 申请 |
@@ -142,6 +142,7 @@
 | franceinfo、泰晤士报、WaPo 文字 | 各家 | — | 只作核查/短引 |
 | IG 商务邮箱 | — | 未公开；YouTube 邮箱在登录墙后 | 不可用 |
 未获授权的一律不上屏，改用地图、文字卡或插画。
+**2026-11-06 定（项目后续开源）**：不请报价、不付授权费；所有申请改为请求免费许可，对方要求付费即不用。第三方素材只进成片、不进开源仓库，仓库里只放自制画面、数据、脚本与研究笔记。可优先找公有领域或 CC 许可素材（如 Wikimedia Commons 的海冰、勒拿河、里海、亨伯大桥照片），按各自许可署名。
 
 ## 待补占位（不入稿，见 FACTS P 段）
 - IA 书内原句 #6/#7（P1）——端点恢复后重试，只作转述依据。
