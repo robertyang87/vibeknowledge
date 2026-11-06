@@ -28,14 +28,14 @@ const DAY = 86400000, EPOCH = Date.UTC(1970, 0, 1);
 const dayOf = (y, m, d) => (Date.UTC(y, m - 1, d) - EPOCH) / DAY;
 const D_START = dayOf(1998, 11, 1), BORN = Date.UTC(1969, 2, 30);
 const BEATS = [
-  { id: 'hook', t0: 0, t1: 3.4, d0: D_START, d1: D_START, view: { c: [-50, 10], k: 1 } },
-  { id: 'depart', t0: 3.4, t1: 8.4, d0: D_START, d1: dayOf(1998, 12, 20), view: { c: [-70, -40], k: 3.2 } },
-  { id: 'andes', t0: 8.4, t1: 12.4, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 12, 31), view: { c: [-75, -12], k: 2.2 } },
-  { id: 'darien', t0: 12.4, t1: 16.9, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 15), view: { c: [-77.3, 7.6], k: 26 } },
-  { id: 'jail', t0: 16.9, t1: 21.4, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6), view: { c: [-77.9, 8.3], k: 60 } },
-  { id: 'rewalk', t0: 21.4, t1: 25.9, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), view: { c: [-77.9, 8.3], k: 60 } },
+  { id: 'hook', t0: 0, t1: 4.6, d0: D_START, d1: D_START, view: { c: [-50, 10], k: 1 } },
+  { id: 'depart', t0: 4.6, t1: 9.6, d0: D_START, d1: dayOf(1998, 12, 20), view: { c: [-70, -40], k: 3.2 } },
+  { id: 'andes', t0: 9.6, t1: 13.6, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 12, 31), view: { c: [-75, -12], k: 2.2 } },
+  { id: 'darien', t0: 13.6, t1: 18.1, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 15), view: { c: [-77.3, 7.6], k: 26 } },
+  { id: 'jail', t0: 18.1, t1: 22.6, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6), view: { c: [-77.9, 8.3], k: 60 } },
+  { id: 'rewalk', t0: 22.6, t1: 27.1, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), view: { c: [-77.9, 8.3], k: 60 } },
 ];
-const DUR = 25.9;
+const DUR = 27.1;
 const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length - 1];
 function calAt(t) { const b = beatAt(t); return lerp(b.d0, b.d1, eio(seg(t, b.t0, b.t1))); }
 const fmtDate = d => { const x = new Date(EPOCH + d * DAY); return `${x.getUTCFullYear()} · ${String(x.getUTCMonth() + 1).padStart(2, '0')} · ${String(x.getUTCDate()).padStart(2, '0')}`; };
