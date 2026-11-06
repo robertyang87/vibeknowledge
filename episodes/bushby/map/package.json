@@ -1,0 +1,13 @@
+{
+  "name": "journey-track-globe",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interactive globe of a long overland journey, played back by date: the line stops while the calendar keeps running.",
+  "license": "MIT",
+  "scripts": {
+    "build": "python3 build.py"
+  },
+  "dependencies": {
+    "world-atlas": "2.0.2"
+  }
+}

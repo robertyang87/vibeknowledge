@@ -1,7 +1,7 @@
 {
  "type": "FeatureCollection",
- "name": "Karl Bushby Goliath Expedition route (schematic)",
- "note": "点位为城镇级近似坐标；点间连线为直线示意，不代表实际道路。status: verified=有来源直接写明, book=《Giant Steps》书内日记, inferred=按道路/距离/日期推断或坐标示意。",
+ "name": "二十八年的一条线",
+ "note": "Town-level approximate coordinates; straight segments between points are schematic, not the actual roads. status: verified / book / inferred.",
  "features": [
   {
    "type": "Feature",
@@ -13,12 +13,17 @@
     ]
    },
    "properties": {
-    "order": 0,
     "name": "蓬塔阿雷纳斯",
     "date": "1998-11-01",
+    "date_lo": "1998-11-01",
+    "date_hi": "1998-11-01",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "start"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 0,
+    "arrival_day": 10531.0
    }
   },
   {
@@ -31,12 +36,17 @@
     ]
    },
    "properties": {
-    "order": 1,
     "name": "里奥加耶戈斯",
     "date": "1998-11",
+    "date_lo": "1998-11-01",
+    "date_hi": "1998-11-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 1,
+    "arrival_day": 10545.5
    }
   },
   {
@@ -58,8 +68,7 @@
     "kind": "walk",
     "to": "里奥加耶戈斯",
     "date": "1998-11",
-    "inferred": true,
-    "segment": "A 智利—阿根廷"
+    "inferred": true
    }
   },
   {
@@ -72,12 +81,17 @@
     ]
    },
    "properties": {
-    "order": 2,
     "name": "彼德拉布埃纳",
     "date": "1998-11/12",
+    "date_lo": "1998-11-01",
+    "date_hi": "1998-12-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 2,
+    "arrival_day": 10561.0
    }
   },
   {
@@ -99,8 +113,7 @@
     "kind": "walk",
     "to": "彼德拉布埃纳",
     "date": "1998-11/12",
-    "inferred": true,
-    "segment": "A 智利—阿根廷"
+    "inferred": true
    }
   },
   {
@@ -113,12 +126,17 @@
     ]
    },
    "properties": {
-    "order": 3,
     "name": "佩里托莫雷诺",
     "date": "1999",
+    "date_lo": "1999-01-01",
+    "date_hi": "1999-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "book",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 A 段（智利—阿根廷）",
+    "order": 3,
+    "arrival_day": 10603.62
    }
   },
   {
@@ -140,8 +158,7 @@
     "kind": "walk",
     "to": "佩里托莫雷诺",
     "date": "1999",
-    "inferred": false,
-    "segment": "A 智利—阿根廷"
+    "inferred": false
    }
   },
   {
@@ -154,12 +171,17 @@
     ]
    },
    "properties": {
-    "order": 4,
     "name": "埃斯克尔",
     "date": "1999",
+    "date_lo": "1999-01-01",
+    "date_hi": "1999-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "book",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 A 段（智利—阿根廷）",
+    "order": 4,
+    "arrival_day": 10646.76
    }
   },
   {
@@ -181,8 +203,7 @@
     "kind": "walk",
     "to": "埃斯克尔",
     "date": "1999",
-    "inferred": false,
-    "segment": "A 智利—阿根廷"
+    "inferred": false
    }
   },
   {
@@ -195,12 +216,17 @@
     ]
    },
    "properties": {
-    "order": 5,
     "name": "圣地亚哥",
     "date": "1999-06前后",
+    "date_lo": "1999-06-01",
+    "date_hi": "1999-06-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 5,
+    "arrival_day": 10757.5
    }
   },
   {
@@ -222,8 +248,7 @@
     "kind": "walk",
     "to": "圣地亚哥",
     "date": "1999-06前后",
-    "inferred": false,
-    "segment": "A 智利—阿根廷"
+    "inferred": false
    }
   },
   {
@@ -236,12 +261,17 @@
     ]
    },
    "properties": {
-    "order": 6,
     "name": "拉塞雷纳",
     "date": "1999年中",
+    "date_lo": "1999-05-01",
+    "date_hi": "1999-08-31",
+    "precision": "season",
+    "approx": false,
     "status": "verified",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 6,
+    "arrival_day": 10786.52
    }
   },
   {
@@ -263,8 +293,7 @@
     "kind": "walk",
     "to": "拉塞雷纳",
     "date": "1999年中",
-    "inferred": false,
-    "segment": "A 智利—阿根廷"
+    "inferred": false
    }
   },
   {
@@ -277,12 +306,17 @@
     ]
    },
    "properties": {
-    "order": 7,
     "name": "科皮亚波",
     "date": "1999",
+    "date_lo": "1999-01-01",
+    "date_hi": "1999-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 7,
+    "arrival_day": 10808.02
    }
   },
   {
@@ -304,8 +338,7 @@
     "kind": "walk",
     "to": "科皮亚波",
     "date": "1999",
-    "inferred": true,
-    "segment": "A 智利—阿根廷"
+    "inferred": true
    }
   },
   {
@@ -318,12 +351,17 @@
     ]
    },
    "properties": {
-    "order": 8,
     "name": "安托法加斯塔",
     "date": "1999",
+    "date_lo": "1999-01-01",
+    "date_hi": "1999-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 8,
+    "arrival_day": 10838.14
    }
   },
   {
@@ -345,8 +383,7 @@
     "kind": "walk",
     "to": "安托法加斯塔",
     "date": "1999",
-    "inferred": true,
-    "segment": "A 智利—阿根廷"
+    "inferred": true
    }
   },
   {
@@ -359,12 +396,17 @@
     ]
    },
    "properties": {
-    "order": 9,
     "name": "阿里卡",
     "date": "1999-10",
+    "date_lo": "1999-10-01",
+    "date_hi": "1999-10-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "A 智利—阿根廷",
-    "leg_into": "walk"
+    "segment": "A",
+    "source": "报告 A 段（智利—阿根廷）",
+    "order": 9,
+    "arrival_day": 10880.0
    }
   },
   {
@@ -386,8 +428,7 @@
     "kind": "walk",
     "to": "阿里卡",
     "date": "1999-10",
-    "inferred": true,
-    "segment": "A 智利—阿根廷"
+    "inferred": true
    }
   },
   {
@@ -400,12 +441,17 @@
     ]
    },
    "properties": {
-    "order": 10,
     "name": "塔克纳",
     "date": "约1999-11-01",
+    "date_lo": "1999-11-01",
+    "date_hi": "1999-11-01",
+    "precision": "day",
+    "approx": true,
     "status": "inferred",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 10,
+    "arrival_day": 10896.0
    }
   },
   {
@@ -427,8 +473,7 @@
     "kind": "walk",
     "to": "塔克纳",
     "date": "约1999-11-01",
-    "inferred": true,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": true
    }
   },
   {
@@ -441,12 +486,17 @@
     ]
    },
    "properties": {
-    "order": 11,
     "name": "阿雷基帕",
     "date": "1999-12-02",
+    "date_lo": "1999-12-02",
+    "date_hi": "1999-12-02",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 11,
+    "arrival_day": 10927.0
    }
   },
   {
@@ -468,8 +518,7 @@
     "kind": "walk",
     "to": "阿雷基帕",
     "date": "1999-12-02",
-    "inferred": true,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": true
    }
   },
   {
@@ -482,12 +531,17 @@
     ]
    },
    "properties": {
-    "order": 12,
     "name": "纳斯卡",
     "date": "2000",
+    "date_lo": "2000-01-01",
+    "date_hi": "2000-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "verified",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 12,
+    "arrival_day": 10965.98
    }
   },
   {
@@ -509,8 +563,7 @@
     "kind": "walk",
     "to": "纳斯卡",
     "date": "2000",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -523,12 +576,17 @@
     ]
    },
    "properties": {
-    "order": 13,
     "name": "利马",
     "date": "2000-02-16",
+    "date_lo": "2000-02-16",
+    "date_hi": "2000-02-16",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 13,
+    "arrival_day": 11003.0
    }
   },
   {
@@ -550,8 +608,7 @@
     "kind": "walk",
     "to": "利马",
     "date": "2000-02-16",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -564,12 +621,17 @@
     ]
    },
    "properties": {
-    "order": 14,
     "name": "特鲁希略",
     "date": "2000-04-02",
+    "date_lo": "2000-04-02",
+    "date_hi": "2000-04-02",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 14,
+    "arrival_day": 11049.0
    }
   },
   {
@@ -591,8 +653,7 @@
     "kind": "walk",
     "to": "特鲁希略",
     "date": "2000-04-02",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -605,12 +666,17 @@
     ]
    },
    "properties": {
-    "order": 15,
     "name": "苏利亚纳",
     "date": "2000-05",
+    "date_lo": "2000-05-01",
+    "date_hi": "2000-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 15,
+    "arrival_day": 11093.0
    }
   },
   {
@@ -632,8 +698,7 @@
     "kind": "walk",
     "to": "苏利亚纳",
     "date": "2000-05",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -646,12 +711,17 @@
     ]
    },
    "properties": {
-    "order": 16,
     "name": "洛哈",
     "date": "2000-06/07",
+    "date_lo": "2000-06-01",
+    "date_hi": "2000-07-31",
+    "precision": "month",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 16,
+    "arrival_day": 11139.0
    }
   },
   {
@@ -673,8 +743,7 @@
     "kind": "walk",
     "to": "洛哈",
     "date": "2000-06/07",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -687,12 +756,17 @@
     ]
    },
    "properties": {
-    "order": 17,
     "name": "基多",
     "date": "2000-07-23",
+    "date_lo": "2000-07-23",
+    "date_hi": "2000-07-23",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 17,
+    "arrival_day": 11161.0
    }
   },
   {
@@ -714,8 +788,7 @@
     "kind": "walk",
     "to": "基多",
     "date": "2000-07-23",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -728,12 +801,17 @@
     ]
    },
    "properties": {
-    "order": 18,
     "name": "圣安东尼奥（基多北）",
     "date": "2000-08",
+    "date_lo": "2000-08-01",
+    "date_hi": "2000-08-31",
+    "precision": "month",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 18,
+    "arrival_day": 11185.0
    }
   },
   {
@@ -755,8 +833,7 @@
     "kind": "walk",
     "to": "圣安东尼奥（基多北）",
     "date": "2000-08",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -769,12 +846,17 @@
     ]
    },
    "properties": {
-    "order": 19,
     "name": "图尔坎",
     "date": "2000-09-07",
+    "date_lo": "2000-09-07",
+    "date_hi": "2000-09-07",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "B 秘鲁—厄瓜多尔",
-    "leg_into": "walk"
+    "segment": "B",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 B 段；《Giant Steps》美版 pp.68–101",
+    "order": 19,
+    "arrival_day": 11207.0
    }
   },
   {
@@ -796,8 +878,7 @@
     "kind": "walk",
     "to": "图尔坎",
     "date": "2000-09-07",
-    "inferred": false,
-    "segment": "B 秘鲁—厄瓜多尔"
+    "inferred": false
    }
   },
   {
@@ -810,12 +891,17 @@
     ]
    },
    "properties": {
-    "order": 20,
     "name": "伊皮亚莱斯",
     "date": "约2000-09-08",
+    "date_lo": "2000-09-08",
+    "date_hi": "2000-09-08",
+    "precision": "day",
+    "approx": true,
     "status": "inferred",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 20,
+    "arrival_day": 11208.0
    }
   },
   {
@@ -837,8 +923,7 @@
     "kind": "walk",
     "to": "伊皮亚莱斯",
     "date": "约2000-09-08",
-    "inferred": true,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": true
    }
   },
   {
@@ -851,12 +936,17 @@
     ]
    },
    "properties": {
-    "order": 21,
     "name": "帕斯托",
     "date": "2000-09-12",
+    "date_lo": "2000-09-12",
+    "date_hi": "2000-09-12",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 21,
+    "arrival_day": 11212.0
    }
   },
   {
@@ -878,8 +968,7 @@
     "kind": "walk",
     "to": "帕斯托",
     "date": "2000-09-12",
-    "inferred": true,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": true
    }
   },
   {
@@ -892,12 +981,17 @@
     ]
    },
    "properties": {
-    "order": 22,
     "name": "波帕扬",
     "date": "2000-09",
+    "date_lo": "2000-09-01",
+    "date_hi": "2000-09-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 22,
+    "arrival_day": 11215.5
    }
   },
   {
@@ -919,8 +1013,7 @@
     "kind": "walk",
     "to": "波帕扬",
     "date": "2000-09",
-    "inferred": true,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": true
    }
   },
   {
@@ -933,12 +1026,17 @@
     ]
    },
    "properties": {
-    "order": 23,
     "name": "卡利",
     "date": "2000-10-03",
+    "date_lo": "2000-10-03",
+    "date_hi": "2000-10-03",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 23,
+    "arrival_day": 11233.0
    }
   },
   {
@@ -960,8 +1058,7 @@
     "kind": "walk",
     "to": "卡利",
     "date": "2000-10-03",
-    "inferred": true,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": true
    }
   },
   {
@@ -974,12 +1071,17 @@
     ]
    },
    "properties": {
-    "order": 24,
     "name": "佩雷拉",
     "date": "2000-10-26",
+    "date_lo": "2000-10-26",
+    "date_hi": "2000-10-26",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 24,
+    "arrival_day": 11256.0
    }
   },
   {
@@ -1001,8 +1103,7 @@
     "kind": "walk",
     "to": "佩雷拉",
     "date": "2000-10-26",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1015,12 +1116,17 @@
     ]
    },
    "properties": {
-    "order": 25,
     "name": "麦德林",
     "date": "2000-11-01",
+    "date_lo": "2000-11-01",
+    "date_hi": "2000-11-01",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 25,
+    "arrival_day": 11262.0
    }
   },
   {
@@ -1042,8 +1148,7 @@
     "kind": "walk",
     "to": "麦德林",
     "date": "2000-11-01",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1056,12 +1161,17 @@
     ]
    },
    "properties": {
-    "order": 26,
     "name": "卡尼亚斯戈达斯",
     "date": "2001-01-19",
+    "date_lo": "2001-01-19",
+    "date_hi": "2001-01-19",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 26,
+    "arrival_day": 11341.0
    }
   },
   {
@@ -1083,8 +1193,7 @@
     "kind": "walk",
     "to": "卡尼亚斯戈达斯",
     "date": "2001-01-19",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1097,12 +1206,17 @@
     ]
    },
    "properties": {
-    "order": 27,
     "name": "达贝巴",
     "date": "2001-01-21",
+    "date_lo": "2001-01-21",
+    "date_hi": "2001-01-21",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 27,
+    "arrival_day": 11343.0
    }
   },
   {
@@ -1124,8 +1238,7 @@
     "kind": "walk",
     "to": "达贝巴",
     "date": "2001-01-21",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1138,12 +1251,17 @@
     ]
    },
    "properties": {
-    "order": 28,
     "name": "穆塔塔",
     "date": "2001-01-23",
+    "date_lo": "2001-01-23",
+    "date_hi": "2001-01-23",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 28,
+    "arrival_day": 11345.0
    }
   },
   {
@@ -1165,8 +1283,7 @@
     "kind": "walk",
     "to": "穆塔塔",
     "date": "2001-01-23",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1179,12 +1296,17 @@
     ]
    },
    "properties": {
-    "order": 29,
     "name": "巴希拉",
     "date": "2001-01-28",
+    "date_lo": "2001-01-28",
+    "date_hi": "2001-01-28",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 29,
+    "arrival_day": 11350.0
    }
   },
   {
@@ -1206,8 +1328,7 @@
     "kind": "walk",
     "to": "巴希拉",
     "date": "2001-01-28",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1220,12 +1341,17 @@
     ]
    },
    "properties": {
-    "order": 30,
     "name": "里奥苏西奥",
     "date": "2001-02初",
+    "date_lo": "2001-02-01",
+    "date_hi": "2001-02-10",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 30,
+    "arrival_day": 11358.5
    }
   },
   {
@@ -1247,8 +1373,7 @@
     "kind": "walk",
     "to": "里奥苏西奥",
     "date": "2001-02初",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1261,12 +1386,17 @@
     ]
    },
    "properties": {
-    "order": 31,
     "name": "帕亚",
     "date": "2001-02",
+    "date_lo": "2001-02-01",
+    "date_hi": "2001-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 31,
+    "arrival_day": 11367.5
    }
   },
   {
@@ -1288,8 +1418,7 @@
     "kind": "walk",
     "to": "帕亚",
     "date": "2001-02",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1302,12 +1431,17 @@
     ]
    },
    "properties": {
-    "order": 32,
     "name": "博卡德库佩（被扣）",
     "date": "2001-02-16",
+    "date_lo": "2001-02-16",
+    "date_hi": "2001-02-16",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "C 哥伦比亚—达连",
-    "leg_into": "walk"
+    "segment": "C",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 C 段；《Giant Steps》美版 pp.102–166",
+    "order": 32,
+    "arrival_day": 11369.0
    }
   },
   {
@@ -1329,8 +1463,7 @@
     "kind": "walk",
     "to": "博卡德库佩（被扣）",
     "date": "2001-02-16",
-    "inferred": false,
-    "segment": "C 哥伦比亚—达连"
+    "inferred": false
    }
   },
   {
@@ -1343,12 +1476,17 @@
     ]
    },
    "properties": {
-    "order": 33,
     "name": "亚维萨",
     "date": "2001-03-09",
+    "date_lo": "2001-03-09",
+    "date_hi": "2001-03-09",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 33,
+    "arrival_day": 11390.0
    }
   },
   {
@@ -1370,8 +1508,7 @@
     "kind": "walk",
     "to": "亚维萨",
     "date": "2001-03-09",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1384,12 +1521,17 @@
     ]
    },
    "properties": {
-    "order": 34,
     "name": "梅特蒂",
     "date": "2001-03-10",
+    "date_lo": "2001-03-10",
+    "date_hi": "2001-03-10",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 34,
+    "arrival_day": 11391.0
    }
   },
   {
@@ -1411,8 +1553,7 @@
     "kind": "walk",
     "to": "梅特蒂",
     "date": "2001-03-10",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1425,12 +1566,17 @@
     ]
    },
    "properties": {
-    "order": 35,
     "name": "巴拿马城",
     "date": "2001-03",
+    "date_lo": "2001-03-01",
+    "date_hi": "2001-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 35,
+    "arrival_day": 11397.0
    }
   },
   {
@@ -1452,8 +1598,7 @@
     "kind": "walk",
     "to": "巴拿马城",
     "date": "2001-03",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1466,12 +1611,17 @@
     ]
    },
    "properties": {
-    "order": 36,
     "name": "帕索卡诺阿斯",
     "date": "2001-04-26",
+    "date_lo": "2001-04-26",
+    "date_hi": "2001-04-26",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 36,
+    "arrival_day": 11438.0
    }
   },
   {
@@ -1493,8 +1643,7 @@
     "kind": "walk",
     "to": "帕索卡诺阿斯",
     "date": "2001-04-26",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1507,12 +1656,17 @@
     ]
    },
    "properties": {
-    "order": 37,
     "name": "圣何塞",
     "date": "2001-05",
+    "date_lo": "2001-05-01",
+    "date_hi": "2001-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 37,
+    "arrival_day": 11458.0
    }
   },
   {
@@ -1534,8 +1688,7 @@
     "kind": "walk",
     "to": "圣何塞",
     "date": "2001-05",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -1548,12 +1701,17 @@
     ]
    },
    "properties": {
-    "order": 38,
     "name": "佩尼亚斯布兰卡斯",
     "date": "2001-05-20",
+    "date_lo": "2001-05-20",
+    "date_hi": "2001-05-20",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 38,
+    "arrival_day": 11462.0
    }
   },
   {
@@ -1575,8 +1733,7 @@
     "kind": "walk",
     "to": "佩尼亚斯布兰卡斯",
     "date": "2001-05-20",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -1589,12 +1746,17 @@
     ]
    },
    "properties": {
-    "order": 39,
     "name": "莱昂",
     "date": "2001-06-03",
+    "date_lo": "2001-06-03",
+    "date_hi": "2001-06-03",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 39,
+    "arrival_day": 11476.0
    }
   },
   {
@@ -1616,8 +1778,7 @@
     "kind": "walk",
     "to": "莱昂",
     "date": "2001-06-03",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1630,12 +1791,17 @@
     ]
    },
    "properties": {
-    "order": 40,
     "name": "瓜萨乌莱",
     "date": "约2001-07-25",
+    "date_lo": "2001-07-25",
+    "date_hi": "2001-07-25",
+    "precision": "day",
+    "approx": true,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 40,
+    "arrival_day": 11528.0
    }
   },
   {
@@ -1657,8 +1823,7 @@
     "kind": "walk",
     "to": "瓜萨乌莱",
     "date": "约2001-07-25",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -1671,12 +1836,17 @@
     ]
    },
    "properties": {
-    "order": 41,
     "name": "乔卢特卡",
     "date": "2001-07-28",
+    "date_lo": "2001-07-28",
+    "date_hi": "2001-07-28",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 41,
+    "arrival_day": 11531.0
    }
   },
   {
@@ -1698,8 +1868,7 @@
     "kind": "walk",
     "to": "乔卢特卡",
     "date": "2001-07-28",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -1712,12 +1881,17 @@
     ]
    },
    "properties": {
-    "order": 42,
     "name": "圣米格尔",
     "date": "2001-07-29",
+    "date_lo": "2001-07-29",
+    "date_hi": "2001-07-29",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 42,
+    "arrival_day": 11532.0
    }
   },
   {
@@ -1739,8 +1913,7 @@
     "kind": "walk",
     "to": "圣米格尔",
     "date": "2001-07-29",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1753,12 +1926,17 @@
     ]
    },
    "properties": {
-    "order": 43,
     "name": "拉阿查杜拉",
     "date": "2001-08-10",
+    "date_lo": "2001-08-10",
+    "date_hi": "2001-08-10",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 43,
+    "arrival_day": 11544.0
    }
   },
   {
@@ -1780,8 +1958,7 @@
     "kind": "walk",
     "to": "拉阿查杜拉",
     "date": "2001-08-10",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1794,12 +1971,17 @@
     ]
    },
    "properties": {
-    "order": 44,
     "name": "埃斯昆特拉",
     "date": "2001-08-14",
+    "date_lo": "2001-08-14",
+    "date_hi": "2001-08-14",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 44,
+    "arrival_day": 11548.0
    }
   },
   {
@@ -1821,8 +2003,7 @@
     "kind": "walk",
     "to": "埃斯昆特拉",
     "date": "2001-08-14",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1835,12 +2016,17 @@
     ]
    },
    "properties": {
-    "order": 45,
     "name": "特昆乌曼",
     "date": "约2001-08-30",
+    "date_lo": "2001-08-30",
+    "date_hi": "2001-08-30",
+    "precision": "day",
+    "approx": true,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 45,
+    "arrival_day": 11564.0
    }
   },
   {
@@ -1862,8 +2048,7 @@
     "kind": "walk",
     "to": "特昆乌曼",
     "date": "约2001-08-30",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -1876,12 +2061,17 @@
     ]
    },
    "properties": {
-    "order": 46,
     "name": "塔帕丘拉",
     "date": "2001-08-31",
+    "date_lo": "2001-08-31",
+    "date_hi": "2001-08-31",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 46,
+    "arrival_day": 11565.0
    }
   },
   {
@@ -1903,8 +2093,7 @@
     "kind": "walk",
     "to": "塔帕丘拉",
     "date": "2001-08-31",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -1917,12 +2106,17 @@
     ]
    },
    "properties": {
-    "order": 47,
     "name": "托纳拉",
     "date": "2001-09-11",
+    "date_lo": "2001-09-11",
+    "date_hi": "2001-09-11",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 47,
+    "arrival_day": 11576.0
    }
   },
   {
@@ -1944,8 +2138,7 @@
     "kind": "walk",
     "to": "托纳拉",
     "date": "2001-09-11",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1958,12 +2151,17 @@
     ]
    },
    "properties": {
-    "order": 48,
     "name": "阿卡普尔科",
     "date": "2001-10-28",
+    "date_lo": "2001-10-28",
+    "date_hi": "2001-10-28",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 48,
+    "arrival_day": 11623.0
    }
   },
   {
@@ -1985,8 +2183,7 @@
     "kind": "walk",
     "to": "阿卡普尔科",
     "date": "2001-10-28",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -1999,12 +2196,17 @@
     ]
    },
    "properties": {
-    "order": 49,
     "name": "曼萨尼约",
     "date": "2001-11-29",
+    "date_lo": "2001-11-29",
+    "date_hi": "2001-11-29",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 49,
+    "arrival_day": 11655.0
    }
   },
   {
@@ -2026,8 +2228,7 @@
     "kind": "walk",
     "to": "曼萨尼约",
     "date": "2001-11-29",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -2040,12 +2241,17 @@
     ]
    },
    "properties": {
-    "order": 50,
     "name": "梅拉克",
     "date": "2001-12-06",
+    "date_lo": "2001-12-06",
+    "date_hi": "2001-12-06",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 50,
+    "arrival_day": 11662.0
    }
   },
   {
@@ -2067,8 +2273,7 @@
     "kind": "walk",
     "to": "梅拉克",
     "date": "2001-12-06",
-    "inferred": false,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": false
    }
   },
   {
@@ -2081,12 +2286,17 @@
     ]
    },
    "properties": {
-    "order": 51,
     "name": "巴亚尔塔港",
     "date": "2002-01",
+    "date_lo": "2002-01-01",
+    "date_hi": "2002-01-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 51,
+    "arrival_day": 11703.0
    }
   },
   {
@@ -2108,8 +2318,7 @@
     "kind": "walk",
     "to": "巴亚尔塔港",
     "date": "2002-01",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2122,12 +2331,17 @@
     ]
    },
    "properties": {
-    "order": 52,
     "name": "马萨特兰",
     "date": "2002-02-15",
+    "date_lo": "2002-02-15",
+    "date_hi": "2002-02-15",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 52,
+    "arrival_day": 11733.0
    }
   },
   {
@@ -2149,8 +2363,7 @@
     "kind": "walk",
     "to": "马萨特兰",
     "date": "2002-02-15",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2163,12 +2376,17 @@
     ]
    },
    "properties": {
-    "order": 53,
     "name": "库利亚坎",
     "date": "2002-03",
+    "date_lo": "2002-03-01",
+    "date_hi": "2002-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 53,
+    "arrival_day": 11762.0
    }
   },
   {
@@ -2190,8 +2408,7 @@
     "kind": "walk",
     "to": "库利亚坎",
     "date": "2002-03",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2204,12 +2421,17 @@
     ]
    },
    "properties": {
-    "order": 54,
     "name": "瓜伊马斯",
     "date": "2002-04-02",
+    "date_lo": "2002-04-02",
+    "date_hi": "2002-04-02",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 54,
+    "arrival_day": 11779.0
    }
   },
   {
@@ -2231,8 +2453,7 @@
     "kind": "walk",
     "to": "瓜伊马斯",
     "date": "2002-04-02",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2245,12 +2466,17 @@
     ]
    },
    "properties": {
-    "order": 55,
     "name": "埃莫西约",
     "date": "约2002-04中",
+    "date_lo": "2002-04-11",
+    "date_hi": "2002-04-20",
+    "precision": "month",
+    "approx": true,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 55,
+    "arrival_day": 11788
    }
   },
   {
@@ -2272,8 +2498,7 @@
     "kind": "walk",
     "to": "埃莫西约",
     "date": "约2002-04中",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2286,12 +2511,17 @@
     ]
    },
    "properties": {
-    "order": 56,
     "name": "圣安娜",
     "date": "约2002-04-22",
+    "date_lo": "2002-04-22",
+    "date_hi": "2002-04-22",
+    "precision": "day",
+    "approx": true,
     "status": "inferred",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 56,
+    "arrival_day": 11799.0
    }
   },
   {
@@ -2313,8 +2543,7 @@
     "kind": "walk",
     "to": "圣安娜",
     "date": "约2002-04-22",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2327,12 +2556,17 @@
     ]
    },
    "properties": {
-    "order": 57,
     "name": "诺加利斯",
     "date": "2002-04-27/29",
+    "date_lo": "2002-04-27",
+    "date_hi": "2002-04-29",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "D 中美洲—墨西哥",
-    "leg_into": "walk"
+    "segment": "D",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 D 段；《Giant Steps》美版 pp.159–235",
+    "order": 57,
+    "arrival_day": 11805.0
    }
   },
   {
@@ -2354,8 +2588,7 @@
     "kind": "walk",
     "to": "诺加利斯",
     "date": "2002-04-27/29",
-    "inferred": true,
-    "segment": "D 中美洲—墨西哥"
+    "inferred": true
    }
   },
   {
@@ -2368,12 +2601,17 @@
     ]
    },
    "properties": {
-    "order": 58,
     "name": "图森",
     "date": "2002-05",
+    "date_lo": "2002-05-01",
+    "date_hi": "2002-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 58,
+    "arrival_day": 11823.0
    }
   },
   {
@@ -2395,8 +2633,7 @@
     "kind": "walk",
     "to": "图森",
     "date": "2002-05",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2409,12 +2646,17 @@
     ]
    },
    "properties": {
-    "order": 59,
     "name": "凤凰城",
     "date": "2002-05",
+    "date_lo": "2002-05-01",
+    "date_hi": "2002-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 59,
+    "arrival_day": 11823.0
    }
   },
   {
@@ -2436,8 +2678,7 @@
     "kind": "walk",
     "to": "凤凰城",
     "date": "2002-05",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2450,12 +2691,17 @@
     ]
    },
    "properties": {
-    "order": 60,
     "name": "帕克",
     "date": "2002-06-13",
+    "date_lo": "2002-06-13",
+    "date_hi": "2002-06-13",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 60,
+    "arrival_day": 11851.0
    }
   },
   {
@@ -2477,8 +2723,7 @@
     "kind": "walk",
     "to": "帕克",
     "date": "2002-06-13",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2491,12 +2736,17 @@
     ]
    },
    "properties": {
-    "order": 61,
     "name": "拉斯维加斯",
     "date": "2002-07-05",
+    "date_lo": "2002-07-05",
+    "date_hi": "2002-07-05",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 61,
+    "arrival_day": 11873.0
    }
   },
   {
@@ -2518,8 +2768,7 @@
     "kind": "walk",
     "to": "拉斯维加斯",
     "date": "2002-07-05",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2532,12 +2781,17 @@
     ]
    },
    "properties": {
-    "order": 62,
     "name": "圣乔治",
     "date": "2002-08/09",
+    "date_lo": "2002-08-01",
+    "date_hi": "2002-09-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 62,
+    "arrival_day": 11930.0
    }
   },
   {
@@ -2559,8 +2813,7 @@
     "kind": "walk",
     "to": "圣乔治",
     "date": "2002-08/09",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2573,12 +2826,17 @@
     ]
    },
    "properties": {
-    "order": 63,
     "name": "盐湖城",
     "date": "2002-10-03",
+    "date_lo": "2002-10-03",
+    "date_hi": "2002-10-03",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 63,
+    "arrival_day": 11963.0
    }
   },
   {
@@ -2600,8 +2858,7 @@
     "kind": "walk",
     "to": "盐湖城",
     "date": "2002-10-03",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2614,12 +2871,17 @@
     ]
    },
    "properties": {
-    "order": 64,
     "name": "普雷斯顿",
     "date": "2002-10中下",
+    "date_lo": "2002-10-11",
+    "date_hi": "2002-10-31",
+    "precision": "month",
+    "approx": false,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 64,
+    "arrival_day": 11981.0
    }
   },
   {
@@ -2641,8 +2903,7 @@
     "kind": "walk",
     "to": "普雷斯顿",
     "date": "2002-10中下",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2655,12 +2916,17 @@
     ]
    },
    "properties": {
-    "order": 65,
     "name": "波卡特洛",
     "date": "2002-10",
+    "date_lo": "2002-10-01",
+    "date_hi": "2002-10-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 65,
+    "arrival_day": 11981.0
    }
   },
   {
@@ -2682,8 +2948,7 @@
     "kind": "walk",
     "to": "波卡特洛",
     "date": "2002-10",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2696,12 +2961,17 @@
     ]
    },
    "properties": {
-    "order": 66,
     "name": "雷克斯堡",
     "date": "约2002-11-01",
+    "date_lo": "2002-11-01",
+    "date_hi": "2002-11-01",
+    "precision": "day",
+    "approx": true,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 66,
+    "arrival_day": 11992.0
    }
   },
   {
@@ -2723,8 +2993,7 @@
     "kind": "walk",
     "to": "雷克斯堡",
     "date": "约2002-11-01",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2737,12 +3006,17 @@
     ]
    },
    "properties": {
-    "order": 67,
     "name": "圣安东尼",
     "date": "约2002-11-01",
+    "date_lo": "2002-11-01",
+    "date_hi": "2002-11-01",
+    "precision": "day",
+    "approx": true,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 67,
+    "arrival_day": 11992.0
    }
   },
   {
@@ -2764,8 +3038,7 @@
     "kind": "walk",
     "to": "圣安东尼",
     "date": "约2002-11-01",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2778,12 +3051,17 @@
     ]
    },
    "properties": {
-    "order": 68,
     "name": "雷诺兹山口",
     "date": "2002-11-03",
+    "date_lo": "2002-11-03",
+    "date_hi": "2002-11-03",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 68,
+    "arrival_day": 11994.0
    }
   },
   {
@@ -2805,8 +3083,7 @@
     "kind": "walk",
     "to": "雷诺兹山口",
     "date": "2002-11-03",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2819,12 +3096,17 @@
     ]
    },
    "properties": {
-    "order": 69,
     "name": "恩尼斯",
     "date": "2002-11",
+    "date_lo": "2002-11-01",
+    "date_hi": "2002-11-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 69,
+    "arrival_day": 12006.5
    }
   },
   {
@@ -2846,8 +3128,7 @@
     "kind": "walk",
     "to": "恩尼斯",
     "date": "2002-11",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2860,12 +3141,17 @@
     ]
    },
    "properties": {
-    "order": 70,
     "name": "海伦娜",
     "date": "约2002-11中",
+    "date_lo": "2002-11-11",
+    "date_hi": "2002-11-20",
+    "precision": "month",
+    "approx": true,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 70,
+    "arrival_day": 12011
    }
   },
   {
@@ -2887,8 +3173,7 @@
     "kind": "walk",
     "to": "海伦娜",
     "date": "约2002-11中",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -2901,12 +3186,17 @@
     ]
    },
    "properties": {
-    "order": 71,
     "name": "大瀑布城",
     "date": "2002-12",
+    "date_lo": "2002-12-01",
+    "date_hi": "2002-12-31",
+    "precision": "month",
+    "approx": false,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 71,
+    "arrival_day": 12037.0
    }
   },
   {
@@ -2928,8 +3218,7 @@
     "kind": "walk",
     "to": "大瀑布城",
     "date": "2002-12",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2942,12 +3231,17 @@
     ]
    },
    "properties": {
-    "order": 72,
     "name": "康拉德",
     "date": "2002-12-25",
+    "date_lo": "2002-12-25",
+    "date_hi": "2002-12-25",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 72,
+    "arrival_day": 12046.0
    }
   },
   {
@@ -2969,8 +3263,7 @@
     "kind": "walk",
     "to": "康拉德",
     "date": "2002-12-25",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -2983,12 +3276,17 @@
     ]
    },
    "properties": {
-    "order": 73,
     "name": "谢尔比（推车被盗）",
     "date": "2002-12-31",
+    "date_lo": "2002-12-31",
+    "date_hi": "2002-12-31",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 73,
+    "arrival_day": 12052.0
    }
   },
   {
@@ -3010,8 +3308,7 @@
     "kind": "walk",
     "to": "谢尔比（推车被盗）",
     "date": "2002-12-31",
-    "inferred": false,
-    "segment": "E 美国"
+    "inferred": false
    }
   },
   {
@@ -3024,12 +3321,17 @@
     ]
    },
    "properties": {
-    "order": 74,
     "name": "斯威特格拉斯/库茨",
     "date": "约2003-01",
+    "date_lo": "2003-01-01",
+    "date_hi": "2003-01-31",
+    "precision": "month",
+    "approx": true,
     "status": "inferred",
-    "segment": "E 美国",
-    "leg_into": "walk"
+    "segment": "E",
+    "source": "报告 E 段；《Giant Steps》美版 pp.236–275",
+    "order": 74,
+    "arrival_day": 12064.28
    }
   },
   {
@@ -3051,8 +3353,7 @@
     "kind": "walk",
     "to": "斯威特格拉斯/库茨",
     "date": "约2003-01",
-    "inferred": true,
-    "segment": "E 美国"
+    "inferred": true
    }
   },
   {
@@ -3065,12 +3366,17 @@
     ]
    },
    "properties": {
-    "order": 75,
     "name": "梅迪辛哈特",
     "date": "2003-02",
+    "date_lo": "2003-02-01",
+    "date_hi": "2003-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 75,
+    "arrival_day": 12097.5
    }
   },
   {
@@ -3092,8 +3398,7 @@
     "kind": "walk",
     "to": "梅迪辛哈特",
     "date": "2003-02",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3106,12 +3411,17 @@
     ]
    },
    "properties": {
-    "order": 76,
     "name": "卡尔加里",
     "date": "2003-03-14",
+    "date_lo": "2003-03-14",
+    "date_hi": "2003-03-14",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 76,
+    "arrival_day": 12125.0
    }
   },
   {
@@ -3133,8 +3443,7 @@
     "kind": "walk",
     "to": "卡尔加里",
     "date": "2003-03-14",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3147,12 +3456,17 @@
     ]
    },
    "properties": {
-    "order": 77,
     "name": "埃德蒙顿",
     "date": "2003",
+    "date_lo": "2003-01-01",
+    "date_hi": "2003-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 77,
+    "arrival_day": 12204.97
    }
   },
   {
@@ -3174,8 +3488,7 @@
     "kind": "walk",
     "to": "埃德蒙顿",
     "date": "2003",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3188,12 +3501,17 @@
     ]
    },
    "properties": {
-    "order": 78,
     "name": "道森克里克",
     "date": "2003-10-22",
+    "date_lo": "2003-10-22",
+    "date_hi": "2003-10-22",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 78,
+    "arrival_day": 12347.0
    }
   },
   {
@@ -3215,8 +3533,7 @@
     "kind": "walk",
     "to": "道森克里克",
     "date": "2003-10-22",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3229,12 +3546,17 @@
     ]
    },
    "properties": {
-    "order": 79,
     "name": "圣约翰堡",
     "date": "2003-11-02",
+    "date_lo": "2003-11-02",
+    "date_hi": "2003-11-02",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 79,
+    "arrival_day": 12358.0
    }
   },
   {
@@ -3256,8 +3578,7 @@
     "kind": "walk",
     "to": "圣约翰堡",
     "date": "2003-11-02",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3270,12 +3591,17 @@
     ]
    },
    "properties": {
-    "order": 80,
     "name": "纳尔逊堡",
     "date": "2004-01-01",
+    "date_lo": "2004-01-01",
+    "date_hi": "2004-01-01",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 80,
+    "arrival_day": 12418.0
    }
   },
   {
@@ -3297,8 +3623,7 @@
     "kind": "walk",
     "to": "纳尔逊堡",
     "date": "2004-01-01",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3311,12 +3636,17 @@
     ]
    },
    "properties": {
-    "order": 81,
     "name": "沃森湖",
     "date": "2004-02",
+    "date_lo": "2004-02-01",
+    "date_hi": "2004-02-29",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 81,
+    "arrival_day": 12463.0
    }
   },
   {
@@ -3338,8 +3668,7 @@
     "kind": "walk",
     "to": "沃森湖",
     "date": "2004-02",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3352,12 +3681,17 @@
     ]
    },
    "properties": {
-    "order": 82,
     "name": "怀特霍斯",
     "date": "2004-03-31",
+    "date_lo": "2004-03-31",
+    "date_hi": "2004-03-31",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 82,
+    "arrival_day": 12508.0
    }
   },
   {
@@ -3379,8 +3713,7 @@
     "kind": "walk",
     "to": "怀特霍斯",
     "date": "2004-03-31",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3393,12 +3726,17 @@
     ]
    },
    "properties": {
-    "order": 83,
     "name": "比弗克里克",
     "date": "2004-04",
+    "date_lo": "2004-04-01",
+    "date_hi": "2004-04-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 83,
+    "arrival_day": 12523.5
    }
   },
   {
@@ -3420,8 +3758,7 @@
     "kind": "walk",
     "to": "比弗克里克",
     "date": "2004-04",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3434,12 +3771,17 @@
     ]
    },
    "properties": {
-    "order": 84,
     "name": "托克",
     "date": "2004-05",
+    "date_lo": "2004-05-01",
+    "date_hi": "2004-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 84,
+    "arrival_day": 12554.0
    }
   },
   {
@@ -3461,8 +3803,7 @@
     "kind": "walk",
     "to": "托克",
     "date": "2004-05",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3475,12 +3816,17 @@
     ]
    },
    "properties": {
-    "order": 85,
     "name": "德尔塔章克申",
     "date": "2004-05-16",
+    "date_lo": "2004-05-16",
+    "date_hi": "2004-05-16",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 85,
+    "arrival_day": 12554.0
    }
   },
   {
@@ -3502,8 +3848,7 @@
     "kind": "walk",
     "to": "德尔塔章克申",
     "date": "2004-05-16",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3516,12 +3861,17 @@
     ]
    },
    "properties": {
-    "order": 86,
     "name": "费尔班克斯",
     "date": "2004-05",
+    "date_lo": "2004-05-01",
+    "date_hi": "2004-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 86,
+    "arrival_day": 12554.0
    }
   },
   {
@@ -3543,8 +3893,7 @@
     "kind": "walk",
     "to": "费尔班克斯",
     "date": "2004-05",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3557,12 +3906,17 @@
     ]
    },
    "properties": {
-    "order": 87,
     "name": "明托",
     "date": "2004-12",
+    "date_lo": "2004-12-01",
+    "date_hi": "2004-12-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 87,
+    "arrival_day": 12768.0
    }
   },
   {
@@ -3584,8 +3938,7 @@
     "kind": "walk",
     "to": "明托",
     "date": "2004-12",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3598,12 +3951,17 @@
     ]
    },
    "properties": {
-    "order": 88,
     "name": "塔纳纳",
     "date": "2005-01-18",
+    "date_lo": "2005-01-18",
+    "date_hi": "2005-01-18",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 88,
+    "arrival_day": 12801.0
    }
   },
   {
@@ -3625,8 +3983,7 @@
     "kind": "walk",
     "to": "塔纳纳",
     "date": "2005-01-18",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3639,12 +3996,17 @@
     ]
    },
    "properties": {
-    "order": 89,
     "name": "鲁比",
     "date": "2005-02",
+    "date_lo": "2005-02-01",
+    "date_hi": "2005-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 89,
+    "arrival_day": 12828.5
    }
   },
   {
@@ -3666,8 +4028,7 @@
     "kind": "walk",
     "to": "鲁比",
     "date": "2005-02",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3680,12 +4041,17 @@
     ]
    },
    "properties": {
-    "order": 90,
     "name": "加利纳",
     "date": "2005-02",
+    "date_lo": "2005-02-01",
+    "date_hi": "2005-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 90,
+    "arrival_day": 12828.5
    }
   },
   {
@@ -3707,8 +4073,7 @@
     "kind": "walk",
     "to": "加利纳",
     "date": "2005-02",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3721,12 +4086,17 @@
     ]
    },
    "properties": {
-    "order": 91,
     "name": "卡尔塔格",
     "date": "2005-03",
+    "date_lo": "2005-03-01",
+    "date_hi": "2005-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 91,
+    "arrival_day": 12858.0
    }
   },
   {
@@ -3748,8 +4118,7 @@
     "kind": "walk",
     "to": "卡尔塔格",
     "date": "2005-03",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3762,12 +4131,17 @@
     ]
    },
    "properties": {
-    "order": 92,
     "name": "乌纳拉克利特",
     "date": "2005-03-22",
+    "date_lo": "2005-03-22",
+    "date_hi": "2005-03-22",
+    "precision": "day",
+    "approx": false,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 92,
+    "arrival_day": 12864.0
    }
   },
   {
@@ -3789,8 +4163,7 @@
     "kind": "walk",
     "to": "乌纳拉克利特",
     "date": "2005-03-22",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3803,12 +4176,17 @@
     ]
    },
    "properties": {
-    "order": 93,
     "name": "沙克图利克",
     "date": "2005-12-30",
+    "date_lo": "2005-12-30",
+    "date_hi": "2005-12-30",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 93,
+    "arrival_day": 13147.0
    }
   },
   {
@@ -3830,8 +4208,7 @@
     "kind": "walk",
     "to": "沙克图利克",
     "date": "2005-12-30",
-    "inferred": false,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": false
    }
   },
   {
@@ -3844,12 +4221,17 @@
     ]
    },
    "properties": {
-    "order": 94,
     "name": "科尤克",
     "date": "2006-01",
+    "date_lo": "2006-01-01",
+    "date_hi": "2006-01-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 94,
+    "arrival_day": 13164.0
    }
   },
   {
@@ -3871,8 +4253,7 @@
     "kind": "walk",
     "to": "科尤克",
     "date": "2006-01",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3885,12 +4266,17 @@
     ]
    },
    "properties": {
-    "order": 95,
     "name": "诺姆",
     "date": "约2006-01-20",
+    "date_lo": "2006-01-20",
+    "date_hi": "2006-01-20",
+    "precision": "day",
+    "approx": true,
     "status": "book",
-    "segment": "F 加拿大—阿拉斯加",
-    "leg_into": "walk"
+    "segment": "F",
+    "source": "《Giant Steps》美版（IA 站内检索）；报告 F 段；《Giant Steps》美版 pp.276–324",
+    "order": 95,
+    "arrival_day": 13168.0
    }
   },
   {
@@ -3912,8 +4298,7 @@
     "kind": "walk",
     "to": "诺姆",
     "date": "约2006-01-20",
-    "inferred": true,
-    "segment": "F 加拿大—阿拉斯加"
+    "inferred": true
    }
   },
   {
@@ -3926,12 +4311,17 @@
     ]
    },
    "properties": {
-    "order": 96,
     "name": "伍利角",
     "date": "2006-02初",
+    "date_lo": "2006-02-01",
+    "date_hi": "2006-02-10",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "白令海峡",
-    "leg_into": "walk"
+    "segment": "BS",
+    "source": "报告 白令海峡章；Seattle Times 2006",
+    "order": 96,
+    "arrival_day": 13184.5
    }
   },
   {
@@ -3953,8 +4343,7 @@
     "kind": "walk",
     "to": "伍利角",
     "date": "2006-02初",
-    "inferred": false,
-    "segment": "白令海峡"
+    "inferred": false
    }
   },
   {
@@ -3967,12 +4356,17 @@
     ]
    },
    "properties": {
-    "order": 97,
     "name": "特勒",
     "date": "2006-02",
+    "date_lo": "2006-02-01",
+    "date_hi": "2006-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "白令海峡",
-    "leg_into": "walk"
+    "segment": "BS",
+    "source": "报告 白令海峡章；Seattle Times 2006",
+    "order": 97,
+    "arrival_day": 13193.5
    }
   },
   {
@@ -3994,8 +4388,7 @@
     "kind": "walk",
     "to": "特勒",
     "date": "2006-02",
-    "inferred": false,
-    "segment": "白令海峡"
+    "inferred": false
    }
   },
   {
@@ -4008,12 +4401,17 @@
     ]
    },
    "properties": {
-    "order": 98,
     "name": "布雷维格米申",
     "date": "2006-02",
+    "date_lo": "2006-02-01",
+    "date_hi": "2006-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "白令海峡",
-    "leg_into": "walk"
+    "segment": "BS",
+    "source": "报告 白令海峡章；Seattle Times 2006",
+    "order": 98,
+    "arrival_day": 13193.5
    }
   },
   {
@@ -4035,8 +4433,7 @@
     "kind": "walk",
     "to": "布雷维格米申",
     "date": "2006-02",
-    "inferred": false,
-    "segment": "白令海峡"
+    "inferred": false
    }
   },
   {
@@ -4049,12 +4446,17 @@
     ]
    },
    "properties": {
-    "order": 99,
     "name": "威尔士",
     "date": "2006-03-17",
+    "date_lo": "2006-03-17",
+    "date_hi": "2006-03-17",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "白令海峡",
-    "leg_into": "walk"
+    "segment": "BS",
+    "source": "报告 白令海峡章；Seattle Times 2006",
+    "order": 99,
+    "arrival_day": 13224.0
    }
   },
   {
@@ -4076,8 +4478,7 @@
     "kind": "walk",
     "to": "威尔士",
     "date": "2006-03-17",
-    "inferred": false,
-    "segment": "白令海峡"
+    "inferred": false
    }
   },
   {
@@ -4090,12 +4491,17 @@
     ]
    },
    "properties": {
-    "order": 100,
     "name": "海冰（向北漂移）",
     "date": "2006-03下",
+    "date_lo": "2006-03-21",
+    "date_hi": "2006-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "白令海峡",
-    "leg_into": "walk"
+    "segment": "BS",
+    "source": "报告 白令海峡章；Seattle Times 2006",
+    "order": 100,
+    "arrival_day": 13233.0
    }
   },
   {
@@ -4117,8 +4523,7 @@
     "kind": "walk",
     "to": "海冰（向北漂移）",
     "date": "2006-03下",
-    "inferred": true,
-    "segment": "白令海峡"
+    "inferred": true
    }
   },
   {
@@ -4131,12 +4536,17 @@
     ]
    },
    "properties": {
-    "order": 101,
     "name": "韦连",
     "date": "2006-03-31",
+    "date_lo": "2006-03-31",
+    "date_hi": "2006-03-31",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "白令海峡",
-    "leg_into": "walk"
+    "segment": "BS",
+    "source": "报告 白令海峡章；Seattle Times 2006",
+    "order": 101,
+    "arrival_day": 13238.0
    }
   },
   {
@@ -4158,8 +4568,7 @@
     "kind": "walk",
     "to": "韦连",
     "date": "2006-03-31",
-    "inferred": true,
-    "segment": "白令海峡"
+    "inferred": true
    }
   },
   {
@@ -4172,12 +4581,17 @@
     ]
    },
    "properties": {
-    "order": 102,
     "name": "因丘恩",
     "date": "2007-04-12",
+    "date_lo": "2007-04-12",
+    "date_hi": "2007-04-12",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 102,
+    "arrival_day": 13615.0
    }
   },
   {
@@ -4199,8 +4613,7 @@
     "kind": "walk",
     "to": "因丘恩",
     "date": "2007-04-12",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4213,12 +4626,17 @@
     ]
    },
    "properties": {
-    "order": 103,
     "name": "叶努尔米诺",
     "date": "约2007-04-20",
+    "date_lo": "2007-04-20",
+    "date_hi": "2007-04-20",
+    "precision": "day",
+    "approx": true,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 103,
+    "arrival_day": 13623.0
    }
   },
   {
@@ -4240,8 +4658,7 @@
     "kind": "walk",
     "to": "叶努尔米诺",
     "date": "约2007-04-20",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4254,12 +4671,17 @@
     ]
    },
    "properties": {
-    "order": 104,
     "name": "涅什坎",
     "date": "2007-04-24",
+    "date_lo": "2007-04-24",
+    "date_hi": "2007-04-24",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 104,
+    "arrival_day": 13627.0
    }
   },
   {
@@ -4281,8 +4703,7 @@
     "kind": "walk",
     "to": "涅什坎",
     "date": "2007-04-24",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4295,12 +4716,17 @@
     ]
    },
    "properties": {
-    "order": 105,
     "name": "阿姆古埃马",
     "date": "2007-05-14",
+    "date_lo": "2007-05-14",
+    "date_hi": "2007-05-14",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 105,
+    "arrival_day": 13647.0
    }
   },
   {
@@ -4322,8 +4748,7 @@
     "kind": "walk",
     "to": "阿姆古埃马",
     "date": "2007-05-14",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4336,12 +4761,17 @@
     ]
    },
    "properties": {
-    "order": 106,
     "name": "德沃伊诺耶（坐标示意）",
     "date": "2008-04下",
+    "date_lo": "2008-04-21",
+    "date_hi": "2008-04-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 106,
+    "arrival_day": 13994.5
    }
   },
   {
@@ -4363,8 +4793,7 @@
     "kind": "walk",
     "to": "德沃伊诺耶（坐标示意）",
     "date": "2008-04下",
-    "inferred": true,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": true
    }
   },
   {
@@ -4377,12 +4806,17 @@
     ]
    },
    "properties": {
-    "order": 107,
     "name": "比利比诺",
     "date": "2008-05-18",
+    "date_lo": "2008-05-18",
+    "date_hi": "2008-05-18",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 107,
+    "arrival_day": 14017.0
    }
   },
   {
@@ -4404,8 +4838,7 @@
     "kind": "walk",
     "to": "比利比诺",
     "date": "2008-05-18",
-    "inferred": true,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": true
    }
   },
   {
@@ -4418,12 +4851,17 @@
     ]
    },
    "properties": {
-    "order": 108,
     "name": "阿纽伊斯克",
     "date": "2011-03-22",
+    "date_lo": "2011-03-22",
+    "date_hi": "2011-03-22",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 108,
+    "arrival_day": 15055.0
    }
   },
   {
@@ -4445,8 +4883,7 @@
     "kind": "walk",
     "to": "阿纽伊斯克",
     "date": "2011-03-22",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4459,12 +4896,17 @@
     ]
    },
    "properties": {
-    "order": 109,
     "name": "切尔斯基/下科雷姆斯克",
     "date": "2011-03-26",
+    "date_lo": "2011-03-26",
+    "date_hi": "2011-03-26",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 109,
+    "arrival_day": 15059.0
    }
   },
   {
@@ -4486,8 +4928,7 @@
     "kind": "walk",
     "to": "切尔斯基/下科雷姆斯克",
     "date": "2011-03-26",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4500,12 +4941,17 @@
     ]
    },
    "properties": {
-    "order": 110,
     "name": "中科雷姆斯克",
     "date": "2011-04-25",
+    "date_lo": "2011-04-25",
+    "date_hi": "2011-04-25",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "G 楚科奇—科雷马",
-    "leg_into": "walk"
+    "segment": "G",
+    "source": "报告 G 段；Kieffer 博客 2007；1sn.ru",
+    "order": 110,
+    "arrival_day": 15089.0
    }
   },
   {
@@ -4527,8 +4973,7 @@
     "kind": "walk",
     "to": "中科雷姆斯克",
     "date": "2011-04-25",
-    "inferred": false,
-    "segment": "G 楚科奇—科雷马"
+    "inferred": false
    }
   },
   {
@@ -4541,12 +4986,17 @@
     ]
    },
    "properties": {
-    "order": 111,
     "name": "萨瑟尔（坐标示意）",
-    "date": "2015",
+    "date": "约2015-03",
+    "date_lo": "2015-02-22",
+    "date_hi": "2015-04-07",
+    "precision": "month",
+    "approx": true,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；ykt.ru 2015-03-18（已在雅库特）；本人帖\"from Sasyr to the Road of Bones 2015\"",
+    "order": 111,
+    "arrival_day": 16488
    }
   },
   {
@@ -4567,9 +5017,8 @@
    "properties": {
     "kind": "walk",
     "to": "萨瑟尔（坐标示意）",
-    "date": "2015",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "date": "约2015-03",
+    "inferred": true
    }
   },
   {
@@ -4582,12 +5031,17 @@
     ]
    },
    "properties": {
-    "order": 112,
     "name": "白骨之路（乌斯季涅拉附近）",
-    "date": "2015",
+    "date": "2015（5月中以后）",
+    "date_lo": "2015-05-16",
+    "date_hi": "2015-12-31",
+    "precision": "season",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05；Outside 2015-05-15：当时尚未到白骨之路",
+    "order": 112,
+    "arrival_day": 16571
    }
   },
   {
@@ -4608,9 +5062,8 @@
    "properties": {
     "kind": "walk",
     "to": "白骨之路（乌斯季涅拉附近）",
-    "date": "2015",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "date": "2015（5月中以后）",
+    "inferred": true
    }
   },
   {
@@ -4623,12 +5076,17 @@
     ]
    },
    "properties": {
-    "order": 113,
     "name": "汉德加（阿尔丹河）",
     "date": "2015/16",
+    "date_lo": "2015-05-16",
+    "date_hi": "2016-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 113,
+    "arrival_day": 16588.4
    }
   },
   {
@@ -4650,8 +5108,7 @@
     "kind": "walk",
     "to": "汉德加（阿尔丹河）",
     "date": "2015/16",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4664,12 +5121,17 @@
     ]
    },
    "properties": {
-    "order": 114,
     "name": "下别斯佳赫",
     "date": "2016春",
+    "date_lo": "2016-03-01",
+    "date_hi": "2016-05-31",
+    "precision": "season",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 114,
+    "arrival_day": 16861
    }
   },
   {
@@ -4691,8 +5153,7 @@
     "kind": "walk",
     "to": "下别斯佳赫",
     "date": "2016春",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4705,12 +5166,17 @@
     ]
    },
    "properties": {
-    "order": 115,
     "name": "托莫特",
     "date": "2016-05",
+    "date_lo": "2016-05-01",
+    "date_hi": "2016-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 115,
+    "arrival_day": 16937.0
    }
   },
   {
@@ -4732,8 +5198,7 @@
     "kind": "walk",
     "to": "托莫特",
     "date": "2016-05",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4746,12 +5211,17 @@
     ]
    },
    "properties": {
-    "order": 116,
     "name": "涅留恩格里",
     "date": "2016-06-08",
+    "date_lo": "2016-06-08",
+    "date_hi": "2016-06-08",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "gazeta-bam 2016-06-11（原文已核）",
+    "order": 116,
+    "arrival_day": 16960.0
    }
   },
   {
@@ -4773,8 +5243,7 @@
     "kind": "walk",
     "to": "涅留恩格里",
     "date": "2016-06-08",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4787,12 +5256,17 @@
     ]
    },
    "properties": {
-    "order": 117,
     "name": "滕达",
     "date": "2016-06下",
+    "date_lo": "2016-06-21",
+    "date_hi": "2016-06-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 117,
+    "arrival_day": 16977.5
    }
   },
   {
@@ -4814,8 +5288,7 @@
     "kind": "walk",
     "to": "滕达",
     "date": "2016-06下",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4828,12 +5301,17 @@
     ]
    },
    "properties": {
-    "order": 118,
     "name": "叶罗费·帕夫洛维奇",
     "date": "2016",
+    "date_lo": "2016-01-01",
+    "date_hi": "2016-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "verified",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 118,
+    "arrival_day": 17031.23
    }
   },
   {
@@ -4855,8 +5333,7 @@
     "kind": "walk",
     "to": "叶罗费·帕夫洛维奇",
     "date": "2016",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4869,12 +5346,17 @@
     ]
    },
    "properties": {
-    "order": 119,
     "name": "莫戈恰",
     "date": "2016底",
+    "date_lo": "2016-11-01",
+    "date_hi": "2016-12-31",
+    "precision": "season",
+    "approx": false,
     "status": "verified",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 119,
+    "arrival_day": 17106
    }
   },
   {
@@ -4896,8 +5378,7 @@
     "kind": "walk",
     "to": "莫戈恰",
     "date": "2016底",
-    "inferred": false,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": false
    }
   },
   {
@@ -4910,12 +5391,17 @@
     ]
    },
    "properties": {
-    "order": 120,
     "name": "赤塔",
     "date": "2017",
+    "date_lo": "2017-01-01",
+    "date_hi": "2017-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 120,
+    "arrival_day": 17177.8
    }
   },
   {
@@ -4937,8 +5423,7 @@
     "kind": "walk",
     "to": "赤塔",
     "date": "2017",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4951,12 +5436,17 @@
     ]
    },
    "properties": {
-    "order": 121,
     "name": "乌兰乌德",
     "date": "2017",
+    "date_lo": "2017-01-01",
+    "date_hi": "2017-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 121,
+    "arrival_day": 17276.04
    }
   },
   {
@@ -4978,8 +5468,7 @@
     "kind": "walk",
     "to": "乌兰乌德",
     "date": "2017",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -4992,12 +5481,17 @@
     ]
    },
    "properties": {
-    "order": 122,
     "name": "恰克图",
     "date": "2017",
+    "date_lo": "2017-01-01",
+    "date_hi": "2017-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "H2 雅库特—阿穆尔",
-    "leg_into": "walk"
+    "segment": "H2",
+    "source": "报告 H2 段；gazeta-bam 2016-06-11；Port Amur 2016-12-05",
+    "order": 122,
+    "arrival_day": 17320.16
    }
   },
   {
@@ -5019,8 +5513,7 @@
     "kind": "walk",
     "to": "恰克图",
     "date": "2017",
-    "inferred": true,
-    "segment": "H2 雅库特—阿穆尔"
+    "inferred": true
    }
   },
   {
@@ -5033,12 +5526,17 @@
     ]
    },
    "properties": {
-    "order": 123,
     "name": "乌兰巴托",
     "date": "2017-08-08",
+    "date_lo": "2017-08-08",
+    "date_hi": "2017-08-08",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "I 蒙古—新疆—中亚",
-    "leg_into": "walk"
+    "segment": "I",
+    "source": "报告 I 段；asks/23",
+    "order": 123,
+    "arrival_day": 17386.0
    }
   },
   {
@@ -5060,8 +5558,52 @@
     "kind": "walk",
     "to": "乌兰巴托",
     "date": "2017-08-08",
-    "inferred": true,
-    "segment": "I 蒙古—新疆—中亚"
+    "inferred": true
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.92,
+     47.92
+    ]
+   },
+   "properties": {
+    "name": "乌兰巴托（骆驼队出发）",
+    "date": "约2017-11-05",
+    "date_lo": "2017-11-01",
+    "date_hi": "2017-11-10",
+    "precision": "day",
+    "approx": true,
+    "status": "verified",
+    "segment": "I",
+    "source": "Monreve 转载（2017-11-05）；Getaway（11-08）；asks/23",
+    "order": 124,
+    "arrival_day": 17475.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      106.92,
+      47.92
+     ],
+     [
+      106.92,
+      47.92
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "乌兰巴托（骆驼队出发）",
+    "date": "约2017-11-05",
+    "inferred": false
    }
   },
   {
@@ -5074,12 +5616,17 @@
     ]
    },
    "properties": {
-    "order": 124,
     "name": "新疆（乌鲁木齐一带，示意）",
     "date": "2018",
+    "date_lo": "2018-01-01",
+    "date_hi": "2018-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "I 蒙古—新疆—中亚",
-    "leg_into": "gap"
+    "segment": "I",
+    "source": "报告 I 段；asks/23",
+    "order": 125,
+    "arrival_day": 17716.39
    }
   },
   {
@@ -5101,8 +5648,7 @@
     "kind": "unknown_route",
     "to": "新疆（乌鲁木齐一带，示意）",
     "date": "2018",
-    "inferred": true,
-    "segment": "I 蒙古—新疆—中亚"
+    "inferred": true
    }
   },
   {
@@ -5115,12 +5661,17 @@
     ]
    },
    "properties": {
-    "order": 125,
     "name": "阿拉木图",
     "date": "2018-11",
+    "date_lo": "2018-11-01",
+    "date_hi": "2018-11-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "I 蒙古—新疆—中亚",
-    "leg_into": "walk"
+    "segment": "I",
+    "source": "报告 I 段；asks/23",
+    "order": 126,
+    "arrival_day": 17850.5
    }
   },
   {
@@ -5142,8 +5693,7 @@
     "kind": "walk",
     "to": "阿拉木图",
     "date": "2018-11",
-    "inferred": true,
-    "segment": "I 蒙古—新疆—中亚"
+    "inferred": true
    }
   },
   {
@@ -5156,12 +5706,17 @@
     ]
    },
    "properties": {
-    "order": 126,
     "name": "撒马尔罕",
     "date": "2019-06",
+    "date_lo": "2019-06-01",
+    "date_hi": "2019-06-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "I 蒙古—新疆—中亚",
-    "leg_into": "walk"
+    "segment": "I",
+    "source": "报告 I 段；asks/23",
+    "order": 127,
+    "arrival_day": 18062.5
    }
   },
   {
@@ -5183,8 +5738,7 @@
     "kind": "walk",
     "to": "撒马尔罕",
     "date": "2019-06",
-    "inferred": false,
-    "segment": "I 蒙古—新疆—中亚"
+    "inferred": false
    }
   },
   {
@@ -5197,12 +5751,17 @@
     ]
    },
    "properties": {
-    "order": 127,
     "name": "布哈拉",
     "date": "2019-06/07",
+    "date_lo": "2019-06-01",
+    "date_hi": "2019-07-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "I 蒙古—新疆—中亚",
-    "leg_into": "walk"
+    "segment": "I",
+    "source": "报告 I 段；asks/23",
+    "order": 128,
+    "arrival_day": 18078.0
    }
   },
   {
@@ -5224,8 +5783,7 @@
     "kind": "walk",
     "to": "布哈拉",
     "date": "2019-06/07",
-    "inferred": false,
-    "segment": "I 蒙古—新疆—中亚"
+    "inferred": false
    }
   },
   {
@@ -5238,12 +5796,17 @@
     ]
    },
    "properties": {
-    "order": 128,
     "name": "布哈拉（重新出发）",
     "date": "2023-09-24",
+    "date_lo": "2023-09-24",
+    "date_hi": "2023-09-24",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "布哈拉—里海",
-    "leg_into": "start"
+    "segment": "K",
+    "source": "本人 Instagram 2023-09-24 出发帖（布哈拉定位）",
+    "order": 129,
+    "arrival_day": 19624.0
    }
   },
   {
@@ -5256,12 +5819,17 @@
     ]
    },
    "properties": {
-    "order": 129,
     "name": "克孜勒库姆沙漠（区域示意）",
     "date": "2023/24",
+    "date_lo": "2023-01-01",
+    "date_hi": "2024-12-31",
+    "precision": "year",
+    "approx": false,
     "status": "inferred",
-    "segment": "布哈拉—里海",
-    "leg_into": "walk"
+    "segment": "K",
+    "source": "asks/17、asks/23；中亚时报、Tengrinews",
+    "order": 130,
+    "arrival_day": 19669.83
    }
   },
   {
@@ -5283,8 +5851,7 @@
     "kind": "walk",
     "to": "克孜勒库姆沙漠（区域示意）",
     "date": "2023/24",
-    "inferred": true,
-    "segment": "布哈拉—里海"
+    "inferred": true
    }
   },
   {
@@ -5297,12 +5864,17 @@
     ]
    },
    "properties": {
-    "order": 130,
     "name": "谢特佩（曼吉斯套）",
     "date": "2024-04-14",
+    "date_lo": "2024-04-14",
+    "date_hi": "2024-04-14",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "布哈拉—里海",
-    "leg_into": "walk"
+    "segment": "K",
+    "source": "asks/17、asks/23；中亚时报、Tengrinews",
+    "order": 131,
+    "arrival_day": 19827.0
    }
   },
   {
@@ -5324,8 +5896,7 @@
     "kind": "walk",
     "to": "谢特佩（曼吉斯套）",
     "date": "2024-04-14",
-    "inferred": true,
-    "segment": "布哈拉—里海"
+    "inferred": true
    }
   },
   {
@@ -5338,12 +5909,17 @@
     ]
    },
    "properties": {
-    "order": 131,
     "name": "阿克套（起游点）",
     "date": "2024-08-16",
+    "date_lo": "2024-08-16",
+    "date_hi": "2024-08-16",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "布哈拉—里海",
-    "leg_into": "walk"
+    "segment": "K",
+    "source": "中亚时报、Tengrinews、Report.az、azh.kz（asks/17）",
+    "order": 132,
+    "arrival_day": 19951.0
    }
   },
   {
@@ -5365,8 +5941,7 @@
     "kind": "walk",
     "to": "阿克套（起游点）",
     "date": "2024-08-16",
-    "inferred": false,
-    "segment": "布哈拉—里海"
+    "inferred": false
    }
   },
   {
@@ -5379,12 +5954,17 @@
     ]
    },
    "properties": {
-    "order": 132,
     "name": "纳尔达兰（巴库北）",
     "date": "2024-09-17",
+    "date_lo": "2024-09-17",
+    "date_hi": "2024-09-17",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "布哈拉—里海",
-    "leg_into": "swim"
+    "segment": "K",
+    "source": "asks/17、asks/23；中亚时报、Tengrinews",
+    "order": 133,
+    "arrival_day": 19983.0
    }
   },
   {
@@ -5406,8 +5986,7 @@
     "kind": "swim",
     "to": "纳尔达兰（巴库北）",
     "date": "2024-09-17",
-    "inferred": false,
-    "segment": "布哈拉—里海"
+    "inferred": false
    }
   },
   {
@@ -5420,12 +5999,17 @@
     ]
    },
    "properties": {
-    "order": 133,
     "name": "巴库",
     "date": "2024-11-10",
+    "date_lo": "2024-11-10",
+    "date_hi": "2024-11-10",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 134,
+    "arrival_day": 20037.0
    }
   },
   {
@@ -5447,8 +6031,7 @@
     "kind": "walk",
     "to": "巴库",
     "date": "2024-11-10",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5461,12 +6044,17 @@
     ]
    },
    "properties": {
-    "order": 134,
     "name": "巴统",
     "date": "2025-02-01",
+    "date_lo": "2025-02-01",
+    "date_hi": "2025-02-01",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "gap"
+    "segment": "J",
+    "source": "本人 Instagram 2025-02-01（巴统定位）",
+    "order": 135,
+    "arrival_day": 20120.0
    }
   },
   {
@@ -5488,8 +6076,7 @@
     "kind": "unknown_route",
     "to": "巴统",
     "date": "2025-02-01",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5502,12 +6089,17 @@
     ]
    },
    "properties": {
-    "order": 135,
     "name": "萨尔普",
     "date": "2025-02-05",
+    "date_lo": "2025-02-05",
+    "date_hi": "2025-02-05",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "Yeni Akit/IHA 2025-02-12；Çanakkale Olay 2025-02-12；Daily Sabah/AA",
+    "order": 136,
+    "arrival_day": 20124.0
    }
   },
   {
@@ -5529,8 +6121,7 @@
     "kind": "walk",
     "to": "萨尔普",
     "date": "2025-02-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5543,12 +6134,17 @@
     ]
    },
    "properties": {
-    "order": 136,
     "name": "霍帕",
     "date": "2025-02-05",
+    "date_lo": "2025-02-05",
+    "date_hi": "2025-02-05",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "Yeni Akit/IHA 2025-02-12；Çanakkale Olay 2025-02-12；Daily Sabah/AA",
+    "order": 137,
+    "arrival_day": 20124.0
    }
   },
   {
@@ -5570,8 +6166,7 @@
     "kind": "walk",
     "to": "霍帕",
     "date": "2025-02-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5584,12 +6179,17 @@
     ]
    },
    "properties": {
-    "order": 137,
     "name": "阿尔哈维",
     "date": "2025-02",
+    "date_lo": "2025-02-01",
+    "date_hi": "2025-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "Yeni Akit/IHA 2025-02-12；Çanakkale Olay 2025-02-12；Daily Sabah/AA",
+    "order": 138,
+    "arrival_day": 20133.5
    }
   },
   {
@@ -5611,8 +6211,7 @@
     "kind": "walk",
     "to": "阿尔哈维",
     "date": "2025-02",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5625,12 +6224,17 @@
     ]
    },
    "properties": {
-    "order": 138,
     "name": "里泽",
     "date": "2025-02",
+    "date_lo": "2025-02-01",
+    "date_hi": "2025-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "Yeni Akit/IHA 2025-02-12；Çanakkale Olay 2025-02-12；Daily Sabah/AA",
+    "order": 139,
+    "arrival_day": 20133.5
    }
   },
   {
@@ -5652,8 +6256,7 @@
     "kind": "walk",
     "to": "里泽",
     "date": "2025-02",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5666,12 +6269,17 @@
     ]
    },
    "properties": {
-    "order": 139,
     "name": "奥夫",
     "date": "约2025-02-12",
+    "date_lo": "2025-02-12",
+    "date_hi": "2025-02-12",
+    "precision": "day",
+    "approx": true,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "Yeni Akit/IHA 2025-02-12；Çanakkale Olay 2025-02-12；Daily Sabah/AA",
+    "order": 140,
+    "arrival_day": 20133.5
    }
   },
   {
@@ -5693,8 +6301,7 @@
     "kind": "walk",
     "to": "奥夫",
     "date": "约2025-02-12",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -5707,12 +6314,17 @@
     ]
    },
    "properties": {
-    "order": 140,
     "name": "特拉布宗",
     "date": "2025-02",
+    "date_lo": "2025-02-01",
+    "date_hi": "2025-02-28",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 141,
+    "arrival_day": 20133.5
    }
   },
   {
@@ -5734,8 +6346,7 @@
     "kind": "walk",
     "to": "特拉布宗",
     "date": "2025-02",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5748,12 +6359,17 @@
     ]
    },
    "properties": {
-    "order": 141,
     "name": "吉雷松",
     "date": "2025-02/03",
+    "date_lo": "2025-02-01",
+    "date_hi": "2025-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 142,
+    "arrival_day": 20149.0
    }
   },
   {
@@ -5775,8 +6391,7 @@
     "kind": "walk",
     "to": "吉雷松",
     "date": "2025-02/03",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5789,12 +6404,17 @@
     ]
    },
    "properties": {
-    "order": 142,
     "name": "奥尔杜",
     "date": "2025-03",
+    "date_lo": "2025-03-01",
+    "date_hi": "2025-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 143,
+    "arrival_day": 20163.0
    }
   },
   {
@@ -5816,8 +6436,7 @@
     "kind": "walk",
     "to": "奥尔杜",
     "date": "2025-03",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5830,12 +6449,17 @@
     ]
    },
    "properties": {
-    "order": 143,
     "name": "萨姆松",
     "date": "2025-03-12",
+    "date_lo": "2025-03-12",
+    "date_hi": "2025-03-12",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "萨姆松市政府 Instagram 2025-03-12；NTV/DHA 2025-03-13",
+    "order": 144,
+    "arrival_day": 20163.0
    }
   },
   {
@@ -5857,8 +6481,7 @@
     "kind": "walk",
     "to": "萨姆松",
     "date": "2025-03-12",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5871,12 +6494,17 @@
     ]
    },
    "properties": {
-    "order": 144,
     "name": "梅尔济丰",
     "date": "2025-03",
+    "date_lo": "2025-03-01",
+    "date_hi": "2025-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 145,
+    "arrival_day": 20163.0
    }
   },
   {
@@ -5898,8 +6526,7 @@
     "kind": "walk",
     "to": "梅尔济丰",
     "date": "2025-03",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5912,12 +6539,17 @@
     ]
    },
    "properties": {
-    "order": 145,
     "name": "托斯亚",
     "date": "2025-04",
+    "date_lo": "2025-04-01",
+    "date_hi": "2025-04-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 146,
+    "arrival_day": 20193.5
    }
   },
   {
@@ -5939,8 +6571,7 @@
     "kind": "walk",
     "to": "托斯亚",
     "date": "2025-04",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5953,12 +6584,17 @@
     ]
    },
    "properties": {
-    "order": 146,
     "name": "博卢",
     "date": "2025-04-16",
+    "date_lo": "2025-04-16",
+    "date_hi": "2025-04-16",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 147,
+    "arrival_day": 20194.0
    }
   },
   {
@@ -5980,8 +6616,7 @@
     "kind": "walk",
     "to": "博卢",
     "date": "2025-04-16",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -5994,12 +6629,17 @@
     ]
    },
    "properties": {
-    "order": 147,
     "name": "科贾埃利",
     "date": "2025-04-22",
+    "date_lo": "2025-04-22",
+    "date_hi": "2025-04-22",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 148,
+    "arrival_day": 20200.0
    }
   },
   {
@@ -6021,8 +6661,7 @@
     "kind": "walk",
     "to": "科贾埃利",
     "date": "2025-04-22",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6035,12 +6674,17 @@
     ]
    },
    "properties": {
-    "order": 148,
     "name": "于斯屈达尔",
     "date": "2025-04-25",
+    "date_lo": "2025-04-25",
+    "date_hi": "2025-04-25",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 149,
+    "arrival_day": 20203.0
    }
   },
   {
@@ -6062,8 +6706,7 @@
     "kind": "walk",
     "to": "于斯屈达尔",
     "date": "2025-04-25",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6076,12 +6719,17 @@
     ]
    },
    "properties": {
-    "order": 149,
     "name": "博斯普鲁斯大桥",
     "date": "2025-05-02",
+    "date_lo": "2025-05-02",
+    "date_hi": "2025-05-02",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 150,
+    "arrival_day": 20210.0
    }
   },
   {
@@ -6103,8 +6751,7 @@
     "kind": "walk",
     "to": "博斯普鲁斯大桥",
     "date": "2025-05-02",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6117,12 +6764,17 @@
     ]
    },
    "properties": {
-    "order": 150,
     "name": "埃迪尔内/卡普库莱",
     "date": "2025-09-01",
+    "date_lo": "2025-09-01",
+    "date_hi": "2025-09-01",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 151,
+    "arrival_day": 20332.0
    }
   },
   {
@@ -6144,8 +6796,7 @@
     "kind": "walk",
     "to": "埃迪尔内/卡普库莱",
     "date": "2025-09-01",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6158,12 +6809,17 @@
     ]
    },
    "properties": {
-    "order": 151,
     "name": "哈斯科沃",
     "date": "2025-09",
+    "date_lo": "2025-09-01",
+    "date_hi": "2025-09-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "snimkata.co（保加利亚 8 号、82 号公路）",
+    "order": 152,
+    "arrival_day": 20346.5
    }
   },
   {
@@ -6185,8 +6841,7 @@
     "kind": "walk",
     "to": "哈斯科沃",
     "date": "2025-09",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6199,12 +6854,17 @@
     ]
    },
    "properties": {
-    "order": 152,
     "name": "普罗夫迪夫",
     "date": "2025-09",
+    "date_lo": "2025-09-01",
+    "date_hi": "2025-09-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "snimkata.co（保加利亚 8 号、82 号公路）",
+    "order": 153,
+    "arrival_day": 20346.5
    }
   },
   {
@@ -6226,8 +6886,7 @@
     "kind": "walk",
     "to": "普罗夫迪夫",
     "date": "2025-09",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6240,12 +6899,17 @@
     ]
    },
    "properties": {
-    "order": 153,
     "name": "帕扎尔吉克",
     "date": "2025-09",
+    "date_lo": "2025-09-01",
+    "date_hi": "2025-09-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "snimkata.co（保加利亚 8 号、82 号公路）",
+    "order": 154,
+    "arrival_day": 20346.5
    }
   },
   {
@@ -6267,8 +6931,7 @@
     "kind": "walk",
     "to": "帕扎尔吉克",
     "date": "2025-09",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6281,12 +6944,17 @@
     ]
    },
    "properties": {
-    "order": 154,
     "name": "萨莫科夫",
     "date": "2025-09",
+    "date_lo": "2025-09-01",
+    "date_hi": "2025-09-30",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "snimkata.co（保加利亚 8 号、82 号公路）",
+    "order": 155,
+    "arrival_day": 20346.5
    }
   },
   {
@@ -6308,8 +6976,7 @@
     "kind": "walk",
     "to": "萨莫科夫",
     "date": "2025-09",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6322,12 +6989,17 @@
     ]
    },
    "properties": {
-    "order": 155,
     "name": "索非亚",
     "date": "2025-09-16",
+    "date_lo": "2025-09-16",
+    "date_hi": "2025-09-16",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "snimkata.co（保加利亚 8 号、82 号公路）",
+    "order": 156,
+    "arrival_day": 20347.0
    }
   },
   {
@@ -6349,8 +7021,7 @@
     "kind": "walk",
     "to": "索非亚",
     "date": "2025-09-16",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6363,12 +7034,17 @@
     ]
    },
    "properties": {
-    "order": 156,
     "name": "维丁",
     "date": "2025-10",
+    "date_lo": "2025-10-01",
+    "date_hi": "2025-10-31",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 157,
+    "arrival_day": 20377.0
    }
   },
   {
@@ -6390,8 +7066,7 @@
     "kind": "walk",
     "to": "维丁",
     "date": "2025-10",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -6404,12 +7079,17 @@
     ]
    },
    "properties": {
-    "order": 157,
     "name": "罗马尼亚中西部（示意）",
     "date": "2025-10-14",
+    "date_lo": "2025-10-14",
+    "date_hi": "2025-10-14",
+    "precision": "day",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 158,
+    "arrival_day": 20377.0
    }
   },
   {
@@ -6431,8 +7111,7 @@
     "kind": "walk",
     "to": "罗马尼亚中西部（示意）",
     "date": "2025-10-14",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -6445,12 +7124,17 @@
     ]
    },
    "properties": {
-    "order": 158,
     "name": "阿拉德",
     "date": "2025-10/11",
+    "date_lo": "2025-10-01",
+    "date_hi": "2025-11-30",
+    "precision": "month",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 159,
+    "arrival_day": 20392.0
    }
   },
   {
@@ -6472,8 +7156,7 @@
     "kind": "walk",
     "to": "阿拉德",
     "date": "2025-10/11",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -6486,12 +7169,17 @@
     ]
    },
    "properties": {
-    "order": 159,
     "name": "布达佩斯",
     "date": "2025-11-15",
+    "date_lo": "2025-11-15",
+    "date_hi": "2025-11-15",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 160,
+    "arrival_day": 20407.0
    }
   },
   {
@@ -6513,8 +7201,7 @@
     "kind": "walk",
     "to": "布达佩斯",
     "date": "2025-11-15",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -6527,12 +7214,17 @@
     ]
    },
    "properties": {
-    "order": 160,
     "name": "科马罗姆",
     "date": "2025-11-25",
+    "date_lo": "2025-11-25",
+    "date_hi": "2025-11-25",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 161,
+    "arrival_day": 20417.0
    }
   },
   {
@@ -6554,8 +7246,7 @@
     "kind": "walk",
     "to": "科马罗姆",
     "date": "2025-11-25",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6568,12 +7259,17 @@
     ]
    },
    "properties": {
-    "order": 161,
     "name": "杰尔",
     "date": "2025-12",
+    "date_lo": "2025-12-01",
+    "date_hi": "2025-12-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 162,
+    "arrival_day": 20438.0
    }
   },
   {
@@ -6595,8 +7291,7 @@
     "kind": "walk",
     "to": "杰尔",
     "date": "2025-12",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6609,12 +7304,17 @@
     ]
    },
    "properties": {
-    "order": 162,
     "name": "维也纳",
     "date": "2026-03",
+    "date_lo": "2026-03-01",
+    "date_hi": "2026-03-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 163,
+    "arrival_day": 20528.0
    }
   },
   {
@@ -6636,8 +7336,7 @@
     "kind": "walk",
     "to": "维也纳",
     "date": "2026-03",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6650,12 +7349,17 @@
     ]
    },
    "properties": {
-    "order": 163,
     "name": "图尔恩",
     "date": "2026-03-24",
+    "date_lo": "2026-03-24",
+    "date_hi": "2026-03-24",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 164,
+    "arrival_day": 20536.0
    }
   },
   {
@@ -6677,8 +7381,7 @@
     "kind": "walk",
     "to": "图尔恩",
     "date": "2026-03-24",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6691,12 +7394,17 @@
     ]
    },
    "properties": {
-    "order": 164,
     "name": "林茨",
     "date": "约2026-04-10",
+    "date_lo": "2026-04-10",
+    "date_hi": "2026-04-10",
+    "precision": "day",
+    "approx": true,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 165,
+    "arrival_day": 20553.0
    }
   },
   {
@@ -6718,8 +7426,7 @@
     "kind": "walk",
     "to": "林茨",
     "date": "约2026-04-10",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6732,12 +7439,17 @@
     ]
    },
    "properties": {
-    "order": 165,
     "name": "维尔斯霍芬",
     "date": "2026-04-15",
+    "date_lo": "2026-04-15",
+    "date_hi": "2026-04-15",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 166,
+    "arrival_day": 20558.0
    }
   },
   {
@@ -6759,8 +7471,7 @@
     "kind": "walk",
     "to": "维尔斯霍芬",
     "date": "2026-04-15",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6773,12 +7484,17 @@
     ]
    },
    "properties": {
-    "order": 166,
     "name": "雷根斯堡",
     "date": "2026-04下/05初",
+    "date_lo": "2026-04-21",
+    "date_hi": "2026-05-10",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 167,
+    "arrival_day": 20573.5
    }
   },
   {
@@ -6800,8 +7516,7 @@
     "kind": "walk",
     "to": "雷根斯堡",
     "date": "2026-04下/05初",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6814,12 +7529,17 @@
     ]
    },
    "properties": {
-    "order": 167,
     "name": "纽伦堡（本人公告，未证实）",
     "date": "2026-05-01",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-01",
+    "precision": "day",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 公告 2026-04-29，读作纽伦堡，未证实）",
+    "order": 168,
+    "arrival_day": 20574.0
    }
   },
   {
@@ -6841,8 +7561,7 @@
     "kind": "walk",
     "to": "纽伦堡（本人公告，未证实）",
     "date": "2026-05-01",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -6855,12 +7574,17 @@
     ]
    },
    "properties": {
-    "order": 168,
     "name": "富克斯施塔特",
     "date": "2026-05",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 169,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -6882,8 +7606,7 @@
     "kind": "walk",
     "to": "富克斯施塔特",
     "date": "2026-05",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -6896,12 +7619,17 @@
     ]
    },
    "properties": {
-    "order": 169,
     "name": "瓦尔德比特尔布伦",
     "date": "2026-05",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 170,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -6923,8 +7651,7 @@
     "kind": "walk",
     "to": "瓦尔德比特尔布伦",
     "date": "2026-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6937,12 +7664,17 @@
     ]
    },
    "properties": {
-    "order": 170,
     "name": "韦尔特海姆",
     "date": "2026-05",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 171,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -6964,8 +7696,7 @@
     "kind": "walk",
     "to": "韦尔特海姆",
     "date": "2026-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -6978,12 +7709,17 @@
     ]
    },
    "properties": {
-    "order": 171,
     "name": "科伦贝格",
     "date": "2026-05",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 172,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -7005,8 +7741,7 @@
     "kind": "walk",
     "to": "科伦贝格",
     "date": "2026-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7019,12 +7754,17 @@
     ]
    },
    "properties": {
-    "order": 172,
     "name": "米尔滕贝格",
     "date": "2026-05",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 173,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -7046,8 +7786,7 @@
     "kind": "walk",
     "to": "米尔滕贝格",
     "date": "2026-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7060,12 +7799,17 @@
     ]
    },
    "properties": {
-    "order": 173,
     "name": "奥伯恩堡",
     "date": "2026-05",
+    "date_lo": "2026-05-01",
+    "date_hi": "2026-05-31",
+    "precision": "month",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 174,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -7087,8 +7831,7 @@
     "kind": "walk",
     "to": "奥伯恩堡",
     "date": "2026-05",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7101,12 +7844,17 @@
     ]
    },
    "properties": {
-    "order": 174,
     "name": "法兰克福",
     "date": "2026-05-16",
+    "date_lo": "2026-05-16",
+    "date_hi": "2026-05-16",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 175,
+    "arrival_day": 20589.0
    }
   },
   {
@@ -7128,8 +7876,7 @@
     "kind": "walk",
     "to": "法兰克福",
     "date": "2026-05-16",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7142,12 +7889,17 @@
     ]
    },
    "properties": {
-    "order": 175,
     "name": "海德斯海姆（美因茨附近）",
     "date": "2026-05-20",
+    "date_lo": "2026-05-20",
+    "date_hi": "2026-05-20",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 176,
+    "arrival_day": 20593.0
    }
   },
   {
@@ -7169,8 +7921,7 @@
     "kind": "walk",
     "to": "海德斯海姆（美因茨附近）",
     "date": "2026-05-20",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7183,12 +7934,17 @@
     ]
    },
    "properties": {
-    "order": 176,
     "name": "米伦博恩（艾费尔）",
     "date": "2026-05-26",
+    "date_lo": "2026-05-26",
+    "date_hi": "2026-05-26",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 177,
+    "arrival_day": 20599.0
    }
   },
   {
@@ -7210,8 +7966,7 @@
     "kind": "walk",
     "to": "米伦博恩（艾费尔）",
     "date": "2026-05-26",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7224,12 +7979,17 @@
     ]
    },
    "properties": {
-    "order": 177,
     "name": "圣维特（入比利时）",
     "date": "2026-05-31",
+    "date_lo": "2026-05-31",
+    "date_hi": "2026-05-31",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "asks/23（本人 IG 定位；Tripsite 2026-05 同行记述）",
+    "order": 178,
+    "arrival_day": 20604.0
    }
   },
   {
@@ -7251,8 +8011,7 @@
     "kind": "walk",
     "to": "圣维特（入比利时）",
     "date": "2026-05-31",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7265,12 +8024,17 @@
     ]
    },
    "properties": {
-    "order": 178,
     "name": "阿夫雷",
     "date": "2026-09-16",
+    "date_lo": "2026-09-16",
+    "date_hi": "2026-09-16",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 179,
+    "arrival_day": 20712.0
    }
   },
   {
@@ -7292,8 +8056,7 @@
     "kind": "walk",
     "to": "阿夫雷",
     "date": "2026-09-16",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7306,12 +8069,17 @@
     ]
    },
    "properties": {
-    "order": 179,
     "name": "蒙斯",
     "date": "2026-09-17",
+    "date_lo": "2026-09-17",
+    "date_hi": "2026-09-17",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 180,
+    "arrival_day": 20713.0
    }
   },
   {
@@ -7333,8 +8101,7 @@
     "kind": "walk",
     "to": "蒙斯",
     "date": "2026-09-17",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7347,12 +8114,17 @@
     ]
    },
    "properties": {
-    "order": 180,
     "name": "图尔奈",
     "date": "2026-09-18",
+    "date_lo": "2026-09-18",
+    "date_hi": "2026-09-18",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 181,
+    "arrival_day": 20714.0
    }
   },
   {
@@ -7374,8 +8146,7 @@
     "kind": "walk",
     "to": "图尔奈",
     "date": "2026-09-18",
-    "inferred": false,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": false
    }
   },
   {
@@ -7388,12 +8159,17 @@
     ]
    },
    "properties": {
-    "order": 181,
     "name": "里尔",
     "date": "2026-09-20",
+    "date_lo": "2026-09-20",
+    "date_hi": "2026-09-20",
+    "precision": "day",
+    "approx": false,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 182,
+    "arrival_day": 20716.0
    }
   },
   {
@@ -7415,8 +8191,7 @@
     "kind": "walk",
     "to": "里尔",
     "date": "2026-09-20",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -7429,12 +8204,17 @@
     ]
    },
    "properties": {
-    "order": 182,
     "name": "加来/白鼻角一带（起游点未公开）",
     "date": "约2026-09-30",
+    "date_lo": "2026-09-30",
+    "date_hi": "2026-09-30",
+    "precision": "day",
+    "approx": true,
     "status": "inferred",
-    "segment": "J 高加索—土耳其—欧洲",
-    "leg_into": "walk"
+    "segment": "J",
+    "source": "报告 J 段；asks/18、asks/23",
+    "order": 183,
+    "arrival_day": 20726.0
    }
   },
   {
@@ -7456,8 +8236,7 @@
     "kind": "walk",
     "to": "加来/白鼻角一带（起游点未公开）",
     "date": "约2026-09-30",
-    "inferred": true,
-    "segment": "J 高加索—土耳其—欧洲"
+    "inferred": true
    }
   },
   {
@@ -7470,12 +8249,17 @@
     ]
    },
    "properties": {
-    "order": 183,
     "name": "莎士比亚海滩（多佛）",
     "date": "2026-10-05",
+    "date_lo": "2026-10-05",
+    "date_hi": "2026-10-05",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "swim"
+    "segment": "UK",
+    "source": "报告 归乡章；asks/19-21、asks/20",
+    "order": 184,
+    "arrival_day": 20731.0
    }
   },
   {
@@ -7497,8 +8281,7 @@
     "kind": "swim",
     "to": "莎士比亚海滩（多佛）",
     "date": "2026-10-05",
-    "inferred": true,
-    "segment": "英吉利海峡与归乡"
+    "inferred": true
    }
   },
   {
@@ -7511,12 +8294,17 @@
     ]
    },
    "properties": {
-    "order": 184,
     "name": "锡廷伯恩以北",
     "date": "2026-10-11/12",
+    "date_lo": "2026-10-11",
+    "date_hi": "2026-10-12",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "Capital 电台连线转录（中等可靠）",
+    "order": 185,
+    "arrival_day": 20737.5
    }
   },
   {
@@ -7538,8 +8326,7 @@
     "kind": "walk",
     "to": "锡廷伯恩以北",
     "date": "2026-10-11/12",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7552,12 +8339,17 @@
     ]
    },
    "properties": {
-    "order": 185,
     "name": "格林尼治步行隧道",
     "date": "2026-10-16/17",
+    "date_lo": "2026-10-16",
+    "date_hi": "2026-10-17",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "Leon Neal Instagram 2026-10-17；通讯社图注 10-16",
+    "order": 186,
+    "arrival_day": 20742.5
    }
   },
   {
@@ -7579,8 +8371,7 @@
     "kind": "walk",
     "to": "格林尼治步行隧道",
     "date": "2026-10-16/17",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7593,12 +8384,17 @@
     ]
    },
    "properties": {
-    "order": 186,
     "name": "金丝雀码头",
     "date": "2026-10-16/17",
+    "date_lo": "2026-10-16",
+    "date_hi": "2026-10-17",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "Leon Neal Instagram 2026-10-17；通讯社图注 10-16",
+    "order": 187,
+    "arrival_day": 20742.5
    }
   },
   {
@@ -7620,8 +8416,7 @@
     "kind": "walk",
     "to": "金丝雀码头",
     "date": "2026-10-16/17",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7634,12 +8429,17 @@
     ]
    },
    "properties": {
-    "order": 187,
     "name": "彼得伯勒",
     "date": "2026-10-22",
+    "date_lo": "2026-10-22",
+    "date_hi": "2026-10-22",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "ITV Calendar 2026-10-22",
+    "order": 188,
+    "arrival_day": 20748.0
    }
   },
   {
@@ -7661,8 +8461,7 @@
     "kind": "walk",
     "to": "彼得伯勒",
     "date": "2026-10-22",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7675,12 +8474,17 @@
     ]
    },
    "properties": {
-    "order": 188,
     "name": "斯伯丁",
     "date": "2026-10-24",
+    "date_lo": "2026-10-24",
+    "date_hi": "2026-10-24",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "LincsOnline/Iliffe 2026-10-27",
+    "order": 189,
+    "arrival_day": 20750.0
    }
   },
   {
@@ -7702,8 +8506,7 @@
     "kind": "walk",
     "to": "斯伯丁",
     "date": "2026-10-24",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7716,12 +8519,17 @@
     ]
    },
    "properties": {
-    "order": 189,
     "name": "戈斯伯顿",
     "date": "2026-10-25",
+    "date_lo": "2026-10-25",
+    "date_hi": "2026-10-25",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "LincsOnline/Iliffe 2026-10-27",
+    "order": 190,
+    "arrival_day": 20751.0
    }
   },
   {
@@ -7743,8 +8551,7 @@
     "kind": "walk",
     "to": "戈斯伯顿",
     "date": "2026-10-25",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7757,12 +8564,17 @@
     ]
    },
    "properties": {
-    "order": 190,
     "name": "马基特雷森",
     "date": "2026-10-28",
+    "date_lo": "2026-10-28",
+    "date_hi": "2026-10-28",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "AP 2026-10-28 摄影",
+    "order": 191,
+    "arrival_day": 20754.0
    }
   },
   {
@@ -7784,8 +8596,7 @@
     "kind": "walk",
     "to": "马基特雷森",
     "date": "2026-10-28",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7798,12 +8609,17 @@
     ]
    },
    "properties": {
-    "order": 191,
     "name": "亨伯河畔巴顿",
     "date": "2026-10-31",
+    "date_lo": "2026-10-31",
+    "date_hi": "2026-10-31",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "Grimsby Telegraph 2026-11-01；BBC",
+    "order": 192,
+    "arrival_day": 20757.0
    }
   },
   {
@@ -7825,8 +8641,7 @@
     "kind": "walk",
     "to": "亨伯河畔巴顿",
     "date": "2026-10-31",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7839,12 +8654,17 @@
     ]
    },
    "properties": {
-    "order": 192,
     "name": "亨伯大桥",
     "date": "2026-11-01",
+    "date_lo": "2026-11-01",
+    "date_hi": "2026-11-01",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "Grimsby Telegraph 2026-11-01；BBC",
+    "order": 193,
+    "arrival_day": 20758.0
    }
   },
   {
@@ -7866,8 +8686,7 @@
     "kind": "walk",
     "to": "亨伯大桥",
     "date": "2026-11-01",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7880,12 +8699,17 @@
     ]
    },
    "properties": {
-    "order": 193,
     "name": "赫塞尔",
     "date": "2026-11-02",
+    "date_lo": "2026-11-02",
+    "date_hi": "2026-11-02",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "报告 归乡章；asks/19-21、asks/20",
+    "order": 194,
+    "arrival_day": 20759.0
    }
   },
   {
@@ -7907,8 +8731,7 @@
     "kind": "walk",
     "to": "赫塞尔",
     "date": "2026-11-02",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
    }
   },
   {
@@ -7921,12 +8744,17 @@
     ]
    },
    "properties": {
-    "order": 194,
     "name": "赫尔（母亲家）",
     "date": "2026-11-02",
+    "date_lo": "2026-11-02",
+    "date_hi": "2026-11-02",
+    "precision": "day",
+    "approx": false,
     "status": "verified",
-    "segment": "英吉利海峡与归乡",
-    "leg_into": "walk"
+    "segment": "UK",
+    "source": "报告 归乡章；asks/19-21、asks/20",
+    "order": 195,
+    "arrival_day": 20759.0
    }
   },
   {
@@ -7948,8 +8776,672 @@
     "kind": "walk",
     "to": "赫尔（母亲家）",
     "date": "2026-11-02",
-    "inferred": false,
-    "segment": "英吉利海峡与归乡"
+    "inferred": false
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.72,
+      0.81
+     ],
+     [
+      -78.45,
+      -0.002
+     ],
+     [
+      -77.72,
+      0.81
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "图尔坎→基多北郊补走→回图尔坎",
+    "type": "offline",
+    "date_lo": "2000-09-07",
+    "date_hi": "2000-09-08",
+    "note": "坐车回头补走 22 km，再回到已到达点（不推进）",
+    "source": "《Giant Steps》美版（第十轮书内检索）"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.58,
+      8.03
+     ],
+     [
+      -78.14,
+      8.4
+     ],
+     [
+      -77.98,
+      8.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "巴拿马押送（巡逻艇/直升机）",
+    "type": "fwd_rewalked",
+    "date_lo": "2001-02-20",
+    "date_hi": "2001-02-23",
+    "note": "全程唯一一次被交通工具往前送；约 3-06 获释后 3-08 回到博卡德库佩重走",
+    "source": "《Giant Steps》美版 pp.159–166；The Hull Story 2025-03-03"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      -75.56,
+      6.25
+     ],
+     [
+      -104.7,
+      19.22
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "梅拉克→麦德林→梅拉克",
+    "type": "offline",
+    "date_lo": "2001-12-06",
+    "date_hi": "2002-01-15",
+    "note": "寄存装备去见 Catty，原地续走",
+    "source": "《Giant Steps》美版 p.214"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -115.14,
+      36.17
+     ],
+     [
+      -110.94,
+      31.33
+     ],
+     [
+      -74.07,
+      4.71
+     ],
+     [
+      -115.14,
+      36.17
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "拉斯维加斯→（诺加利斯）→波哥大→回原点",
+    "type": "offline",
+    "date_lo": "2002-07-08",
+    "date_hi": "2002-08-07",
+    "note": "离线办 6 个月签证",
+    "source": "《Giant Steps》美版 pp.252–257"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -165.41,
+      64.5
+     ],
+     [
+      -160.79,
+      63.87
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "乌纳拉克利特离开，经诺姆飞回原点",
+    "type": "positioning",
+    "date_lo": "2005-12-28",
+    "date_hi": "2005-12-29",
+    "note": "2005 年 3 月签证到期停在乌纳拉克利特；12-28 经诺姆飞回、次日续走",
+    "source": "《Giant Steps》美版 pp.310–315"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -171.0,
+      65.58
+     ],
+     [
+      -165.41,
+      64.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "上岸被扣后飞回诺姆",
+    "type": "back",
+    "date_lo": "2006-05-24",
+    "date_hi": "2006-05-24",
+    "note": "3-31 上岸至 5-24 共 54 天；5-05 上诉撤销驱逐（方向向后）",
+    "source": "Seattle Times 2006-06-03；报告"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -165.41,
+      64.5
+     ],
+     [
+      177.51,
+      64.73
+     ],
+     [
+      -171.0,
+      65.58
+     ],
+     [
+      -169.81,
+      66.16
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "2007 归位：诺姆→阿纳德尔→拉夫连季亚→韦连",
+    "type": "positioning",
+    "date_lo": "2007-03-16",
+    "date_hi": "2007-04-11",
+    "note": "履带车车队，FSB 随行，送回原点",
+    "source": "Kieffer 博客 2007-03/04"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -165.41,
+      64.5
+     ],
+     [
+      177.51,
+      64.73
+     ],
+     [
+      168.0,
+      68.2
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "2008 归位：飞回德沃伊诺耶",
+    "type": "positioning",
+    "date_lo": "2008-04-16",
+    "date_hi": "2008-04-25",
+    "note": "回到 2007 年停下处续走（具体航线不详）",
+    "source": "Expedition Portal 2008-06-03 转引本人"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      166.44,
+      68.06
+     ],
+     [
+      177.51,
+      64.73
+     ],
+     [
+      -165.41,
+      64.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "2008 离开：比利比诺→阿纳德尔→诺姆",
+    "type": "offline",
+    "date_lo": "2008-05-18",
+    "date_hi": "2008-05-26",
+    "note": "春季解冻停走；随后失去赞助，在墨西哥停近两年",
+    "source": "Expedition Portal 2008-06-03"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -165.41,
+      64.5
+     ],
+     [
+      177.51,
+      64.73
+     ],
+     [
+      166.44,
+      68.06
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "2011 归位：诺姆→阿纳德尔→比利比诺",
+    "type": "positioning",
+    "date_lo": "2011-02-25",
+    "date_hi": "2011-03-10",
+    "note": "包机",
+    "source": "KP 2011；Alaska Public 2011-01-19"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      58.38,
+      37.95
+     ],
+     [
+      -104.7,
+      19.22
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "2019 离开土库曼斯坦",
+    "type": "offline",
+    "date_lo": "2019-09-15",
+    "date_hi": "2019-10-12",
+    "note": "签证到期离境，经洛杉矶到墨西哥（航线示意）",
+    "source": "Dave's Travel Corner 2022-11；ExplorersWeb 2021"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      64.42,
+      39.77
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "2023 回到布哈拉",
+    "type": "positioning",
+    "date_lo": "2023-09-01",
+    "date_hi": "2023-09-24",
+    "note": "从 2019 年的有效路线点另起新线",
+    "source": "本人 Instagram 2023-09-24"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      29.035,
+      41.045
+     ],
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      29.035,
+      41.045
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "等土耳其签证：伊斯坦布尔↔墨西哥",
+    "type": "offline",
+    "date_lo": "2025-05-02",
+    "date_hi": "2025-08-19",
+    "note": "2025-05-02 过桥当天离境，约 8-19 回伊斯坦布尔",
+    "source": "asks/18；报告 J 段"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      17.63,
+      47.69
+     ],
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      17.63,
+      47.69
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "申根重置：杰尔↔墨西哥",
+    "type": "offline",
+    "date_lo": "2025-12-10",
+    "date_hi": "2026-03-20",
+    "note": "离境日不写死（天数口径自相矛盾）；2026-01-10 BBC 已在墨西哥采访",
+    "source": "asks/18"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      4.05,
+      50.46
+     ],
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      4.05,
+      50.46
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "label": "申根重置：比利时↔墨西哥",
+    "type": "offline",
+    "date_lo": "2026-06-14",
+    "date_hi": "2026-09-12",
+    "note": "6 月中离开、9 月上中旬回（停走点按阿夫雷示意）",
+    "source": "asks/18；本人 TikTok 2026-09-12"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.58,
+     8.03
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "博卡德库佩被扣",
+    "date": "2001-02-16",
+    "status": "book",
+    "source": "《Giant Steps》美版 p.159"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.86,
+     48.51
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "推车在谢尔比被盗",
+    "date": "2002-12-31",
+    "status": "verified",
+    "source": "UPI/Great Falls Tribune；《Giant Steps》美版 p.271"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -159.6,
+     64.1
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "Old Woman 小屋结识 Kieffer（位置示意）",
+    "date": "2005-03-15",
+    "status": "inferred",
+    "source": "《Giant Steps》美版 p.311；Nome Nugget 2005-04"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -166.4,
+     64.75
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "浮冰漂流、直升机救回岸边（正式横渡前）",
+    "date": "2006-02-04",
+    "status": "verified",
+    "source": "Seattle Times 2006-04-06；《Giant Steps》美版 p.322"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -169.81,
+     66.16
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "韦连附近上岸，次日被扣",
+    "date": "2006-03-31",
+    "status": "verified",
+    "source": "报告 白令海峡章"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     161.3,
+     68.75
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "切尔斯基哨所记边境区违规",
+    "date": "2011-03-26",
+    "status": "verified",
+    "source": "1sn.ru 2011-03-28"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     124.71,
+     56.66
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "救援队修好断轮",
+    "date": "2016-06-08",
+    "status": "verified",
+    "source": "gazeta-bam 2016-06-11"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     124.75,
+     55.9
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "自驾车队在 A360 相遇（位置推断）",
+    "date": "2016-06-22",
+    "status": "inferred",
+    "source": "Touareg Eurasia 博客（Wayback 2016-07-07）；位置为推断"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     58.42,
+     37.8
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "伊朗边境，签证被拒",
+    "date": "2019-09-15",
+    "status": "verified",
+    "source": "El Informador 2020-02-02"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     29.035,
+     41.045
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "等一周审批，步行过博斯普鲁斯大桥",
+    "date": "2025-05-02",
+    "status": "verified",
+    "source": "报告 J 段；Türkiye Gazetesi 2025-05"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     25.9,
+     41.9
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "马里查高速路肩被罚（保加利亚）",
+    "date": "2025-09-05",
+    "status": "verified",
+    "source": "RFE/RL；bTV/Focus（金额未公开）"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.68,
+     50.11
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "法兰克福换上最后一双鞋",
+    "date": "2026-05-16",
+    "status": "verified",
+    "source": "Tripsite 2026-05；本人 IG 2026-05-18"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.16,
+     52.87
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "戈斯伯顿 Bell Inn 周日午餐",
+    "date": "2026-10-25",
+    "status": "verified",
+    "source": "LincsOnline 2026-10-27"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.45,
+     53.7
+    ]
+   },
+   "properties": {
+    "kind": "event",
+    "label": "亨伯大桥南端，赫尔佐格迎接",
+    "date": "2026-11-01",
+    "status": "verified",
+    "source": "Grimsby Telegraph 2026-11-01"
    }
   },
   {
@@ -7977,7 +9469,11 @@
    },
    "properties": {
     "kind": "voided",
-    "note": "2019 土库曼斯坦段：被逐出境后作废，2023 年从布哈拉重走"
+    "label": "2019 土库曼斯坦段（作废）",
+    "date_lo": "2019-07-15",
+    "date_hi": "2019-09-15",
+    "note": "签证到期离境后，被 2023 年自布哈拉另起的新线替换；他 2022 年估计这一退要损失近 700 英里",
+    "source": "Dave's Travel Corner 2022-11；asks/02、asks/23"
    }
   },
   {
@@ -8021,173 +9517,8 @@
    },
    "properties": {
     "kind": "protest_walk",
-    "note": "2013-09-03 至 2014-09-10 洛杉矶→华盛顿俄使馆抗议步行，不计入环球路线"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -77.58,
-      8.03
-     ],
-     [
-      -78.14,
-      8.4
-     ],
-     [
-      -77.98,
-      8.5
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "transport",
-    "transport_type": "fwd_rewalked",
-    "label": "巴拿马押送（巡逻艇/直升机）",
-    "note": "2001-02-20 往前押送；获释后 3-08 回到博卡德库佩重走",
-    "case": "panama"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -77.72,
-      0.81
-     ],
-     [
-      -78.45,
-      -0.002
-     ],
-     [
-      -77.72,
-      0.81
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "transport",
-    "transport_type": "offline",
-    "label": "图尔坎→基多补走→回图尔坎",
-    "note": "2000-09 坐车回头补走 22 km，再回到已到达点",
-    "case": "tulcan"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -115.14,
-      36.17
-     ],
-     [
-      -110.94,
-      31.33
-     ],
-     [
-      -74.07,
-      4.71
-     ],
-     [
-      -115.14,
-      36.17
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "transport",
-    "transport_type": "offline",
-    "label": "拉斯维加斯→（诺加利斯）→波哥大→回原点",
-    "note": "2002-07 离线办 6 个月签证",
-    "case": "bogota"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -104.7,
-      19.22
-     ],
-     [
-      -75.56,
-      6.25
-     ],
-     [
-      -104.7,
-      19.22
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "transport",
-    "transport_type": "offline",
-    "label": "梅拉克→麦德林→梅拉克",
-    "note": "2001-12 至 2002-01 见 Catty，原地续走",
-    "case": "melaque"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -171.0,
-      65.58
-     ],
-     [
-      -165.41,
-      64.5
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "transport",
-    "transport_type": "back",
-    "label": "被扣后飞回诺姆",
-    "note": "2006-05-24，54 天后离境（方向向后）",
-    "case": "bering"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "LineString",
-    "coordinates": [
-     [
-      -165.41,
-      64.5
-     ],
-     [
-      177.51,
-      64.73
-     ],
-     [
-      -171.0,
-      65.58
-     ],
-     [
-      -169.81,
-      66.16
-     ]
-    ]
-   },
-   "properties": {
-    "kind": "transport",
-    "transport_type": "positioning",
-    "label": "2007 归位：诺姆→阿纳德尔→拉夫连季亚→韦连",
-    "note": "FSB 随行履带车送回原点",
-    "case": "bering"
+    "label": "2013–14 洛杉矶→华盛顿俄使馆抗议步行（不计入环球路线）",
+    "source": "报告 H1；国家地理新闻稿 2014-08-14"
    }
   }
  ]

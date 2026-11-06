@@ -1,0 +1,114 @@
+[
+ {
+  "label": "博卡德库佩被扣",
+  "date": "2001-02-16",
+  "lon": -77.58,
+  "lat": 8.03,
+  "status": "book",
+  "source": "《Giant Steps》美版 p.159"
+ },
+ {
+  "label": "推车在谢尔比被盗",
+  "date": "2002-12-31",
+  "lon": -111.86,
+  "lat": 48.51,
+  "status": "verified",
+  "source": "UPI/Great Falls Tribune；《Giant Steps》美版 p.271"
+ },
+ {
+  "label": "Old Woman 小屋结识 Kieffer（位置示意）",
+  "date": "2005-03-15",
+  "lon": -159.6,
+  "lat": 64.1,
+  "status": "inferred",
+  "source": "《Giant Steps》美版 p.311；Nome Nugget 2005-04"
+ },
+ {
+  "label": "浮冰漂流、直升机救回岸边（正式横渡前）",
+  "date": "2006-02-04",
+  "lon": -166.4,
+  "lat": 64.75,
+  "status": "verified",
+  "source": "Seattle Times 2006-04-06；《Giant Steps》美版 p.322"
+ },
+ {
+  "label": "韦连附近上岸，次日被扣",
+  "date": "2006-03-31",
+  "lon": -169.81,
+  "lat": 66.16,
+  "status": "verified",
+  "source": "报告 白令海峡章"
+ },
+ {
+  "label": "切尔斯基哨所记边境区违规",
+  "date": "2011-03-26",
+  "lon": 161.3,
+  "lat": 68.75,
+  "status": "verified",
+  "source": "1sn.ru 2011-03-28"
+ },
+ {
+  "label": "救援队修好断轮",
+  "date": "2016-06-08",
+  "lon": 124.71,
+  "lat": 56.66,
+  "status": "verified",
+  "source": "gazeta-bam 2016-06-11"
+ },
+ {
+  "label": "自驾车队在 A360 相遇（位置推断）",
+  "date": "2016-06-22",
+  "lon": 124.75,
+  "lat": 55.9,
+  "status": "inferred",
+  "source": "Touareg Eurasia 博客（Wayback 2016-07-07）；位置为推断"
+ },
+ {
+  "label": "伊朗边境，签证被拒",
+  "date": "2019-09-15",
+  "lon": 58.42,
+  "lat": 37.8,
+  "status": "verified",
+  "source": "El Informador 2020-02-02"
+ },
+ {
+  "label": "等一周审批，步行过博斯普鲁斯大桥",
+  "date": "2025-05-02",
+  "lon": 29.035,
+  "lat": 41.045,
+  "status": "verified",
+  "source": "报告 J 段；Türkiye Gazetesi 2025-05"
+ },
+ {
+  "label": "马里查高速路肩被罚（保加利亚）",
+  "date": "2025-09-05",
+  "lon": 25.9,
+  "lat": 41.9,
+  "status": "verified",
+  "source": "RFE/RL；bTV/Focus（金额未公开）"
+ },
+ {
+  "label": "法兰克福换上最后一双鞋",
+  "date": "2026-05-16",
+  "lon": 8.68,
+  "lat": 50.11,
+  "status": "verified",
+  "source": "Tripsite 2026-05；本人 IG 2026-05-18"
+ },
+ {
+  "label": "戈斯伯顿 Bell Inn 周日午餐",
+  "date": "2026-10-25",
+  "lon": -0.16,
+  "lat": 52.87,
+  "status": "verified",
+  "source": "LincsOnline 2026-10-27"
+ },
+ {
+  "label": "亨伯大桥南端，赫尔佐格迎接",
+  "date": "2026-11-01",
+  "lon": -0.45,
+  "lat": 53.7,
+  "status": "verified",
+  "source": "Grimsby Telegraph 2026-11-01"
+ }
+]
