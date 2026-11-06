@@ -54,104 +54,162 @@ const T0=pts[0].t, T1=pts[pts.length-1].t;
 let T=T1;                                  // current calendar day
 let playing=false, speed=1, showLabels=true, activeCase="all", voidFade=1;
 
-// ---------- colours ----------
+// ---------- colours (stage is a fixed night scene) ----------
+const K={oceanHi:"#1d4f63",oceanLo:"#06151e",land:"#3b5751",landHi:"#56766c",coast:"rgba(200,236,224,.38)",border:"rgba(220,240,235,.10)",
+  grat:"rgba(160,210,230,.06)",atmo:"rgba(90,175,235,",river:"rgba(110,200,235,.35)",
+  route:["#ff6a1a","#ff8a3d","#ffd2a6"],swim:["#1aa8e0","#55d2ff","#d9f6ff"],soft:["#c9703d","#e3955f","#f4c9a8"],
+  move:"#c2a3ff",back:"#ff6b81",void:"#7f8b88",protest:"rgba(200,214,210,.45)",ink:"#eef3f1",muted:"#9fb2ae",pill:"rgba(6,14,20,.72)"};
 const css=getComputedStyle(document.documentElement);
-let C={};
-function readColors(){["ocean","land","border","grat","route","route-soft","swim","move","back","void","protest","ink","muted","paper"].forEach(k=>C[k]=css.getPropertyValue("--"+k).trim());}
-readColors();
-matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{readColors();draw();});
-new MutationObserver(()=>{readColors();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
 // ---------- geography ----------
 const land=topojson.feature(TOPO,TOPO.objects.countries);
 const borders=topojson.mesh(TOPO,TOPO.objects.countries,(a,b)=>a!==b);
-const grat=d3.geoGraticule10();
+const coast=topojson.mesh(TOPO,TOPO.objects.countries,(a,b)=>a===b);
+const grat=d3.geoGraticule().step([15,15])();
 const cv=document.getElementById("c"),ctx=cv.getContext("2d");
-const proj=d3.geoOrthographic().clipAngle(90).precision(0.3);
+const proj=d3.geoOrthographic().clipAngle(90).precision(0.25);
 const path=d3.geoPath(proj,ctx);
 let W=0,H=0,state={rot:[60,-20,0],r:90};
 const line=c=>({type:"LineString",coordinates:c});
-function scaleFor(r){const half=Math.min(W,H)/2*0.9;return r>=89?half:half/Math.sin(r*Math.PI/180);}
+function scaleFor(r){const half=Math.min(W,H)/2*0.86;return r>=89?half:half/Math.sin(r*Math.PI/180);}
 function resize(){const b=cv.parentElement.getBoundingClientRect();const dpr=Math.min(2,window.devicePixelRatio||1);W=b.width;H=b.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
 function visible(lon,lat){const r=proj.rotate();return d3.geoDistance([lon,lat],[-r[0],-r[1]])<Math.PI/2-0.01;}
 const frac=(a,b)=>b<=a?(T>=b?1:0):Math.max(0,Math.min(1,(T-a)/(b-a)));
-function partial(coords,f){ // first fraction f of a polyline, along its length
+function partial(coords,f){
   if(f>=1)return coords;if(f<=0)return [coords[0]];
   const seg=[];let tot=0;for(let i=1;i<coords.length;i++){const d=d3.geoDistance(coords[i-1],coords[i]);seg.push(d);tot+=d;}
   let need=f*tot,out=[coords[0]];for(let i=1;i<coords.length;i++){if(need>=seg[i-1]){out.push(coords[i]);need-=seg[i-1];}else{out.push(d3.geoInterpolate(coords[i-1],coords[i])(seg[i-1]?need/seg[i-1]:0));break;}}
   return out;}
 
+// ---------- smooth route: centripetal Catmull-Rom on the sphere ----------
+const toV=([lo,la])=>{const l=lo*Math.PI/180,p=la*Math.PI/180;return[Math.cos(p)*Math.cos(l),Math.cos(p)*Math.sin(l),Math.sin(p)];};
+const toLL=v=>{const n=Math.hypot(...v);return[Math.atan2(v[1],v[0])*180/Math.PI,Math.asin(v[2]/n)*180/Math.PI];};
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]],add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]],mul=(a,k)=>[a[0]*k,a[1]*k,a[2]*k];
+function cr(P0,P1,P2,P3,n){const tj=(a,b)=>Math.pow(Math.max(1e-6,Math.hypot(...sub(b,a))),0.5);
+  const t0=0,t1=t0+tj(P0,P1),t2=t1+tj(P1,P2),t3=t2+tj(P2,P3);const out=[];
+  for(let k=0;k<=n;k++){const t=t1+(t2-t1)*k/n;
+    const A1=add(mul(P0,(t1-t)/(t1-t0)),mul(P1,(t-t0)/(t1-t0))),A2=add(mul(P1,(t2-t)/(t2-t1)),mul(P2,(t-t1)/(t2-t1))),A3=add(mul(P2,(t3-t)/(t3-t2)),mul(P3,(t-t2)/(t3-t2)));
+    const B1=add(mul(A1,(t2-t)/(t2-t0)),mul(A2,(t-t0)/(t2-t0))),B2=add(mul(A2,(t3-t)/(t3-t1)),mul(A3,(t-t1)/(t3-t1)));
+    out.push(toLL(add(mul(B1,(t2-t)/(t2-t1)),mul(B2,(t-t1)/(t2-t1)))));}
+  return out;}
+const LEG=pts.map((b,i)=>{if(i===0||b.leg==="start")return null;const a=pts[i-1];
+  const prev=(a.leg==="start"||i<2)?a:pts[i-2];const next=(pts[i+1]&&pts[i+1].leg!=="start")?pts[i+1]:b;
+  const ang=d3.geoDistance([a.lon,a.lat],[b.lon,b.lat])*180/Math.PI;const n=Math.max(2,Math.min(48,Math.ceil(ang/0.35)));
+  const P1=toV([a.lon,a.lat]),P2=toV([b.lon,b.lat]);
+  const P0=prev===a?sub(mul(P1,2),P2):toV([prev.lon,prev.lat]),P3=next===b?sub(mul(P2,2),P1):toV([next.lon,next.lat]);
+  return cr(P0,P1,P2,P3,n);});
+const cut=(c,f)=>f>=1?c:c.slice(0,Math.max(1,Math.floor((c.length-1)*f))+1).concat(f>0?[d3.geoInterpolate(c[Math.floor((c.length-1)*f)],c[Math.min(c.length-1,Math.floor((c.length-1)*f)+1)])(((c.length-1)*f)%1)]:[]);
+
 // ---------- state helpers ----------
-function frontier(){ // index of last arrived point, and current position
+function frontier(){
   let i=0;while(i+1<pts.length&&pts[i+1].t<=T)i++;
   const n=pts[i+1];
-  if(n&&n.leg!=="start"&&T>n.dep){const f=(T-n.dep)/(n.t-n.dep);return{i,pos:d3.geoInterpolate([pts[i].lon,pts[i].lat],[n.lon,n.lat])(f),moving:n.leg};}
-  const v=D.voided; // a leg walked after the last route point and later replaced
+  if(n&&n.leg!=="start"&&T>n.dep){const f=(T-n.dep)/(n.t-n.dep),c=cut(LEG[i+1],f);return{i,pos:c[c.length-1],moving:n.leg};}
+  const v=D.voided;
   if(T>=v.lo&&T<v.voided_on&&pts[i].t<=v.lo){const vp=partial(v.path,frac(v.lo,v.hi));return{i,pos:vp[vp.length-1],moving:T<v.hi?"walk":null,place:T>=v.hi?v.end_label:null};}
   return{i,pos:[pts[i].lon,pts[i].lat],moving:null};}
 function lastMoveEnd(){let e=T0;if(T>=D.voided.lo)e=Math.max(e,Math.min(T,D.voided.hi));for(let i=1;i<pts.length;i++){const p=pts[i];if(p.leg==="start")continue;if(p.dep<=T)e=Math.max(e,Math.min(T,p.t));}return e;}
 function activeMove(){return D.moves.find(m=>T>=m.lo&&T<=m.hi);}
 
+// ---------- drawing helpers ----------
+function glow(geo,cols,w,alpha=1){ // three passes: wide soft halo, body, bright core
+  ctx.save();ctx.globalCompositeOperation="lighter";ctx.lineCap="round";ctx.lineJoin="round";
+  [[w*5.5,.08],[w*2.6,.3],[w*1.15,.9]].forEach(([lw,a],k)=>{ctx.beginPath();path(geo);ctx.strokeStyle=cols[k];ctx.globalAlpha=a*alpha;ctx.lineWidth=lw;ctx.stroke();});
+  ctx.restore();}
+function lifted(lon,lat,a){ // orthographic position of a point at altitude a (fraction of radius)
+  const r=d3.geoRotation(proj.rotate())([lon,lat]);const l=r[0]*Math.PI/180,p=r[1]*Math.PI/180;
+  const x=Math.cos(p)*Math.sin(l),y=-Math.sin(p),z=Math.cos(p)*Math.cos(l),k=proj.scale(),[tx,ty]=proj.translate();
+  return{x:tx+k*x*(1+a),y:ty+k*y*(1+a),vis:z>0||(x*x+y*y)*(1+a)*(1+a)>1};}
+function arc(pathLL,f,col,w,alpha=1){ // transport: lifted great-circle arcs, they leave the ground on purpose
+  const segs=[];for(let i=1;i<pathLL.length;i++)segs.push([pathLL[i-1],pathLL[i]]);
+  const tot=segs.reduce((s,[a,b])=>s+d3.geoDistance(a,b),0);let left=f*tot;
+  ctx.save();ctx.lineCap="round";ctx.setLineDash([2,5]);let lastP=null,prevP=null;
+  for(const [a,b] of segs){if(left<=0)break;const ang=d3.geoDistance(a,b),g=Math.min(1,left/ang);left-=ang;
+    const h=0.04+0.32*Math.min(1,ang/Math.PI),n=Math.max(12,Math.ceil(ang*60)),I=d3.geoInterpolate(a,b);
+    for(const [lw,al] of [[w*3,.18],[w,.95]]){ctx.beginPath();let pen=false;
+      for(let k=0;k<=n*g;k++){const s=k/n,ll=I(s),L=lifted(ll[0],ll[1],h*Math.sin(Math.PI*s));
+        if(L.vis){if(pen)ctx.lineTo(L.x,L.y);else{ctx.moveTo(L.x,L.y);pen=true;}prevP=lastP;lastP=L;}else pen=false;}
+      ctx.strokeStyle=col;ctx.globalAlpha=al*alpha;ctx.lineWidth=lw;ctx.stroke();}}
+  ctx.setLineDash([]);
+  if(f>=1&&lastP&&prevP&&lastP.vis){const ang=Math.atan2(lastP.y-prevP.y,lastP.x-prevP.x);ctx.globalAlpha=1;ctx.beginPath();ctx.moveTo(lastP.x,lastP.y);
+    ctx.lineTo(lastP.x-8*Math.cos(ang-0.45),lastP.y-8*Math.sin(ang-0.45));ctx.lineTo(lastP.x-8*Math.cos(ang+0.45),lastP.y-8*Math.sin(ang+0.45));ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+  ctx.restore();}
+
 // ---------- draw ----------
 function draw(){
   if(!W)return;
-  proj.translate([W/2,H/2+(W<520?20:10)]).scale(scaleFor(state.r)).rotate(state.rot);
-  const zoom=scaleFor(state.r)/scaleFor(90);
+  const cx=W/2,cy=H/2+(W<520?16:6);
+  proj.translate([cx,cy]).scale(scaleFor(state.r)).rotate(state.rot);
+  const k=proj.scale(),zoom=k/scaleFor(90),lw=Math.min(3.2,1.5+Math.log2(zoom)*0.35);
   ctx.clearRect(0,0,W,H);
-  ctx.setLineDash([]);
-  ctx.beginPath();path({type:"Sphere"});ctx.fillStyle=C.ocean;ctx.fill();
-  ctx.beginPath();path(grat);ctx.strokeStyle=C.grat;ctx.lineWidth=0.6;ctx.stroke();
-  ctx.beginPath();path(land);ctx.fillStyle=C.land;ctx.fill();
-  ctx.beginPath();path(borders);ctx.strokeStyle=C.border;ctx.lineWidth=zoom>6?0.9:0.5;ctx.stroke();
-  if(zoom>3){ctx.beginPath();path(RIVERS);ctx.strokeStyle=C.swim;ctx.globalAlpha=.5;ctx.lineWidth=zoom>20?1.6:1;ctx.stroke();ctx.globalAlpha=1;}
-  ctx.beginPath();path({type:"Sphere"});ctx.strokeStyle=C.border;ctx.lineWidth=1;ctx.stroke();
-  const lw=Math.min(4,2+Math.log2(zoom)*0.4);
+  // atmosphere halo (only while the whole disc is on screen)
+  if(state.r>=89){const g=ctx.createRadialGradient(cx,cy,k*0.96,cx,cy,k*1.16);g.addColorStop(0,K.atmo+".42)");g.addColorStop(0.35,K.atmo+".14)");g.addColorStop(1,K.atmo+"0)");
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,k*1.16,0,7);ctx.fill();}
+  // lit ocean
+  const L={x:cx-k*0.38,y:cy-k*0.42};
+  let g=ctx.createRadialGradient(L.x,L.y,k*0.05,cx,cy,k*1.02);g.addColorStop(0,K.oceanHi);g.addColorStop(1,K.oceanLo);
+  ctx.beginPath();path({type:"Sphere"});ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();path(grat);ctx.strokeStyle=K.grat;ctx.lineWidth=0.7;ctx.stroke();
+  // land, lit from the same side
+  g=ctx.createRadialGradient(L.x,L.y,k*0.05,cx,cy,k*1.02);g.addColorStop(0,K.landHi);g.addColorStop(1,K.land);
+  ctx.beginPath();path(land);ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();path(coast);ctx.strokeStyle=K.coast;ctx.lineWidth=zoom>6?1.1:0.6;ctx.stroke();
+  ctx.beginPath();path(borders);ctx.strokeStyle=K.border;ctx.lineWidth=zoom>6?0.9:0.5;ctx.stroke();
+  if(zoom>3){ctx.beginPath();path(RIVERS);ctx.strokeStyle=K.river;ctx.lineWidth=zoom>20?1.6:1;ctx.stroke();}
+  // limb shading + soft specular
+  if(state.r>=40){g=ctx.createRadialGradient(cx,cy,k*0.55,cx,cy,k);g.addColorStop(0,"rgba(0,0,0,0)");g.addColorStop(1,"rgba(0,4,10,.55)");
+    ctx.beginPath();path({type:"Sphere"});ctx.fillStyle=g;ctx.fill();
+    g=ctx.createRadialGradient(L.x,L.y,0,L.x,L.y,k*0.7);g.addColorStop(0,"rgba(255,255,255,.07)");g.addColorStop(1,"rgba(255,255,255,0)");ctx.fillStyle=g;ctx.fill();}
 
-  // protest walk (separate, not counted)
-  const pr=D.protest.points;for(let i=1;i<pr.length;i++){const f=frac(pr[i-1].t,pr[i].t);if(f<=0)continue;
-    ctx.beginPath();path(line(partial([[pr[i-1].lon,pr[i-1].lat],[pr[i].lon,pr[i].lat]],f)));ctx.strokeStyle=C.protest;ctx.lineWidth=lw*0.6;ctx.stroke();}
+  // protest walk (not counted)
+  const pr=D.protest.points,prc=[];for(let i=1;i<pr.length;i++){const f=frac(pr[i-1].t,pr[i].t);if(f>0)prc.push(partial([[pr[i-1].lon,pr[i-1].lat],[pr[i].lon,pr[i].lat]],f));}
+  if(prc.length){ctx.beginPath();path({type:"MultiLineString",coordinates:prc});ctx.strokeStyle=K.protest;ctx.lineWidth=lw*0.7;ctx.setLineDash([1,4]);ctx.lineCap="round";ctx.stroke();ctx.setLineDash([]);}
 
-  // voided leg: drawn in route colour during its window, then turns grey once replaced
+  // voided leg: walked in route colour, greys out once it was replaced
   const v=D.voided,vf=frac(v.lo,v.hi);
-  if(vf>0){const grey=T>=v.voided_on?voidFade:0;ctx.setLineDash(grey>0.5?[6,5]:[]);ctx.beginPath();path(line(partial(v.path,vf)));
-    ctx.strokeStyle=d3.interpolateRgb(C.route,C.void)(grey);ctx.lineWidth=lw*(grey>0.5?0.7:1);ctx.stroke();ctx.setLineDash([]);}
+  if(vf>0){const grey=T>=v.voided_on?voidFade:0,c=partial(v.path,vf);
+    if(grey<1)glow(line(c),K.route,lw,1-grey);
+    if(grey>0){ctx.save();ctx.globalAlpha=grey;ctx.setLineDash([5,5]);ctx.beginPath();path(line(c));ctx.strokeStyle=K.void;ctx.lineWidth=lw*0.8;ctx.stroke();ctx.restore();}}
 
-  // main route, by date
-  for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i];if(b.leg==="start")continue;
-    const f=frac(b.dep,b.t);if(f<=0)continue;
-    const inferred=a.status==="inferred"||b.status==="inferred";
-    ctx.beginPath();path(line(partial([[a.lon,a.lat],[b.lon,b.lat]],f)));
-    if(b.leg==="swim"){ctx.setLineDash([5,4]);ctx.strokeStyle=C.swim;ctx.lineWidth=lw;}
-    else if(b.leg==="gap"){ctx.setLineDash([2,6]);ctx.strokeStyle=C["route-soft"];ctx.lineWidth=lw*0.8;}
-    else{ctx.setLineDash(inferred?[7,4]:[]);ctx.strokeStyle=inferred?C["route-soft"]:C.route;ctx.lineWidth=lw;}
-    ctx.stroke();}
-  ctx.setLineDash([]);
+  // main route by date, grouped by style
+  const B={walk:[],soft:[],swim:[],gap:[]};let head=null;
+  for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i];if(b.leg==="start")continue;const f=frac(b.dep,b.t);if(f<=0)continue;
+    const c=cut(LEG[i],f);if(f<1)head=c;
+    if(b.leg==="swim")B.swim.push(c);else if(b.leg==="gap")B.gap.push(c);else if(a.status==="inferred"||b.status==="inferred")B.soft.push(c);else B.walk.push(c);}
+  if(B.gap.length){ctx.save();ctx.beginPath();path({type:"MultiLineString",coordinates:B.gap});ctx.setLineDash([1,6]);ctx.lineCap="round";ctx.strokeStyle=K.soft[1];ctx.globalAlpha=.8;ctx.lineWidth=lw;ctx.stroke();ctx.restore();}
+  if(B.soft.length)glow({type:"MultiLineString",coordinates:B.soft},K.soft,lw*0.85,.75);
+  if(B.walk.length)glow({type:"MultiLineString",coordinates:B.walk},K.route,lw);
+  if(B.swim.length)glow({type:"MultiLineString",coordinates:B.swim},K.swim,lw);
 
-  // transport moves (never part of the route line)
+  // transport arcs
   D.moves.filter(m=>activeCase==="all"||playing||m.case===activeCase).forEach(m=>{const f=frac(m.lo,m.hi);if(f<=0)return;
-    const col=(m.type==="back"||m.type==="fwd_rewalked")?C.back:C.move;
-    ctx.setLineDash([1.5,4]);ctx.lineCap="round";ctx.beginPath();path(line(partial(m.path,f)));ctx.strokeStyle=col;ctx.lineWidth=lw*0.8;ctx.stroke();ctx.lineCap="butt";ctx.setLineDash([]);
-    if(f>=1)arrowAt(m.path,col);});
+    arc(m.path,f,(m.type==="back"||m.type==="fwd_rewalked")?K.back:K.move,Math.max(1,lw*0.55),activeCase==="all"&&!playing?.45:1);});
 
-  // points
-  const fr=frontier(),shown=[],dot=zoom>8?3.6:zoom>2?2.6:1.6;
-  for(let i=0;i<=fr.i;i++){const p=pts[i];if(!visible(p.lon,p.lat))continue;const xy=proj([p.lon,p.lat]);
-    ctx.beginPath();ctx.arc(xy[0],xy[1],dot,0,7);ctx.fillStyle=p.status==="inferred"?C.paper:C.route;ctx.fill();ctx.strokeStyle=C.route;ctx.lineWidth=1.2;ctx.stroke();shown.push([p.name,p.date,p.status,xy]);}
-  // reference places and dated events
-  (CFG.refs[activeCase]||[]).forEach(r=>{if(!visible(r.lon,r.lat))return;const xy=proj([r.lon,r.lat]);ctx.beginPath();ctx.rect(xy[0]-3.5,xy[1]-3.5,7,7);ctx.fillStyle=C.paper;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();shown.push([r.label,"","ref",xy]);});
-  if(zoom>2.2)D.events.forEach(e=>{if(T<e.t||!visible(e.lon,e.lat))return;const xy=proj([e.lon,e.lat]);ctx.beginPath();ctx.moveTo(xy[0],xy[1]-5);ctx.lineTo(xy[0]+5,xy[1]);ctx.lineTo(xy[0],xy[1]+5);ctx.lineTo(xy[0]-5,xy[1]);ctx.closePath();
-    ctx.fillStyle=e.status==="inferred"?C.paper:C.ink;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1;ctx.stroke();shown.unshift([e.label,e.date,e.status==="inferred"?"inferred":"event",xy]);});
-  // frontier ring
-  if(T<T1&&visible(fr.pos[0],fr.pos[1])){const xy=proj(fr.pos);ctx.beginPath();ctx.arc(xy[0],xy[1],7,0,7);ctx.strokeStyle=C.route;ctx.lineWidth=2;ctx.stroke();}
-  // labels
+  // points (only when zoomed), reference squares, events
+  const fr=frontier(),shown=[];
+  if(zoom>2.5)for(let i=0;i<=fr.i;i++){const p=pts[i];if(!visible(p.lon,p.lat))continue;const xy=proj([p.lon,p.lat]);
+    ctx.beginPath();ctx.arc(xy[0],xy[1],zoom>8?3:2,0,7);ctx.fillStyle=p.status==="inferred"?"rgba(255,224,194,.35)":K.route[2];ctx.fill();shown.push([p.name,p.date,p.status,xy]);}
+  (CFG.refs[activeCase]||[]).forEach(r=>{if(!visible(r.lon,r.lat))return;const xy=proj([r.lon,r.lat]);ctx.beginPath();ctx.rect(xy[0]-3.5,xy[1]-3.5,7,7);ctx.strokeStyle=K.ink;ctx.lineWidth=1.2;ctx.stroke();shown.push([r.label,"","ref",xy]);});
+  if(zoom>2.2)D.events.forEach(e=>{if(T<e.t||!visible(e.lon,e.lat))return;const xy=proj([e.lon,e.lat]);
+    const gg=ctx.createRadialGradient(xy[0],xy[1],0,xy[0],xy[1],14);gg.addColorStop(0,"rgba(255,240,220,.55)");gg.addColorStop(1,"rgba(255,240,220,0)");ctx.fillStyle=gg;ctx.beginPath();ctx.arc(xy[0],xy[1],14,0,7);ctx.fill();
+    ctx.beginPath();ctx.moveTo(xy[0],xy[1]-5);ctx.lineTo(xy[0]+5,xy[1]);ctx.lineTo(xy[0],xy[1]+5);ctx.lineTo(xy[0]-5,xy[1]);ctx.closePath();
+    ctx.fillStyle=e.status==="inferred"?"rgba(238,243,241,.35)":K.ink;ctx.fill();shown.unshift([e.label,e.date,e.status==="inferred"?"inferred":"event",xy]);});
+
+  // comet head while the line is moving or waiting
+  if(T<T1&&visible(fr.pos[0],fr.pos[1])){const xy=proj(fr.pos);
+    if(head&&head.length>1){const tail=head.slice(-Math.min(head.length,14));glow(line(tail),fr.moving==="swim"?K.swim:K.route,lw*1.5);}
+    const hg=ctx.createRadialGradient(xy[0],xy[1],0,xy[0],xy[1],22);hg.addColorStop(0,"rgba(255,236,214,.95)");hg.addColorStop(0.25,"rgba(255,150,70,.55)");hg.addColorStop(1,"rgba(255,120,40,0)");
+    ctx.save();ctx.globalCompositeOperation="lighter";ctx.fillStyle=hg;ctx.beginPath();ctx.arc(xy[0],xy[1],22,0,7);ctx.fill();ctx.restore();
+    if(!fr.moving){const pulse=0.5+0.5*Math.sin(performance.now()/380);ctx.beginPath();ctx.arc(xy[0],xy[1],9+pulse*6,0,7);ctx.strokeStyle=`rgba(255,160,90,${0.55-pulse*0.35})`;ctx.lineWidth=1.5;ctx.stroke();}}
+
+  // labels on dark pills
   if(showLabels&&zoom>2.2){ctx.font=`500 ${zoom>8?13:12}px ${css.getPropertyValue("--body")}`;ctx.textBaseline="middle";const boxes=[];
-    shown.forEach(([n,d,s,xy])=>{const txt=n+(zoom>8&&d?"  "+d:"");const w=ctx.measureText(txt).width;const bx=[xy[0]+8,xy[1]-8,w+6,16];
-      if(bx[0]+bx[2]>W-4||bx[1]<64||bx[1]>H-56)return;if(boxes.some(b=>!(bx[0]>b[0]+b[2]||bx[0]+bx[2]<b[0]||bx[1]>b[1]+b[3]||bx[1]+bx[3]<b[1])))return;boxes.push(bx);
-      ctx.fillStyle=C.paper;ctx.globalAlpha=.85;ctx.fillRect(bx[0],bx[1],bx[2],bx[3]);ctx.globalAlpha=1;ctx.fillStyle=s==="inferred"?C.muted:C.ink;ctx.fillText(txt,bx[0]+3,xy[1]);});}
+    shown.forEach(([n,d,s,xy])=>{const txt=n+(zoom>8&&d?"  "+d:"");const w=ctx.measureText(txt).width;const bx=[xy[0]+9,xy[1]-9,w+10,18];
+      if(bx[0]+bx[2]>W-4||bx[1]<64||bx[1]>H-60)return;if(boxes.some(b=>!(bx[0]>b[0]+b[2]||bx[0]+bx[2]<b[0]||bx[1]>b[1]+b[3]||bx[1]+bx[3]<b[1])))return;boxes.push(bx);
+      ctx.fillStyle=K.pill;ctx.beginPath();ctx.roundRect?ctx.roundRect(bx[0],bx[1],bx[2],bx[3],9):ctx.rect(bx[0],bx[1],bx[2],bx[3]);ctx.fill();
+      ctx.fillStyle=s==="inferred"?K.muted:K.ink;ctx.fillText(txt,bx[0]+5,xy[1]);});}
   updateTicker(fr);
 }
-function arrowAt(cs,col){const a=cs[cs.length-2],b=cs[cs.length-1];if(!visible(b[0],b[1]))return;const A=proj(d3.geoInterpolate(a,b)(0.92)),B=proj(b);if(!A||!B)return;
-  const ang=Math.atan2(B[1]-A[1],B[0]-A[0]);ctx.beginPath();ctx.moveTo(B[0],B[1]);ctx.lineTo(B[0]-9*Math.cos(ang-0.45),B[1]-9*Math.sin(ang-0.45));ctx.lineTo(B[0]-9*Math.cos(ang+0.45),B[1]-9*Math.sin(ang+0.45));ctx.closePath();ctx.fillStyle=col;ctx.fill();}
 
 // ---------- ticker: the calendar keeps running while the line stops ----------
 const tDate=document.getElementById("tDate"),tPlace=document.getElementById("tPlace"),tStall=document.getElementById("tStall"),scrub=document.getElementById("scrub");

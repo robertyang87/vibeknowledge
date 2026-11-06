@@ -55,4 +55,15 @@ button[aria-pressed="true"]{background:var(--route);border-color:var(--route);co
 .scrub{flex:1 1 220px;min-width:160px;accent-color:var(--route)}
 .stall{font-family:var(--mono);font-size:12px;color:var(--muted);display:block;margin-top:2px}
 .stall.on{color:var(--back)}
+/* Stage: a night-sky scene in both themes; the rail follows the viewer's theme. */
+.stage{--s-ink:#eef3f1;--s-muted:#9fb2ae;--s-btn:rgba(255,255,255,.07);--s-btn-b:rgba(255,255,255,.18);--s-hot:#ffb37a;
+  background:radial-gradient(120% 90% at 50% 45%,#0f2230 0%,#08121b 55%,#03060a 100%);color:var(--s-ink);border-right-color:#0b1219}
+.stage .hud h1{color:var(--s-ink);text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.stage .hud .sub,.stage .ticker span{color:var(--s-muted)}
+.stage .ticker b{color:var(--s-hot);text-shadow:0 0 18px rgba(255,140,60,.45)}
+.stage .stall.on{color:#ff9a8a}
+.stage button{background:var(--s-btn);border-color:var(--s-btn-b);color:var(--s-ink);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.stage button:hover{border-color:#ff9a55}
+.stage button[aria-pressed="true"]{background:rgba(232,100,30,.85);border-color:#ff9a55;color:#fff}
+.stage .scrub{accent-color:#ff8a3d}
 </style>
