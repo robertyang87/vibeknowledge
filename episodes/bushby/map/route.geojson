@@ -5415,15 +5415,15 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     51.6,
-     43.3
+     51.17,
+     43.65
     ]
    },
    "properties": {
     "order": 133,
-    "name": "里海东岸（阿克套以南，示意）",
+    "name": "阿克套（起游点）",
     "date": "2024-08-16",
-    "status": "inferred",
+    "status": "verified",
     "segment": "布哈拉—里海",
     "leg_into": "walk"
    }
@@ -5438,14 +5438,14 @@
       45.32
      ],
      [
-      51.6,
-      43.3
+      51.17,
+      43.65
      ]
     ]
    },
    "properties": {
     "kind": "walk",
-    "to": "里海东岸（阿克套以南，示意）",
+    "to": "阿克套（起游点）",
     "date": "2024-08-16",
     "inferred": true,
     "segment": "布哈拉—里海"
@@ -5475,8 +5475,8 @@
     "type": "LineString",
     "coordinates": [
      [
-      51.6,
-      43.3
+      51.17,
+      43.65
      ],
      [
       50.0,
@@ -5488,7 +5488,7 @@
     "kind": "swim",
     "to": "纳尔达兰（巴库北）",
     "date": "2024-09-17",
-    "inferred": true,
+    "inferred": false,
     "segment": "布哈拉—里海"
    }
   },
