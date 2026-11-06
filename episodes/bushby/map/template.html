@@ -228,7 +228,7 @@ CASES.forEach(cs=>{const b=document.createElement("button");b.type="button";b.cl
 function select(id,fly){activeCase=id;const cs=CASES.find(c=>c.id===id);
   document.querySelectorAll(".case").forEach(b=>b.setAttribute("aria-pressed",b.id==="case-"+id?"true":"false"));
   noteEl.innerHTML=`<div class="label">对应分集节拍 ${cs.s}</div><h2>${cs.t}</h2><p>${cs.p}</p><div class="facts">${cs.f}</div>`;
-  spin(false);progress=1;if(fly)flyTo(cs.c,cs.r);else{state.rot=[-cs.c[0],-cs.c[1],0];state.r=cs.r;}
+  spin(false);progress=1;if(fly)flyTo(cs.c,cs.r);else{state.rot=[-cs.c[0],-cs.c[1],0];state.r=cs.r;draw();}
   if(location.hash.slice(1)!==id){try{history.replaceState(null,"","#"+id);}catch(e){}}}
 
 // play
