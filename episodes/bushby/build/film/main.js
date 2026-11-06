@@ -180,8 +180,8 @@ const cache = new Map(); let stamp = 0;
 async function getPatch(i) {
   if (!cache.has(i)) cache.set(i, Promise.all([loadT(`assets/${DET[i].name}.png`), loadT(`assets/sat_${DET[i].name}.jpg`)]).then(([d, s]) => ({ d, s, used: 0 })));
   const p = await cache.get(i); p.used = ++stamp;
-  if (cache.size > 7) { const ents = []; for (const [k, v] of cache) ents.push([k, await v]); ents.sort((a, b) => a[1].used - b[1].used);
-    for (const [k, v] of ents.slice(0, cache.size - 7)) if (v.used < stamp - 4) { v.d.dispose(); v.s.dispose(); cache.delete(k); } }
+  if (cache.size > 5) { const ents = []; for (const [k, v] of cache) ents.push([k, await v]); ents.sort((a, b) => a[1].used - b[1].used);
+    for (const [k, v] of ents.slice(0, cache.size - 5)) if (v.used < stamp - 4) { v.d.dispose(); v.s.dispose(); cache.delete(k); } }
   return p;
 }
 const inBox = (b, lon, lat, m) => { let lo = lon; if (b[0] > 0 && lo < b[0] - 180) lo += 360; if (b[2] < 0 && lo > b[2] + 180) lo -= 360; return lo > b[0] - m && lo < b[2] + m && lat > b[1] - m && lat < b[3] + m; };
@@ -518,9 +518,12 @@ async function renderAt(t) {
   overlay(t, w);
   if (dip < 1) { x.fillStyle = `rgba(0,0,0,${1 - clamp(dip)})`; x.fillRect(0, 0, W, H); }
 }
-window.DUR = DUR;
+// render a slice of the film (?part=a,b in seconds) so a long render can be split and resumed
+const PART = (DBG.get('part') || '').split(',').filter(Boolean).map(Number);
+const T0 = PART.length === 2 ? PART[0] : 0;
+window.DUR = PART.length === 2 ? PART[1] - PART[0] : DUR;
 window.BEATS = BEATS.map(b => ({ id: b.id, shot: b.shot, t0: b.t0, t1: b.t1 }));
-window.render = async t => renderAt(t);
+window.render = async t => renderAt(t + T0);
 window.TEXTS = async t => { await renderAt(t); return shown.map(s => ({ id: s.replace(/[0-9]+/g, '#'), text: s, x0: 100, y0: 100, x1: 400, y1: 160 })); };
 await renderAt(0);
 window.READY = true;
