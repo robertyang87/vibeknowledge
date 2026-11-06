@@ -9,3 +9,5 @@ PY=${PY:-$HOME/lemo-opuscar/.venv/bin/python}
 "$PY" make_tex.py
 "$PY" make_vectors.py
 "$PY" make_detail.py   # needs the Natural Earth 10m zips in $NE10 (default ~/.cache/ne10)
+"$PY" make_sat.py      # Sentinel-2 cloudless colour and Black Marble night lights for ?look=sat / ?look=night
+cp ../../map/assets/blue-marble-4096.jpg assets/bluemarble.jpg

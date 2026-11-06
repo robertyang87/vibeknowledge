@@ -65,18 +65,24 @@ tex.anisotropy = 16; tex.colorSpace = THREE.NoColorSpace;
 const DET = await (await fetch('assets/detail.json')).json();
 const detTex = await Promise.all(DET.map(d => new THREE.TextureLoader().loadAsync(`assets/${d.name}.png`)));
 detTex.forEach(t => { t.anisotropy = 16; t.colorSpace = THREE.NoColorSpace; t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping; });
+// map look: 'dark' (relief only), 'sat' (Sentinel-2 cloudless colour), 'night' (Black Marble lights)
+const LOOK = new URLSearchParams(location.search).get('look') || 'dark';
+const loadT = async f => { const t = await new THREE.TextureLoader().loadAsync(f); t.anisotropy = 16; t.colorSpace = THREE.NoColorSpace; t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping; return t; };
+const satTex = LOOK === 'sat' ? await Promise.all(DET.map(d => loadT(`assets/sat_${d.name}.jpg`))) : detTex;
+const baseColTex = await loadT(LOOK === 'night' ? 'assets/night.jpg' : 'assets/bluemarble.jpg');
 // the fragment shader is generated with one block per patch (sampler arrays can't be indexed in a loop in GLSL ES 3.0)
 const patchCode = DET.map((d, i) => `
       { vec4 bx = box${i}; vec2 u = (deg - bx.xy) / (bx.zw - bx.xy); vec2 f = min(u, 1. - u) * (bx.zw - bx.xy);
         float w = smoothstep(0., ${(Math.min(d.box[2] - d.box[0], d.box[3] - d.box[1]) * .06).toFixed(3)}, min(f.x, f.y));
         if (w > 0.) { vec2 du = dFdx(u), dv = dFdy(u); vec3 d = textureGrad(det${i}, u, du, dv).rgb;
-          r = mix(r, d.r, w); rel = mix(rel, (d.g - .5) * 1.7, w); elev = mix(elev, d.b, w); } }`).join('');
-const uni = { map: { value: tex }, sun: { value: ll(-40, 25).normalize() }, relAmt: { value: 1 }, coastAmt: { value: 1 } };
-DET.forEach((d, i) => { uni['det' + i] = { value: detTex[i] }; uni['box' + i] = { value: new THREE.Vector4(...d.box) }; });
-const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: uni,
+          r = mix(r, d.r, w); rel = mix(rel, (d.g - .5) * 1.7, w); elev = mix(elev, d.b, w);
+          ${LOOK === 'sat' ? `sat = mix(sat, textureGrad(sat${i}, u, du, dv).rgb, w);` : ''} } }`).join('');
+const uni = { map: { value: tex }, baseCol: { value: baseColTex }, sun: { value: ll(-40, 25).normalize() }, relAmt: { value: 1 }, coastAmt: { value: 1 } };
+DET.forEach((d, i) => { uni['det' + i] = { value: detTex[i] }; uni['box' + i] = { value: new THREE.Vector4(...d.box) }; if (LOOK === 'sat') uni['sat' + i] = { value: satTex[i] }; });
+const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: uni, defines: { LOOK_SAT: LOOK === 'sat' ? 1 : 0, LOOK_NIGHT: LOOK === 'night' ? 1 : 0 },
   vertexShader: `out vec3 vN; out vec3 vP;
     void main(){ vN = normalize(mat3(modelMatrix) * normal); vec4 wp = modelMatrix * vec4(position,1.); vP = wp.xyz; gl_Position = projectionMatrix * viewMatrix * wp; }`,
-  fragmentShader: `out vec4 fragColor; uniform sampler2D map, ${DET.map((d, i) => 'det' + i).join(', ')}; uniform vec4 ${DET.map((d, i) => 'box' + i).join(', ')};
+  fragmentShader: `out vec4 fragColor; uniform sampler2D map, baseCol, ${DET.map((d, i) => 'det' + i).join(', ')}${LOOK === 'sat' ? ', ' + DET.map((d, i) => 'sat' + i).join(', ') : ''}; uniform vec4 ${DET.map((d, i) => 'box' + i).join(', ')};
     uniform vec3 sun; uniform float relAmt, coastAmt; in vec3 vN; in vec3 vP;
     void main(){
       vec3 n = normalize(vP);
@@ -87,6 +93,7 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: 
       vec2 dx = dFdx(uv), dy = dFdy(uv); if (abs(dx.x) > .5 || abs(dy.x) > .5) { dx = dFdx(uvA); dy = dFdy(uvA); }
       vec3 t = textureGrad(map, uv, dx, dy).rgb;
       float r = t.r, rel = t.g - .5, elev = 0.;
+      vec3 sat = textureGrad(baseCol, uv, dx, dy).rgb;
       vec2 deg = vec2(degrees(lon), degrees(lat));
       ${patchCode}
       float land = smoothstep(.35,.65,r);
@@ -100,6 +107,14 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: 
       ocean += vec3(.06,.10,.16) * gl * .22;
       vec3 ground = (vec3(.058,.070,.090) + elev * vec3(.05,.055,.065) + clamp(rel,-.3,.3) * vec3(.22,.23,.25) * relAmt) * day;
       vec3 col = mix(ocean, ground, land);
+      #if LOOK_SAT
+      { vec3 c = pow(sat, vec3(1.15)); float l = dot(c, vec3(.3,.59,.11)); c = mix(vec3(l), c, .82);
+        c *= (1. + clamp(rel, -.35, .35) * 1.1 * land) * mix(.55, 1., day);
+        c = mix(c * vec3(.55,.65,.85), c, land); col = c * .95; }
+      #endif
+      #if LOOK_NIGHT
+      { float li = dot(sat, vec3(.3,.59,.11)); col *= .75; col += vec3(1.,.72,.38) * pow(li, 2.2) * 2.4 * land + vec3(.9,.8,.6) * pow(li, 6.) * 3.; }
+      #endif
       col += vec3(.30,.56,.88) * coast * .55 * coastAmt;
       col += vec3(.10,.25,.45) * fres * .35;
       if (any(isnan(col)) || any(isinf(col))) col = vec3(0.);   // a stray NaN would bloom into a white square
