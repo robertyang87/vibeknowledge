@@ -291,9 +291,9 @@ function hud(t, b) {
   txt(C.hud.day, rx - 210, 128, '500 18px Disp', 'rgba(220,214,200,.6)', 6, 'left', k);
   txt(String(day).padStart(4, '0'), rx, 150, '300 64px Disp', '#F4EEE2', 4, 'right', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(255,255,255,.18)'; x.fillRect(rx - 300, 178, 300, 1); x.globalAlpha = 1;
-  const rows = [[C.hud.date, fmtDate(d)], [C.hud.age, ageAt(d) + C.hud.age_unit], [C.hud.sleep, C.sleep[b.id] || '']];
+  const rows = [[C.hud.date, fmtDate(d)], [C.hud.age, ageAt(d) + C.hud.age_unit]];
   rows.forEach(([kk, v], i) => { txt(kk, rx - 300, 220 + i * 40, '400 19px Disp', 'rgba(220,214,200,.55)', 2, 'left', k); txt(v, rx, 220 + i * 40, '500 22px Disp', 'rgba(244,238,226,.92)', 1, 'right', k); });
-  const yrs = (d - D_START) / 365.25, by = 360;
+  const yrs = (d - D_START) / 365.25, by = 320;
   txt(C.hud.plan, rx - 300, by, '400 17px Disp', 'rgba(220,214,200,.55)', 2, 'left', k);
   txt(C.hud.done.replace('{y}', yrs.toFixed(1)), rx, by, '400 17px Disp', 'rgba(232,182,92,.9)', 1, 'right', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(255,255,255,.12)'; x.fillRect(rx - 300, by + 14, 300, 3);

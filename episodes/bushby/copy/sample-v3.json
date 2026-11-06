@@ -3,7 +3,6 @@
   "day": "DAY",
   "date": "日期",
   "age": "年龄",
-  "sleep": "今晚",
   "age_unit": " 岁",
   "plan": "原计划 12 年",
   "done": "已走 {y} 年",
@@ -35,13 +34,6 @@
     "他回到原点，重走一遍"
    ]
   }
- },
- "sleep": {
-  "depart": "路边的帐篷",
-  "andes": "沙漠、山口、别人家",
-  "darien": "丛林里",
-  "jail": "牢房",
-  "rewalk": "路上"
  },
  "labels": {
   "andes": [
