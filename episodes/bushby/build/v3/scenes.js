@@ -170,3 +170,95 @@ export function makeJungle(W, H) {
   }
   return { scene, camera, update, exposure: 1.1 };
 }
+
+// ---------- Medellin: the night before, a table with the map, the compass and the sack ----------
+export function makeDisguise(W, H) {
+  const rnd = rndOf(41);
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x050506);
+  const camera = new THREE.PerspectiveCamera(30, W / H, .05, 50);
+  // the table
+  const wood = new THREE.MeshStandardMaterial({ color: 0x3a2618, roughness: .7 });
+  const top = new THREE.Mesh(new THREE.BoxGeometry(2.4, .06, 1.4), wood); top.position.y = .75; top.receiveShadow = true; scene.add(top);
+  // the map: paper with a drawn coast, contour lines and a pencil route
+  const cv = document.createElement('canvas'); cv.width = 1024; cv.height = 768; const x = cv.getContext('2d');
+  x.fillStyle = '#d9cba8'; x.fillRect(0, 0, 1024, 768);
+  for (let i = 0; i < 4000; i++) { x.fillStyle = `rgba(90,70,40,${rnd() * .05})`; x.fillRect(rnd() * 1024, rnd() * 768, 2, 2); }
+  x.strokeStyle = 'rgba(70,90,110,.6)'; x.lineWidth = 3; x.beginPath(); x.moveTo(0, 210); for (let i = 0; i <= 40; i++) x.lineTo(i * 26, 210 + Math.sin(i * .7) * 30 + i * 3); x.stroke();
+  x.strokeStyle = 'rgba(120,95,60,.35)'; x.lineWidth = 1.5;
+  for (let r = 0; r < 9; r++) { x.beginPath(); for (let i = 0; i <= 60; i++) { const a = i / 60 * Math.PI * 2; const R = 60 + r * 24 + Math.sin(a * 3 + r) * 12; x.lineTo(640 + Math.cos(a) * R * 1.4, 470 + Math.sin(a) * R); } x.stroke(); }
+  x.strokeStyle = 'rgba(160,40,30,.85)'; x.lineWidth = 4; x.setLineDash([14, 9]); x.beginPath(); x.moveTo(820, 740); x.bezierCurveTo(760, 560, 520, 520, 420, 360); x.bezierCurveTo(360, 280, 300, 250, 220, 240); x.stroke(); x.setLineDash([]);
+  x.strokeStyle = 'rgba(40,30,20,.5)'; x.lineWidth = 2; x.strokeRect(20, 20, 984, 728);
+  const paper = new THREE.Mesh(new THREE.PlaneGeometry(1.1, .82, 20, 20), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(cv), roughness: .9 }));
+  { const p = paper.geometry.attributes.position; for (let i = 0; i < p.count; i++) p.setZ(i, .006 * Math.sin(p.getX(i) * 9) * Math.cos(p.getY(i) * 7)); paper.geometry.computeVertexNormals(); }
+  paper.rotation.x = -Math.PI / 2; paper.rotation.z = .12; paper.position.set(-.15, .79, .02); paper.receiveShadow = true; scene.add(paper);
+  // the compass
+  const brass = new THREE.MeshStandardMaterial({ color: 0xb08a4a, metalness: .85, roughness: .3 });
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(.075, .078, .025, 48), brass); body.position.set(.32, .79, .1); body.castShadow = true; scene.add(body);
+  const face = new THREE.Mesh(new THREE.CircleGeometry(.066, 48), new THREE.MeshStandardMaterial({ color: 0xe9e1cc, roughness: .5 })); face.rotation.x = -Math.PI / 2; face.position.set(.32, .8035, .1); scene.add(face);
+  const needle = new THREE.Mesh(new THREE.ConeGeometry(.008, .11, 4), new THREE.MeshStandardMaterial({ color: 0xa0281e, roughness: .4 })); needle.rotation.set(-Math.PI / 2, 0, .4); needle.position.set(.32, .806, .1); scene.add(needle);
+  // the sack, open, and a needle with thread on a folded shirt
+  const sackG = new THREE.SphereGeometry(.26, 32, 20); { const p = sackG.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i); p.setXYZ(i, p.getX(i) * (1 + .12 * Math.sin(y * 20 + i)), Math.max(-.2, y) * 1.1, p.getZ(i) * (1 + .1 * Math.cos(i))); } sackG.computeVertexNormals(); }
+  const sack = new THREE.Mesh(sackG, new THREE.MeshStandardMaterial({ color: 0x8a7350, roughness: 1 })); sack.position.set(.78, .98, -.25); sack.castShadow = true; scene.add(sack);
+  const shirt = new THREE.Mesh(new THREE.BoxGeometry(.42, .04, .3), new THREE.MeshStandardMaterial({ color: 0x4a4038, roughness: 1 })); shirt.position.set(.55, .8, .32); shirt.rotation.y = -.3; shirt.castShadow = true; scene.add(shirt);
+  const thread = new THREE.Mesh(new THREE.TorusGeometry(.03, .012, 8, 24), new THREE.MeshStandardMaterial({ color: 0x6b5a3a })); thread.rotation.x = Math.PI / 2; thread.position.set(.5, .83, .3); scene.add(thread);
+  // one warm lamp
+  scene.add(new THREE.AmbientLight(0x404a5a, .25));
+  const lamp = new THREE.SpotLight(0xffc888, 5.5, 6, .55, .6, 1.6); lamp.position.set(-.5, 2.0, .2); lamp.target.position.set(.15, .75, .05); lamp.castShadow = true; lamp.shadow.mapSize.set(2048, 2048); lamp.shadow.bias = -.0004; scene.add(lamp, lamp.target);
+  const bulb = new THREE.Mesh(new THREE.SphereGeometry(.03, 16, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color(1, .85, .6).multiplyScalar(3), toneMapped: false })); bulb.position.copy(lamp.position);
+  function update(k, t) {
+    camera.position.set(lerp(-.55, -.35, k), lerp(2.05, 1.85, k), lerp(1.95, 1.6, k)); camera.lookAt(lerp(.1, .2, k), .78, -.02);
+    needle.rotation.z = .4 + Math.sin(t * 1.3) * .08;
+  }
+  return { scene, camera, update, exposure: .8 };
+}
+
+// ---------- the Atrato river at night: floating under branches while a boat passes ----------
+export function makeRiver(W, H) {
+  const rnd = rndOf(57);
+  const scene = new THREE.Scene(); const FOG = new THREE.Color(0x1c2b36); scene.background = FOG.clone(); scene.fog = new THREE.FogExp2(FOG, .028);
+  const camera = new THREE.PerspectiveCamera(32, W / H, .05, 400);
+  // water with moving ripples catching the moon
+  const water = new THREE.Mesh(new THREE.PlaneGeometry(300, 300, 1, 1), new THREE.ShaderMaterial({
+    uniforms: { time: { value: 0 }, moon: { value: new THREE.Vector3(-40, 60, -150).normalize() }, fogC: { value: FOG } },
+    vertexShader: `varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position, 1.); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: `uniform float time; uniform vec3 moon, fogC; varying vec3 vW;
+      float h(vec2 p){ return sin(p.x*1.7 + time*.9)*.5 + sin(p.y*2.3 - time*.7 + p.x*.4)*.35 + sin((p.x+p.y)*4.1 + time*1.6)*.15; }
+      void main(){ vec2 p = vW.xz; float e = .05; vec3 n = normalize(vec3(h(p) - h(p + vec2(e, 0.)), 6., h(p) - h(p + vec2(0., e))));
+        vec3 V = normalize(cameraPosition - vW); vec3 R = reflect(-V, n);
+        float s = pow(max(dot(R, moon), 0.), 260.) * 1.8 + pow(max(dot(R, moon), 0.), 24.) * .07;
+        vec3 c = vec3(.006,.012,.016) + vec3(.75,.85,1.) * s;
+        float d = length(cameraPosition - vW); c = mix(c, fogC, 1. - exp(-pow(.035 * d, 2.)));
+        gl_FragColor = vec4(c, 1.); }` }));
+  water.rotation.x = -Math.PI / 2; scene.add(water);
+  // the banks: dark walls of trees on both sides
+  const bark = new THREE.MeshStandardMaterial({ color: 0x0c110e, roughness: 1 });
+  const leafM = new THREE.MeshStandardMaterial({ color: 0x0f1a13, roughness: 1 });
+  for (const side of [-1, 1]) for (let i = 0; i < 90; i++) {
+    const z = 10 - rnd() * 140, x = side * (11 + rnd() * 10), h = 12 + rnd() * 16;
+    const tr = new THREE.Mesh(new THREE.CylinderGeometry(.2, .45, h, 8), bark); tr.position.set(x, h / 2 - .5, z); scene.add(tr);
+    const cr = new THREE.Mesh(new THREE.IcosahedronGeometry(3 + rnd() * 3.5, 1), leafM); cr.position.set(x - side * rnd() * 2, h - 1, z); cr.scale.y = .7; scene.add(cr); }
+  scene.add(new THREE.HemisphereLight(0x6a86a8, 0x050806, 1.1));
+  const moonL = new THREE.DirectionalLight(0xb8c8e8, .7); moonL.position.set(-12, 20, -40); scene.add(moonL);
+  // the moon
+  const moonD = new THREE.Mesh(new THREE.CircleGeometry(9, 48), new THREE.MeshBasicMaterial({ color: new THREE.Color(.95, .97, 1).multiplyScalar(2.2), fog: false, toneMapped: false }));
+  moonD.position.set(-40, 60, -150); moonD.lookAt(0, 0, 0); scene.add(moonD);
+  // him: a head and shoulders under a raft of branches and leaves, drifting
+  const raft = new THREE.Group(); scene.add(raft);
+  const headM = new THREE.MeshStandardMaterial({ color: 0x1a1612, roughness: .8 });
+  const head = new THREE.Mesh(new THREE.SphereGeometry(.11, 20, 16), headM); head.position.set(-.05, .1, .1); raft.add(head);
+  for (let i = 0; i < 46; i++) { const br = new THREE.Mesh(new THREE.CylinderGeometry(.01, .016, .5 + rnd() * .6, 5), bark); br.position.set((rnd() - .5) * .9, .01 + rnd() * .06, (rnd() - .5) * .8); br.rotation.set(Math.PI / 2 + (rnd() - .5) * .3, rnd() * 6, (rnd() - .5) * .25); raft.add(br); }
+  { const leaf = new THREE.PlaneGeometry(.12, .34); const im = new THREE.InstancedMesh(leaf, new THREE.MeshStandardMaterial({ color: 0x1d2c1d, side: THREE.DoubleSide, roughness: .9 }), 160); const o = new THREE.Object3D();
+    for (let i = 0; i < 160; i++) { o.position.set((rnd() - .5) * 1.3, .05 + rnd() * .18, (rnd() - .5) * 1.2); o.rotation.set(-Math.PI / 2 + (rnd() - .5) * 1.2, rnd() * 6, rnd()); o.updateMatrix(); im.setMatrixAt(i, o.matrix); } raft.add(im); }
+  // a boat with a lamp passing upstream in the distance
+  const boat = new THREE.Group(); scene.add(boat);
+  const hull = new THREE.Mesh(new THREE.BoxGeometry(1.2, .4, 6), new THREE.MeshStandardMaterial({ color: 0x0a0a0a })); hull.position.y = .1; boat.add(hull);
+  const lampB = new THREE.Mesh(new THREE.SphereGeometry(.12, 12, 8), new THREE.MeshBasicMaterial({ color: new THREE.Color(1, .8, .45).multiplyScalar(4), toneMapped: false })); lampB.position.set(0, 1.2, 2); boat.add(lampB);
+  const pl = new THREE.PointLight(0xffc070, 60, 40, 1.3); pl.position.set(0, 1.4, 2); boat.add(pl);
+  function update(k, t) {
+    raft.position.set(lerp(.6, .3, k), Math.sin(t * 1.4) * .02, lerp(0, -2.4, k)); raft.rotation.y = .3 + Math.sin(t * .5) * .08;
+    boat.position.set(-5.5, 0, lerp(-34, -9, k)); boat.rotation.z = Math.sin(t * 2) * .02;
+    camera.position.set(lerp(4.2, 3.6, k), lerp(1.0, .85, k), raft.position.z + lerp(8.5, 7.2, k)); camera.lookAt(raft.position.x - 2.2, .4, raft.position.z - 10);
+    water.material.uniforms.time.value = t;
+  }
+  return { scene, camera, update, exposure: 1.0 };
+}

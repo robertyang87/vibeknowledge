@@ -4,7 +4,7 @@
 // Page contract: READY, DUR, render(t), TEXTS(t). On-screen copy comes from copy.json (episodes/bushby/copy/sample-v3.json).
 import * as THREE from 'three';
 import { makePost } from '/core/three/post.js';
-import { makePatagonia, makeJungle } from './scenes.js';
+import { makePatagonia, makeJungle, makeDisguise, makeRiver } from './scenes.js';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
@@ -21,20 +21,22 @@ const lerp = (a, b, k) => a + (b - a) * k;
 const DAY = 86400000;
 const dayOf = (y, m, d) => Date.UTC(y, m - 1, d) / DAY;
 const D_START = dayOf(1998, 11, 1), BORN = Date.UTC(1969, 2, 30);
-const BEATS = [   // shot: 'map' (the globe) or a story scene; r0/r1: route segments drawn across a map shot
+const BEATS = [   // shot: 'map' (the globe) or a story scene; r0/r1: route segments drawn across a map shot; key: copy key for captions and tags
   { id: 'who', shot: 'map', t0: 0, t1: 7.2, d0: D_START, d1: D_START, r0: 0, r1: 0 },
   { id: 'plan', shot: 'map', t0: 7.2, t1: 14.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
   { id: 'rules', shot: 'map', t0: 14.6, t1: 20.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
   { id: 'depart', shot: 'map', t0: 20.6, t1: 24.8, d0: D_START, d1: D_START + 3, r0: 0, r1: 1 },
-  { id: 'departS', shot: 'patagonia', t0: 24.8, t1: 29.6, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
+  { id: 'departS', key: 'depart', shot: 'patagonia', t0: 24.8, t1: 29.6, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
   { id: 'andes', shot: 'map', t0: 29.6, t1: 33.8, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 1, r1: 25 },
-  { id: 'darien', shot: 'map', t0: 33.8, t1: 38.4, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 4), r0: 25, r1: 30 },
-  { id: 'darienS', shot: 'jungle', t0: 38.4, t1: 44.0, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
-  { id: 'jail', shot: 'cell', t0: 44.0, t1: 49.0, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
-  { id: 'rewalk', shot: 'map', t0: 49.0, t1: 54.5, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
-  { id: 'credits', shot: 'black', t0: 54.5, t1: 57.5, d0: dayOf(2001, 3, 10), d1: dayOf(2001, 3, 10) },
+  { id: 'darien', shot: 'map', t0: 33.8, t1: 38.4, d0: dayOf(2000, 11, 1), d1: dayOf(2001, 1, 15), r0: 25, r1: 25 },
+  { id: 'disguise', key: 'disguise', shot: 'disguise', t0: 38.4, t1: 44.4, d0: dayOf(2000, 11, 20), d1: dayOf(2001, 1, 14) },
+  { id: 'river', key: 'river', shot: 'river', t0: 44.4, t1: 50.4, d0: dayOf(2001, 1, 31), d1: dayOf(2001, 2, 4) },
+  { id: 'darienS', key: 'darien', shot: 'jungle', t0: 50.4, t1: 56.0, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
+  { id: 'jail', key: 'jail', shot: 'cell', t0: 56.0, t1: 61.0, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
+  { id: 'rewalk', shot: 'map', t0: 61.0, t1: 66.5, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
+  { id: 'credits', shot: 'black', t0: 66.5, t1: 69.5, d0: dayOf(2001, 3, 10), d1: dayOf(2001, 3, 10) },
 ];
-const DUR = 57.5, RULE_T = 50.4;
+const DUR = 69.5, RULE_T = 62.4;
 const INTRO = new Set(['who', 'plan', 'rules']);
 const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length - 1];
 const calAt = t => { const b = beatAt(t); return lerp(b.d0, b.d1, eio(seg(t, b.t0 + .3, b.t1 - .3))); };
@@ -242,7 +244,7 @@ for (let d = 0; d < 18; d++) { const grp = Math.floor(d / 5), k = d % 5;
   if (k < 4) m.position.set(-.55 + grp * .62 + k * .1, 1.75, -2.89); else { m.position.set(-.55 + grp * .62 + .15, 1.75, -2.89); m.rotation.z = 1.0; m.scale.y = 1.35; }
   m.visible = false; tally.add(m); }
 
-const SCENES = { patagonia: makePatagonia(W, H), jungle: makeJungle(W, H) };
+const SCENES = { patagonia: makePatagonia(W, H), jungle: makeJungle(W, H), disguise: makeDisguise(W, H), river: makeRiver(W, H) };
 
 // ---------- camera rigs ----------
 const routeS = t => { const b = beatAt(t); if (b.r0 === undefined) return 0; const k = b.id === 'darien' ? eio(seg(t, b.t0 + .2, b.t1 - .6)) : eio(seg(t, b.t0 + .4, b.t1 - .2)); return lerp(arcAtSeg(b.r0), arcAtSeg(b.r1), k); };
@@ -331,7 +333,7 @@ function label(name, v, t, a, color = 'rgba(235,228,214,.8)', side = 1) {
 
 function sceneTags(t, b) {   // story scenes: a place tag and the date, top left; the cell adds the day count held
   { const g = x.createRadialGradient(120, 160, 0, 120, 160, 520); g.addColorStop(0, 'rgba(0,0,0,.45)'); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, 900, 520); }
-  const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5), tag = C.tags[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : 'jail'];
+  const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5), tag = C.tags[b.key];
   txt(tag, 120, 150, '500 20px Disp', '#E8B65C', 4, 'left', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(232,182,92,.9)'; x.fillRect(120, 168, 40, 2); x.globalAlpha = 1;
   txt(fmtDate(calAt(t)), 120, 216, '400 30px Disp', 'rgba(240,234,222,.9)', 3, 'left', k);
@@ -380,7 +382,7 @@ function overlay(t, head) {
       txt(I.rules_src, W / 2, H / 2 + 200, '400 20px Disp', 'rgba(220,214,200,.55)', 4, 'center', k); }
     return;
   }
-  if (b.shot !== 'map') { sceneTags(t, b); caption(C.captions[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : b.id], t, b.t0 + .35, b.t1 - .15); return; }
+  if (b.shot !== 'map') { sceneTags(t, b); caption(C.captions[b.key], t, b.t0 + .35, b.t1 - .15); return; }
   { // shade the corners that carry text, so it reads over bright imagery
     for (const [cx, cy, r] of [[150, 220, 760], [W - 150, 200, 620]]) { const g = x.createRadialGradient(cx, cy, 0, cx, cy, r); g.addColorStop(0, 'rgba(4,8,14,.62)'); g.addColorStop(.55, 'rgba(4,8,14,.35)'); g.addColorStop(1, 'rgba(4,8,14,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); } }
   hud(t, b);
@@ -406,7 +408,7 @@ function renderAt(t) {
   const b = beatAt(t);
   let head = pointAt(0);
   renderer.toneMappingExposure = 1;
-  if (b.shot === 'patagonia' || b.shot === 'jungle') {
+  if (SCENES[b.shot]) {
     const S = SCENES[b.shot]; S.update(eio(seg(t, b.t0, b.t1)) * .6 + seg(t, b.t0, b.t1) * .4, t);
     post.dof.scene = S.scene; post.dof.camera = S.camera; renderer.toneMappingExposure = S.exposure;
   } else if (b.shot === 'black') {
