@@ -3,7 +3,7 @@
 # Needs NOTO_SERIF_SC_VF and NOTO_SANS_SC_VF pointing at the variable Noto SC fonts.
 set -euo pipefail
 cd "$(dirname "$0")"
-cp ../../copy/styleframe-v3.json copy.json
+cp ../../copy/sample-v3.json copy.json
 mkdir -p fonts && ln -sf "$NOTO_SERIF_SC_VF" fonts/serif.ttf && ln -sf "$NOTO_SANS_SC_VF" fonts/sans.ttf
 PY=${PY:-$HOME/lemo-opuscar/.venv/bin/python}
 "$PY" make_tex.py
