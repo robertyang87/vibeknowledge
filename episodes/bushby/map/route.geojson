@@ -1,0 +1,8112 @@
+{
+ "type": "FeatureCollection",
+ "name": "Karl Bushby Goliath Expedition route (schematic)",
+ "note": "点位为城镇级近似坐标；点间连线为直线示意，不代表实际道路。status: verified=有来源直接写明, book=《Giant Steps》书内日记, inferred=按道路/距离/日期推断或坐标示意。",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.917,
+     -53.163
+    ]
+   },
+   "properties": {
+    "order": 0,
+    "name": "蓬塔阿雷纳斯",
+    "date": "1998-11-01",
+    "status": "verified",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "start"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.22,
+     -51.62
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "name": "里奥加耶戈斯",
+    "date": "1998-11",
+    "status": "inferred",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.917,
+      -53.163
+     ],
+     [
+      -69.22,
+      -51.62
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "里奥加耶戈斯",
+    "date": "1998-11",
+    "inferred": true,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -68.91,
+     -49.98
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "name": "彼德拉布埃纳",
+    "date": "1998-11/12",
+    "status": "verified",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -69.22,
+      -51.62
+     ],
+     [
+      -68.91,
+      -49.98
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "彼德拉布埃纳",
+    "date": "1998-11/12",
+    "inferred": true,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.93,
+     -46.59
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "name": "佩里托莫雷诺",
+    "date": "1999",
+    "status": "book",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -68.91,
+      -49.98
+     ],
+     [
+      -70.93,
+      -46.59
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "佩里托莫雷诺",
+    "date": "1999",
+    "inferred": false,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.32,
+     -42.91
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "name": "埃斯克尔",
+    "date": "1999",
+    "status": "book",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.93,
+      -46.59
+     ],
+     [
+      -71.32,
+      -42.91
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "埃斯克尔",
+    "date": "1999",
+    "inferred": false,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.67,
+     -33.45
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "name": "圣地亚哥",
+    "date": "1999-06前后",
+    "status": "verified",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -71.32,
+      -42.91
+     ],
+     [
+      -70.67,
+      -33.45
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣地亚哥",
+    "date": "1999-06前后",
+    "inferred": false,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.25,
+     -29.9
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "name": "拉塞雷纳",
+    "date": "1999年中",
+    "status": "verified",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.67,
+      -33.45
+     ],
+     [
+      -71.25,
+      -29.9
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "拉塞雷纳",
+    "date": "1999年中",
+    "inferred": false,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.33,
+     -27.37
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "name": "科皮亚波",
+    "date": "1999",
+    "status": "inferred",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -71.25,
+      -29.9
+     ],
+     [
+      -70.33,
+      -27.37
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "科皮亚波",
+    "date": "1999",
+    "inferred": true,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.4,
+     -23.65
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "name": "安托法加斯塔",
+    "date": "1999",
+    "status": "inferred",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.33,
+      -27.37
+     ],
+     [
+      -70.4,
+      -23.65
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "安托法加斯塔",
+    "date": "1999",
+    "inferred": true,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.31,
+     -18.48
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "name": "阿里卡",
+    "date": "1999-10",
+    "status": "inferred",
+    "segment": "A 智利—阿根廷",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.4,
+      -23.65
+     ],
+     [
+      -70.31,
+      -18.48
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿里卡",
+    "date": "1999-10",
+    "inferred": true,
+    "segment": "A 智利—阿根廷"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.25,
+     -18.01
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "name": "塔克纳",
+    "date": "约1999-11-01",
+    "status": "inferred",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.31,
+      -18.48
+     ],
+     [
+      -70.25,
+      -18.01
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "塔克纳",
+    "date": "约1999-11-01",
+    "inferred": true,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.54,
+     -16.4
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "name": "阿雷基帕",
+    "date": "1999-12-02",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.25,
+      -18.01
+     ],
+     [
+      -71.54,
+      -16.4
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿雷基帕",
+    "date": "1999-12-02",
+    "inferred": true,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -74.94,
+     -14.83
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "name": "纳斯卡",
+    "date": "2000",
+    "status": "verified",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -71.54,
+      -16.4
+     ],
+     [
+      -74.94,
+      -14.83
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "纳斯卡",
+    "date": "2000",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.04,
+     -12.05
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "name": "利马",
+    "date": "2000-02-16",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -74.94,
+      -14.83
+     ],
+     [
+      -77.04,
+      -12.05
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "利马",
+    "date": "2000-02-16",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.03,
+     -8.11
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "name": "特鲁希略",
+    "date": "2000-04-02",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.04,
+      -12.05
+     ],
+     [
+      -79.03,
+      -8.11
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "特鲁希略",
+    "date": "2000-04-02",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -80.69,
+     -4.9
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "name": "苏利亚纳",
+    "date": "2000-05",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.03,
+      -8.11
+     ],
+     [
+      -80.69,
+      -4.9
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "苏利亚纳",
+    "date": "2000-05",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.2,
+     -3.99
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "name": "洛哈",
+    "date": "2000-06/07",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -80.69,
+      -4.9
+     ],
+     [
+      -79.2,
+      -3.99
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "洛哈",
+    "date": "2000-06/07",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -78.47,
+     -0.18
+    ]
+   },
+   "properties": {
+    "order": 17,
+    "name": "基多",
+    "date": "2000-07-23",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.2,
+      -3.99
+     ],
+     [
+      -78.47,
+      -0.18
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "基多",
+    "date": "2000-07-23",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -78.45,
+     -0.002
+    ]
+   },
+   "properties": {
+    "order": 18,
+    "name": "圣安东尼奥（基多北）",
+    "date": "2000-08",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -78.47,
+      -0.18
+     ],
+     [
+      -78.45,
+      -0.002
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣安东尼奥（基多北）",
+    "date": "2000-08",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.72,
+     0.81
+    ]
+   },
+   "properties": {
+    "order": 19,
+    "name": "图尔坎",
+    "date": "2000-09-07",
+    "status": "book",
+    "segment": "B 秘鲁—厄瓜多尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -78.45,
+      -0.002
+     ],
+     [
+      -77.72,
+      0.81
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "图尔坎",
+    "date": "2000-09-07",
+    "inferred": false,
+    "segment": "B 秘鲁—厄瓜多尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.64,
+     0.83
+    ]
+   },
+   "properties": {
+    "order": 20,
+    "name": "伊皮亚莱斯",
+    "date": "约2000-09-08",
+    "status": "inferred",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.72,
+      0.81
+     ],
+     [
+      -77.64,
+      0.83
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "伊皮亚莱斯",
+    "date": "约2000-09-08",
+    "inferred": true,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.28,
+     1.21
+    ]
+   },
+   "properties": {
+    "order": 21,
+    "name": "帕斯托",
+    "date": "2000-09-12",
+    "status": "book",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.64,
+      0.83
+     ],
+     [
+      -77.28,
+      1.21
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "帕斯托",
+    "date": "2000-09-12",
+    "inferred": true,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.61,
+     2.44
+    ]
+   },
+   "properties": {
+    "order": 22,
+    "name": "波帕扬",
+    "date": "2000-09",
+    "status": "inferred",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.28,
+      1.21
+     ],
+     [
+      -76.61,
+      2.44
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "波帕扬",
+    "date": "2000-09",
+    "inferred": true,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.53,
+     3.45
+    ]
+   },
+   "properties": {
+    "order": 23,
+    "name": "卡利",
+    "date": "2000-10-03",
+    "status": "book",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.61,
+      2.44
+     ],
+     [
+      -76.53,
+      3.45
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "卡利",
+    "date": "2000-10-03",
+    "inferred": true,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -75.69,
+     4.81
+    ]
+   },
+   "properties": {
+    "order": 24,
+    "name": "佩雷拉",
+    "date": "2000-10-26",
+    "status": "book",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.53,
+      3.45
+     ],
+     [
+      -75.69,
+      4.81
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "佩雷拉",
+    "date": "2000-10-26",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -75.56,
+     6.25
+    ]
+   },
+   "properties": {
+    "order": 25,
+    "name": "麦德林",
+    "date": "2000-11-01",
+    "status": "book",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -75.69,
+      4.81
+     ],
+     [
+      -75.56,
+      6.25
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "麦德林",
+    "date": "2000-11-01",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.03,
+     6.75
+    ]
+   },
+   "properties": {
+    "order": 26,
+    "name": "卡尼亚斯戈达斯",
+    "date": "2001-01-19",
+    "status": "verified",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -75.56,
+      6.25
+     ],
+     [
+      -76.03,
+      6.75
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "卡尼亚斯戈达斯",
+    "date": "2001-01-19",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.26,
+     7.0
+    ]
+   },
+   "properties": {
+    "order": 27,
+    "name": "达贝巴",
+    "date": "2001-01-21",
+    "status": "verified",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.03,
+      6.75
+     ],
+     [
+      -76.26,
+      7.0
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "达贝巴",
+    "date": "2001-01-21",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.44,
+     7.24
+    ]
+   },
+   "properties": {
+    "order": 28,
+    "name": "穆塔塔",
+    "date": "2001-01-23",
+    "status": "book",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.26,
+      7.0
+     ],
+     [
+      -76.44,
+      7.24
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "穆塔塔",
+    "date": "2001-01-23",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.72,
+     7.37
+    ]
+   },
+   "properties": {
+    "order": 29,
+    "name": "巴希拉",
+    "date": "2001-01-28",
+    "status": "verified",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.44,
+      7.24
+     ],
+     [
+      -76.72,
+      7.37
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "巴希拉",
+    "date": "2001-01-28",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.12,
+     7.44
+    ]
+   },
+   "properties": {
+    "order": 30,
+    "name": "里奥苏西奥",
+    "date": "2001-02初",
+    "status": "verified",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.72,
+      7.37
+     ],
+     [
+      -77.12,
+      7.44
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "里奥苏西奥",
+    "date": "2001-02初",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.55,
+     7.9
+    ]
+   },
+   "properties": {
+    "order": 31,
+    "name": "帕亚",
+    "date": "2001-02",
+    "status": "verified",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.12,
+      7.44
+     ],
+     [
+      -77.55,
+      7.9
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "帕亚",
+    "date": "2001-02",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.58,
+     8.03
+    ]
+   },
+   "properties": {
+    "order": 32,
+    "name": "博卡德库佩（被扣）",
+    "date": "2001-02-16",
+    "status": "book",
+    "segment": "C 哥伦比亚—达连",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.55,
+      7.9
+     ],
+     [
+      -77.58,
+      8.03
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "博卡德库佩（被扣）",
+    "date": "2001-02-16",
+    "inferred": false,
+    "segment": "C 哥伦比亚—达连"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.69,
+     8.16
+    ]
+   },
+   "properties": {
+    "order": 33,
+    "name": "亚维萨",
+    "date": "2001-03-09",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.58,
+      8.03
+     ],
+     [
+      -77.69,
+      8.16
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "亚维萨",
+    "date": "2001-03-09",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -77.98,
+     8.5
+    ]
+   },
+   "properties": {
+    "order": 34,
+    "name": "梅特蒂",
+    "date": "2001-03-10",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.69,
+      8.16
+     ],
+     [
+      -77.98,
+      8.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "梅特蒂",
+    "date": "2001-03-10",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.52,
+     8.98
+    ]
+   },
+   "properties": {
+    "order": 35,
+    "name": "巴拿马城",
+    "date": "2001-03",
+    "status": "verified",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.98,
+      8.5
+     ],
+     [
+      -79.52,
+      8.98
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "巴拿马城",
+    "date": "2001-03",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -82.84,
+     8.53
+    ]
+   },
+   "properties": {
+    "order": 36,
+    "name": "帕索卡诺阿斯",
+    "date": "2001-04-26",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.52,
+      8.98
+     ],
+     [
+      -82.84,
+      8.53
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "帕索卡诺阿斯",
+    "date": "2001-04-26",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -84.08,
+     9.93
+    ]
+   },
+   "properties": {
+    "order": 37,
+    "name": "圣何塞",
+    "date": "2001-05",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -82.84,
+      8.53
+     ],
+     [
+      -84.08,
+      9.93
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣何塞",
+    "date": "2001-05",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -85.61,
+     11.21
+    ]
+   },
+   "properties": {
+    "order": 38,
+    "name": "佩尼亚斯布兰卡斯",
+    "date": "2001-05-20",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -84.08,
+      9.93
+     ],
+     [
+      -85.61,
+      11.21
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "佩尼亚斯布兰卡斯",
+    "date": "2001-05-20",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -86.88,
+     12.44
+    ]
+   },
+   "properties": {
+    "order": 39,
+    "name": "莱昂",
+    "date": "2001-06-03",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -85.61,
+      11.21
+     ],
+     [
+      -86.88,
+      12.44
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "莱昂",
+    "date": "2001-06-03",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.02,
+     12.93
+    ]
+   },
+   "properties": {
+    "order": 40,
+    "name": "瓜萨乌莱",
+    "date": "约2001-07-25",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -86.88,
+      12.44
+     ],
+     [
+      -87.02,
+      12.93
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "瓜萨乌莱",
+    "date": "约2001-07-25",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.19,
+     13.3
+    ]
+   },
+   "properties": {
+    "order": 41,
+    "name": "乔卢特卡",
+    "date": "2001-07-28",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -87.02,
+      12.93
+     ],
+     [
+      -87.19,
+      13.3
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "乔卢特卡",
+    "date": "2001-07-28",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.18,
+     13.48
+    ]
+   },
+   "properties": {
+    "order": 42,
+    "name": "圣米格尔",
+    "date": "2001-07-29",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -87.19,
+      13.3
+     ],
+     [
+      -88.18,
+      13.48
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣米格尔",
+    "date": "2001-07-29",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.09,
+     13.86
+    ]
+   },
+   "properties": {
+    "order": 43,
+    "name": "拉阿查杜拉",
+    "date": "2001-08-10",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -88.18,
+      13.48
+     ],
+     [
+      -90.09,
+      13.86
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "拉阿查杜拉",
+    "date": "2001-08-10",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.79,
+     14.3
+    ]
+   },
+   "properties": {
+    "order": 44,
+    "name": "埃斯昆特拉",
+    "date": "2001-08-14",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -90.09,
+      13.86
+     ],
+     [
+      -90.79,
+      14.3
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "埃斯昆特拉",
+    "date": "2001-08-14",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -92.14,
+     14.68
+    ]
+   },
+   "properties": {
+    "order": 45,
+    "name": "特昆乌曼",
+    "date": "约2001-08-30",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -90.79,
+      14.3
+     ],
+     [
+      -92.14,
+      14.68
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "特昆乌曼",
+    "date": "约2001-08-30",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -92.26,
+     14.9
+    ]
+   },
+   "properties": {
+    "order": 46,
+    "name": "塔帕丘拉",
+    "date": "2001-08-31",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -92.14,
+      14.68
+     ],
+     [
+      -92.26,
+      14.9
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "塔帕丘拉",
+    "date": "2001-08-31",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -93.75,
+     16.09
+    ]
+   },
+   "properties": {
+    "order": 47,
+    "name": "托纳拉",
+    "date": "2001-09-11",
+    "status": "verified",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -92.26,
+      14.9
+     ],
+     [
+      -93.75,
+      16.09
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "托纳拉",
+    "date": "2001-09-11",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -99.88,
+     16.85
+    ]
+   },
+   "properties": {
+    "order": 48,
+    "name": "阿卡普尔科",
+    "date": "2001-10-28",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -93.75,
+      16.09
+     ],
+     [
+      -99.88,
+      16.85
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿卡普尔科",
+    "date": "2001-10-28",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.31,
+     19.05
+    ]
+   },
+   "properties": {
+    "order": 49,
+    "name": "曼萨尼约",
+    "date": "2001-11-29",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -99.88,
+      16.85
+     ],
+     [
+      -104.31,
+      19.05
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "曼萨尼约",
+    "date": "2001-11-29",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.7,
+     19.22
+    ]
+   },
+   "properties": {
+    "order": 50,
+    "name": "梅拉克",
+    "date": "2001-12-06",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.31,
+      19.05
+     ],
+     [
+      -104.7,
+      19.22
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "梅拉克",
+    "date": "2001-12-06",
+    "inferred": false,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.23,
+     20.65
+    ]
+   },
+   "properties": {
+    "order": 51,
+    "name": "巴亚尔塔港",
+    "date": "2002-01",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      -105.23,
+      20.65
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "巴亚尔塔港",
+    "date": "2002-01",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.41,
+     23.25
+    ]
+   },
+   "properties": {
+    "order": 52,
+    "name": "马萨特兰",
+    "date": "2002-02-15",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -105.23,
+      20.65
+     ],
+     [
+      -106.41,
+      23.25
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "马萨特兰",
+    "date": "2002-02-15",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.39,
+     24.8
+    ]
+   },
+   "properties": {
+    "order": 53,
+    "name": "库利亚坎",
+    "date": "2002-03",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -106.41,
+      23.25
+     ],
+     [
+      -107.39,
+      24.8
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "库利亚坎",
+    "date": "2002-03",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.9,
+     27.92
+    ]
+   },
+   "properties": {
+    "order": 54,
+    "name": "瓜伊马斯",
+    "date": "2002-04-02",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.39,
+      24.8
+     ],
+     [
+      -110.9,
+      27.92
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "瓜伊马斯",
+    "date": "2002-04-02",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.96,
+     29.07
+    ]
+   },
+   "properties": {
+    "order": 55,
+    "name": "埃莫西约",
+    "date": "约2002-04中",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -110.9,
+      27.92
+     ],
+     [
+      -110.96,
+      29.07
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "埃莫西约",
+    "date": "约2002-04中",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.12,
+     30.54
+    ]
+   },
+   "properties": {
+    "order": 56,
+    "name": "圣安娜",
+    "date": "约2002-04-22",
+    "status": "inferred",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -110.96,
+      29.07
+     ],
+     [
+      -111.12,
+      30.54
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣安娜",
+    "date": "约2002-04-22",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.94,
+     31.33
+    ]
+   },
+   "properties": {
+    "order": 57,
+    "name": "诺加利斯",
+    "date": "2002-04-27/29",
+    "status": "book",
+    "segment": "D 中美洲—墨西哥",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.12,
+      30.54
+     ],
+     [
+      -110.94,
+      31.33
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "诺加利斯",
+    "date": "2002-04-27/29",
+    "inferred": true,
+    "segment": "D 中美洲—墨西哥"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.97,
+     32.22
+    ]
+   },
+   "properties": {
+    "order": 58,
+    "name": "图森",
+    "date": "2002-05",
+    "status": "verified",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -110.94,
+      31.33
+     ],
+     [
+      -110.97,
+      32.22
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "图森",
+    "date": "2002-05",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.07,
+     33.45
+    ]
+   },
+   "properties": {
+    "order": 59,
+    "name": "凤凰城",
+    "date": "2002-05",
+    "status": "inferred",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -110.97,
+      32.22
+     ],
+     [
+      -112.07,
+      33.45
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "凤凰城",
+    "date": "2002-05",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.29,
+     34.15
+    ]
+   },
+   "properties": {
+    "order": 60,
+    "name": "帕克",
+    "date": "2002-06-13",
+    "status": "verified",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -112.07,
+      33.45
+     ],
+     [
+      -114.29,
+      34.15
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "帕克",
+    "date": "2002-06-13",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.14,
+     36.17
+    ]
+   },
+   "properties": {
+    "order": 61,
+    "name": "拉斯维加斯",
+    "date": "2002-07-05",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -114.29,
+      34.15
+     ],
+     [
+      -115.14,
+      36.17
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "拉斯维加斯",
+    "date": "2002-07-05",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -113.58,
+     37.1
+    ]
+   },
+   "properties": {
+    "order": 62,
+    "name": "圣乔治",
+    "date": "2002-08/09",
+    "status": "inferred",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -115.14,
+      36.17
+     ],
+     [
+      -113.58,
+      37.1
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣乔治",
+    "date": "2002-08/09",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.89,
+     40.76
+    ]
+   },
+   "properties": {
+    "order": 63,
+    "name": "盐湖城",
+    "date": "2002-10-03",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -113.58,
+      37.1
+     ],
+     [
+      -111.89,
+      40.76
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "盐湖城",
+    "date": "2002-10-03",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.88,
+     42.1
+    ]
+   },
+   "properties": {
+    "order": 64,
+    "name": "普雷斯顿",
+    "date": "2002-10中下",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.89,
+      40.76
+     ],
+     [
+      -111.88,
+      42.1
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "普雷斯顿",
+    "date": "2002-10中下",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.45,
+     42.87
+    ]
+   },
+   "properties": {
+    "order": 65,
+    "name": "波卡特洛",
+    "date": "2002-10",
+    "status": "inferred",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.88,
+      42.1
+     ],
+     [
+      -112.45,
+      42.87
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "波卡特洛",
+    "date": "2002-10",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.79,
+     43.83
+    ]
+   },
+   "properties": {
+    "order": 66,
+    "name": "雷克斯堡",
+    "date": "约2002-11-01",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -112.45,
+      42.87
+     ],
+     [
+      -111.79,
+      43.83
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "雷克斯堡",
+    "date": "约2002-11-01",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.68,
+     43.97
+    ]
+   },
+   "properties": {
+    "order": 67,
+    "name": "圣安东尼",
+    "date": "约2002-11-01",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.79,
+      43.83
+     ],
+     [
+      -111.68,
+      43.97
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣安东尼",
+    "date": "约2002-11-01",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.47,
+     44.74
+    ]
+   },
+   "properties": {
+    "order": 68,
+    "name": "雷诺兹山口",
+    "date": "2002-11-03",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.68,
+      43.97
+     ],
+     [
+      -111.47,
+      44.74
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "雷诺兹山口",
+    "date": "2002-11-03",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.73,
+     45.35
+    ]
+   },
+   "properties": {
+    "order": 69,
+    "name": "恩尼斯",
+    "date": "2002-11",
+    "status": "inferred",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.47,
+      44.74
+     ],
+     [
+      -111.73,
+      45.35
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "恩尼斯",
+    "date": "2002-11",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.04,
+     46.59
+    ]
+   },
+   "properties": {
+    "order": 70,
+    "name": "海伦娜",
+    "date": "约2002-11中",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.73,
+      45.35
+     ],
+     [
+      -112.04,
+      46.59
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "海伦娜",
+    "date": "约2002-11中",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.3,
+     47.5
+    ]
+   },
+   "properties": {
+    "order": 71,
+    "name": "大瀑布城",
+    "date": "2002-12",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -112.04,
+      46.59
+     ],
+     [
+      -111.3,
+      47.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "大瀑布城",
+    "date": "2002-12",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.95,
+     48.17
+    ]
+   },
+   "properties": {
+    "order": 72,
+    "name": "康拉德",
+    "date": "2002-12-25",
+    "status": "book",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.3,
+      47.5
+     ],
+     [
+      -111.95,
+      48.17
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "康拉德",
+    "date": "2002-12-25",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.86,
+     48.51
+    ]
+   },
+   "properties": {
+    "order": 73,
+    "name": "谢尔比（推车被盗）",
+    "date": "2002-12-31",
+    "status": "verified",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.95,
+      48.17
+     ],
+     [
+      -111.86,
+      48.51
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "谢尔比（推车被盗）",
+    "date": "2002-12-31",
+    "inferred": false,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.96,
+     48.998
+    ]
+   },
+   "properties": {
+    "order": 74,
+    "name": "斯威特格拉斯/库茨",
+    "date": "约2003-01",
+    "status": "inferred",
+    "segment": "E 美国",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.86,
+      48.51
+     ],
+     [
+      -111.96,
+      48.998
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "斯威特格拉斯/库茨",
+    "date": "约2003-01",
+    "inferred": true,
+    "segment": "E 美国"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.68,
+     50.04
+    ]
+   },
+   "properties": {
+    "order": 75,
+    "name": "梅迪辛哈特",
+    "date": "2003-02",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -111.96,
+      48.998
+     ],
+     [
+      -110.68,
+      50.04
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "梅迪辛哈特",
+    "date": "2003-02",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.07,
+     51.05
+    ]
+   },
+   "properties": {
+    "order": 76,
+    "name": "卡尔加里",
+    "date": "2003-03-14",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -110.68,
+      50.04
+     ],
+     [
+      -114.07,
+      51.05
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "卡尔加里",
+    "date": "2003-03-14",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -113.49,
+     53.55
+    ]
+   },
+   "properties": {
+    "order": 77,
+    "name": "埃德蒙顿",
+    "date": "2003",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -114.07,
+      51.05
+     ],
+     [
+      -113.49,
+      53.55
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "埃德蒙顿",
+    "date": "2003",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.24,
+     55.76
+    ]
+   },
+   "properties": {
+    "order": 78,
+    "name": "道森克里克",
+    "date": "2003-10-22",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -113.49,
+      53.55
+     ],
+     [
+      -120.24,
+      55.76
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "道森克里克",
+    "date": "2003-10-22",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.85,
+     56.25
+    ]
+   },
+   "properties": {
+    "order": 79,
+    "name": "圣约翰堡",
+    "date": "2003-11-02",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -120.24,
+      55.76
+     ],
+     [
+      -120.85,
+      56.25
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣约翰堡",
+    "date": "2003-11-02",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.7,
+     58.81
+    ]
+   },
+   "properties": {
+    "order": 80,
+    "name": "纳尔逊堡",
+    "date": "2004-01-01",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -120.85,
+      56.25
+     ],
+     [
+      -122.7,
+      58.81
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "纳尔逊堡",
+    "date": "2004-01-01",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.71,
+     60.06
+    ]
+   },
+   "properties": {
+    "order": 81,
+    "name": "沃森湖",
+    "date": "2004-02",
+    "status": "inferred",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -122.7,
+      58.81
+     ],
+     [
+      -128.71,
+      60.06
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "沃森湖",
+    "date": "2004-02",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -135.06,
+     60.72
+    ]
+   },
+   "properties": {
+    "order": 82,
+    "name": "怀特霍斯",
+    "date": "2004-03-31",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.71,
+      60.06
+     ],
+     [
+      -135.06,
+      60.72
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "怀特霍斯",
+    "date": "2004-03-31",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -140.87,
+     62.38
+    ]
+   },
+   "properties": {
+    "order": 83,
+    "name": "比弗克里克",
+    "date": "2004-04",
+    "status": "inferred",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -135.06,
+      60.72
+     ],
+     [
+      -140.87,
+      62.38
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "比弗克里克",
+    "date": "2004-04",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -142.99,
+     63.34
+    ]
+   },
+   "properties": {
+    "order": 84,
+    "name": "托克",
+    "date": "2004-05",
+    "status": "inferred",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -140.87,
+      62.38
+     ],
+     [
+      -142.99,
+      63.34
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "托克",
+    "date": "2004-05",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -145.73,
+     64.04
+    ]
+   },
+   "properties": {
+    "order": 85,
+    "name": "德尔塔章克申",
+    "date": "2004-05-16",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -142.99,
+      63.34
+     ],
+     [
+      -145.73,
+      64.04
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "德尔塔章克申",
+    "date": "2004-05-16",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -147.72,
+     64.84
+    ]
+   },
+   "properties": {
+    "order": 86,
+    "name": "费尔班克斯",
+    "date": "2004-05",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -145.73,
+      64.04
+     ],
+     [
+      -147.72,
+      64.84
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "费尔班克斯",
+    "date": "2004-05",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -149.18,
+     64.88
+    ]
+   },
+   "properties": {
+    "order": 87,
+    "name": "明托",
+    "date": "2004-12",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -147.72,
+      64.84
+     ],
+     [
+      -149.18,
+      64.88
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "明托",
+    "date": "2004-12",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -152.08,
+     65.17
+    ]
+   },
+   "properties": {
+    "order": 88,
+    "name": "塔纳纳",
+    "date": "2005-01-18",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -149.18,
+      64.88
+     ],
+     [
+      -152.08,
+      65.17
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "塔纳纳",
+    "date": "2005-01-18",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -155.49,
+     64.74
+    ]
+   },
+   "properties": {
+    "order": 89,
+    "name": "鲁比",
+    "date": "2005-02",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -152.08,
+      65.17
+     ],
+     [
+      -155.49,
+      64.74
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "鲁比",
+    "date": "2005-02",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -156.93,
+     64.74
+    ]
+   },
+   "properties": {
+    "order": 90,
+    "name": "加利纳",
+    "date": "2005-02",
+    "status": "inferred",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -155.49,
+      64.74
+     ],
+     [
+      -156.93,
+      64.74
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "加利纳",
+    "date": "2005-02",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -158.72,
+     64.33
+    ]
+   },
+   "properties": {
+    "order": 91,
+    "name": "卡尔塔格",
+    "date": "2005-03",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -156.93,
+      64.74
+     ],
+     [
+      -158.72,
+      64.33
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "卡尔塔格",
+    "date": "2005-03",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -160.79,
+     63.87
+    ]
+   },
+   "properties": {
+    "order": 92,
+    "name": "乌纳拉克利特",
+    "date": "2005-03-22",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -158.72,
+      64.33
+     ],
+     [
+      -160.79,
+      63.87
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "乌纳拉克利特",
+    "date": "2005-03-22",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -161.2,
+     64.36
+    ]
+   },
+   "properties": {
+    "order": 93,
+    "name": "沙克图利克",
+    "date": "2005-12-30",
+    "status": "verified",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -160.79,
+      63.87
+     ],
+     [
+      -161.2,
+      64.36
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "沙克图利克",
+    "date": "2005-12-30",
+    "inferred": false,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -161.16,
+     64.93
+    ]
+   },
+   "properties": {
+    "order": 94,
+    "name": "科尤克",
+    "date": "2006-01",
+    "status": "inferred",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -161.2,
+      64.36
+     ],
+     [
+      -161.16,
+      64.93
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "科尤克",
+    "date": "2006-01",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -165.41,
+     64.5
+    ]
+   },
+   "properties": {
+    "order": 95,
+    "name": "诺姆",
+    "date": "约2006-01-20",
+    "status": "book",
+    "segment": "F 加拿大—阿拉斯加",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -161.16,
+      64.93
+     ],
+     [
+      -165.41,
+      64.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "诺姆",
+    "date": "约2006-01-20",
+    "inferred": true,
+    "segment": "F 加拿大—阿拉斯加"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -166.15,
+     64.88
+    ]
+   },
+   "properties": {
+    "order": 96,
+    "name": "伍利角",
+    "date": "2006-02初",
+    "status": "verified",
+    "segment": "白令海峡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -165.41,
+      64.5
+     ],
+     [
+      -166.15,
+      64.88
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "伍利角",
+    "date": "2006-02初",
+    "inferred": false,
+    "segment": "白令海峡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -166.36,
+     65.26
+    ]
+   },
+   "properties": {
+    "order": 97,
+    "name": "特勒",
+    "date": "2006-02",
+    "status": "verified",
+    "segment": "白令海峡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -166.15,
+      64.88
+     ],
+     [
+      -166.36,
+      65.26
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "特勒",
+    "date": "2006-02",
+    "inferred": false,
+    "segment": "白令海峡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -166.49,
+     65.33
+    ]
+   },
+   "properties": {
+    "order": 98,
+    "name": "布雷维格米申",
+    "date": "2006-02",
+    "status": "verified",
+    "segment": "白令海峡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -166.36,
+      65.26
+     ],
+     [
+      -166.49,
+      65.33
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "布雷维格米申",
+    "date": "2006-02",
+    "inferred": false,
+    "segment": "白令海峡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -168.09,
+     65.61
+    ]
+   },
+   "properties": {
+    "order": 99,
+    "name": "威尔士",
+    "date": "2006-03-17",
+    "status": "verified",
+    "segment": "白令海峡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -166.49,
+      65.33
+     ],
+     [
+      -168.09,
+      65.61
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "威尔士",
+    "date": "2006-03-17",
+    "inferred": false,
+    "segment": "白令海峡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -168.9,
+     66.05
+    ]
+   },
+   "properties": {
+    "order": 100,
+    "name": "海冰（向北漂移）",
+    "date": "2006-03下",
+    "status": "inferred",
+    "segment": "白令海峡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -168.09,
+      65.61
+     ],
+     [
+      -168.9,
+      66.05
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "海冰（向北漂移）",
+    "date": "2006-03下",
+    "inferred": true,
+    "segment": "白令海峡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -169.81,
+     66.16
+    ]
+   },
+   "properties": {
+    "order": 101,
+    "name": "韦连",
+    "date": "2006-03-31",
+    "status": "verified",
+    "segment": "白令海峡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -168.9,
+      66.05
+     ],
+     [
+      -169.81,
+      66.16
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "韦连",
+    "date": "2006-03-31",
+    "inferred": true,
+    "segment": "白令海峡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -170.25,
+     66.29
+    ]
+   },
+   "properties": {
+    "order": 102,
+    "name": "因丘恩",
+    "date": "2007-04-12",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -169.81,
+      66.16
+     ],
+     [
+      -170.25,
+      66.29
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "因丘恩",
+    "date": "2007-04-12",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -171.82,
+     66.95
+    ]
+   },
+   "properties": {
+    "order": 103,
+    "name": "叶努尔米诺",
+    "date": "约2007-04-20",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -170.25,
+      66.29
+     ],
+     [
+      -171.82,
+      66.95
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "叶努尔米诺",
+    "date": "约2007-04-20",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -172.97,
+     67.03
+    ]
+   },
+   "properties": {
+    "order": 104,
+    "name": "涅什坎",
+    "date": "2007-04-24",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -171.82,
+      66.95
+     ],
+     [
+      -172.97,
+      67.03
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "涅什坎",
+    "date": "2007-04-24",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -178.7,
+     67.75
+    ]
+   },
+   "properties": {
+    "order": 105,
+    "name": "阿姆古埃马",
+    "date": "2007-05-14",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -172.97,
+      67.03
+     ],
+     [
+      -178.7,
+      67.75
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿姆古埃马",
+    "date": "2007-05-14",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     168.0,
+     68.2
+    ]
+   },
+   "properties": {
+    "order": 106,
+    "name": "德沃伊诺耶（坐标示意）",
+    "date": "2008-04下",
+    "status": "inferred",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -178.7,
+      67.75
+     ],
+     [
+      168.0,
+      68.2
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "德沃伊诺耶（坐标示意）",
+    "date": "2008-04下",
+    "inferred": true,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     166.44,
+     68.06
+    ]
+   },
+   "properties": {
+    "order": 107,
+    "name": "比利比诺",
+    "date": "2008-05-18",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      168.0,
+      68.2
+     ],
+     [
+      166.44,
+      68.06
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "比利比诺",
+    "date": "2008-05-18",
+    "inferred": true,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     161.4,
+     68.6
+    ]
+   },
+   "properties": {
+    "order": 108,
+    "name": "阿纽伊斯克",
+    "date": "2011-03-22",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      166.44,
+      68.06
+     ],
+     [
+      161.4,
+      68.6
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿纽伊斯克",
+    "date": "2011-03-22",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     161.3,
+     68.75
+    ]
+   },
+   "properties": {
+    "order": 109,
+    "name": "切尔斯基/下科雷姆斯克",
+    "date": "2011-03-26",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      161.4,
+      68.6
+     ],
+     [
+      161.3,
+      68.75
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "切尔斯基/下科雷姆斯克",
+    "date": "2011-03-26",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     153.71,
+     67.45
+    ]
+   },
+   "properties": {
+    "order": 110,
+    "name": "中科雷姆斯克",
+    "date": "2011-04-25",
+    "status": "verified",
+    "segment": "G 楚科奇—科雷马",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      161.3,
+      68.75
+     ],
+     [
+      153.71,
+      67.45
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "中科雷姆斯克",
+    "date": "2011-04-25",
+    "inferred": false,
+    "segment": "G 楚科奇—科雷马"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     145.0,
+     64.9
+    ]
+   },
+   "properties": {
+    "order": 111,
+    "name": "萨瑟尔（坐标示意）",
+    "date": "2015",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      153.71,
+      67.45
+     ],
+     [
+      145.0,
+      64.9
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "萨瑟尔（坐标示意）",
+    "date": "2015",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     143.24,
+     64.57
+    ]
+   },
+   "properties": {
+    "order": 112,
+    "name": "白骨之路（乌斯季涅拉附近）",
+    "date": "2015",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      145.0,
+      64.9
+     ],
+     [
+      143.24,
+      64.57
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "白骨之路（乌斯季涅拉附近）",
+    "date": "2015",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     135.56,
+     62.65
+    ]
+   },
+   "properties": {
+    "order": 113,
+    "name": "汉德加（阿尔丹河）",
+    "date": "2015/16",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      143.24,
+      64.57
+     ],
+     [
+      135.56,
+      62.65
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "汉德加（阿尔丹河）",
+    "date": "2015/16",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     129.91,
+     61.96
+    ]
+   },
+   "properties": {
+    "order": 114,
+    "name": "下别斯佳赫",
+    "date": "2016春",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      135.56,
+      62.65
+     ],
+     [
+      129.91,
+      61.96
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "下别斯佳赫",
+    "date": "2016春",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     126.29,
+     58.96
+    ]
+   },
+   "properties": {
+    "order": 115,
+    "name": "托莫特",
+    "date": "2016-05",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      129.91,
+      61.96
+     ],
+     [
+      126.29,
+      58.96
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "托莫特",
+    "date": "2016-05",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     124.71,
+     56.66
+    ]
+   },
+   "properties": {
+    "order": 116,
+    "name": "涅留恩格里",
+    "date": "2016-06-08",
+    "status": "verified",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      126.29,
+      58.96
+     ],
+     [
+      124.71,
+      56.66
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "涅留恩格里",
+    "date": "2016-06-08",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     124.72,
+     55.15
+    ]
+   },
+   "properties": {
+    "order": 117,
+    "name": "滕达",
+    "date": "2016-06下",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      124.71,
+      56.66
+     ],
+     [
+      124.72,
+      55.15
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "滕达",
+    "date": "2016-06下",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.95,
+     53.96
+    ]
+   },
+   "properties": {
+    "order": 118,
+    "name": "叶罗费·帕夫洛维奇",
+    "date": "2016",
+    "status": "verified",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      124.72,
+      55.15
+     ],
+     [
+      121.95,
+      53.96
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "叶罗费·帕夫洛维奇",
+    "date": "2016",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     119.77,
+     53.73
+    ]
+   },
+   "properties": {
+    "order": 119,
+    "name": "莫戈恰",
+    "date": "2016底",
+    "status": "verified",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      121.95,
+      53.96
+     ],
+     [
+      119.77,
+      53.73
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "莫戈恰",
+    "date": "2016底",
+    "inferred": false,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.5,
+     52.03
+    ]
+   },
+   "properties": {
+    "order": 120,
+    "name": "赤塔",
+    "date": "2017",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      119.77,
+      53.73
+     ],
+     [
+      113.5,
+      52.03
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "赤塔",
+    "date": "2017",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     107.58,
+     51.83
+    ]
+   },
+   "properties": {
+    "order": 121,
+    "name": "乌兰乌德",
+    "date": "2017",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      113.5,
+      52.03
+     ],
+     [
+      107.58,
+      51.83
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "乌兰乌德",
+    "date": "2017",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.45,
+     50.35
+    ]
+   },
+   "properties": {
+    "order": 122,
+    "name": "恰克图",
+    "date": "2017",
+    "status": "inferred",
+    "segment": "H2 雅库特—阿穆尔",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      107.58,
+      51.83
+     ],
+     [
+      106.45,
+      50.35
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "恰克图",
+    "date": "2017",
+    "inferred": true,
+    "segment": "H2 雅库特—阿穆尔"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.92,
+     47.92
+    ]
+   },
+   "properties": {
+    "order": 123,
+    "name": "乌兰巴托",
+    "date": "2017-08-08",
+    "status": "verified",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      106.45,
+      50.35
+     ],
+     [
+      106.92,
+      47.92
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "乌兰巴托",
+    "date": "2017-08-08",
+    "inferred": true,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     87.62,
+     43.83
+    ]
+   },
+   "properties": {
+    "order": 124,
+    "name": "乌鲁木齐",
+    "date": "2018",
+    "status": "verified",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "gap"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      106.92,
+      47.92
+     ],
+     [
+      87.62,
+      43.83
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "unknown_route",
+    "to": "乌鲁木齐",
+    "date": "2018",
+    "inferred": false,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     80.42,
+     44.21
+    ]
+   },
+   "properties": {
+    "order": 125,
+    "name": "霍尔果斯",
+    "date": "2018",
+    "status": "inferred",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      87.62,
+      43.83
+     ],
+     [
+      80.42,
+      44.21
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "霍尔果斯",
+    "date": "2018",
+    "inferred": true,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     76.89,
+     43.24
+    ]
+   },
+   "properties": {
+    "order": 126,
+    "name": "阿拉木图",
+    "date": "2018-11",
+    "status": "verified",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      80.42,
+      44.21
+     ],
+     [
+      76.89,
+      43.24
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿拉木图",
+    "date": "2018-11",
+    "inferred": true,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     69.59,
+     42.32
+    ]
+   },
+   "properties": {
+    "order": 127,
+    "name": "奇姆肯特",
+    "date": "2019",
+    "status": "inferred",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      76.89,
+      43.24
+     ],
+     [
+      69.59,
+      42.32
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "奇姆肯特",
+    "date": "2019",
+    "inferred": true,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     66.96,
+     39.65
+    ]
+   },
+   "properties": {
+    "order": 128,
+    "name": "撒马尔罕",
+    "date": "2019-06",
+    "status": "verified",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      69.59,
+      42.32
+     ],
+     [
+      66.96,
+      39.65
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "撒马尔罕",
+    "date": "2019-06",
+    "inferred": true,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     64.42,
+     39.77
+    ]
+   },
+   "properties": {
+    "order": 129,
+    "name": "布哈拉",
+    "date": "2019-06/07",
+    "status": "verified",
+    "segment": "I 蒙古—新疆—中亚",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      66.96,
+      39.65
+     ],
+     [
+      64.42,
+      39.77
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "布哈拉",
+    "date": "2019-06/07",
+    "inferred": false,
+    "segment": "I 蒙古—新疆—中亚"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     64.42,
+     39.77
+    ]
+   },
+   "properties": {
+    "order": 130,
+    "name": "布哈拉（重新出发）",
+    "date": "2023-09-24",
+    "status": "verified",
+    "segment": "布哈拉—里海",
+    "leg_into": "start"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     59.6,
+     42.46
+    ]
+   },
+   "properties": {
+    "order": 131,
+    "name": "努库斯",
+    "date": "2023/24",
+    "status": "inferred",
+    "segment": "布哈拉—里海",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      64.42,
+      39.77
+     ],
+     [
+      59.6,
+      42.46
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "努库斯",
+    "date": "2023/24",
+    "inferred": true,
+    "segment": "布哈拉—里海"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.2,
+     45.32
+    ]
+   },
+   "properties": {
+    "order": 132,
+    "name": "别伊涅乌",
+    "date": "2024",
+    "status": "inferred",
+    "segment": "布哈拉—里海",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      59.6,
+      42.46
+     ],
+     [
+      55.2,
+      45.32
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "别伊涅乌",
+    "date": "2024",
+    "inferred": true,
+    "segment": "布哈拉—里海"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.6,
+     43.3
+    ]
+   },
+   "properties": {
+    "order": 133,
+    "name": "里海东岸（阿克套以南，示意）",
+    "date": "2024-08-16",
+    "status": "inferred",
+    "segment": "布哈拉—里海",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      55.2,
+      45.32
+     ],
+     [
+      51.6,
+      43.3
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "里海东岸（阿克套以南，示意）",
+    "date": "2024-08-16",
+    "inferred": true,
+    "segment": "布哈拉—里海"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     50.0,
+     40.56
+    ]
+   },
+   "properties": {
+    "order": 134,
+    "name": "纳尔达兰（巴库北）",
+    "date": "2024-09-17",
+    "status": "verified",
+    "segment": "布哈拉—里海",
+    "leg_into": "swim"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      51.6,
+      43.3
+     ],
+     [
+      50.0,
+      40.56
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "swim",
+    "to": "纳尔达兰（巴库北）",
+    "date": "2024-09-17",
+    "inferred": true,
+    "segment": "布哈拉—里海"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     49.87,
+     40.41
+    ]
+   },
+   "properties": {
+    "order": 135,
+    "name": "巴库",
+    "date": "2024-11-10",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      50.0,
+      40.56
+     ],
+     [
+      49.87,
+      40.41
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "巴库",
+    "date": "2024-11-10",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     46.36,
+     40.68
+    ]
+   },
+   "properties": {
+    "order": 136,
+    "name": "占贾",
+    "date": "2024-11",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      49.87,
+      40.41
+     ],
+     [
+      46.36,
+      40.68
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "占贾",
+    "date": "2024-11",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     44.79,
+     41.72
+    ]
+   },
+   "properties": {
+    "order": 137,
+    "name": "第比利斯",
+    "date": "2024-12",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      46.36,
+      40.68
+     ],
+     [
+      44.79,
+      41.72
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "第比利斯",
+    "date": "2024-12",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     41.64,
+     41.64
+    ]
+   },
+   "properties": {
+    "order": 138,
+    "name": "巴统",
+    "date": "2025-01-30",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      44.79,
+      41.72
+     ],
+     [
+      41.64,
+      41.64
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "巴统",
+    "date": "2025-01-30",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     41.55,
+     41.52
+    ]
+   },
+   "properties": {
+    "order": 139,
+    "name": "萨尔普",
+    "date": "2025-02-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      41.64,
+      41.64
+     ],
+     [
+      41.55,
+      41.52
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "萨尔普",
+    "date": "2025-02-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     41.42,
+     41.39
+    ]
+   },
+   "properties": {
+    "order": 140,
+    "name": "霍帕",
+    "date": "2025-02-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      41.55,
+      41.52
+     ],
+     [
+      41.42,
+      41.39
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "霍帕",
+    "date": "2025-02-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     41.3,
+     41.35
+    ]
+   },
+   "properties": {
+    "order": 141,
+    "name": "阿尔哈维",
+    "date": "2025-02",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      41.42,
+      41.39
+     ],
+     [
+      41.3,
+      41.35
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿尔哈维",
+    "date": "2025-02",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     40.52,
+     41.02
+    ]
+   },
+   "properties": {
+    "order": 142,
+    "name": "里泽",
+    "date": "2025-02",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      41.3,
+      41.35
+     ],
+     [
+      40.52,
+      41.02
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "里泽",
+    "date": "2025-02",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     40.27,
+     40.95
+    ]
+   },
+   "properties": {
+    "order": 143,
+    "name": "奥夫",
+    "date": "约2025-02-12",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      40.52,
+      41.02
+     ],
+     [
+      40.27,
+      40.95
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "奥夫",
+    "date": "约2025-02-12",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     39.72,
+     41.0
+    ]
+   },
+   "properties": {
+    "order": 144,
+    "name": "特拉布宗",
+    "date": "2025-02",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      40.27,
+      40.95
+     ],
+     [
+      39.72,
+      41.0
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "特拉布宗",
+    "date": "2025-02",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     38.39,
+     40.91
+    ]
+   },
+   "properties": {
+    "order": 145,
+    "name": "吉雷松",
+    "date": "2025-02/03",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      39.72,
+      41.0
+     ],
+     [
+      38.39,
+      40.91
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "吉雷松",
+    "date": "2025-02/03",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     37.88,
+     40.98
+    ]
+   },
+   "properties": {
+    "order": 146,
+    "name": "奥尔杜",
+    "date": "2025-03",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      38.39,
+      40.91
+     ],
+     [
+      37.88,
+      40.98
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "奥尔杜",
+    "date": "2025-03",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     36.33,
+     41.29
+    ]
+   },
+   "properties": {
+    "order": 147,
+    "name": "萨姆松",
+    "date": "2025-03-12",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      37.88,
+      40.98
+     ],
+     [
+      36.33,
+      41.29
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "萨姆松",
+    "date": "2025-03-12",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     35.46,
+     40.87
+    ]
+   },
+   "properties": {
+    "order": 148,
+    "name": "梅尔济丰",
+    "date": "2025-03",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      36.33,
+      41.29
+     ],
+     [
+      35.46,
+      40.87
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "梅尔济丰",
+    "date": "2025-03",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     34.04,
+     41.02
+    ]
+   },
+   "properties": {
+    "order": 149,
+    "name": "托斯亚",
+    "date": "2025-04",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      35.46,
+      40.87
+     ],
+     [
+      34.04,
+      41.02
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "托斯亚",
+    "date": "2025-04",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     31.61,
+     40.74
+    ]
+   },
+   "properties": {
+    "order": 150,
+    "name": "博卢",
+    "date": "2025-04-16",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      34.04,
+      41.02
+     ],
+     [
+      31.61,
+      40.74
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "博卢",
+    "date": "2025-04-16",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     29.92,
+     40.77
+    ]
+   },
+   "properties": {
+    "order": 151,
+    "name": "科贾埃利",
+    "date": "2025-04-22",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      31.61,
+      40.74
+     ],
+     [
+      29.92,
+      40.77
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "科贾埃利",
+    "date": "2025-04-22",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     29.02,
+     41.02
+    ]
+   },
+   "properties": {
+    "order": 152,
+    "name": "于斯屈达尔",
+    "date": "2025-04-25",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      29.92,
+      40.77
+     ],
+     [
+      29.02,
+      41.02
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "于斯屈达尔",
+    "date": "2025-04-25",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     29.035,
+     41.045
+    ]
+   },
+   "properties": {
+    "order": 153,
+    "name": "博斯普鲁斯大桥",
+    "date": "2025-05-02",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      29.02,
+      41.02
+     ],
+     [
+      29.035,
+      41.045
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "博斯普鲁斯大桥",
+    "date": "2025-05-02",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     26.36,
+     41.72
+    ]
+   },
+   "properties": {
+    "order": 154,
+    "name": "埃迪尔内/卡普库莱",
+    "date": "2025-09-01",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      29.035,
+      41.045
+     ],
+     [
+      26.36,
+      41.72
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "埃迪尔内/卡普库莱",
+    "date": "2025-09-01",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     25.56,
+     41.93
+    ]
+   },
+   "properties": {
+    "order": 155,
+    "name": "哈斯科沃",
+    "date": "2025-09",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      26.36,
+      41.72
+     ],
+     [
+      25.56,
+      41.93
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "哈斯科沃",
+    "date": "2025-09",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.75,
+     42.14
+    ]
+   },
+   "properties": {
+    "order": 156,
+    "name": "普罗夫迪夫",
+    "date": "2025-09",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      25.56,
+      41.93
+     ],
+     [
+      24.75,
+      42.14
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "普罗夫迪夫",
+    "date": "2025-09",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.33,
+     42.19
+    ]
+   },
+   "properties": {
+    "order": 157,
+    "name": "帕扎尔吉克",
+    "date": "2025-09",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      24.75,
+      42.14
+     ],
+     [
+      24.33,
+      42.19
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "帕扎尔吉克",
+    "date": "2025-09",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     23.56,
+     42.34
+    ]
+   },
+   "properties": {
+    "order": 158,
+    "name": "萨莫科夫",
+    "date": "2025-09",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      24.33,
+      42.19
+     ],
+     [
+      23.56,
+      42.34
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "萨莫科夫",
+    "date": "2025-09",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     23.32,
+     42.7
+    ]
+   },
+   "properties": {
+    "order": 159,
+    "name": "索非亚",
+    "date": "2025-09-16",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      23.56,
+      42.34
+     ],
+     [
+      23.32,
+      42.7
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "索非亚",
+    "date": "2025-09-16",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     22.88,
+     43.99
+    ]
+   },
+   "properties": {
+    "order": 160,
+    "name": "维丁",
+    "date": "2025-10",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      23.32,
+      42.7
+     ],
+     [
+      22.88,
+      43.99
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "维丁",
+    "date": "2025-10",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     22.2,
+     45.3
+    ]
+   },
+   "properties": {
+    "order": 161,
+    "name": "罗马尼亚中西部（示意）",
+    "date": "2025-10-14",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      22.88,
+      43.99
+     ],
+     [
+      22.2,
+      45.3
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "罗马尼亚中西部（示意）",
+    "date": "2025-10-14",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     21.31,
+     46.18
+    ]
+   },
+   "properties": {
+    "order": 162,
+    "name": "阿拉德",
+    "date": "2025-10/11",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      22.2,
+      45.3
+     ],
+     [
+      21.31,
+      46.18
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿拉德",
+    "date": "2025-10/11",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.04,
+     47.5
+    ]
+   },
+   "properties": {
+    "order": 163,
+    "name": "布达佩斯",
+    "date": "2025-11-15",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      21.31,
+      46.18
+     ],
+     [
+      19.04,
+      47.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "布达佩斯",
+    "date": "2025-11-15",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.12,
+     47.74
+    ]
+   },
+   "properties": {
+    "order": 164,
+    "name": "科马罗姆",
+    "date": "2025-11-25",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      19.04,
+      47.5
+     ],
+     [
+      18.12,
+      47.74
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "科马罗姆",
+    "date": "2025-11-25",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     17.63,
+     47.69
+    ]
+   },
+   "properties": {
+    "order": 165,
+    "name": "杰尔",
+    "date": "2025-12",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      18.12,
+      47.74
+     ],
+     [
+      17.63,
+      47.69
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "杰尔",
+    "date": "2025-12",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.37,
+     48.21
+    ]
+   },
+   "properties": {
+    "order": 166,
+    "name": "维也纳",
+    "date": "2026-03",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      17.63,
+      47.69
+     ],
+     [
+      16.37,
+      48.21
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "维也纳",
+    "date": "2026-03",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.05,
+     48.33
+    ]
+   },
+   "properties": {
+    "order": 167,
+    "name": "图尔恩",
+    "date": "2026-03-24",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      16.37,
+      48.21
+     ],
+     [
+      16.05,
+      48.33
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "图尔恩",
+    "date": "2026-03-24",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.29,
+     48.31
+    ]
+   },
+   "properties": {
+    "order": 168,
+    "name": "林茨",
+    "date": "约2026-04-10",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      16.05,
+      48.33
+     ],
+     [
+      14.29,
+      48.31
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "林茨",
+    "date": "约2026-04-10",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.1,
+     49.01
+    ]
+   },
+   "properties": {
+    "order": 169,
+    "name": "雷根斯堡",
+    "date": "2026-05中",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      14.29,
+      48.31
+     ],
+     [
+      12.1,
+      49.01
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "雷根斯堡",
+    "date": "2026-05中",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     11.08,
+     49.45
+    ]
+   },
+   "properties": {
+    "order": 170,
+    "name": "纽伦堡",
+    "date": "2026-05",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      12.1,
+      49.01
+     ],
+     [
+      11.08,
+      49.45
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "纽伦堡",
+    "date": "2026-05",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.68,
+     50.11
+    ]
+   },
+   "properties": {
+    "order": 171,
+    "name": "法兰克福",
+    "date": "2026-05",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      11.08,
+      49.45
+     ],
+     [
+      8.68,
+      50.11
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "法兰克福",
+    "date": "2026-05",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.96,
+     50.94
+    ]
+   },
+   "properties": {
+    "order": 172,
+    "name": "科隆",
+    "date": "2026-05",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      8.68,
+      50.11
+     ],
+     [
+      6.96,
+      50.94
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "科隆",
+    "date": "2026-05",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.57,
+     50.63
+    ]
+   },
+   "properties": {
+    "order": 173,
+    "name": "列日",
+    "date": "2026-05-31",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      6.96,
+      50.94
+     ],
+     [
+      5.57,
+      50.63
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "列日",
+    "date": "2026-05-31",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.05,
+     50.46
+    ]
+   },
+   "properties": {
+    "order": 174,
+    "name": "阿夫雷",
+    "date": "2026-09-16",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      5.57,
+      50.63
+     ],
+     [
+      4.05,
+      50.46
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "阿夫雷",
+    "date": "2026-09-16",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.95,
+     50.45
+    ]
+   },
+   "properties": {
+    "order": 175,
+    "name": "蒙斯",
+    "date": "2026-09-17",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      4.05,
+      50.46
+     ],
+     [
+      3.95,
+      50.45
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "蒙斯",
+    "date": "2026-09-17",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.39,
+     50.61
+    ]
+   },
+   "properties": {
+    "order": 176,
+    "name": "图尔奈",
+    "date": "2026-09-18",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      3.95,
+      50.45
+     ],
+     [
+      3.39,
+      50.61
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "图尔奈",
+    "date": "2026-09-18",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.06,
+     50.63
+    ]
+   },
+   "properties": {
+    "order": 177,
+    "name": "里尔",
+    "date": "2026-09-20",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      3.39,
+      50.61
+     ],
+     [
+      3.06,
+      50.63
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "里尔",
+    "date": "2026-09-20",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.71,
+     50.92
+    ]
+   },
+   "properties": {
+    "order": 178,
+    "name": "布朗内角",
+    "date": "约2026-09-25",
+    "status": "inferred",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      3.06,
+      50.63
+     ],
+     [
+      1.71,
+      50.92
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "布朗内角",
+    "date": "约2026-09-25",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.3,
+     51.115
+    ]
+   },
+   "properties": {
+    "order": 179,
+    "name": "莎士比亚海滩（多佛）",
+    "date": "2026-10-05",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "swim"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      1.71,
+      50.92
+     ],
+     [
+      1.3,
+      51.115
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "swim",
+    "to": "莎士比亚海滩（多佛）",
+    "date": "2026-10-05",
+    "inferred": true,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.08,
+     51.28
+    ]
+   },
+   "properties": {
+    "order": 180,
+    "name": "坎特伯雷",
+    "date": "2026-10-10",
+    "status": "inferred",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      1.3,
+      51.115
+     ],
+     [
+      1.08,
+      51.28
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "坎特伯雷",
+    "date": "2026-10-10",
+    "inferred": true,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.73,
+     51.36
+    ]
+   },
+   "properties": {
+    "order": 181,
+    "name": "锡廷伯恩以北",
+    "date": "2026-10-11/12",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      1.08,
+      51.28
+     ],
+     [
+      0.73,
+      51.36
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "锡廷伯恩以北",
+    "date": "2026-10-11/12",
+    "inferred": true,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.009,
+     51.485
+    ]
+   },
+   "properties": {
+    "order": 182,
+    "name": "格林尼治步行隧道",
+    "date": "2026-10-16/17",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.73,
+      51.36
+     ],
+     [
+      -0.009,
+      51.485
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "格林尼治步行隧道",
+    "date": "2026-10-16/17",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.02,
+     51.505
+    ]
+   },
+   "properties": {
+    "order": 183,
+    "name": "金丝雀码头",
+    "date": "2026-10-16/17",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.009,
+      51.485
+     ],
+     [
+      -0.02,
+      51.505
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "金丝雀码头",
+    "date": "2026-10-16/17",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.02,
+     51.7
+    ]
+   },
+   "properties": {
+    "order": 184,
+    "name": "利河谷（示意）",
+    "date": "2026-10-18",
+    "status": "inferred",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.02,
+      51.505
+     ],
+     [
+      -0.02,
+      51.7
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "利河谷（示意）",
+    "date": "2026-10-18",
+    "inferred": true,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.24,
+     52.57
+    ]
+   },
+   "properties": {
+    "order": 185,
+    "name": "彼得伯勒",
+    "date": "2026-10-22",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.02,
+      51.7
+     ],
+     [
+      -0.24,
+      52.57
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "彼得伯勒",
+    "date": "2026-10-22",
+    "inferred": true,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.15,
+     52.79
+    ]
+   },
+   "properties": {
+    "order": 186,
+    "name": "斯伯丁",
+    "date": "2026-10-24",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.24,
+      52.57
+     ],
+     [
+      -0.15,
+      52.79
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "斯伯丁",
+    "date": "2026-10-24",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.16,
+     52.87
+    ]
+   },
+   "properties": {
+    "order": 187,
+    "name": "戈斯伯顿",
+    "date": "2026-10-25",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.15,
+      52.79
+     ],
+     [
+      -0.16,
+      52.87
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "戈斯伯顿",
+    "date": "2026-10-25",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.34,
+     53.39
+    ]
+   },
+   "properties": {
+    "order": 188,
+    "name": "马基特雷森",
+    "date": "2026-10-28",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.16,
+      52.87
+     ],
+     [
+      -0.34,
+      53.39
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "马基特雷森",
+    "date": "2026-10-28",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.44,
+     53.68
+    ]
+   },
+   "properties": {
+    "order": 189,
+    "name": "亨伯河畔巴顿",
+    "date": "2026-10-31",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.34,
+      53.39
+     ],
+     [
+      -0.44,
+      53.68
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "亨伯河畔巴顿",
+    "date": "2026-10-31",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.45,
+     53.71
+    ]
+   },
+   "properties": {
+    "order": 190,
+    "name": "亨伯大桥",
+    "date": "2026-11-01",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.44,
+      53.68
+     ],
+     [
+      -0.45,
+      53.71
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "亨伯大桥",
+    "date": "2026-11-01",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.43,
+     53.72
+    ]
+   },
+   "properties": {
+    "order": 191,
+    "name": "赫塞尔",
+    "date": "2026-11-02",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.45,
+      53.71
+     ],
+     [
+      -0.43,
+      53.72
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "赫塞尔",
+    "date": "2026-11-02",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.3,
+     53.78
+    ]
+   },
+   "properties": {
+    "order": 192,
+    "name": "赫尔（母亲家）",
+    "date": "2026-11-02",
+    "status": "verified",
+    "segment": "英吉利海峡与归乡",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -0.43,
+      53.72
+     ],
+     [
+      -0.3,
+      53.78
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "赫尔（母亲家）",
+    "date": "2026-11-02",
+    "inferred": false,
+    "segment": "英吉利海峡与归乡"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      64.42,
+      39.77
+     ],
+     [
+      63.58,
+      39.07
+     ],
+     [
+      58.38,
+      37.95
+     ],
+     [
+      58.42,
+      37.8
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "voided",
+    "note": "2019 土库曼斯坦段：被逐出境后作废，2023 年从布哈拉重走"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -118.24,
+      34.05
+     ],
+     [
+      -117.29,
+      34.54
+     ],
+     [
+      -115.14,
+      36.17
+     ],
+     [
+      -101.83,
+      35.22
+     ],
+     [
+      -83.9,
+      33.99
+     ],
+     [
+      -79.42,
+      35.35
+     ],
+     [
+      -77.44,
+      37.54
+     ],
+     [
+      -77.04,
+      38.91
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "protest_walk",
+    "note": "2013-09-03 至 2014-09-10 洛杉矶→华盛顿俄使馆抗议步行，不计入环球路线"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.58,
+      8.03
+     ],
+     [
+      -78.14,
+      8.4
+     ],
+     [
+      -77.98,
+      8.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "transport_type": "fwd_rewalked",
+    "label": "巴拿马押送（巡逻艇/直升机）",
+    "note": "2001-02-20 往前押送；获释后 3-08 回到博卡德库佩重走",
+    "case": "panama"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.72,
+      0.81
+     ],
+     [
+      -78.45,
+      -0.002
+     ],
+     [
+      -77.72,
+      0.81
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "transport_type": "offline",
+    "label": "图尔坎→基多补走→回图尔坎",
+    "note": "2000-09 坐车回头补走 22 km，再回到已到达点",
+    "case": "tulcan"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -115.14,
+      36.17
+     ],
+     [
+      -110.94,
+      31.33
+     ],
+     [
+      -74.07,
+      4.71
+     ],
+     [
+      -115.14,
+      36.17
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "transport_type": "offline",
+    "label": "拉斯维加斯→（诺加利斯）→波哥大→回原点",
+    "note": "2002-07 离线办 6 个月签证",
+    "case": "bogota"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.7,
+      19.22
+     ],
+     [
+      -75.56,
+      6.25
+     ],
+     [
+      -104.7,
+      19.22
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "transport_type": "offline",
+    "label": "梅拉克→麦德林→梅拉克",
+    "note": "2001-12 至 2002-01 见 Catty，原地续走",
+    "case": "melaque"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -171.0,
+      65.58
+     ],
+     [
+      -165.41,
+      64.5
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "transport_type": "back",
+    "label": "被扣后飞回诺姆",
+    "note": "2006-05-24，54 天后离境（方向向后）",
+    "case": "bering"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -165.41,
+      64.5
+     ],
+     [
+      177.51,
+      64.73
+     ],
+     [
+      -171.0,
+      65.58
+     ],
+     [
+      -169.81,
+      66.16
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "transport",
+    "transport_type": "positioning",
+    "label": "2007 归位：诺姆→阿纳德尔→拉夫连季亚→韦连",
+    "note": "FSB 随行履带车送回原点",
+    "case": "bering"
+   }
+  }
+ ]
+}

@@ -1,0 +1,241 @@
+<title>布什比环球轨迹</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: expedition chart — a globe on the left, a field-notebook rail on the right; stacks on phones. */
+:root{
+  --bg:#eef0ec; --paper:#f7f8f4; --ink:#1d2622; --muted:#5d6b64; --rule:#cfd6d0;
+  --ocean:#d5e1e4; --land:#e9e6dc; --border:#b9b6aa; --grat:#c3d2d6;
+  --route:#e8641e; --route-soft:#f0a274; --swim:#0f86a8; --move:#7d4fa8; --back:#b0303c; --void:#9a958a; --protest:#8e9a94;
+  --display:"Noto Serif SC","Songti SC",serif; --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1517; --paper:#151d20; --ink:#e3e8e4; --muted:#93a29b; --rule:#2a363a;
+  --ocean:#0b1a20; --land:#253037; --border:#3e4b50; --grat:#16282f;
+  --route:#ff7a33; --route-soft:#b8673e; --swim:#38c0e0; --move:#b58be0; --back:#ff6170; --void:#6f7a76; --protest:#5d6b66; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1517; --paper:#151d20; --ink:#e3e8e4; --muted:#93a29b; --rule:#2a363a;
+  --ocean:#0b1a20; --land:#253037; --border:#3e4b50; --grat:#16282f;
+  --route:#ff7a33; --route-soft:#b8673e; --swim:#38c0e0; --move:#b58be0; --back:#ff6170; --void:#6f7a76; --protest:#5d6b66; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:0;min-height:100%;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+.stage{position:relative;min-width:0;min-height:520px;border-right:1px solid var(--rule)}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+canvas:active{cursor:grabbing}
+.hud{position:absolute;left:16px;top:14px;right:16px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;pointer-events:none}
+.hud h1{font-family:var(--display);font-weight:900;font-size:clamp(20px,2.6vw,30px);line-height:1.15;margin:0;text-wrap:balance;letter-spacing:.02em}
+.hud .sub{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.ticker{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;pointer-events:none}
+.ticker b{display:block;font-size:22px;font-weight:500;color:var(--route)}
+.ticker span{font-size:12px;color:var(--muted)}
+.ctrl{position:absolute;left:16px;bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
+button{font-family:var(--body);font-size:13px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer}
+button:hover{border-color:var(--route)}
+button:focus-visible{outline:2px solid var(--route);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--route);border-color:var(--route);color:#fff}
+.rail{background:var(--paper);padding-block:18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px;min-width:0;overflow:auto}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cases{display:flex;flex-direction:column;gap:6px}
+.case{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:baseline;text-align:left;border-radius:8px;padding:8px 10px;width:100%}
+.case .k{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.case .t{font-weight:500}
+.case[aria-pressed="true"] .k{color:#fff}
+.note{border-top:1px solid var(--rule);padding-top:12px;min-height:150px}
+.note h2{font-family:var(--display);font-size:19px;margin:0 0 6px;text-wrap:balance}
+.note p{margin:0 0 8px;max-width:62ch}
+.note .facts{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:pre-line}
+.legend{display:grid;grid-template-columns:28px 1fr;gap:6px 10px;align-items:center;font-size:13px;border-top:1px solid var(--rule);padding-top:12px}
+.sw{height:0;border-top-width:3px;border-top-style:solid}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr}
+  .stage{height:70vh;min-height:420px;border-right:0;border-bottom:1px solid var(--rule)}
+  .hud{left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px))}
+  .ctrl{left:max(16px,env(safe-area-inset-left,0px))}
+}
+</style>
+
+<div class="wrap">
+  <div class="stage" id="stage">
+    <canvas id="c" aria-label="布什比环球轨迹地球图，可拖动旋转、滚轮缩放"></canvas>
+    <div class="hud">
+      <div><h1>二十八年的一条线</h1><div class="sub">1998-11-01 蓬塔阿雷纳斯 → 2026-11-02 赫尔</div></div>
+      <div class="ticker" aria-live="polite"><b id="tDate">2026-11-02</b><span id="tPlace">赫尔（母亲家）</span></div>
+    </div>
+    <div class="ctrl">
+      <button id="play" type="button">▶ 播放全程</button>
+      <button id="spin" type="button" aria-pressed="false">自转</button>
+      <button id="labels" type="button" aria-pressed="true">地名</button>
+    </div>
+  </div>
+  <aside class="rail">
+    <div class="label">关键路段 · 点击放大</div>
+    <div class="cases" id="cases"></div>
+    <div class="note" id="note"></div>
+    <div class="legend" aria-label="图例">
+      <span class="sw" style="border-color:var(--route)"></span><span>步行（实线有据 · 虚线推断）</span>
+      <span class="sw" style="border-color:var(--swim);border-top-style:dashed"></span><span>游泳（里海、英吉利海峡）</span>
+      <span class="sw" style="border-color:var(--move);border-top-style:dotted"></span><span>交通工具，离线或归位（不推进）</span>
+      <span class="sw" style="border-color:var(--back);border-top-style:dotted"></span><span>交通工具，往前押送（已重走）/ 往后送</span>
+      <span class="sw" style="border-color:var(--void);border-top-style:dashed"></span><span>作废段：2019 土库曼斯坦，后从布哈拉重走</span>
+      <span class="sw" style="border-color:var(--protest)"></span><span>2013–14 抗议步行（不计入环球）</span>
+    </div>
+    <div class="foot">点位为城镇级近似坐标，点间直线连线为示意，不代表实际道路。依据：十一轮核查报告与《Giant Steps》书内日记。路线空白：蒙古—新疆、罗马尼亚、德国境内以推断直线连接。</div>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+const R=__ROUTE__;
+const TOPO=__TOPO__;
+const RIVERS=__RIVERS__;
+
+const CASES=[
+ {id:"all",k:"全程",t:"地球上的整条轨迹",c:[-40,25],r:90,s:"S1 / S9",
+  p:"约 50,000 公里，4 个大洲，28 年零 1 天。真正走路约 13–15 年。",
+  f:"出发  1998-11-01 蓬塔阿雷纳斯\n白令  2006-03-17—31\n里海  2024-08-16—09-17\n到家  2026-11-02 赫尔"},
+ {id:"panama",k:"S3",t:"巴拿马：押送后回去重走",c:[-77.95,8.3],r:1.1,s:"S3",
+  p:"2001-02-16 在博卡德库佩被扣，巡逻艇和直升机把他往前押到梅特蒂/拉帕尔马。约 3-06 获释后南返，3-08 回到被扣点，用脚把这段重新走完。",
+  f:"02-16 博卡德库佩 被扣\n02-20 巡逻艇北送\n约03-06 获释\n03-08 回到博卡德库佩\n03-09 亚维萨  03-10 梅特蒂"},
+ {id:"tulcan",k:"S4",t:"图尔坎：坐车回头补走",c:[-78.05,0.42],r:0.8,s:"S4",
+  p:"2000-09-07 到图尔坎后，他坐车回基多北郊补走漏掉的 San Antonio 一段（22 公里），再坐车回到图尔坎。车只把他送回已经走到的点。",
+  f:"07-23—08-30 基多\n09-07 图尔坎\n约09-08 入哥伦比亚"},
+ {id:"bogota",k:"S5",t:"拉斯维加斯—波哥大：离线办签证",c:[-95,22],r:24,s:"S5",
+  p:"2002-07 免签只剩 27 天，被要求离境。经诺加利斯出境，到波哥大美使馆拿 6 个月签证，回到拉斯维加斯原点续走。",
+  f:"07-05—08 拉斯维加斯\n→ 诺加利斯 → 波哥大\n→ 回到拉斯维加斯续走"},
+ {id:"bering",k:"S6",t:"白令海峡：14 天，54 天，往后送",c:[-170.2,65.6],r:3.4,s:"S6",
+  p:"3-17 从威尔士出发，冰被风往北推，3-31 在韦连附近上岸。被扣 54 天（3-31 → 5-24），5-05 上诉撤销驱逐，5-24 飞回诺姆。2007 年被送回韦连原点重新出发。",
+  f:"2006-03-17 威尔士出发\n2006-03-31 韦连上岸\n2006-05-05 撤销驱逐\n2006-05-24 飞回诺姆\n2007-04-12 韦连续走"},
+ {id:"russia",k:"S9",t:"俄罗斯：前后 11 年",c:[155,62],r:22,s:"S9",
+  p:"2006 年上岸到 2017 年离开。中间有 2008–10 年失去赞助、2012 年拒签、2013 年五年禁令、2014-10-23 解除，每季只能走 90 天。",
+  f:"2007 韦连→阿姆古埃马\n2008 →比利比诺\n2011 →中科雷姆斯克\n2015—16 白骨之路→A360\n2016-06-08 涅留恩格里\n2017 入蒙古"},
+ {id:"yakutia",k:"S7",t:"雅库特：A360 与勒拿河渡口",c:[128.0,59.4],r:4.6,s:"S7",
+  p:"白骨之路和 A360 都止于勒拿河东岸的下别斯佳赫，雅库茨克城在西岸。他沿东岸南下，步行线不需要过河。2016-06-08 已在涅留恩格里。",
+  f:"下别斯佳赫（东岸）\n雅库茨克（西岸，不在线上）\n2016-06-08 涅留恩格里\n2016-06 下旬 车队在 A360 相遇"},
+ {id:"caspian",k:"S8",t:"里海：游了 31 天",c:[50.8,42.0],r:3.2,s:"S8",
+  p:"2024-08-16 从哈萨克一侧下水，9-17 18:30 在巴库北面的纳尔达兰上岸。约 288 公里（本人统计 275.5 公里），水中约 132 小时，每晚睡补给船，次日从出水点下水。",
+  f:"2023-09-24 布哈拉出发\n2024 抵里海岸边\n2024-08-16 下水\n2024-09-17 纳尔达兰上岸"},
+ {id:"uk",k:"归乡",t:"英吉利海峡与最后 400 公里",c:[0.45,52.35],r:1.55,s:"S10 前",
+  p:"游了 3 天约 20 小时，10-05 在多佛莎士比亚海滩上岸。之后经肯特、伦敦格林尼治、彼得伯勒、林肯郡，11-01 雾中过亨伯大桥，11-02 到家。",
+  f:"10-05 多佛上岸\n10-11/12 锡廷伯恩以北\n10-16/17 格林尼治\n10-22 彼得伯勒\n10-25 戈斯伯顿\n10-28 马基特雷森\n11-01 亨伯大桥\n11-02 赫尔"}
+];
+
+const REF={panama:[["拉帕尔马（监狱）",-78.14,8.40]],yakutia:[["雅库茨克城（西岸，不在步行线上）",129.73,62.03]],bering:[["拉夫连季亚（拘押地）",-171.00,65.58]]};
+const css=getComputedStyle(document.documentElement);
+let C={};
+function readColors(){["bg","ocean","land","border","grat","route","route-soft","swim","move","back","void","protest","ink","muted","paper"].forEach(k=>C[k]=css.getPropertyValue("--"+k).trim());}
+readColors();
+const mq=matchMedia("(prefers-color-scheme: dark)");mq.addEventListener?.("change",()=>{readColors();draw();});
+new MutationObserver(()=>{readColors();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+
+const land=topojson.feature(TOPO,TOPO.objects.countries);
+const borders=topojson.mesh(TOPO,TOPO.objects.countries,(a,b)=>a!==b);
+const grat=d3.geoGraticule10();
+const pts=R.pts.map(p=>({n:p[0],lon:p[1],lat:p[2],d:p[3],s:p[4],seg:p[5],m:p[6]}));
+
+const cv=document.getElementById("c"),ctx=cv.getContext("2d");
+const proj=d3.geoOrthographic().clipAngle(90).precision(0.3);
+const path=d3.geoPath(proj,ctx);
+let W=0,H=0,DPR=1,state={rot:[40,-25,0],r:90},progress=1,showLabels=true,activeCase="all";
+
+function scaleFor(r){const half=Math.min(W,H)/2*0.9;return r>=89?half:half/Math.sin(r*Math.PI/180);}
+function resize(){const b=cv.parentElement.getBoundingClientRect();DPR=Math.min(2,window.devicePixelRatio||1);W=b.width;H=b.height;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);draw();}
+function line(coords){return{type:"LineString",coordinates:coords};}
+
+function draw(){
+  if(!W)return;
+  proj.translate([W/2,H/2+ (W<520?20:10)]).scale(scaleFor(state.r)).rotate(state.rot);
+  const zoom=scaleFor(state.r)/scaleFor(90);
+  ctx.clearRect(0,0,W,H);
+  ctx.beginPath();path({type:"Sphere"});ctx.fillStyle=C.ocean;ctx.fill();
+  ctx.beginPath();path(grat);ctx.strokeStyle=C.grat;ctx.lineWidth=0.6;ctx.stroke();
+  ctx.beginPath();path(land);ctx.fillStyle=C.land;ctx.fill();
+  ctx.beginPath();path(borders);ctx.strokeStyle=C.border;ctx.lineWidth=zoom>6?0.9:0.5;ctx.stroke();
+  if(zoom>3){ctx.beginPath();path(RIVERS);ctx.strokeStyle=C.swim;ctx.globalAlpha=.55;ctx.lineWidth=zoom>20?1.6:1;ctx.stroke();ctx.globalAlpha=1;}
+  ctx.beginPath();path({type:"Sphere"});ctx.strokeStyle=C.border;ctx.lineWidth=1;ctx.stroke();
+  const lw=Math.min(4,2+Math.log2(zoom)*0.4);
+  // protest walk + voided
+  ctx.setLineDash([]);ctx.beginPath();path(line(R.dc.map(d=>[d[0],d[1]])));ctx.strokeStyle=C.protest;ctx.lineWidth=lw*0.6;ctx.stroke();
+  ctx.setLineDash([6,5]);ctx.beginPath();path(line(R.turk));ctx.strokeStyle=C.void;ctx.lineWidth=lw*0.7;ctx.stroke();
+  // main route up to progress
+  const n=Math.max(1,Math.floor(progress*(pts.length-1)+1e-9));
+  for(let i=1;i<=n&&i<pts.length;i++){
+    const a=pts[i-1],b=pts[i];if(b.m==="start")continue;
+    let to=[b.lon,b.lat];
+    if(i===n&&progress<1){const f=progress*(pts.length-1)-(n-1);to=d3.geoInterpolate([a.lon,a.lat],[b.lon,b.lat])(Math.min(1,f));}
+    const inferred=a.s==="i"||b.s==="i";
+    ctx.beginPath();path(line([[a.lon,a.lat],to]));
+    if(b.m==="swim"){ctx.setLineDash([5,4]);ctx.strokeStyle=C.swim;ctx.lineWidth=lw;}
+    else if(b.m==="gap"){ctx.setLineDash([2,6]);ctx.strokeStyle=C["route-soft"];ctx.lineWidth=lw*0.8;}
+    else{ctx.setLineDash(inferred?[7,4]:[]);ctx.strokeStyle=inferred?C["route-soft"]:C.route;ctx.lineWidth=lw;}
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+  // transports
+  if(progress>=1){R.tr.filter(t=>activeCase==="all"||t[4]===activeCase).forEach(t=>{const col=(t[1]==="back"||t[1]==="fwd_rewalked")?C.back:C.move;
+    ctx.setLineDash([1.5,4]);ctx.lineCap="round";ctx.beginPath();path(line(t[2]));ctx.strokeStyle=col;ctx.lineWidth=lw*0.8;ctx.stroke();ctx.lineCap="butt";
+    arrowAt(t[2],col);});}
+  ctx.setLineDash([]);
+  // points
+  const pr=zoom>8?3.6:zoom>2?2.6:1.6;
+  const shown=[];
+  for(let i=0;i<=n&&i<pts.length;i++){const p=pts[i];if(!visible(p))continue;const xy=proj([p.lon,p.lat]);
+    ctx.beginPath();ctx.arc(xy[0],xy[1],pr,0,7);ctx.fillStyle=p.s==="i"?C.paper:C.route;ctx.fill();ctx.strokeStyle=C.route;ctx.lineWidth=1.2;ctx.stroke();
+    shown.push([p,xy]);}
+  // reference places for the active case
+  (REF[activeCase]||[]).forEach(([nm,lo,la])=>{const p={lon:lo,lat:la};if(!visible(p))return;const xy=proj([lo,la]);ctx.beginPath();ctx.rect(xy[0]-3.5,xy[1]-3.5,7,7);ctx.fillStyle=C.paper;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();shown.push([{n:nm,d:"",s:"r"},xy]);});
+  // frontier marker
+  if(progress<1){const p=pts[Math.min(n,pts.length-1)];if(visible(p)){const xy=proj([p.lon,p.lat]);ctx.beginPath();ctx.arc(xy[0],xy[1],7,0,7);ctx.strokeStyle=C.route;ctx.lineWidth=2;ctx.stroke();}}
+  // labels
+  if(showLabels&&zoom>2.2){ctx.font=`500 ${zoom>8?13:12}px ${css.getPropertyValue("--body")}`;ctx.textBaseline="middle";const boxes=[];
+    shown.forEach(([p,xy])=>{const txt=p.n+(zoom>8&&p.d?"  "+p.d:"");const w=ctx.measureText(txt).width;const bx=[xy[0]+7,xy[1]-8,w+6,16];
+      if(bx[0]+bx[2]>W-4||bx[1]<60)return;if(boxes.some(b=>!(bx[0]>b[0]+b[2]||bx[0]+bx[2]<b[0]||bx[1]>b[1]+b[3]||bx[1]+bx[3]<b[1])))return;boxes.push(bx);
+      ctx.fillStyle=C.paper;ctx.globalAlpha=.82;ctx.fillRect(bx[0],bx[1],bx[2],bx[3]);ctx.globalAlpha=1;ctx.fillStyle=p.s==="i"?C.muted:C.ink;ctx.fillText(txt,bx[0]+3,xy[1]);});}
+}
+function visible(p){const r=proj.rotate();return d3.geoDistance([p.lon,p.lat],[-r[0],-r[1]])<Math.PI/2-0.01;}
+function arrowAt(cs,col){const a=cs[cs.length-2],b=cs[cs.length-1];const m=d3.geoInterpolate(a,b);const p1=m(0.9),p2=b;
+  if(d3.geoDistance(p2,[-proj.rotate()[0],-proj.rotate()[1]])>Math.PI/2)return;const A=proj(p1),B=proj(p2);if(!A||!B)return;
+  const ang=Math.atan2(B[1]-A[1],B[0]-A[0]);ctx.beginPath();ctx.moveTo(B[0],B[1]);ctx.lineTo(B[0]-9*Math.cos(ang-0.45),B[1]-9*Math.sin(ang-0.45));ctx.lineTo(B[0]-9*Math.cos(ang+0.45),B[1]-9*Math.sin(ang+0.45));ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+
+// interaction
+let anim=null;
+function stopAnim(){if(anim){anim.stop();anim=null;}}
+function flyTo(c,r,ms=1800,done){stopAnim();const r0=state.rot.slice(),rr0=state.r;const target=[-c[0],-c[1],0];
+  const iCenter=d3.geoInterpolate([-r0[0],-r0[1]],c);const lz0=Math.log(scaleFor(rr0)),lz1=Math.log(scaleFor(r));
+  const peak=Math.min(lz0,lz1)-Math.min(0.8,Math.abs(lz1-lz0)*0.3+d3.geoDistance([-r0[0],-r0[1]],c)*0.5);
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;if(reduce)ms=1;
+  anim=d3.timer(el=>{const t=Math.min(1,el/ms),e=d3.easeCubicInOut(t);const cc=iCenter(e);state.rot=[-cc[0],-cc[1],0];
+    const lz=(1-e)*(1-e)*lz0+2*e*(1-e)*peak+e*e*lz1;const half=Math.min(W,H)/2*0.9;const s=Math.exp(lz);state.r=s<=half?90:Math.asin(Math.min(1,half/s))*180/Math.PI;
+    draw();if(t>=1){stopAnim();state.rot=target;state.r=r;draw();done&&done();}});}
+d3.select(cv).call(d3.drag().on("start",()=>{stopAnim();spin(false);}).on("drag",ev=>{const k=75/proj.scale();state.rot=[state.rot[0]+ev.dx*k,Math.max(-89,Math.min(89,state.rot[1]-ev.dy*k)),0];draw();}));
+cv.addEventListener("wheel",ev=>{ev.preventDefault();stopAnim();const s=scaleFor(state.r)*Math.exp(-ev.deltaY*0.0015);const half=Math.min(W,H)/2*0.9;state.r=s<=half?90:Math.max(0.3,Math.asin(Math.min(1,half/s))*180/Math.PI);draw();},{passive:false});
+
+const casesEl=document.getElementById("cases"),noteEl=document.getElementById("note");
+CASES.forEach(cs=>{const b=document.createElement("button");b.type="button";b.className="case";b.id="case-"+cs.id;b.setAttribute("aria-pressed","false");
+  b.innerHTML=`<span class="k">${cs.k}</span><span class="t">${cs.t}</span>`;b.onclick=()=>select(cs.id,true);casesEl.appendChild(b);});
+function select(id,fly){activeCase=id;const cs=CASES.find(c=>c.id===id);
+  document.querySelectorAll(".case").forEach(b=>b.setAttribute("aria-pressed",b.id==="case-"+id?"true":"false"));
+  noteEl.innerHTML=`<div class="label">对应脚本 ${cs.s}</div><h2>${cs.t}</h2><p>${cs.p}</p><div class="facts">${cs.f}</div>`;
+  spin(false);progress=1;if(fly)flyTo(cs.c,cs.r);else{state.rot=[-cs.c[0],-cs.c[1],0];state.r=cs.r;}
+  if(location.hash.slice(1)!==id){try{history.replaceState(null,"","#"+id);}catch(e){}}}
+
+// play
+const tDate=document.getElementById("tDate"),tPlace=document.getElementById("tPlace");
+function setTicker(i){const p=pts[Math.min(i,pts.length-1)];tDate.textContent=p.d;tPlace.textContent=p.n;}
+document.getElementById("play").onclick=()=>{spin(false);select("all",false);stopAnim();progress=0;const total=26000;
+  anim=d3.timer(el=>{progress=Math.min(1,el/total);const i=Math.floor(progress*(pts.length-1));const p=pts[Math.min(i+1,pts.length-1)];
+    const cur=[-state.rot[0],-state.rot[1]];const c=d3.geoInterpolate(cur,[p.lon,Math.max(-40,Math.min(55,p.lat))])(0.04);state.rot=[-c[0],-c[1],0];state.r=60;
+    setTicker(i+1);draw();if(progress>=1){stopAnim();setTicker(pts.length-1);}});};
+let spinT=null;function spin(on){const b=document.getElementById("spin");if(on===undefined)on=!spinT;b.setAttribute("aria-pressed",on?"true":"false");
+  if(spinT){spinT.stop();spinT=null;}if(on){stopAnim();spinT=d3.timer(()=>{state.rot=[state.rot[0]+0.12,state.rot[1],0];draw();});}}
+document.getElementById("spin").onclick=()=>spin();
+document.getElementById("labels").onclick=e=>{showLabels=!showLabels;e.currentTarget.setAttribute("aria-pressed",showLabels);draw();};
+
+window.addEventListener("resize",resize);
+const start=location.hash.slice(1);
+resize();select(CASES.some(c=>c.id===start)?start:"all",false);setTicker(pts.length-1);
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(CASES.some(c=>c.id===h)&&h!==activeCase)select(h,true);});
+</script>
