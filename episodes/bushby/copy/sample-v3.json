@@ -172,5 +172,10 @@
    "二　不走回去，就不回家"
   ],
   "rules_src": "出自他的官网"
- }
+ },
+ "credits": [
+  "影像：Sentinel-2 cloudless 2016，EOX IT Services（CC BY 4.0，含经处理的 Copernicus Sentinel 数据）",
+  "地形：Terrarium 高程瓦片（AWS Open Data / Mapzen；SRTM、GMTED、ETOPO1）　线划：Natural Earth",
+  "所有场景为示意，按公开报道与《Giant Steps》重建"
+ ]
 }

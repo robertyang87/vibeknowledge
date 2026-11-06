@@ -32,8 +32,9 @@ const BEATS = [   // shot: 'map' (the globe) or a story scene; r0/r1: route segm
   { id: 'darienS', shot: 'jungle', t0: 38.4, t1: 44.0, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
   { id: 'jail', shot: 'cell', t0: 44.0, t1: 49.0, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
   { id: 'rewalk', shot: 'map', t0: 49.0, t1: 54.5, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
+  { id: 'credits', shot: 'black', t0: 54.5, t1: 57.5, d0: dayOf(2001, 3, 10), d1: dayOf(2001, 3, 10) },
 ];
-const DUR = 54.5, RULE_T = 50.4;
+const DUR = 57.5, RULE_T = 50.4;
 const INTRO = new Set(['who', 'plan', 'rules']);
 const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length - 1];
 const calAt = t => { const b = beatAt(t); return lerp(b.d0, b.d1, eio(seg(t, b.t0 + .3, b.t1 - .3))); };
@@ -66,7 +67,7 @@ const DET = await (await fetch('assets/detail.json')).json();
 const detTex = await Promise.all(DET.map(d => new THREE.TextureLoader().loadAsync(`assets/${d.name}.png`)));
 detTex.forEach(t => { t.anisotropy = 16; t.colorSpace = THREE.NoColorSpace; t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping; });
 // map look: 'dark' (relief only), 'sat' (Sentinel-2 cloudless colour), 'night' (Black Marble lights)
-const LOOK = new URLSearchParams(location.search).get('look') || 'dark';
+const LOOK = new URLSearchParams(location.search).get('look') || 'sat';
 const loadT = async f => { const t = await new THREE.TextureLoader().loadAsync(f); t.anisotropy = 16; t.colorSpace = THREE.NoColorSpace; t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping; return t; };
 const satTex = LOOK === 'sat' ? await Promise.all(DET.map(d => loadT(`assets/sat_${d.name}.jpg`))) : detTex;
 const baseColTex = await loadT(LOOK === 'night' ? 'assets/night.jpg' : 'assets/bluemarble.jpg');
@@ -110,7 +111,8 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: 
       #if LOOK_SAT
       { vec3 c = pow(sat, vec3(1.15)); float l = dot(c, vec3(.3,.59,.11)); c = mix(vec3(l), c, .82);
         c *= (1. + clamp(rel, -.35, .35) * 1.1 * land) * mix(.55, 1., day);
-        c = mix(c * vec3(.55,.65,.85), c, land); col = c * .95; }
+        vec3 sea = mix(vec3(.010,.022,.045), vec3(.03,.07,.12), fres) + c * .18;   // one ocean everywhere, so imagery seams vanish offshore
+        col = mix(sea, c * .95, land); col += vec3(.30,.56,.88) * coast * .35; }
       #endif
       #if LOOK_NIGHT
       { float li = dot(sat, vec3(.3,.59,.11)); col *= .75; col += vec3(1.,.72,.38) * pow(li, 2.2) * 2.4 * land + vec3(.9,.8,.6) * pow(li, 6.) * 3.; }
@@ -271,7 +273,7 @@ const ov = document.getElementById('ov'), x = ov.getContext('2d');
 await Promise.all([document.fonts.load('900 100px Disp', C.intro.name + 'KARL 0123456789'), document.fonts.load('400 30px Disp', 'DAY CHAPTER'), document.fonts.load('400 30px Disp', C.hud.date)]);
 const proj = v => { const p = v.clone().project(camera); return [(p.x + 1) / 2 * W, (1 - p.y) / 2 * H, p.z]; };
 const visible = v => v.clone().normalize().dot(camera.position.clone().sub(v).normalize()) > .05;
-function txt(s, X, Y, font, fill, ls = 0, align = 'left', a = 1) { x.globalAlpha = a; x.font = font; x.fillStyle = fill; x.textAlign = align; x.letterSpacing = ls + 'px'; x.fillText(s, X, Y); x.letterSpacing = '0px'; x.globalAlpha = 1; }
+function txt(s, X, Y, font, fill, ls = 0, align = 'left', a = 1) { x.shadowColor = 'rgba(0,0,0,.55)'; x.shadowBlur = 10; x.globalAlpha = a; x.font = font; x.fillStyle = fill; x.textAlign = align; x.letterSpacing = ls + 'px'; x.fillText(s, X, Y); x.letterSpacing = '0px'; x.globalAlpha = 1; x.shadowBlur = 0; }
 const fadeIO = (t, a, b, f = .35) => Math.min(seg(t, a, a + f), 1 - seg(t, b - f, b));
 const shown = [];   // texts on screen this frame, for TEXTS(t)
 
@@ -325,6 +327,8 @@ function sceneTags(t, b) {   // story scenes: a place tag and the date, top left
 function overlay(t, head) {
   x.clearRect(0, 0, W, H); shown.length = 0;
   const b = beatAt(t);
+  if (b.id === 'credits') { const k = fadeIO(t, b.t0 + .2, DUR, .4);
+    C.credits.forEach((l, i) => txt(l, W / 2, H / 2 - 40 + i * 44, '400 22px Disp', 'rgba(220,214,200,.75)', 1, 'center', k)); return; }
   if (INTRO.has(b.id)) {
     const I = C.intro;
     if (b.id === 'who') { const k = fadeIO(t, .4, b.t1 - .1, .6), dy = (1 - eo(seg(t, .4, 1.4))) * 16;
@@ -342,6 +346,8 @@ function overlay(t, head) {
     return;
   }
   if (b.shot !== 'map') { sceneTags(t, b); caption(C.captions[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : b.id], t, b.t0 + .35, b.t1 - .15); return; }
+  { // shade the corners that carry text, so it reads over bright imagery
+    for (const [cx, cy, r] of [[150, 220, 760], [W - 150, 200, 620]]) { const g = x.createRadialGradient(cx, cy, 0, cx, cy, r); g.addColorStop(0, 'rgba(4,8,14,.62)'); g.addColorStop(.55, 'rgba(4,8,14,.35)'); g.addColorStop(1, 'rgba(4,8,14,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); } }
   hud(t, b);
   {   // map shots: labels on the ground, the head marker
     const lab = b.id === 'andes' || b.id === 'darien' ? C.labels.andes : b.id === 'rewalk' ? C.labels.rewalk : [];
@@ -368,6 +374,8 @@ function renderAt(t) {
   if (b.shot === 'patagonia' || b.shot === 'jungle') {
     const S = SCENES[b.shot]; S.update(eio(seg(t, b.t0, b.t1)) * .6 + seg(t, b.t0, b.t1) * .4, t);
     post.dof.scene = S.scene; post.dof.camera = S.camera; renderer.toneMappingExposure = S.exposure;
+  } else if (b.shot === 'black') {
+    post.dof.scene = new THREE.Scene(); post.dof.camera = camera;
   } else if (b.id === 'jail') {
     post.dof.scene = cell; post.dof.camera = cellCam;
     const k = eio(seg(t, b.t0, b.t1));
