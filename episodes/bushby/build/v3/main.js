@@ -45,7 +45,7 @@ const camera = new THREE.PerspectiveCamera(30, W / H, .001, 50);
 const world = new THREE.Scene(); world.background = new THREE.Color(0x020409);
 const post = makePost(renderer, world, camera, W, H, { ssaa: 1 });
 post.dof.aper = 0; post.dof.maxCoc = 0;
-post.bloom.strength = .55; post.bloom.radius = .4; post.bloom.threshold = .9;
+post.bloom.strength = .28; post.bloom.radius = .3; post.bloom.threshold = .95;
 post.vig.uniforms.amt.value = .55;
 
 const ll = (lon, lat, r = 1) => { const a = THREE.MathUtils.degToRad(lat), b = THREE.MathUtils.degToRad(lon);
@@ -55,11 +55,15 @@ const toLL = v => { const n = v.clone().normalize(); return [THREE.MathUtils.rad
 // ---------- globe ----------
 const tex = await new THREE.TextureLoader().loadAsync('assets/earth.png');
 tex.anisotropy = 16; tex.colorSpace = THREE.NoColorSpace;
+// high-resolution relief patches along the route (make_detail.py): R land, G shaded relief, B elevation
+const DET = await (await fetch('assets/detail.json')).json();
+const detTex = await Promise.all(DET.map(d => new THREE.TextureLoader().loadAsync(`assets/${d.name}.png`)));
+detTex.forEach(t => { t.anisotropy = 16; t.colorSpace = THREE.NoColorSpace; t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping; });
 const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3,
-  uniforms: { map: { value: tex }, sun: { value: ll(-40, 25).normalize() }, relAmt: { value: 1 } },
+  uniforms: { map: { value: tex }, sun: { value: ll(-40, 25).normalize() }, relAmt: { value: 1 }, detA: { value: detTex[0] }, boxA: { value: new THREE.Vector4(...DET[0].box) }, detB: { value: detTex[1] }, boxB: { value: new THREE.Vector4(...DET[1].box) } },
   vertexShader: `out vec3 vN; out vec3 vP;
     void main(){ vN = normalize(mat3(modelMatrix) * normal); vec4 wp = modelMatrix * vec4(position,1.); vP = wp.xyz; gl_Position = projectionMatrix * viewMatrix * wp; }`,
-  fragmentShader: `out vec4 fragColor; uniform sampler2D map; uniform vec3 sun; uniform float relAmt; in vec3 vN; in vec3 vP;
+  fragmentShader: `out vec4 fragColor; uniform sampler2D map, detA, detB; uniform vec4 boxA, boxB; uniform vec3 sun; uniform float relAmt; in vec3 vN; in vec3 vP;
     void main(){
       vec3 n = normalize(vP);
       float lat = asin(clamp(n.y,-1.,1.)); float lon = atan(n.x, n.z);
@@ -69,7 +73,17 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3,
       vec2 dx = dFdx(uv), dy = dFdy(uv); if (abs(dx.x) > .5 || abs(dy.x) > .5) { dx = dFdx(uvA); dy = dFdy(uvA); }
       vec3 t = textureGrad(map, uv, dx, dy).rgb;
       float land = smoothstep(.35,.65,t.r);
-      float rel = t.g - .5;
+      float rel = t.g - .5, elev = 0.;
+      vec2 deg = vec2(degrees(lon), degrees(lat));
+      for (int i = 0; i < 2; i++) {
+        vec4 bx = i == 0 ? boxA : boxB;
+        vec2 u = (deg - bx.xy) / (bx.zw - bx.xy);
+        vec2 f = min(u, 1. - u) * (bx.zw - bx.xy);
+        float w = smoothstep(0., i == 0 ? 1.5 : .25, min(f.x, f.y));
+        if (w > 0.) { vec2 du = dFdx(u), dv = dFdy(u);
+          vec3 d = i == 0 ? textureGrad(detA, u, du, dv).rgb : textureGrad(detB, u, du, dv).rgb;
+          land = mix(land, smoothstep(.3,.7,d.r), w); rel = mix(rel, (d.g - .5) * 1.7, w); elev = mix(elev, d.b, w); }
+      }
       vec3 V = normalize(cameraPosition - vP);
       float fres = pow(1. - max(dot(V, vN), 0.), 3.);
       float day = .55 + .45 * max(dot(vN, sun), 0.);
@@ -77,7 +91,7 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3,
       vec2 g = vec2(uv.x*36., uv.y*18.); vec2 gd = abs(fract(g)-.5); vec2 gw = fwidth(g)*.9;
       float gl = max(1.-smoothstep(0.,gw.x,.5-gd.x), 1.-smoothstep(0.,gw.y,.5-gd.y));
       ocean += vec3(.06,.10,.16) * gl * .22;
-      vec3 ground = (vec3(.060,.072,.092) + clamp(rel,-.25,.25) * vec3(.19,.20,.22) * relAmt) * day;
+      vec3 ground = (vec3(.058,.070,.090) + elev * vec3(.05,.055,.065) + clamp(rel,-.3,.3) * vec3(.22,.23,.25) * relAmt) * day;
       vec3 col = mix(ocean, ground, land);
       col += vec3(.10,.25,.45) * fres * .35;
       fragColor = vec4(col, 1.);
@@ -97,7 +111,10 @@ const rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(7);
     for (const a of arcs) for (let i = 0; i < a.length - 1; i++) { if (Math.abs(a[i][0] - a[i + 1][0]) > 180) continue; const u = ll(...a[i], r), v = ll(...a[i + 1], r); p.push(u.x, u.y, u.z, v.x, v.y, v.z); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
     world.add(new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color, transparent: true, opacity: op, depthWrite: false }))); };
-  mk(L.coast, 1.0006, 0x6fa8e8, .75); mk(L.border, 1.0005, 0x8a9bb8, .22); }
+  const outside = a => a.every(([lo, la]) => lo < -130 || lo > -20 || la < -60 || la > 35);
+  mk(L.coast.filter(outside), 1.0006, 0x6fa8e8, .75); mk(L.border.filter(outside), 1.0005, 0x8a9bb8, .22);
+  const L10 = await (await fetch('assets/lines10.json')).json();
+  mk(L10.coast, 1.0006, 0x6fa8e8, .8); mk(L10.lake, 1.0006, 0x5f8fc4, .55); mk(L10.river, 1.0005, 0x4f7fb4, .38); mk(L10.border, 1.0005, 0x9aa8c2, .2); }
 
 // ---------- route: one polyline with arc length; segment ends indexed ----------
 const R = await (await fetch('assets/route.json')).json();
@@ -112,8 +129,8 @@ const arcAtSeg = i => i <= 0 ? 0 : ARC[segEnd[i - 1]];   // arc length at the en
 const pointAt = s => { let i = ARC.findIndex(a => a >= s); if (i <= 0) return RP[0].clone(); const k = (s - ARC[i - 1]) / (ARC[i] - ARC[i - 1] || 1); return RP[i - 1].clone().lerp(RP[i], k).normalize(); };
 const GOLD = new THREE.Color(1.0, .72, .32);
 const tubeGeo = (r) => new THREE.TubeGeometry(new THREE.CatmullRomCurve3(RP.map(p => p.clone().multiplyScalar(1.0025)), false, 'centripetal', .2), RP.length, r, 6);
-const core = new THREE.Mesh(tubeGeo(.0011), new THREE.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(1.5), toneMapped: false }));
-const halo = new THREE.Mesh(tubeGeo(.0032), new THREE.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(.35), transparent: true, opacity: .35, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }));
+const core = new THREE.Mesh(tubeGeo(.0011), new THREE.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(1.1), toneMapped: false }));
+const halo = new THREE.Mesh(tubeGeo(.0032), new THREE.MeshBasicMaterial({ color: GOLD.clone().multiplyScalar(.35), transparent: true, opacity: .2, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }));
 const coreF = new THREE.Mesh(tubeGeo(.00006), core.material), haloF = new THREE.Mesh(tubeGeo(.0002), halo.material);
 world.add(core, halo, coreF, haloF);
 const segsPerPt = core.geometry.index.count / (RP.length);   // index count per tubular segment
@@ -128,7 +145,7 @@ const spr = (c, s, o = 1) => { const cv = document.createElement('canvas'); cv.w
   const g = x.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.18, c); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, 128, 128);
   const m = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(cv), blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, toneMapped: false, opacity: o }));
   m.scale.setScalar(s); return m; };
-const h1 = spr('rgba(255,190,90,.9)', .022), h2 = spr('rgba(255,170,70,.35)', .07, .45); world.add(h1, h2);
+const h1 = spr('rgba(255,190,90,.9)', .022, .85), h2 = spr('rgba(255,170,70,.35)', .07, .3); world.add(h1, h2);
 // labels.rewalk in the copy lists Boca de Cupe, Yaviza, Meteti, La Palma in this order
 const PLACES = { ...R.pts }; [[-77.58, 8.03], [-77.69, 8.16], [-77.98, 8.5], [-78.14, 8.41]].forEach((c, i) => PLACES[C.labels.rewalk[i]] = c);
 
@@ -308,9 +325,9 @@ function renderAt(t) {
   } else {
     post.dof.scene = world; post.dof.camera = camera;
     const s = routeS(t); setDrawn(s); head = worldPose(t);
-    const hv = head.clone().multiplyScalar(1.0028); h1.position.copy(hv); h2.position.copy(hv); const dc = camera.position.distanceTo(hv); h1.scale.setScalar(dc * .05); h2.scale.setScalar(dc * .16);
+    const hv = head.clone().multiplyScalar(1.0028); h1.position.copy(hv); h2.position.copy(hv); const dc = camera.position.distanceTo(hv); h1.scale.setScalar(dc * .03); h2.scale.setScalar(dc * .075);
     h1.visible = h2.visible = b.id !== 'hook';
-    escort.visible = b.id === 'rewalk'; globeMat.uniforms.relAmt.value = b.id === 'rewalk' ? .3 : 1; halo.material.opacity = b.id === 'rewalk' ? .18 : .35;
+    escort.visible = b.id === 'rewalk'; globeMat.uniforms.relAmt.value = b.id === 'rewalk' ? .3 : 1; halo.material.opacity = b.id === 'rewalk' ? .12 : .2;
     const fine = b.id === 'rewalk'; core.visible = halo.visible = b.id !== 'hook' && !fine; coreF.visible = haloF.visible = fine;
   }
   // dips to black where the shot changes (map <-> scene) and at the ends

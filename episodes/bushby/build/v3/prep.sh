@@ -8,3 +8,4 @@ mkdir -p fonts && ln -sf "$NOTO_SERIF_SC_VF" fonts/serif.ttf && ln -sf "$NOTO_SA
 PY=${PY:-$HOME/lemo-opuscar/.venv/bin/python}
 "$PY" make_tex.py
 "$PY" make_vectors.py
+"$PY" make_detail.py   # needs the Natural Earth 10m zips in $NE10 (default ~/.cache/ne10)

@@ -1,0 +1,77 @@
+"""Bake high-resolution relief patches for the route from Terrarium elevation tiles (AWS Open Data, Mapzen;
+sources SRTM, GMTED, ETOPO1 and others; attribution in the film credits), and write Natural Earth 10m lines.
+
+Each patch is an equirectangular PNG over a lon/lat box: R = land (elevation > 0), G = shaded relief, B = elevation.
+Run: ~/lemo-opuscar/.venv/bin/python make_detail.py   (downloads tiles into ~/.cache/terrarium)"""
+import io, json, math, os, zipfile, urllib.request, concurrent.futures as cf
+import numpy as np
+from PIL import Image
+import shapefile
+
+CACHE = os.path.expanduser('~/.cache/terrarium'); os.makedirs(CACHE, exist_ok=True)
+PATCHES = [  # name, zoom, lon0, lat0, lon1, lat1, degrees per pixel
+    ('detail_a', 7, -95.0, -56.0, -62.0, 16.0, .012),
+    ('detail_b', 9, -79.8, 6.6, -76.2, 9.8, .0028),
+]
+
+def tile(z, x, y):
+    p = f'{CACHE}/{z}_{x}_{y}.png'
+    if not os.path.exists(p):
+        with urllib.request.urlopen(f'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png', timeout=60) as r: open(p, 'wb').write(r.read())
+    a = np.asarray(Image.open(p).convert('RGB')).astype(np.float32)
+    return a[..., 0] * 256 + a[..., 1] + a[..., 2] / 256 - 32768
+
+def tx(lon, z): return (lon + 180) / 360 * 2 ** z
+def ty(lat, z): r = math.radians(lat); return (1 - math.log(math.tan(r) + 1 / math.cos(r)) / math.pi) / 2 * 2 ** z
+
+def bake(name, z, lon0, lat0, lon1, lat1, res):
+    x0, x1 = int(tx(lon0, z)), int(tx(lon1, z)); y0, y1 = int(ty(lat1, z)), int(ty(lat0, z))
+    jobs = [(z, x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1)]
+    with cf.ThreadPoolExecutor(12) as ex: tiles = dict(zip(jobs, ex.map(lambda j: tile(*j), jobs)))
+    mosaic = np.zeros(((y1 - y0 + 1) * 256, (x1 - x0 + 1) * 256), np.float32)
+    for (zz, x, y), a in tiles.items(): mosaic[(y - y0) * 256:(y - y0 + 1) * 256, (x - x0) * 256:(x - x0 + 1) * 256] = a
+    W, H = int(round((lon1 - lon0) / res)), int(round((lat1 - lat0) / res))
+    lons = lon0 + (np.arange(W) + .5) * res; lats = lat1 - (np.arange(H) + .5) * res
+    px = ((lons + 180) / 360 * 2 ** z - x0) * 256
+    py = np.array([(ty(l, z) - y0) * 256 for l in lats])
+    PX, PY = np.meshgrid(px, py)
+    i0, j0 = np.clip(PX.astype(int), 0, mosaic.shape[1] - 2), np.clip(PY.astype(int), 0, mosaic.shape[0] - 2)
+    fx, fy = PX - i0, PY - j0
+    e = (mosaic[j0, i0] * (1 - fx) * (1 - fy) + mosaic[j0, i0 + 1] * fx * (1 - fy) + mosaic[j0 + 1, i0] * (1 - fx) * fy + mosaic[j0 + 1, i0 + 1] * fx * fy)
+    # shaded relief: two light directions, metres per pixel from the latitude
+    dyM = res * 110540; dxM = res * 111320 * np.cos(np.radians(lats))[:, None]
+    gy, gx = np.gradient(np.maximum(e, 0))
+    sx, sy = gx / dxM, -gy / dyM
+    def shade(az, alt):
+        az, alt = math.radians(az), math.radians(alt)
+        n = np.sqrt(1 + sx ** 2 + sy ** 2)
+        return (math.sin(alt) - (sx * math.sin(az) * math.cos(alt) + sy * math.cos(az) * math.cos(alt))) / n
+    hs = .65 * shade(315, 40) + .35 * shade(260, 55)
+    hs = np.clip((hs - hs[e > 0].mean() if (e > 0).any() else hs) * 1.6 + .5, 0, 1)
+    land = (e > 0).astype(np.float32)
+    elev = np.clip(np.maximum(e, 0) / 5500, 0, 1) ** .6
+    rgb = np.dstack([land * 255, hs * 255, elev * 255]).astype(np.uint8)
+    Image.fromarray(rgb).save(f'assets/{name}.png', optimize=True)
+    return {'name': name, 'box': [lon0, lat0, lon1, lat1], 'size': [W, H]}
+
+def lines(zip_path, box):
+    zf = zipfile.ZipFile(zip_path); base = [n[:-4] for n in zf.namelist() if n.endswith('.shp')][0]
+    r = shapefile.Reader(shp=io.BytesIO(zf.read(base + '.shp')), shx=io.BytesIO(zf.read(base + '.shx')), dbf=io.BytesIO(zf.read(base + '.dbf')))
+    out = []
+    for sh in r.shapes():
+        b = sh.bbox
+        if b[2] < box[0] or b[0] > box[2] or b[3] < box[1] or b[1] > box[3]: continue
+        parts = list(sh.parts) + [len(sh.points)]
+        for i in range(len(parts) - 1):
+            pts = sh.points[parts[i]:parts[i + 1]]
+            if len(pts) > 1: out.append([[round(x, 3), round(y, 3)] for x, y in pts])
+    return out
+
+if __name__ == '__main__':
+    meta = [bake(*p) for p in PATCHES]
+    NE = os.environ.get('NE10', os.path.expanduser('~/.cache/ne10'))
+    box = [-130, -60, -20, 35]
+    L = {k: lines(f'{NE}/{f}.zip', box) for k, f in [('coast', 'ne_10m_coastline'), ('river', 'ne_10m_rivers_lake_centerlines'), ('lake', 'ne_10m_lakes'), ('border', 'ne_10m_admin_0_boundary_lines_land')]}
+    json.dump(L, open('assets/lines10.json', 'w'), separators=(',', ':'))
+    json.dump(meta, open('assets/detail.json', 'w'))
+    print(meta, {k: len(v) for k, v in L.items()})
