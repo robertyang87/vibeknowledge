@@ -6891,14 +6891,14 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     12.1,
-     49.01
+     13.18,
+     48.64
     ]
    },
    "properties": {
     "order": 169,
-    "name": "雷根斯堡",
-    "date": "2026-05中",
+    "name": "维尔斯霍芬",
+    "date": "2026-04-15",
     "status": "verified",
     "segment": "J 高加索—土耳其—欧洲",
     "leg_into": "walk"
@@ -6914,6 +6914,47 @@
       48.31
      ],
      [
+      13.18,
+      48.64
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "维尔斯霍芬",
+    "date": "2026-04-15",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.1,
+     49.01
+    ]
+   },
+   "properties": {
+    "order": 170,
+    "name": "雷根斯堡",
+    "date": "2026-04下/05初",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      13.18,
+      48.64
+     ],
+     [
       12.1,
       49.01
      ]
@@ -6922,7 +6963,7 @@
    "properties": {
     "kind": "walk",
     "to": "雷根斯堡",
-    "date": "2026-05中",
+    "date": "2026-04下/05初",
     "inferred": false,
     "segment": "J 高加索—土耳其—欧洲"
    }
@@ -6937,9 +6978,9 @@
     ]
    },
    "properties": {
-    "order": 170,
-    "name": "纽伦堡",
-    "date": "2026-05",
+    "order": 171,
+    "name": "纽伦堡（本人公告，未证实）",
+    "date": "2026-05-01",
     "status": "inferred",
     "segment": "J 高加索—土耳其—欧洲",
     "leg_into": "walk"
@@ -6962,8 +7003,8 @@
    },
    "properties": {
     "kind": "walk",
-    "to": "纽伦堡",
-    "date": "2026-05",
+    "to": "纽伦堡（本人公告，未证实）",
+    "date": "2026-05-01",
     "inferred": true,
     "segment": "J 高加索—土耳其—欧洲"
    }
@@ -6973,15 +7014,15 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     8.68,
+     9.94,
      50.11
     ]
    },
    "properties": {
-    "order": 171,
-    "name": "法兰克福",
+    "order": 172,
+    "name": "富克斯施塔特",
     "date": "2026-05",
-    "status": "inferred",
+    "status": "verified",
     "segment": "J 高加索—土耳其—欧洲",
     "leg_into": "walk"
    }
@@ -6996,6 +7037,252 @@
       49.45
      ],
      [
+      9.94,
+      50.11
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "富克斯施塔特",
+    "date": "2026-05",
+    "inferred": true,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.85,
+     49.79
+    ]
+   },
+   "properties": {
+    "order": 173,
+    "name": "瓦尔德比特尔布伦",
+    "date": "2026-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      9.94,
+      50.11
+     ],
+     [
+      9.85,
+      49.79
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "瓦尔德比特尔布伦",
+    "date": "2026-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.52,
+     49.76
+    ]
+   },
+   "properties": {
+    "order": 174,
+    "name": "韦尔特海姆",
+    "date": "2026-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      9.85,
+      49.79
+     ],
+     [
+      9.52,
+      49.76
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "韦尔特海姆",
+    "date": "2026-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.33,
+     49.78
+    ]
+   },
+   "properties": {
+    "order": 175,
+    "name": "科伦贝格",
+    "date": "2026-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      9.52,
+      49.76
+     ],
+     [
+      9.33,
+      49.78
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "科伦贝格",
+    "date": "2026-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.26,
+     49.7
+    ]
+   },
+   "properties": {
+    "order": 176,
+    "name": "米尔滕贝格",
+    "date": "2026-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      9.33,
+      49.78
+     ],
+     [
+      9.26,
+      49.7
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "米尔滕贝格",
+    "date": "2026-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.14,
+     49.84
+    ]
+   },
+   "properties": {
+    "order": 177,
+    "name": "奥伯恩堡",
+    "date": "2026-05",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      9.26,
+      49.7
+     ],
+     [
+      9.14,
+      49.84
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "奥伯恩堡",
+    "date": "2026-05",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.68,
+     50.11
+    ]
+   },
+   "properties": {
+    "order": 178,
+    "name": "法兰克福",
+    "date": "2026-05-16",
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      9.14,
+      49.84
+     ],
+     [
       8.68,
       50.11
      ]
@@ -7004,8 +7291,8 @@
    "properties": {
     "kind": "walk",
     "to": "法兰克福",
-    "date": "2026-05",
-    "inferred": true,
+    "date": "2026-05-16",
+    "inferred": false,
     "segment": "J 高加索—土耳其—欧洲"
    }
   },
@@ -7014,15 +7301,15 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.96,
-     50.94
+     8.13,
+     49.99
     ]
    },
    "properties": {
-    "order": 172,
-    "name": "科隆",
-    "date": "2026-05",
-    "status": "inferred",
+    "order": 179,
+    "name": "海德斯海姆（美因茨附近）",
+    "date": "2026-05-20",
+    "status": "verified",
     "segment": "J 高加索—土耳其—欧洲",
     "leg_into": "walk"
    }
@@ -7037,16 +7324,16 @@
       50.11
      ],
      [
-      6.96,
-      50.94
+      8.13,
+      49.99
      ]
     ]
    },
    "properties": {
     "kind": "walk",
-    "to": "科隆",
-    "date": "2026-05",
-    "inferred": true,
+    "to": "海德斯海姆（美因茨附近）",
+    "date": "2026-05-20",
+    "inferred": false,
     "segment": "J 高加索—土耳其—欧洲"
    }
   },
@@ -7055,15 +7342,15 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.57,
-     50.63
+     6.63,
+     50.24
     ]
    },
    "properties": {
-    "order": 173,
-    "name": "列日",
-    "date": "2026-05-31",
-    "status": "inferred",
+    "order": 180,
+    "name": "米伦博恩（艾费尔）",
+    "date": "2026-05-26",
+    "status": "verified",
     "segment": "J 高加索—土耳其—欧洲",
     "leg_into": "walk"
    }
@@ -7074,20 +7361,61 @@
     "type": "LineString",
     "coordinates": [
      [
-      6.96,
-      50.94
+      8.13,
+      49.99
      ],
      [
-      5.57,
-      50.63
+      6.63,
+      50.24
      ]
     ]
    },
    "properties": {
     "kind": "walk",
-    "to": "列日",
+    "to": "米伦博恩（艾费尔）",
+    "date": "2026-05-26",
+    "inferred": false,
+    "segment": "J 高加索—土耳其—欧洲"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.13,
+     50.28
+    ]
+   },
+   "properties": {
+    "order": 181,
+    "name": "圣维特（入比利时）",
     "date": "2026-05-31",
-    "inferred": true,
+    "status": "verified",
+    "segment": "J 高加索—土耳其—欧洲",
+    "leg_into": "walk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      6.63,
+      50.24
+     ],
+     [
+      6.13,
+      50.28
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "walk",
+    "to": "圣维特（入比利时）",
+    "date": "2026-05-31",
+    "inferred": false,
     "segment": "J 高加索—土耳其—欧洲"
    }
   },
@@ -7101,7 +7429,7 @@
     ]
    },
    "properties": {
-    "order": 174,
+    "order": 182,
     "name": "阿夫雷",
     "date": "2026-09-16",
     "status": "verified",
@@ -7115,8 +7443,8 @@
     "type": "LineString",
     "coordinates": [
      [
-      5.57,
-      50.63
+      6.13,
+      50.28
      ],
      [
       4.05,
@@ -7128,7 +7456,7 @@
     "kind": "walk",
     "to": "阿夫雷",
     "date": "2026-09-16",
-    "inferred": true,
+    "inferred": false,
     "segment": "J 高加索—土耳其—欧洲"
    }
   },
@@ -7142,7 +7470,7 @@
     ]
    },
    "properties": {
-    "order": 175,
+    "order": 183,
     "name": "蒙斯",
     "date": "2026-09-17",
     "status": "verified",
@@ -7183,7 +7511,7 @@
     ]
    },
    "properties": {
-    "order": 176,
+    "order": 184,
     "name": "图尔奈",
     "date": "2026-09-18",
     "status": "verified",
@@ -7224,7 +7552,7 @@
     ]
    },
    "properties": {
-    "order": 177,
+    "order": 185,
     "name": "里尔",
     "date": "2026-09-20",
     "status": "inferred",
@@ -7265,7 +7593,7 @@
     ]
    },
    "properties": {
-    "order": 178,
+    "order": 186,
     "name": "加来/白鼻角一带（起游点未公开）",
     "date": "约2026-09-30",
     "status": "inferred",
@@ -7306,7 +7634,7 @@
     ]
    },
    "properties": {
-    "order": 179,
+    "order": 187,
     "name": "莎士比亚海滩（多佛）",
     "date": "2026-10-05",
     "status": "verified",
@@ -7347,7 +7675,7 @@
     ]
    },
    "properties": {
-    "order": 180,
+    "order": 188,
     "name": "锡廷伯恩以北",
     "date": "2026-10-11/12",
     "status": "verified",
@@ -7388,7 +7716,7 @@
     ]
    },
    "properties": {
-    "order": 181,
+    "order": 189,
     "name": "格林尼治步行隧道",
     "date": "2026-10-16/17",
     "status": "verified",
@@ -7429,7 +7757,7 @@
     ]
    },
    "properties": {
-    "order": 182,
+    "order": 190,
     "name": "金丝雀码头",
     "date": "2026-10-16/17",
     "status": "verified",
@@ -7470,7 +7798,7 @@
     ]
    },
    "properties": {
-    "order": 183,
+    "order": 191,
     "name": "彼得伯勒",
     "date": "2026-10-22",
     "status": "verified",
@@ -7511,7 +7839,7 @@
     ]
    },
    "properties": {
-    "order": 184,
+    "order": 192,
     "name": "斯伯丁",
     "date": "2026-10-24",
     "status": "verified",
@@ -7552,7 +7880,7 @@
     ]
    },
    "properties": {
-    "order": 185,
+    "order": 193,
     "name": "戈斯伯顿",
     "date": "2026-10-25",
     "status": "verified",
@@ -7593,7 +7921,7 @@
     ]
    },
    "properties": {
-    "order": 186,
+    "order": 194,
     "name": "马基特雷森",
     "date": "2026-10-28",
     "status": "verified",
@@ -7634,7 +7962,7 @@
     ]
    },
    "properties": {
-    "order": 187,
+    "order": 195,
     "name": "亨伯河畔巴顿",
     "date": "2026-10-31",
     "status": "verified",
@@ -7675,7 +8003,7 @@
     ]
    },
    "properties": {
-    "order": 188,
+    "order": 196,
     "name": "亨伯大桥",
     "date": "2026-11-01",
     "status": "verified",
@@ -7716,7 +8044,7 @@
     ]
    },
    "properties": {
-    "order": 189,
+    "order": 197,
     "name": "赫塞尔",
     "date": "2026-11-02",
     "status": "verified",
@@ -7757,7 +8085,7 @@
     ]
    },
    "properties": {
-    "order": 190,
+    "order": 198,
     "name": "赫尔（母亲家）",
     "date": "2026-11-02",
     "status": "verified",
