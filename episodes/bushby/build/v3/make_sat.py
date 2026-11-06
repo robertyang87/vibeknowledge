@@ -29,7 +29,7 @@ def bake(name, z, lon0, lat0, lon1, lat1, res):
     mosaic = np.zeros(((y1 - y0 + 1) * 256, (x1 - x0 + 1) * 256, 3), np.uint8)
     for (zz, x, y), a in tiles.items(): mosaic[(y - y0) * 256:(y - y0 + 1) * 256, (x - x0) * 256:(x - x0 + 1) * 256] = a
     r2 = res / 2 if name != 'detail_a' else res
-    W, H = min(8192, int(round((lon1 - lon0) / r2))), min(8192, int(round((lat1 - lat0) / r2)))
+    W, H = int(round((lon1 - lon0) / r2)), int(round((lat1 - lat0) / r2)); f = min(1, 6000 / max(W, H)); W, H = int(W * f), int(H * f)
     lons = lon0 + (np.arange(W) + .5) * (lon1 - lon0) / W; lats = lat1 - (np.arange(H) + .5) * (lat1 - lat0) / H
     px = ((lons + 180) / 360 * 2 ** z - x0) * 256; py = np.array([(ty(l, z) - y0) * 256 for l in lats])
     PX, PY = np.meshgrid(px, py)
@@ -40,7 +40,8 @@ def bake(name, z, lon0, lat0, lon1, lat1, res):
     print(name, z, len(jobs), (W, H))
 
 if __name__ == '__main__':
-    for p in PATCHES: bake(*p)
+    for p in PATCHES:
+        if not os.path.exists(f'assets/sat_{p[0]}.jpg'): bake(*p)
     night = 'assets/night.jpg'
     if not os.path.exists(night):
         req = urllib.request.Request('https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/144000/144898/BlackMarble_2016_3km.jpg', headers=UA)

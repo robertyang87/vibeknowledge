@@ -19,13 +19,33 @@ PATCHES = [  # name, zoom, lon0, lat0, lon1, lat1, degrees per pixel; coarse fir
     ('corr_6', 9, -81.0, 4.0, -74.0, 10.0, .004),
     ('start', 10, -73.5, -54.2, -69.5, -51.6, .0015),         # Punta Arenas, ~150 m/px
     ('darien', 11, -78.6, 6.9, -76.4, 8.9, .0007),            # the Darien and the escort, ~75 m/px
+    # the rest of the walk (full film): regional patches, ~0.5-1 km/px
+    ('na_central', 8, -106.0, 7.0, -82.0, 24.0, .006),
+    ('na_southwest', 8, -117.0, 18.0, -104.0, 38.0, .006),
+    ('na_rockies', 8, -125.0, 36.0, -108.0, 62.0, .008),
+    ('na_alaska', 8, -166.0, 58.0, -120.0, 68.0, .01),
+    ('bering', 9, -179.0, 62.0, -160.0, 70.0, .004),
+    ('chukotka', 8, 150.0, 62.0, 179.0, 71.0, .007),
+    ('kolyma', 8, 118.0, 52.0, 155.0, 68.0, .009),
+    ('baikal', 8, 100.0, 45.0, 125.0, 57.0, .008),
+    ('steppe', 7, 70.0, 37.0, 110.0, 51.0, .011),
+    ('central_asia', 8, 48.0, 35.0, 72.0, 47.0, .008),
+    ('caspian', 9, 46.0, 39.0, 54.0, 45.5, .004),
+    ('turkey', 8, 26.0, 39.0, 43.5, 43.0, .005),
+    ('europe', 8, 0.0, 40.0, 30.0, 52.0, .008),
+    ('england', 10, -2.0, 50.4, 2.6, 54.2, .0015),
 ]
 
 def tile(z, x, y):
     p = f'{CACHE}/{z}_{x}_{y}.png'
-    if not os.path.exists(p):
-        with urllib.request.urlopen(f'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png', timeout=60) as r: open(p, 'wb').write(r.read())
-    a = np.asarray(Image.open(p).convert('RGB')).astype(np.float32)
+    for _ in range(5):
+        if os.path.exists(p): break
+        try:
+            with urllib.request.urlopen(f'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png', timeout=60) as r: data = r.read()
+            open(p + '.part', 'wb').write(data); os.replace(p + '.part', p)
+        except Exception: pass
+    try: a = np.asarray(Image.open(p).convert('RGB')).astype(np.float32)
+    except Exception: return np.zeros((256, 256), np.float32)
     return a[..., 0] * 256 + a[..., 1] + a[..., 2] / 256 - 32768
 
 def tx(lon, z): return (lon + 180) / 360 * 2 ** z
@@ -75,7 +95,7 @@ def lines(zip_path, box):
     return out
 
 if __name__ == '__main__':
-    meta = [bake(*p) for p in PATCHES]
+    meta = [bake(*p) if not os.path.exists(f'assets/{p[0]}.png') or os.environ.get('REBAKE') else {'name': p[0], 'box': list(p[2:6]), 'size': list(Image.open(f'assets/{p[0]}.png').size)} for p in PATCHES]
     NE = os.environ.get('NE10', os.path.expanduser('~/.cache/ne10'))
     box = [-130, -60, -20, 35]
     L = {k: lines(f'{NE}/{f}.zip', box) for k, f in [('coast', 'ne_10m_coastline'), ('river', 'ne_10m_rivers_lake_centerlines'), ('lake', 'ne_10m_lakes'), ('border', 'ne_10m_admin_0_boundary_lines_land'), ('road', 'ne_10m_roads')]}
