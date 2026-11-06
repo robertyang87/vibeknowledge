@@ -26,7 +26,9 @@ Data (data/*.json except rivers.json, config/*.json, route.geojson): CC BY 4.0
 https://creativecommons.org/licenses/by/4.0/ — credit "vibeknowledge, Karl Bushby route dataset".
 
 Third-party material bundled into track.html:
-- world-atlas 2.0.2 (countries-10m), ISC License, derived from Natural Earth (public domain)
+- world-atlas 2.0.2 (countries-50m / countries-10m), ISC License, derived from Natural Earth (public domain)
 - data/rivers.json: Natural Earth 5.1.2 rivers and lake centerlines, public domain
+- assets/blue-marble-4096.jpg: NASA Visible Earth "Blue Marble", public domain (NASA imagery is not copyrighted), resized
+- globe.gl 2.32.4 (loaded from jsDelivr), MIT License; bundles three.js (MIT)
 - d3 7.9.0 and topojson 3.0.2 (loaded from cdnjs), ISC License
 - Fonts via Google Fonts (Noto Serif SC, Noto Sans SC, IBM Plex Mono), SIL Open Font License 1.1

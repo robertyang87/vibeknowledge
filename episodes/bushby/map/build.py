@@ -8,7 +8,8 @@ Inputs (all in this directory):
   data/voided.json    a walked leg later replaced by a new line
   data/protest.json   a separate walk that is not counted in the route
   config/<name>.json  page title, footnote, zoom presets ("cases") and reference markers
-  src/template.html   the page template
+  src/template.html   the 3D globe page (globe.gl + NASA Blue Marble, assets/blue-marble-4096.jpg)
+  src/template-vector.html  lightweight 2D canvas version (--style vector)
   src/style.part.css  the page stylesheet
 Base map:
   node_modules/world-atlas/countries-10m.json   (npm install)
@@ -21,7 +22,7 @@ Outputs:
 Usage:
   npm install && python3 build.py [--config config/bushby.json] [--rivers path/to/ne_10m_rivers_lake_centerlines.geojson]
 """
-import argparse, calendar, json, math, re, sys
+import argparse, base64, calendar, json, math, re, sys
 from datetime import date
 from pathlib import Path
 
@@ -121,7 +122,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="config/bushby.json")
     ap.add_argument("--rivers", help="Natural Earth ne_10m_rivers_lake_centerlines.geojson; regenerates data/rivers.json")
-    ap.add_argument("--topo", default="node_modules/world-atlas/countries-10m.json")
+    ap.add_argument("--style", choices=["globe", "vector"], default="globe",
+                    help="globe: NASA Blue Marble 3D globe (default); vector: lightweight 2D orthographic canvas")
+    ap.add_argument("--topo", help="override the world-atlas file (default: countries-50m for globe, countries-10m for vector)")
     args = ap.parse_args()
 
     load = lambda p: json.loads((HERE / p).read_text(encoding="utf-8"))
@@ -139,9 +142,10 @@ def main():
                 feats.append({"type": "Feature", "properties": {"name": f["properties"]["name"]}, "geometry": g})
         (HERE / "data/rivers.json").write_text(json.dumps({"type": "FeatureCollection", "features": feats}, separators=(",", ":")), encoding="utf-8")
     rivers = (HERE / "data/rivers.json").read_text(encoding="utf-8")
-    topo_path = HERE / args.topo
+    topo_rel = args.topo or ("node_modules/world-atlas/countries-50m.json" if args.style == "globe" else "node_modules/world-atlas/countries-10m.json")
+    topo_path = HERE / topo_rel
     if not topo_path.exists():
-        sys.exit(f"missing {args.topo}: run `npm install` first")
+        sys.exit(f"missing {topo_rel}: run `npm install` first")
     topo = topo_path.read_text(encoding="utf-8")
 
     t, dep = time_points(pts)
@@ -159,10 +163,11 @@ def main():
     page_pts = [{k: p[k] for k in ("name", "lon", "lat", "date", "status", "leg", "t", "dep")} for p in pts]
     data = {"points": page_pts, "moves": moves, "events": events, "voided": voided, "protest": protest, "config": cfg}
     style = (HERE / "src/style.part.css").read_text(encoding="utf-8")
-    html = (HERE / "src/template.html").read_text(encoding="utf-8")
+    html = (HERE / ("src/template.html" if args.style == "globe" else "src/template-vector.html")).read_text(encoding="utf-8")
+    earth = "data:image/jpeg;base64," + base64.b64encode((HERE / "assets/blue-marble-4096.jpg").read_bytes()).decode() if args.style == "globe" else ""
     html = (html.replace("__TITLE__", cfg.get("page_title", cfg["title"])).replace("__STYLE__", style)
                 .replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")))
-                .replace("__TOPO__", topo).replace("__RIVERS__", rivers))
+                .replace("__TOPO__", topo).replace("__RIVERS__", rivers).replace("__EARTH__", earth))
     (HERE / "track.html").write_text(html, encoding="utf-8")
 
     feats = []

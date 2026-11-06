@@ -1,13 +1,14 @@
 # 轨迹图（Journey track globe）
 
-卡尔·布什比 1998–2026 环球步行的交互地球图。按日期播放：他走路时线在长，被卡住时线停下，日历照走。它是三集系列的主线画面，后续单独建库开源。
+卡尔·布什比 1998–2026 环球步行的交互地球图（默认：NASA Blue Marble 卫星影像的 3D 地球，globe.gl 渲染；`--style vector` 可出轻量 2D 版）。按日期播放：他走路时线在长，被卡住时线停下，日历照走。它是三集系列的主线画面，后续单独建库开源。
 
 English summary: an interactive orthographic globe of Karl Bushby's 1998–2026 walk around the world, played back by date. When he walks, the line grows; when visas, money or politics stop him, the line stops while the calendar keeps running. Transport movements that never advanced the route (visa runs, repositioning flights, a deportation-turned-departure) are drawn as a separate layer.
 
 ## 用法
 ```bash
 npm install                     # world-atlas 2.0.2（国界底图）
-python3 build.py                # 生成 track.html 与 route.geojson
+python3 build.py                # 生成 track.html（3D 卫星地球）与 route.geojson
+python3 build.py --style vector # 轻量 2D 矢量版（不带卫星影像）
 python3 build.py --rivers ne_10m_rivers_lake_centerlines.geojson   # 可选：从 Natural Earth 5.1.2 重建 data/rivers.json
 ```
 Natural Earth 河流数据下载：`https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@v5.1.2/geojson/ne_10m_rivers_lake_centerlines.geojson`
@@ -23,7 +24,8 @@ Natural Earth 河流数据下载：`https://cdn.jsdelivr.net/gh/nvkelso/natural-
 | `data/voided.json` | 2019 土库曼斯坦作废段，2023-09-24 被新线替换 | CC BY 4.0 |
 | `data/protest.json` | 2013–14 抗议步行（不计入环球路线） | CC BY 4.0 |
 | `config/bushby.json` | 标题、脚注、放大预设（含分集节拍号）、参考地点 | CC BY 4.0 |
-| `src/` | 页面模板与样式 | MIT |
+| `src/` | 页面模板与样式（`template.html` 3D 版、`template-vector.html` 2D 版） | MIT |
+| `assets/blue-marble-4096.jpg` | NASA Visible Earth Blue Marble，缩放到 4096×2048（经 three-globe 示例取得） | 公有领域（NASA） |
 | `build.py` | 构建脚本 | MIT |
 | `track.html`、`route.geojson` | 构建产物（新库可改由 Pages/Release 发布，不入版本库） | — |
 
