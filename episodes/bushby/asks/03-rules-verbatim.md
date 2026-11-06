@@ -30,5 +30,5 @@ The Story 开篇的计划表述：
 统计带（同页）："2 rules, unbroken"；国家数官网口径 "25 countries on the route"（与 FACTS 卡的官网 25 一致）。
 
 ## 备注
-- 截图（带网址与日期）尚待补：文本证据已齐，截图可由浏览器打开官网规则区截取后归档至本目录。
+- 截图已补（2026-11-06 17:05–17:06 CST，浏览器只读打开 https://karlbushby.world/ 并滚动至规则区截取）：画面含标题 "A JOURNEY DEFINED BY TWO RULES"、两条规则全文及 "KEPT, BOTH OF THEM, FOR TEN THOUSAND DAYS."。截图为页面视口画面、不含浏览器地址栏，网址与日期由本次取证记录背书；浏览器侧 PDF 导出两次失败，截图未能落为本地文件——如需带地址栏的存档图，可由人工在浏览器打开同页截取。
 - 旧站 goliathexpedition.com 的 Wayback 快照未在本轮核对；现站两处独立复述（导语＋规则卡＋第一章）措辞一致，历史版本差异不影响本集规则卡。如需历史版式再单开一轮。
