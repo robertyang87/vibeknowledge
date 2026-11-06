@@ -77,7 +77,7 @@ const patchCode = DET.map((d, i) => `
         float w = smoothstep(0., ${(Math.min(d.box[2] - d.box[0], d.box[3] - d.box[1]) * .06).toFixed(3)}, min(f.x, f.y));
         if (w > 0.) { vec2 du = dFdx(u), dv = dFdy(u); vec3 d = textureGrad(det${i}, u, du, dv).rgb;
           r = mix(r, d.r, w); rel = mix(rel, (d.g - .5) * 1.7, w); elev = mix(elev, d.b, w);
-          ${LOOK === 'sat' ? `sat = mix(sat, textureGrad(sat${i}, u, du, dv).rgb, w);` : ''} } }`).join('');
+          ${LOOK === 'sat' ? `sat = mix(sat, textureGrad(sat${i}, u, du, dv).rgb, w * smoothstep(.06, .025, foot));` : ''} } }`).join('');
 const uni = { map: { value: tex }, baseCol: { value: baseColTex }, sun: { value: ll(-40, 25).normalize() }, relAmt: { value: 1 }, coastAmt: { value: 1 } };
 DET.forEach((d, i) => { uni['det' + i] = { value: detTex[i] }; uni['box' + i] = { value: new THREE.Vector4(...d.box) }; if (LOOK === 'sat') uni['sat' + i] = { value: satTex[i] }; });
 const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: uni, defines: { LOOK_SAT: LOOK === 'sat' ? 1 : 0, LOOK_NIGHT: LOOK === 'night' ? 1 : 0 },
@@ -96,6 +96,7 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: 
       float r = t.r, rel = t.g - .5, elev = 0.;
       vec3 sat = textureGrad(baseCol, uv, dx, dy).rgb;
       vec2 deg = vec2(degrees(lon), degrees(lat));
+      float foot = max(fwidth(uv.x) * 360., fwidth(uv.y) * 180.);   // degrees per pixel: the imagery patches only come in once the globe texture runs out
       ${patchCode}
       float land = smoothstep(.35,.65,r);
       float coast = 1. - clamp(abs(r - .5) / max(fwidth(r) * 1.1, 1e-5), 0., 1.);   // a one-pixel line where the land mask crosses .5
@@ -282,7 +283,7 @@ function worldPose(t) {
 
 // ---------- overlay ----------
 const ov = document.getElementById('ov'), x = ov.getContext('2d');
-await Promise.all([document.fonts.load('900 100px Disp', C.intro.name + 'KARL 0123456789'), document.fonts.load('400 30px Disp', 'DAY CHAPTER'), document.fonts.load('400 30px Disp', C.hud.date)]);
+await Promise.all([document.fonts.load('900 100px Disp', C.intro.title + C.intro.subtitle + 'KARL 0123456789'), document.fonts.load('400 30px Disp', 'DAY CHAPTER'), document.fonts.load('400 30px Disp', C.hud.date)]);
 const proj = v => { const p = v.clone().project(camera); return [(p.x + 1) / 2 * W, (1 - p.y) / 2 * H, p.z]; };
 const visible = v => v.clone().normalize().dot(camera.position.clone().sub(v).normalize()) > .05;
 function txt(s, X, Y, font, fill, ls = 0, align = 'left', a = 1) { x.shadowColor = 'rgba(0,0,0,.55)'; x.shadowBlur = 10; x.globalAlpha = a; x.font = font; x.fillStyle = fill; x.textAlign = align; x.letterSpacing = ls + 'px'; x.fillText(s, X, Y); x.letterSpacing = '0px'; x.globalAlpha = 1; x.shadowBlur = 0; }
@@ -344,9 +345,16 @@ function overlay(t, head) {
   if (INTRO.has(b.id)) {
     const I = C.intro;
     if (b.id === 'who') { const k = fadeIO(t, .4, b.t1 - .1, .6), dy = (1 - eo(seg(t, .4, 1.4))) * 16;
-      txt(I.name, W / 2, H / 2 - 10 + dy, '900 112px Disp', '#F4EEE2', 10, 'center', k);
-      txt(I.name_en, W / 2, H / 2 + 52 + dy, '500 30px Disp', 'rgba(232,182,92,.95)', 18, 'center', k);
-      if (k > 0) shown.push(I.name);
+      { const g = x.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, 700); g.addColorStop(0, `rgba(2,4,9,${.55 * k})`); g.addColorStop(1, 'rgba(2,4,9,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); }
+      { // the title, with its full-width comma tucked in so the two halves read as one line
+        const [p1, p2] = I.title.split('，'); x.font = '900 104px Disp'; x.letterSpacing = '3px';
+        const w1 = x.measureText(p1).width, wc = 46, w2 = p2 ? x.measureText(p2).width : 0, x0 = W / 2 - (w1 + (p2 ? wc + w2 : 0)) / 2;
+        txt(p1, x0, H / 2 - 30 + dy, '900 104px Disp', '#F4EEE2', 3, 'left', k);
+        if (p2) { txt('，', x0 + w1 - 18, H / 2 - 30 + dy, '900 104px Disp', '#F4EEE2', 0, 'left', k); txt(p2, x0 + w1 + wc, H / 2 - 30 + dy, '900 104px Disp', '#F4EEE2', 3, 'left', k); } }
+      const k2 = k * seg(t, 1.0, 1.8);
+      x.globalAlpha = k2; x.fillStyle = 'rgba(232,182,92,.9)'; x.fillRect(W / 2 - 30, H / 2 + 22 + dy, 60, 2); x.globalAlpha = 1;
+      txt(I.subtitle + '  ·  ' + I.subtitle_en, W / 2, H / 2 + 76 + dy, '500 32px Disp', 'rgba(232,182,92,.95)', 8, 'center', k2);
+      if (k > 0) shown.push(I.title); if (k2 > 0) shown.push(I.subtitle);
       caption(I.who, t, 1.0, b.t1 - .15); }
     if (b.id === 'plan') caption(I.line, t, b.t0 + .3, b.t1 - .15);
     if (b.id === 'rules') { const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5);

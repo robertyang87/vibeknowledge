@@ -128,8 +128,6 @@
   "jail": "巴拿马 · 博卡德库佩"
  },
  "intro": {
-  "name": "卡尔·布什比",
-  "name_en": "KARL BUSHBY",
   "who": [
    [
     "英国赫尔人，16岁参军，当了约11年",
@@ -163,7 +161,10 @@
    "一　不用任何交通工具前进",
    "二　不走回去，就不回家"
   ],
-  "rules_src": "出自他的官网"
+  "rules_src": "出自他的官网",
+  "title": "回家，走了二十八年",
+  "subtitle": "卡尔·布什比",
+  "subtitle_en": "KARL BUSHBY"
  },
  "credits": [
   "影像：Sentinel-2 cloudless 2016，EOX IT Services（CC BY 4.0，含经处理的 Copernicus Sentinel 数据）",
