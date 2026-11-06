@@ -126,7 +126,8 @@ const spr = (c, s, o = 1) => { const cv = document.createElement('canvas'); cv.w
   const m = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(cv), blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, toneMapped: false, opacity: o }));
   m.scale.setScalar(s); return m; };
 const h1 = spr('rgba(255,190,90,.9)', .022), h2 = spr('rgba(255,170,70,.35)', .07, .45); world.add(h1, h2);
-const PLACES = { ...R.pts, '拉帕尔马': [-78.14, 8.41], '亚维萨': [-77.69, 8.16], '梅特蒂': [-77.98, 8.5], '博卡德库佩': [-77.58, 8.03] };
+// labels.rewalk in the copy lists Boca de Cupe, Yaviza, Meteti, La Palma in this order
+const PLACES = { ...R.pts }; [[-77.58, 8.03], [-77.69, 8.16], [-77.98, 8.5], [-78.14, 8.41]].forEach((c, i) => PLACES[C.labels.rewalk[i]] = c);
 
 // ---------- the cell ----------
 const cell = new THREE.Scene(); cell.background = new THREE.Color(0x030405); cell.fog = new THREE.Fog(0x030405, 7, 16);
