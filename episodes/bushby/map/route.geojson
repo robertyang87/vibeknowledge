@@ -7266,8 +7266,8 @@
    },
    "properties": {
     "order": 178,
-    "name": "布朗内角",
-    "date": "约2026-09-25",
+    "name": "加来/白鼻角一带（起游点未公开）",
+    "date": "约2026-09-30",
     "status": "inferred",
     "segment": "J 高加索—土耳其—欧洲",
     "leg_into": "walk"
@@ -7290,8 +7290,8 @@
    },
    "properties": {
     "kind": "walk",
-    "to": "布朗内角",
-    "date": "约2026-09-25",
+    "to": "加来/白鼻角一带（起游点未公开）",
+    "date": "约2026-09-30",
     "inferred": true,
     "segment": "J 高加索—土耳其—欧洲"
    }
