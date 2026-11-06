@@ -5,6 +5,9 @@
 __STYLE__
 <style>
 #globe{position:absolute;inset:0;cursor:grab}
+.stage::before,.stage::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
+.stage::before{top:0;height:120px;background:linear-gradient(rgba(3,7,12,.72),rgba(3,7,12,0))}
+.stage::after{bottom:0;height:90px;background:linear-gradient(rgba(3,7,12,0),rgba(3,7,12,.66))}
 #globe:active{cursor:grabbing}
 .hud,.ctrl{z-index:2}
 .gl-label{font:500 12px var(--body);color:#f1f5f3;background:rgba(4,10,16,.72);border:1px solid rgba(255,255,255,.12);padding:1px 7px;border-radius:9px;white-space:nowrap;transform:translate(10px,-50%);pointer-events:none}
@@ -38,18 +41,16 @@ __STYLE__
     </div>
   </div>
   <aside class="rail">
-    <div class="label">关键路段 · 点击放大</div>
-    <div class="cases" id="cases"></div>
-    <div class="note" id="note"></div>
-    <div class="legend" aria-label="图例">
-      <span class="sw" style="border-color:#ff7a2e"></span><span>步行（亮线有据 · 暗线推断）</span>
-      <span class="sw" style="border-color:#4fd0ff"></span><span>游泳</span>
-      <span class="sw" style="border-color:#c2a3ff;border-top-style:dashed"></span><span>交通工具：离地弧线，不推进路线</span>
-      <span class="sw" style="border-color:#ff6b81;border-top-style:dashed"></span><span>交通工具：往前押送（已重走）/ 往后送</span>
-      <span class="sw" style="border-color:#8a9592"></span><span>作废段（被新线替换）</span>
-      <span class="sw" style="border-color:#d6e0dc;border-top-style:dotted"></span><span>抗议步行（不计入环球路线）</span>
-      <span style="font-size:15px;text-align:center">◆</span><span>事件标记（放大时显示）</span>
+    <div class="stats" id="stats"></div>
+    <div class="stripe-wrap">
+      <div class="label">28 年里，哪些月份在走</div>
+      <div class="stripe" id="stripe" role="slider" aria-label="时间条：点击跳到该日期" tabindex="0"><canvas id="stripeCv"></canvas><div class="now" id="stripeNow"></div></div>
+      <div class="stripe-axis"><span>1998</span><span>2006</span><span>2014</span><span>2019</span><span>2026</span></div>
+      <div class="stripe-key" id="stripeKey"></div>
     </div>
+    <div id="groups"></div>
+    <div class="note" id="note"></div>
+    <div class="legend" aria-label="图例" id="legend"></div>
     <div class="foot" id="foot"></div>
   </aside>
 </div>
@@ -68,7 +69,10 @@ const DAY=86400000,fmt=d=>new Date(d*DAY).toISOString().slice(0,10);
 const pts=D.points,T0=pts[0].t,T1=pts[pts.length-1].t;
 let T=T1,playing=false,speed=1,showLabels=true,activeCase="all",voidFade=1;
 const frac=(a,b)=>b<=a?(T>=b?1:0):Math.max(0,Math.min(1,(T-a)/(b-a)));
-const COL={route:"#ff7a2e",routeCore:"#ffe2c4",soft:"rgba(255,160,100,.55)",swim:"#4fd0ff",swimCore:"#e3f8ff",move:"#c2a3ff",back:"#ff6b81",void:"#8a9592",protest:"rgba(214,224,220,.55)"};
+const COL={swim:"#00b4d8",move:"#8e6cf0",back:"#e5386d",void:"#7d8784",protest:"rgba(40,44,52,.55)",casing:"rgba(24,16,10,.32)"};
+const EPS=CFG.episodes.map(e=>({...e,lo:Date.parse(e.from)/DAY,hi:Date.parse(e.to)/DAY}));
+const epOf=t=>EPS.find(e=>t>=e.lo&&t<e.hi)||EPS[EPS.length-1];
+const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return`rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;};
 
 // ---------- smooth route: centripetal Catmull-Rom on the sphere ----------
 const toV=([lo,la])=>{const l=lo*Math.PI/180,p=la*Math.PI/180;return[Math.cos(p)*Math.cos(l),Math.cos(p)*Math.sin(l),Math.sin(p)];};
@@ -110,7 +114,7 @@ const el=document.getElementById("globe");
 const coast50=topojson.mesh(TOPO,TOPO.objects.countries);
 const G=Globe({animateIn:false})(el)
   .globeImageUrl(EARTH).backgroundColor("rgba(0,0,0,0)")
-  .showAtmosphere(true).atmosphereColor("#7cc4ff").atmosphereAltitude(0.17)
+  .showAtmosphere(true).atmosphereColor("#9fd3ff").atmosphereAltitude(0.16)
   .pathPoints("c").pathPointLat(p=>p[1]).pathPointLng(p=>p[0]).pathPointAlt(p=>p[2]===undefined?0.0012:p[2])
   .pathColor("col").pathStroke("w").pathTransitionDuration(0).pathDashLength(d=>d.dash?d.dash[0]:1).pathDashGap(d=>d.dash?d.dash[1]:0)
   .arcStartLat(d=>d.a[1]).arcStartLng(d=>d.a[0]).arcEndLat(d=>d.b[1]).arcEndLng(d=>d.b[0])
@@ -120,9 +124,9 @@ G.controls().enableDamping=true;G.controls().dampingFactor=0.12;G.controls().rot
 try{const m=G.globeMaterial();m.shininess=8;}catch(e){}
 
 // coastlines overlay: only near the ground, where the photo turns soft
-const coastPaths=coast50.coordinates.filter(l=>l.length>1).map(l=>({c:dens(l).map(p=>[p[0],p[1],0.0006]),col:"rgba(220,245,238,.55)",w:0.35,kind:"coast"}));
+const coastPaths=coast50.coordinates.filter(l=>l.length>1).map(l=>({c:dens(l).map(p=>[p[0],p[1],0.0006]),col:"rgba(30,50,60,.45)",w:0.3,kind:"coast"}));
 const RIVERS=__RIVERS__;
-const riverPaths=RIVERS.features.flatMap(f=>(f.geometry.type==="LineString"?[f.geometry.coordinates]:f.geometry.coordinates)).map(l=>({c:l.map(p=>[p[0],p[1],0.0007]),col:"rgba(120,210,255,.5)",w:0.4,kind:"river"}));
+const riverPaths=RIVERS.features.flatMap(f=>(f.geometry.type==="LineString"?[f.geometry.coordinates]:f.geometry.coordinates)).map(l=>({c:l.map(p=>[p[0],p[1],0.0007]),col:"rgba(30,110,200,.65)",w:0.4,kind:"river"}));
 
 function sizeGlobe(){const b=el.getBoundingClientRect();G.width(b.width).height(b.height);}
 const altFor=r=>r>=89?2.35:Math.max(0.035,Math.min(2.35,Math.tan(r*Math.PI/180)*1.55));
@@ -135,20 +139,23 @@ const evEls=new Map();function evEl(e){if(!evEls.has(e.label)){const d=mk("gl-ev
 const headEl=mk("gl-head");headEl.appendChild(document.createElement("i"));
 
 function update(){
-  const P=[];const W=alt<0.6?2.2:alt<1.2?1.5:1.2;
+  const P=[];const W=alt<0.6?2.4:alt<1.2?1.9:1.7;
   const add=(coords,col,w,extra)=>{if(coords.length>1)P.push({c:coords,col,w,...extra});};
   // protest (not counted)
   const pr=D.protest.points;for(let i=1;i<pr.length;i++){const f=frac(pr[i-1].t,pr[i].t);if(f>0)add(partial([[pr[i-1].lon,pr[i-1].lat],[pr[i].lon,pr[i].lat]],f),COL.protest,W*0.5,{dash:[0.02,0.02]});}
   // voided leg
   const v=D.voided,vf=frac(v.lo,v.hi);
-  if(vf>0){const g=T>=v.voided_on?voidFade:0,c=dens(partial(v.path,vf));add(c,d3.interpolateRgb(COL.route,COL.void)(g),W*(1.6-0.6*g));}
+  if(vf>0){const g=T>=v.voided_on?voidFade:0,c=dens(partial(v.path,vf));add(c,COL.casing,W*2.4*(1-g*0.5));add(c,d3.interpolateRgb(EPS[1].color,COL.void)(g),W*(1.3-0.5*g));}
   // route, grouped into runs of the same style so each run is one smooth line
-  let run=null,head=null;const flush=()=>{if(run){add(run.c,run.glow,run.w*2.6);add(run.c,run.core,run.w*0.9);run=null;}};
+  let run=null,head=null;
+  const flush=()=>{if(run){add(run.c,COL.casing,run.w*2.1);add(run.c,run.col,run.w*1.25);run=null;}};
   for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i];if(b.leg==="start"){flush();continue;}const f=frac(b.dep,b.t);if(f<=0){flush();break;}
     const c=cut(LEG[i],f);if(f<1)head=c;
-    const inf=a.status==="inferred"||b.status==="inferred";const st=b.leg==="swim"?"swim":b.leg==="gap"?"gap":inf?"soft":"walk";
-    const sty={walk:[COL.route,COL.routeCore,W],soft:[COL.soft,"rgba(255,226,196,.55)",W*0.85],swim:["#1fa6dc",COL.swimCore,W],gap:["rgba(255,170,120,.25)","rgba(255,200,160,.55)",W*0.6]}[st];
-    if(run&&run.st===st)run.c=run.c.concat(c.slice(1));else{flush();run={st,c:c.slice(),glow:sty[0],core:sty[1],w:sty[2]};}
+    const inf=a.status==="inferred"||b.status==="inferred",ep=epOf(b.t);
+    const st=(b.leg==="swim"?"swim":b.leg==="gap"?"gap":inf?"soft":"walk")+ep.id;
+    const col=b.leg==="swim"?COL.swim:b.leg==="gap"?hexA(ep.color,.35):inf?hexA(ep.color,.6):ep.color;
+    const w=b.leg==="gap"?W*0.6:inf?W*0.85:W;
+    if(run&&run.st===st)run.c=run.c.concat(c.slice(1));else{flush();run={st,c:c.slice(),col,w};}
     if(f<1){flush();break;}}
   flush();
   if(alt<0.9){P.push(...coastPaths);if(alt<0.5)P.push(...riverPaths);}
@@ -179,18 +186,55 @@ function updateTicker(fr){
   else if(mv)msg="交通工具：线不动（"+(mv.type==="back"?"往后送":mv.type==="fwd_rewalked"?"往前押送，之后重走":"离线/归位")+"）";
   if(!fr.moving&&T<T1){const s=Math.floor(T-lastMoveEnd());if(s>=30){msg=(msg?msg+" · ":"")+"线已停 "+s.toLocaleString()+" 天";on=s>=180;}}
   tStall.textContent=msg;tStall.className="stall"+(on?" on":"");
-  if(document.activeElement!==scrub)scrub.value=Math.round((T-T0)/(T1-T0)*1000);}
+  if(document.activeElement!==scrub)scrub.value=Math.round((T-T0)/(T1-T0)*1000);stripeNow();}
 
-// ---------- cases ----------
-const casesEl=document.getElementById("cases"),noteEl=document.getElementById("note");
-CFG.cases.forEach(cs=>{const b=document.createElement("button");b.type="button";b.className="case";b.id="case-"+cs.id;b.setAttribute("aria-pressed","false");
-  const k=document.createElement("span");k.className="k";k.textContent=cs.tag;const t=document.createElement("span");t.className="t";t.textContent=cs.title;b.append(k,t);
-  b.onclick=()=>select(cs.id,true);casesEl.appendChild(b);});
+// ---------- rail: stats, groups, notes, legend ----------
+const statsEl=document.getElementById("stats");(CFG.stats||[]).forEach(([v,l])=>{const d=document.createElement("div");d.className="stat";const b=document.createElement("b");b.textContent=v;const sp=document.createElement("span");sp.textContent=l;d.append(b,sp);statsEl.append(d);});
+const groupsEl=document.getElementById("groups"),noteEl=document.getElementById("note");
+function caseBtn(cs){const b=document.createElement("button");b.type="button";b.className="case";b.id="case-"+cs.id;b.setAttribute("aria-pressed","false");
+  const ep=EPS.find(e=>e.id===cs.episode);if(ep)b.style.setProperty("--ep",ep.color);
+  const t=document.createElement("span");t.className="t";t.textContent=cs.title;b.append(t);b.onclick=()=>select(cs.id,true);return b;}
+const g0=document.createElement("div");g0.className="group";CFG.cases.filter(c=>!c.episode).forEach(c=>g0.append(caseBtn(c)));groupsEl.append(g0);
+EPS.forEach(ep=>{const g=document.createElement("div");g.className="group";g.style.marginTop="14px";
+  const h=document.createElement("div");h.className="group-h";const chip=document.createElement("i");chip.className="chip";chip.style.background=ep.color;
+  const b=document.createElement("b");b.textContent=ep.tag+"《"+ep.title+"》";const y=document.createElement("span");y.textContent=ep.years;h.append(chip,b,y);g.append(h);
+  CFG.cases.filter(c=>c.episode===ep.id).forEach(c=>g.append(caseBtn(c)));groupsEl.append(g);});
+function renderNote(cs){noteEl.innerHTML="";
+  const l=document.createElement("div");l.className="label";l.textContent="对应分集节拍 "+cs.beats;const h=document.createElement("h2");h.textContent=cs.title;
+  const p=document.createElement("p");p.textContent=cs.text;noteEl.append(l,h,p);
+  const dl=document.createElement("dl");dl.className="tl";
+  cs.facts.split("\n").filter(Boolean).forEach(line=>{let m=line.match(/^(约?\d[\d\-—/]*)\s+(.+)$/)||line.match(/^(\S+)\s{2,}(.+)$/);
+    const dt=document.createElement("dt"),dd=document.createElement("dd");if(m){dt.textContent=m[1];dd.textContent=m[2];}else{dt.textContent="·";dd.textContent=line;}dl.append(dt,dd);});
+  noteEl.append(dl);}
+const legendEl=document.getElementById("legend");
+[...EPS.map(e=>[`border-color:${e.color};border-top-width:4px`,e.tag+"《"+e.title+"》 "+e.years]),
+ [`border-color:${COL.swim};border-top-width:4px`,"游泳（里海、英吉利海峡）"],
+ [`border-color:${hexA("#e63946",.6)};border-top-width:3px`,"颜色较淡：路线为推断"],
+ [`border-color:${COL.move};border-top-style:dashed`,"交通工具：离地弧线，不推进路线"],
+ [`border-color:${COL.back};border-top-style:dashed`,"往前押送（已重走）/ 往后送"],
+ [`border-color:${COL.void}`,"作废段（被新线替换）"],
+ [`border-color:#9aa3a0;border-top-style:dotted`,"抗议步行（不计入环球路线）"]].forEach(([st,tx])=>{const sw=document.createElement("span");sw.className="sw";sw.setAttribute("style",st);const t=document.createElement("span");t.textContent=tx;legendEl.append(sw,t);});
+
+// ---------- the 28-year stripe ----------
+const stripe=document.getElementById("stripe"),scv=document.getElementById("stripeCv"),snow=document.getElementById("stripeNow");
+const moving=[];for(let i=1;i<pts.length;i++){const b=pts[i];if(b.leg!=="start")moving.push([b.dep,b.t]);}moving.push([D.voided.lo,D.voided.hi]);
+function drawStripe(){const r=stripe.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);scv.width=r.width*dpr;scv.height=r.height*dpr;const c=scv.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);
+  const x=t=>(t-T0)/(T1-T0)*r.width,cs=getComputedStyle(document.documentElement);c.fillStyle=cs.getPropertyValue("--rule");c.fillRect(0,0,r.width,r.height);
+  const months=Math.ceil((T1-T0)/30.44);for(let k=0;k<months;k++){const a=T0+k*30.44,b=a+30.44;const on=moving.some(([p,q])=>q>a&&p<b);if(!on)continue;
+    c.fillStyle=epOf(a+15).color;c.fillRect(x(a),5,Math.max(1,x(b)-x(a)+0.3),r.height-10);}
+  D.moves.forEach(m=>{c.fillStyle=(m.type==="back"||m.type==="fwd_rewalked")?COL.back:COL.move;c.fillRect(x(m.lo),0,Math.max(2,x(m.hi)-x(m.lo)),4);});}
+const stripeKey=document.getElementById("stripeKey");
+[["var(--rule)","停着（签证、资金、地缘政治）"],[COL.move,"顶部细条：交通工具"]].forEach(([c,t])=>{const s=document.createElement("span");const i=document.createElement("i");i.style.background=c;s.append(i,t);stripeKey.append(s);});
+function stripeNow(){snow.style.left=`calc(${((T-T0)/(T1-T0)*100).toFixed(3)}% - 1px)`;}
+const stripeSeek=ev=>{const r=stripe.getBoundingClientRect();pause();T=T0+Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width))*(T1-T0);update();};
+stripe.addEventListener("pointerdown",ev=>{stripeSeek(ev);stripe.setPointerCapture(ev.pointerId);});stripe.addEventListener("pointermove",ev=>{if(ev.buttons)stripeSeek(ev);});
+stripe.addEventListener("keydown",ev=>{if(ev.key==="ArrowRight"||ev.key==="ArrowLeft"){pause();T=Math.max(T0,Math.min(T1,T+(ev.key==="ArrowRight"?91:-91)));update();ev.preventDefault();}});
+new ResizeObserver(drawStripe).observe(stripe);
+
 const reduce=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 function select(id,fly){activeCase=id;const cs=CFG.cases.find(c=>c.id===id);
   document.querySelectorAll(".case").forEach(b=>b.setAttribute("aria-pressed",b.id==="case-"+id?"true":"false"));
-  noteEl.innerHTML="";const l=document.createElement("div");l.className="label";l.textContent="对应分集节拍 "+cs.beats;const h=document.createElement("h2");h.textContent=cs.title;
-  const p=document.createElement("p");p.textContent=cs.text;const f=document.createElement("div");f.className="facts";f.textContent=cs.facts;noteEl.append(l,h,p,f);
+  renderNote(cs);
   pause();spin(false);T=T1;alt=altFor(cs.radius);G.pointOfView({lat:cs.center[1],lng:cs.center[0],altitude:alt},fly&&!reduce()?2200:0);update();
   if(location.hash.slice(1)!==id){try{history.replaceState(null,"","#"+id);}catch(e){}}}
 

@@ -28,6 +28,7 @@ https://creativecommons.org/licenses/by/4.0/ — credit "vibeknowledge, Karl Bus
 Third-party material bundled into track.html:
 - world-atlas 2.0.2 (countries-50m / countries-10m), ISC License, derived from Natural Earth (public domain)
 - data/rivers.json: Natural Earth 5.1.2 rivers and lake centerlines, public domain
+- assets/natural-earth-hyp-8192.jpg: Natural Earth "Cross Blended Hypso with Shaded Relief and Water" 1:50m, public domain, resized
 - assets/blue-marble-4096.jpg: NASA Visible Earth "Blue Marble", public domain (NASA imagery is not copyrighted), resized
 - globe.gl 2.32.4 (loaded from jsDelivr), MIT License; bundles three.js (MIT)
 - d3 7.9.0 and topojson 3.0.2 (loaded from cdnjs), ISC License

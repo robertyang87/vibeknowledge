@@ -124,6 +124,8 @@ def main():
     ap.add_argument("--rivers", help="Natural Earth ne_10m_rivers_lake_centerlines.geojson; regenerates data/rivers.json")
     ap.add_argument("--style", choices=["globe", "vector"], default="globe",
                     help="globe: NASA Blue Marble 3D globe (default); vector: lightweight 2D orthographic canvas")
+    ap.add_argument("--earth", default="assets/natural-earth-hyp-8192.jpg",
+                    help="globe texture: assets/natural-earth-hyp-8192.jpg (default, terrain tints) or assets/blue-marble-4096.jpg (satellite)")
     ap.add_argument("--topo", help="override the world-atlas file (default: countries-50m for globe, countries-10m for vector)")
     args = ap.parse_args()
 
@@ -164,7 +166,7 @@ def main():
     data = {"points": page_pts, "moves": moves, "events": events, "voided": voided, "protest": protest, "config": cfg}
     style = (HERE / "src/style.part.css").read_text(encoding="utf-8")
     html = (HERE / ("src/template.html" if args.style == "globe" else "src/template-vector.html")).read_text(encoding="utf-8")
-    earth = "data:image/jpeg;base64," + base64.b64encode((HERE / "assets/blue-marble-4096.jpg").read_bytes()).decode() if args.style == "globe" else ""
+    earth = "data:image/jpeg;base64," + base64.b64encode((HERE / args.earth).read_bytes()).decode() if args.style == "globe" else ""
     html = (html.replace("__TITLE__", cfg.get("page_title", cfg["title"])).replace("__STYLE__", style)
                 .replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")))
                 .replace("__TOPO__", topo).replace("__RIVERS__", rivers).replace("__EARTH__", earth))
