@@ -3,3 +3,4 @@ fonts/
 copy.json
 stills/
 out/
+__pycache__/
