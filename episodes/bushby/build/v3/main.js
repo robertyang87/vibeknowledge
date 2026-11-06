@@ -22,21 +22,21 @@ const DAY = 86400000;
 const dayOf = (y, m, d) => Date.UTC(y, m - 1, d) / DAY;
 const D_START = dayOf(1998, 11, 1), BORN = Date.UTC(1969, 2, 30);
 const BEATS = [   // shot: 'map' (the globe) or a story scene; r0/r1: route segments drawn across a map shot; key: copy key for captions and tags
-  { id: 'who', shot: 'map', t0: 0, t1: 7.2, d0: D_START, d1: D_START, r0: 0, r1: 0 },
-  { id: 'plan', shot: 'map', t0: 7.2, t1: 14.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
-  { id: 'rules', shot: 'map', t0: 14.6, t1: 20.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
-  { id: 'depart', shot: 'map', t0: 20.6, t1: 24.8, d0: D_START, d1: D_START + 3, r0: 0, r1: 1 },
-  { id: 'departS', key: 'depart', shot: 'patagonia', t0: 24.8, t1: 29.6, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
-  { id: 'andes', shot: 'map', t0: 29.6, t1: 33.8, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 1, r1: 25 },
-  { id: 'darien', shot: 'map', t0: 33.8, t1: 38.4, d0: dayOf(2000, 11, 1), d1: dayOf(2001, 1, 15), r0: 25, r1: 25 },
-  { id: 'disguise', key: 'disguise', shot: 'disguise', t0: 38.4, t1: 44.4, d0: dayOf(2000, 11, 20), d1: dayOf(2001, 1, 14) },
-  { id: 'river', key: 'river', shot: 'river', t0: 44.4, t1: 50.4, d0: dayOf(2001, 1, 31), d1: dayOf(2001, 2, 4) },
-  { id: 'darienS', key: 'darien', shot: 'jungle', t0: 50.4, t1: 56.0, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
-  { id: 'jail', key: 'jail', shot: 'cell', t0: 56.0, t1: 61.0, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
-  { id: 'rewalk', shot: 'map', t0: 61.0, t1: 66.5, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
-  { id: 'credits', shot: 'black', t0: 66.5, t1: 69.5, d0: dayOf(2001, 3, 10), d1: dayOf(2001, 3, 10) },
+  { id: 'who', shot: 'map', t0: 0.0, t1: 7.2, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'plan', shot: 'map', t0: 7.2, t1: 15.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'rules', shot: 'map', t0: 15.6, t1: 21.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'depart', shot: 'map', t0: 21.6, t1: 25.8, d0: D_START, d1: D_START + 3, r0: 0, r1: 1 },
+  { id: 'departS', key: 'depart', shot: 'patagonia', t0: 25.8, t1: 30.6, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
+  { id: 'andes', shot: 'map', t0: 30.6, t1: 34.8, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 1, r1: 25 },
+  { id: 'darien', shot: 'map', t0: 34.8, t1: 39.4, d0: dayOf(2000, 11, 1), d1: dayOf(2001, 1, 15), r0: 25, r1: 25 },
+  { id: 'disguise', key: 'disguise', shot: 'disguise', t0: 39.4, t1: 45.8, d0: dayOf(2000, 11, 20), d1: dayOf(2001, 1, 14) },
+  { id: 'river', key: 'river', shot: 'river', t0: 45.8, t1: 51.8, d0: dayOf(2001, 1, 31), d1: dayOf(2001, 2, 4) },
+  { id: 'darienS', key: 'darien', shot: 'jungle', t0: 51.8, t1: 57.4, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
+  { id: 'jail', key: 'jail', shot: 'cell', t0: 57.4, t1: 62.4, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
+  { id: 'rewalk', shot: 'map', t0: 62.4, t1: 67.9, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
+  { id: 'credits', shot: 'black', t0: 67.9, t1: 70.9, d0: dayOf(2001, 3, 10), d1: dayOf(2001, 3, 10) },
 ];
-const DUR = 69.5, RULE_T = 62.4;
+const DUR = 70.9, RULE_T = 63.8;
 const INTRO = new Set(['who', 'plan', 'rules']);
 const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length - 1];
 const calAt = t => { const b = beatAt(t); return lerp(b.d0, b.d1, eio(seg(t, b.t0 + .3, b.t1 - .3))); };
@@ -260,13 +260,13 @@ function rigPose(id, head) { const r = RIGS[id](); const [hl, ha] = toLL(head);
   return { c: [hl + r.o[0], ha + r.o[1], r.o[2]], l: [hl + r.l[0], ha + r.l[1], r.l[2]] }; }
 const mixPose = (a, b, k) => ({ c: a.c.map((v, i) => i === 2 ? Math.exp(lerp(Math.log(v), Math.log(b.c[i]), k)) : lerp(v, b.c[i], k)), l: a.l.map((v, i) => lerp(v, b.l[i], k)) });
 // intro: the globe from space; the camera drifts with the tip of the plan line while it is drawn
-const T_PLAN = 7.2, T_RULES = 14.6, T_DEPART = 20.6;
-const planK = t => eio(seg(t, T_PLAN + 1.6, T_RULES - 2.4));   // hold on the start, draw, then hold on the end
+const T_PLAN = 7.2, T_RULES = 15.6, T_DEPART = 21.6;
+const planK = t => eio(seg(t, T_PLAN + 2.0, T_RULES - 2.8));   // hold on the start, draw, then hold on the end
 const lonLerp = (a, b, k) => { let d = b - a; if (d > 180) d -= 360; if (d < -180) d += 360; return a + d * k; };
 function introPose(t) {
   const [tl, ta] = toLL(planTip(planK(t)));
   if (t < T_PLAN) { const k = eio(seg(t, 0, T_PLAN)); return { c: [lerp(-48, -62, k), lerp(-5, -18, k), 2.9], l: [-62, -18, 0] }; }
-  if (t < T_RULES) { const k = eio(seg(t, T_PLAN, T_PLAN + 1.2)), alt = Math.exp(lerp(Math.log(2.9), Math.log(1.25), k) + (Math.log(2.9) - Math.log(1.25)) * eio(seg(t, T_PLAN + 1.8, T_PLAN + 3.4)));
+  if (t < T_RULES) { const k = eio(seg(t, T_PLAN, T_PLAN + 1.2)), alt = Math.exp(lerp(Math.log(2.9), Math.log(1.25), k) + (Math.log(2.9) - Math.log(1.25)) * eio(seg(t, T_PLAN + 2.2, T_PLAN + 3.8)));
     return { c: [lonLerp(-62, tl, k), lerp(-18, ta - 10 * Math.min(1, alt / 2.9), k), alt], l: [lonLerp(-62, tl, k), lerp(-18, ta, k), 0] }; }
   const [el, ea] = toLL(planTip(1)), k = eio(seg(t, T_RULES, T_DEPART));
   return { c: [lonLerp(el, -60, k), lerp(ea - 10, -30, k), 2.9], l: [lonLerp(el, -60, k), lerp(ea, -30, k), 0] };
@@ -371,8 +371,8 @@ function overlay(t, head) {
       if (k > 0) shown.push(I.title); if (k2 > 0) shown.push(I.subtitle);
       caption(I.who, t, 1.0, b.t1 - .15); }
     if (b.id === 'plan') {
-      pin(I.start, I.start_place, PLAN[0], t, b.t0 + .4, b.t0 + 4.4, -1);
-      pin(I.end, I.end_place, PLAN[PLAN.length - 1], t, T_RULES - 2.4, b.t1 - .1, 1);
+      pin(I.start, I.start_place, PLAN[0], t, b.t0 + .4, b.t0 + 4.8, -1);
+      pin(I.end, I.end_place, PLAN[PLAN.length - 1], t, T_RULES - 2.9, b.t1 - .1, 1);
       caption(I.line, t, b.t0 + .3, b.t1 - .15); }
     if (b.id === 'rules') { const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5);
       { const g = x.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, 760); g.addColorStop(0, `rgba(0,0,0,${.6 * k})`); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); }

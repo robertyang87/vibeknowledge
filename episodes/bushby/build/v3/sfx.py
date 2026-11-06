@@ -8,11 +8,11 @@ import soundfile as sf
 sys.path.insert(0, os.path.expanduser("~/lemo-opuscar/core/audio"))
 from sfx import SR, t_, env_exp, lp, hp, bp, noise, norm, brown, whoosh, thump, creak, add, compress, limit  # noqa: E402
 
-DUR = 69.5   # 66.5 s of film and a 3 s credits card
+DUR = 70.9   # 67.9 s of film and a 3 s credits card
 buf = np.zeros((int(DUR * SR), 2))
 rng = np.random.default_rng(5)
-T = dict(who=0, plan=7.2, rules=14.6, depart=20.6, departS=24.8, andes=29.6, darien=33.8, disguise=38.4, river=44.4, darienS=50.4, jail=56.0, rewalk=61.0)
-RULE_T = 62.4
+T = dict(who=0.0, plan=7.2, rules=15.6, depart=21.6, departS=25.8, andes=30.6, darien=34.8, disguise=39.4, river=45.8, darienS=51.8, jail=57.4, rewalk=62.4)
+RULE_T = 63.8
 seg = lambda t, a, b: min(1, max(0, (t - a) / (b - a)))
 
 
@@ -86,7 +86,7 @@ def drip(v=1.0):
 add(buf, bed(T['rules'] - 0.0 + 6.0, 40, 400, .08), 0.0)                     # low space tone under the whole intro
 add(buf, whoosh(1.2, .18), .2)                                               # the name arrives
 add(buf, norm(lp(brown(3.0), 120)) * np.sin(np.pi * t_(3.0) / 3.0) * .25, .3)  # sub swell under the name
-add(buf, pen(T['rules'] - 2.4 - (T['plan'] + 1.6), .2), T['plan'] + 1.6, pan=.15)  # the line is drawn (main.js planK)
+add(buf, pen(T['rules'] - 2.8 - (T['plan'] + 2.0), .2), T['plan'] + 2.0, pan=.15)  # the line is drawn (main.js planK)
 # --- the two rules land ---
 for i in range(2): add(buf, stamp(.55), T['rules'] + .6 + i * .5, pan=(-1) ** i * .1)
 # --- depart: the camera falls from orbit to Punta Arenas; wind comes up ---
@@ -156,7 +156,7 @@ add(buf, pen(.7, .1), T['rewalk'] + .2, pan=-.2)
 add(buf, stamp(.75), RULE_T)
 for i in range(8): add(buf, crunch(.07), RULE_T + .5 + i * .45, pan=.1)
 
-fadeout = np.ones(len(buf)); a0, a1 = int(66.0 * SR), int(67.5 * SR); fadeout[a0:a1] = np.linspace(1, 0, a1 - a0); fadeout[a1:] = 0; buf *= fadeout[:, None]
+fadeout = np.ones(len(buf)); a0, a1 = int(67.4 * SR), int(68.9 * SR); fadeout[a0:a1] = np.linspace(1, 0, a1 - a0); fadeout[a1:] = 0; buf *= fadeout[:, None]
 for ch in range(2): buf[:, ch] = limit(compress(buf[:, ch], .3, 2.5), .89)
 os.makedirs("out", exist_ok=True)
 sf.write(sys.argv[1] if len(sys.argv) > 1 else "out/sfx.wav", buf.astype(np.float32), SR)
