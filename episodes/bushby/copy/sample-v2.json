@@ -1,0 +1,45 @@
+{
+ "hook1": "假如你是卡尔·布什比",
+ "hook2": "你决定：走路回家",
+ "from": "智利 蓬塔阿雷纳斯",
+ "to": "英国 赫尔",
+ "plan_label": "你的计划",
+ "plan_value": "12 年 · 58,000 公里",
+ "real_label": "实际",
+ "year_unit": "年",
+ "age_unit": "岁",
+ "day_prefix": "第",
+ "day_unit": "天",
+ "sleep_label": "今晚你睡在",
+ "pocket_label": "口袋里",
+ "beats": {
+  "depart": {
+   "place": "智利 蓬塔阿雷纳斯",
+   "sleep": "路边的帐篷",
+   "pocket": "约 500 英镑",
+   "cap": "1998年，你推着小车出发。"
+  },
+  "andes": {
+   "place": "秘鲁 · 厄瓜多尔 · 哥伦比亚",
+   "sleep": "沙漠、山口、别人家",
+   "cap": "你一路向北。"
+  },
+  "darien": {
+   "place": "达连丛林",
+   "sleep": "丛林里",
+   "cap": "你独自走进达连：没有路。"
+  },
+  "jail": {
+   "place": "巴拿马 博卡德库佩",
+   "sleep": "牢房",
+   "cap": "你被扣下，被押着往前送。"
+  },
+  "rewalk": {
+   "place": "巴拿马 博卡德库佩",
+   "sleep": "路上",
+   "cap": "出狱后，你走回去重走。",
+   "stamp": "不算数 · 重走"
+  }
+ },
+ "jail_days": "关押第 {n} 天"
+}
