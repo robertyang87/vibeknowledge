@@ -303,7 +303,7 @@ export function makeCell(W, H) {
     if (k < 4) m.position.set(-.55 + grp * .62 + k * .1, 1.75, -2.89); else { m.position.set(-.55 + grp * .62 + .15, 1.75, -2.89); m.rotation.z = 1.0; m.scale.y = 1.35; } m.visible = false; tally.add(m); }
   function update(k, t, raw) {
     const ke = k; cam.position.set(lerp(-1.6, -1.2, ke), lerp(1.5, 1.45, ke), lerp(4.6, 3.6, ke)); cam.lookAt(lerp(.6, .5, ke), 1.05, -1.6);
-    const n = Math.min(18, 1 + Math.floor(Math.min(1, Math.max(0, (raw * 5.2 - .4) / 4.4)) * 18)); tally.children.forEach((m, i) => m.visible = i < n);
+    const n = Math.min(18, 1 + Math.floor(Math.min(1, Math.max(0, (raw - .077) / .846)) * 18));   // keeps pace with the day count in the overlay tally.children.forEach((m, i) => m.visible = i < n);
     dust.rotation.y = Math.sin(t * .3) * .01; dust.position.y = Math.sin(t * .7) * .03;
   }
   return { scene: cell, camera: cam, update, exposure: 1 };
