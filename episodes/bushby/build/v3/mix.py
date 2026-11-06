@@ -13,7 +13,7 @@ import soundfile as sf
 sys.path.insert(0, os.path.expanduser("~/lemo-opuscar/core/audio"))
 from sfx import SR, t_, env_exp, lp, hp, bp, noise, norm, thump, whoosh, add, compress, limit  # noqa: E402
 
-DUR = 27.1
+DUR = 36.3
 buf = np.zeros((int(DUR * SR), 2))
 rng = np.random.default_rng(3)
 hz = lambda n: 440 * 2 ** ((n - 69) / 12)
@@ -55,50 +55,52 @@ add(buf, sub(36.7, 4.8, .55), 0.0)
 add(buf, pad([50, 57, 64, 69, 76], 5.0, .22, 1200), 0.1)
 add(buf, piano(74, 3.0, .3), 1.35, pan=.1)        # the second line lands
 
-# --- the walk (4.6-13.6): felt piano ostinato, pad, a soft low pulse ---
+# --- the walk (4.6-17.0: departure map, Patagonia, the Andes): felt piano ostinato, pad, a soft low pulse ---
 BEAT = 60 / 84
 prog = [(38, [62, 69, 74, 76]), (43, [62, 67, 71, 74]), (45, [64, 69, 73, 76]), (42, [61, 66, 69, 73])]
 t = 4.6; bar = 0
-while t < 13.4:
+while t < 16.8:
     root, tones = prog[bar % 4]
     add(buf, pad([root + 12, root + 19, root + 24], BEAT * 4 + .6, .16, 900), t)
     add(buf, sub(hz(root - 12), BEAT * 1.8, .35), t)
     for k in range(8):
         tk = t + k * BEAT / 2
-        if tk >= 13.5: break
+        if tk >= 16.9: break
         add(buf, piano(tones[[0, 2, 1, 3, 2, 1, 3, 2][k]], 1.6, .16 if k % 2 else .22), tk, pan=.18 * (1 if k % 2 else -1))
     t += BEAT * 4; bar += 1
-add(buf, whoosh(1.4, .12), 8.4)       # camera lift into the Andes
+add(buf, whoosh(1.4, .12), 12.3)      # cut back to the globe for the Andes
+wind = lp(np.cumsum(noise(4.9)) / 300, 700); wind = norm(wind - np.convolve(wind, np.ones(4800) / 4800, mode='same')) * .10
+add(buf, wind * np.minimum(1, t_(4.9) / .6) * np.minimum(1, (4.9 - t_(4.9)) / .4), 8.0)   # steppe wind
 
-# --- the jungle (13.6-18.1): low drone, insects, a slow heartbeat of the pad ---
-d = 4.6; tt = t_(d)
+# --- Darien (17.0-25.8): the map darkens, then the canopy: low drone, insects ---
+add(buf, pad([45, 52, 57, 60], 4.2, .16, 800), 17.0)
+d = 4.8; tt = t_(d)
 drone = norm(lp(np.sin(2 * np.pi * 55 * tt) + .5 * np.sin(2 * np.pi * 82.4 * tt) + .3 * lp(noise(d), 200), 400)) * np.minimum(1, tt / 1.0) * np.minimum(1, (d - tt) / .4)
-add(buf, drone * .28, 13.6)
+add(buf, drone * .28, 21.0)
 for _ in range(36):
-    tc = 13.8 + rng.random() * 4.0; dd = .05 + rng.random() * .12
+    tc = 21.2 + rng.random() * 4.3; dd = .05 + rng.random() * .12
     chirp = bp(noise(dd), 4200 + rng.random() * 2500, 7800) * np.sin(np.pi * t_(dd) / dd) * (1 + np.sin(2 * np.pi * 60 * t_(dd)))
     add(buf, norm(chirp) * (.03 + rng.random() * .04), tc, pan=rng.random() * 1.6 - .8)
-add(buf, pad([45, 52, 57], 4.4, .12, 700), 13.7)
+add(buf, pad([45, 52, 57], 4.6, .12, 700), 21.1)
 
-# --- the cell (18.1-22.6): near silence, a hum, a drip, a scratch per tally mark ---
-add(buf, thump(.8, 46), 18.12)
-hum = norm(lp(np.sin(2 * np.pi * 50 * t_(4.5)) + .3 * noise(4.5), 300)) * .05
-add(buf, hum, 18.1)
-for tc in (18.9, 20.3, 21.8):
+# --- the cell (25.8-30.8): near silence, a hum, a drip, a scratch per tally mark ---
+add(buf, thump(.8, 46), 25.82)
+hum = norm(lp(np.sin(2 * np.pi * 50 * t_(5.0)) + .3 * noise(5.0), 300)) * .05
+add(buf, hum, 25.8)
+for tc in (26.6, 28.1, 29.7):
     dd = .18; add(buf, norm(np.sin(2 * np.pi * (1400 - 2600 * t_(dd)) * t_(dd)) * env_exp(dd, .03)) * .12, tc, pan=.35)
-for i in range(18):   # tally marks appear as the day count steps (see main.js: n = 1 + floor(seg(t, 18.5, 22.2) * 18))
-    tc = 18.5 + i * (3.7 / 18)
-    if tc > 22.4: break
+for i in range(18):   # tally marks appear as the day count steps (main.js: n = 1 + floor(seg(t, 26.2, 30.4) * 18))
+    tc = 26.2 + i * (4.2 / 18)
     add(buf, norm(bp(noise(.07), 1800, 6000) * env_exp(.07, .02)) * .09, tc, pan=-.2)
 
-# --- the re-walk (22.6-27.1): piano returns; the rule lands at 24.05 with a deep hit ---
-add(buf, piano(62, 2.4, .2), 22.75); add(buf, piano(69, 2.2, .16), 23.25)
-add(buf, whoosh(.9, .15), 23.1)
-add(buf, thump(1.0, 41), 24.05)
-add(buf, norm(lp(noise(1.2), 300) * env_exp(1.2, .3)) * .25, 24.06)
-add(buf, pad([38, 50, 57, 62, 66, 69], 3.2, .3, 1800), 24.0)
+# --- the re-walk (30.8-36.3): piano returns; the rule lands at 32.2 with a deep hit ---
+add(buf, piano(62, 2.4, .2), 30.95); add(buf, piano(69, 2.2, .16), 31.45)
+add(buf, whoosh(.9, .15), 31.3)
+add(buf, thump(1.0, 41), 32.2)
+add(buf, norm(lp(noise(1.2), 300) * env_exp(1.2, .3)) * .25, 32.21)
+add(buf, pad([38, 50, 57, 62, 66, 69], 4.0, .3, 1800), 32.15)
 for k, n in enumerate([74, 69, 66, 69, 74, 76]):
-    add(buf, piano(n, 1.8, .17), 24.3 + k * .42, pan=.15 * (-1) ** k)
+    add(buf, piano(n, 1.8, .17), 32.5 + k * .5, pan=.15 * (-1) ** k)
 
 buf = reverb(buf)
 fade = np.ones(len(buf)); nf = int(.5 * SR); fade[-nf:] = np.linspace(1, 0, nf)

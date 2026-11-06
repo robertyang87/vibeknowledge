@@ -4,6 +4,7 @@
 // Page contract: READY, DUR, render(t), TEXTS(t). On-screen copy comes from copy.json (episodes/bushby/copy/sample-v3.json).
 import * as THREE from 'three';
 import { makePost } from '/core/three/post.js';
+import { makePatagonia, makeJungle } from './scenes.js';
 
 const W = 1920, H = 1080;
 const C = await (await fetch('copy.json')).json();
@@ -17,15 +18,17 @@ const lerp = (a, b, k) => a + (b - a) * k;
 const DAY = 86400000;
 const dayOf = (y, m, d) => Date.UTC(y, m - 1, d) / DAY;
 const D_START = dayOf(1998, 11, 1), BORN = Date.UTC(1969, 2, 30);
-const BEATS = [
-  { id: 'hook', t0: 0, t1: 4.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
-  { id: 'depart', t0: 4.6, t1: 9.6, d0: D_START, d1: dayOf(1998, 12, 20), r0: 0, r1: 2 },
-  { id: 'andes', t0: 9.6, t1: 13.6, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 2, r1: 25 },
-  { id: 'darien', t0: 13.6, t1: 18.1, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 15), r0: 25, r1: 31 },
-  { id: 'jail', t0: 18.1, t1: 22.6, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6), r0: 32, r1: 32 },
-  { id: 'rewalk', t0: 22.6, t1: 27.1, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
+const BEATS = [   // shot: 'map' (the globe) or a story scene; r0/r1: route segments drawn across a map shot
+  { id: 'hook', shot: 'map', t0: 0, t1: 4.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'depart', shot: 'map', t0: 4.6, t1: 8.0, d0: D_START, d1: D_START + 3, r0: 0, r1: 1 },
+  { id: 'departS', shot: 'patagonia', t0: 8.0, t1: 12.8, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
+  { id: 'andes', shot: 'map', t0: 12.8, t1: 17.0, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 1, r1: 25 },
+  { id: 'darien', shot: 'map', t0: 17.0, t1: 21.0, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 4), r0: 25, r1: 30 },
+  { id: 'darienS', shot: 'jungle', t0: 21.0, t1: 25.8, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
+  { id: 'jail', shot: 'cell', t0: 25.8, t1: 30.8, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
+  { id: 'rewalk', shot: 'map', t0: 30.8, t1: 36.3, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
 ];
-const DUR = 27.1;
+const DUR = 36.3, RULE_T = 32.2;
 const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length - 1];
 const calAt = t => { const b = beatAt(t); return lerp(b.d0, b.d1, eio(seg(t, b.t0 + .3, b.t1 - .3))); };
 const ymd = d => new Date(d * DAY);
@@ -176,8 +179,10 @@ for (let d = 0; d < 18; d++) { const grp = Math.floor(d / 5), k = d % 5;
   if (k < 4) m.position.set(-.55 + grp * .62 + k * .1, 1.75, -2.89); else { m.position.set(-.55 + grp * .62 + .15, 1.75, -2.89); m.rotation.z = 1.0; m.scale.y = 1.35; }
   m.visible = false; tally.add(m); }
 
+const SCENES = { patagonia: makePatagonia(W, H), jungle: makeJungle(W, H) };
+
 // ---------- camera rigs ----------
-const routeS = t => { const b = beatAt(t); const k = b.id === 'darien' ? eio(seg(t, b.t0 + .2, b.t1 - .6)) : eio(seg(t, b.t0 + .4, b.t1 - .2)); return lerp(arcAtSeg(b.r0), arcAtSeg(b.r1), k); };
+const routeS = t => { const b = beatAt(t); if (b.r0 === undefined) return 0; const k = b.id === 'darien' ? eio(seg(t, b.t0 + .2, b.t1 - .6)) : eio(seg(t, b.t0 + .4, b.t1 - .2)); return lerp(arcAtSeg(b.r0), arcAtSeg(b.r1), k); };
 // a rig: camera offset from the head (lon, lat degrees, altitude) and a look-at offset
 const RIGS = {
   hook: () => ({ abs: true, c: [-62, -18, 2.4], l: [-62, -18, 0] }),
@@ -195,7 +200,7 @@ function worldPose(t) {
   let p = rigPose(b.id, head);
   if (b.id === 'hook') { const k = eio(seg(t, 0, 4.6)); p = { c: [lerp(-55, -66, k), lerp(-8, -30, k), lerp(2.9, 2.2, k)], l: [-60, -22, 0] }; }
   if (b.id === 'depart') { const from = { c: [-66, -30, 2.2], l: [-60, -22, 0] }; p = mixPose(from, p, eio(seg(t, b.t0, b.t0 + 2.6))); }
-  if (b.id === 'andes') p = mixPose(rigPose('depart', head), p, eio(seg(t, b.t0, b.t0 + 1.2)));
+  if (b.id === 'andes') { const k = eio(seg(t, b.t0, b.t0 + 1.6)); p.c[2] = lerp(.6, p.c[2], k); }
   if (b.id === 'darien') { p = mixPose(rigPose('andes', head), p, eio(seg(t, b.t0, b.t0 + 1.4))); const k = eio(seg(t, b.t0 + 1, b.t1)); p.c[2] = lerp(p.c[2], .23, k); p.c[1] = lerp(p.c[1], p.c[1] + 4, k); }
   if (b.id === 'rewalk') { const k = eio(seg(t, b.t0, b.t1)); p.c[2] *= lerp(1.12, .96, k); p.c[1] += lerp(-.25, 0, k); }
   const c = ll(p.c[0], p.c[1], 1 + p.c[2]), l = ll(p.l[0], p.l[1], 1 + p.l[2]);
@@ -222,7 +227,7 @@ function chapter(ch, t, a, b) {
   shown.push(ch.title, ...ch.desc);
 }
 function hud(t, b) {
-  const d = calAt(t), day = Math.floor(d - D_START) + 1, rx = W - 120, k = fadeIO(t, 4.9, DUR + 1, .6); if (k <= 0) return;
+  const d = calAt(t), day = Math.floor(d - D_START) + 1, rx = W - 120, k = fadeIO(t, b.t0 + .2, b.t1 + 1, .5); if (k <= 0) return;
   txt(C.hud.day, rx - 210, 128, '500 18px Sans', 'rgba(220,214,200,.6)', 6, 'left', k);
   txt(String(day).padStart(4, '0'), rx, 150, '300 64px Sans', '#F4EEE2', 4, 'right', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(255,255,255,.18)'; x.fillRect(rx - 300, 178, 300, 1); x.globalAlpha = 1;
@@ -233,8 +238,6 @@ function hud(t, b) {
   txt(C.hud.done.replace('{y}', yrs.toFixed(1)), rx, by, '400 17px Sans', 'rgba(232,182,92,.9)', 1, 'right', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(255,255,255,.12)'; x.fillRect(rx - 300, by + 14, 300, 3);
   x.fillStyle = '#E8B65C'; x.fillRect(rx - 300, by + 14, 300 * clamp(yrs / 12), 3); x.globalAlpha = 1;
-  if (b.id === 'jail') { const n = Math.min(18, 1 + Math.floor(seg(t, b.t0 + .4, b.t1 - .4) * 18));
-    txt(C.hud.jail.replace('{n}', n), rx, by + 64, '500 22px Sans', '#FF6A5E', 2, 'right', k); }
 }
 function caption(parts, t, a, b) {
   const k = fadeIO(t, a, b, .3); if (k <= 0) return;
@@ -252,6 +255,15 @@ function label(name, v, t, a, color = 'rgba(235,228,214,.8)', side = 1) {
   txt(name, px + 40 * side, py + 6, '400 19px Sans', color, 1, side > 0 ? 'left' : 'right', k); x.globalAlpha = 1;
 }
 
+function sceneTags(t, b) {   // story scenes: a place tag and the date, top left; the cell adds the day count held
+  { const g = x.createRadialGradient(120, 160, 0, 120, 160, 520); g.addColorStop(0, 'rgba(0,0,0,.45)'); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, 900, 520); }
+  const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5), tag = C.tags[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : 'jail'];
+  txt(tag, 120, 150, '500 20px Sans', '#E8B65C', 4, 'left', k);
+  x.globalAlpha = k; x.fillStyle = 'rgba(232,182,92,.9)'; x.fillRect(120, 168, 40, 2); x.globalAlpha = 1;
+  txt(fmtDate(calAt(t)), 120, 216, '400 30px Serif', 'rgba(240,234,222,.9)', 3, 'left', k);
+  if (b.id === 'jail') { const n = Math.min(18, 1 + Math.floor(seg(t, b.t0 + .4, b.t1 - .4) * 18));
+    txt(C.hud.jail.replace('{n}', n), W - 120, 150, '500 30px Serif', '#FF6A5E', 3, 'right', k); }
+}
 function overlay(t, head) {
   x.clearRect(0, 0, W, H); shown.length = 0;
   const b = beatAt(t);
@@ -262,8 +274,9 @@ function overlay(t, head) {
     if (k1 > 0) shown.push(C.hook1); if (k2 > 0) shown.push(C.hook2);
     return;
   }
+  if (b.shot !== 'map') { sceneTags(t, b); caption(C.captions[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : b.id], t, b.t0 + .35, b.t1 - .15); return; }
   hud(t, b);
-  if (b.id !== 'jail') {   // map shots: labels on the ground, the head marker
+  {   // map shots: labels on the ground, the head marker
     const lab = b.id === 'andes' || b.id === 'darien' ? C.labels.andes : b.id === 'rewalk' ? C.labels.rewalk : [];
     for (const n of lab) if (PLACES[n]) label(n, ll(...PLACES[n], 1.003), t, b.t0 + .4, undefined, b.id === 'rewalk' && n === lab[3] ? -1 : 1);
     const [hx, hy] = proj(head.clone().multiplyScalar(1.0025));
@@ -273,18 +286,20 @@ function overlay(t, head) {
   if (b.id === 'darien') chapter(C.chapters.darien, t, b.t0 + .4, b.t1 - .1);
   if (b.id === 'rewalk') {
     const mid = ll(-77.86, 8.21, 1.003); label(C.labels.escort, mid, t, b.t0 + .3, 'rgba(255,106,94,.95)', -1);
-    chapter(C.chapters.rewalk, t, 24.05, DUR + 1);
+    chapter(C.chapters.rewalk, t, RULE_T, DUR + 1);
   }
-  if (b.id === 'jail') txt(C.place_jail, 120, 150, '500 20px Sans', '#E8B65C', 4, 'left', fadeIO(t, b.t0 + .3, b.t1 - .1));
-  caption(C.captions[b.id], t, b.t0 + .35, b.t1 - .15);
+  if (C.captions[b.id] && b.id !== 'depart' && b.id !== 'darien') caption(C.captions[b.id], t, b.t0 + .35, b.t1 - .15);
 }
 
 // ---------- render ----------
-let lastDust = 0;
 function renderAt(t) {
   const b = beatAt(t);
   let head = pointAt(0);
-  if (b.id === 'jail') {
+  renderer.toneMappingExposure = 1;
+  if (b.shot === 'patagonia' || b.shot === 'jungle') {
+    const S = SCENES[b.shot]; S.update(eio(seg(t, b.t0, b.t1)) * .6 + seg(t, b.t0, b.t1) * .4, t);
+    post.dof.scene = S.scene; post.dof.camera = S.camera; renderer.toneMappingExposure = S.exposure;
+  } else if (b.id === 'jail') {
     post.dof.scene = cell; post.dof.camera = cellCam;
     const k = eio(seg(t, b.t0, b.t1));
     cellCam.position.set(lerp(-1.6, -1.2, k), lerp(1.5, 1.45, k), lerp(4.6, 3.6, k)); cellCam.lookAt(lerp(.6, .5, k), 1.05, -1.6);
@@ -299,7 +314,8 @@ function renderAt(t) {
     const fine = b.id === 'rewalk'; core.visible = halo.visible = b.id !== 'hook' && !fine; coreF.visible = haloF.visible = fine;
   }
   // dips to black where the shot changes (map <-> scene) and at the ends
-  const dip = Math.min(seg(t, 0, .5), 1 - seg(t, 17.85, 18.1) + seg(t, 18.1, 18.4), 1 - seg(t, 22.35, 22.6) + seg(t, 22.6, 22.9), 1 - seg(t, DUR - .5, DUR));
+  let dip = Math.min(seg(t, 0, .5), 1 - seg(t, DUR - .5, DUR));
+  for (let i = 1; i < BEATS.length; i++) if (BEATS[i].shot !== BEATS[i - 1].shot) { const tb = BEATS[i].t0; dip = Math.min(dip, 1 - seg(t, tb - .22, tb) + seg(t, tb, tb + .3)); }
   post.vig.uniforms.fade.value = clamp(dip);
   post.composer.render();
   overlay(t, head);
