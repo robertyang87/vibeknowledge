@@ -259,12 +259,13 @@ function rigPose(id, head) { const r = RIGS[id](); const [hl, ha] = toLL(head);
 const mixPose = (a, b, k) => ({ c: a.c.map((v, i) => i === 2 ? Math.exp(lerp(Math.log(v), Math.log(b.c[i]), k)) : lerp(v, b.c[i], k)), l: a.l.map((v, i) => lerp(v, b.l[i], k)) });
 // intro: the globe from space; the camera drifts with the tip of the plan line while it is drawn
 const T_PLAN = 7.2, T_RULES = 14.6, T_DEPART = 20.6;
-const planK = t => eio(seg(t, T_PLAN + .6, T_RULES - .6));
+const planK = t => eio(seg(t, T_PLAN + 1.6, T_RULES - 2.4));   // hold on the start, draw, then hold on the end
 const lonLerp = (a, b, k) => { let d = b - a; if (d > 180) d -= 360; if (d < -180) d += 360; return a + d * k; };
 function introPose(t) {
   const [tl, ta] = toLL(planTip(planK(t)));
   if (t < T_PLAN) { const k = eio(seg(t, 0, T_PLAN)); return { c: [lerp(-48, -62, k), lerp(-5, -18, k), 2.9], l: [-62, -18, 0] }; }
-  if (t < T_RULES) { const k = eio(seg(t, T_PLAN, T_PLAN + 1.4)); return { c: [lonLerp(-62, tl, k), lerp(-18, ta - 10, k), 2.9], l: [lonLerp(-62, tl, k), lerp(-18, ta, k), 0] }; }
+  if (t < T_RULES) { const k = eio(seg(t, T_PLAN, T_PLAN + 1.2)), alt = Math.exp(lerp(Math.log(2.9), Math.log(1.25), k) + (Math.log(2.9) - Math.log(1.25)) * eio(seg(t, T_PLAN + 1.8, T_PLAN + 3.4)));
+    return { c: [lonLerp(-62, tl, k), lerp(-18, ta - 10 * Math.min(1, alt / 2.9), k), alt], l: [lonLerp(-62, tl, k), lerp(-18, ta, k), 0] }; }
   const [el, ea] = toLL(planTip(1)), k = eio(seg(t, T_RULES, T_DEPART));
   return { c: [lonLerp(el, -60, k), lerp(ea - 10, -30, k), 2.9], l: [lonLerp(el, -60, k), lerp(ea, -30, k), 0] };
 }
@@ -337,6 +338,17 @@ function sceneTags(t, b) {   // story scenes: a place tag and the date, top left
   if (b.id === 'jail') { const n = Math.min(18, 1 + Math.floor(seg(t, b.t0 + .4, b.t1 - .4) * 18));
     txt(C.hud.jail.replace('{n}', n), W - 120, 150, '500 30px Disp', '#FF6A5E', 3, 'right', k); }
 }
+function pin(kicker, place, lonlat, t, a, b, side) {   // a large marker with a leader line, for the start and the end of the drawn line
+  const v = ll(...lonlat, 1.004); if (!visible(v)) return; const k = fadeIO(t, a, b, .4); if (k <= 0) return;
+  const [px, py] = proj(v), r = 14 + 10 * (.5 + .5 * Math.sin(t * 5));
+  x.globalAlpha = k; x.strokeStyle = '#F2C063'; x.lineWidth = 2.5;
+  x.beginPath(); x.arc(px, py, r, 0, Math.PI * 2); x.stroke(); x.fillStyle = '#FFE2A8'; x.beginPath(); x.arc(px, py, 6, 0, Math.PI * 2); x.fill();
+  const lx = px + side * 150, ly = py - 70; x.lineWidth = 1.5; x.beginPath(); x.moveTo(px + side * 18, py - 8); x.lineTo(lx, ly); x.lineTo(lx + side * 30, ly); x.stroke(); x.globalAlpha = 1;
+  const al = side > 0 ? 'left' : 'right', tx0 = lx + side * 40;
+  txt(kicker, tx0, ly - 26, '700 30px Disp', '#F2C063', 6, al, k);
+  txt(place, tx0, ly + 22, '700 44px Disp', '#F4EEE2', 3, al, k);
+  shown.push(place);
+}
 function overlay(t, head) {
   x.clearRect(0, 0, W, H); shown.length = 0;
   const b = beatAt(t);
@@ -356,7 +368,10 @@ function overlay(t, head) {
       txt(I.subtitle + '  ·  ' + I.subtitle_en, W / 2, H / 2 + 76 + dy, '500 32px Disp', 'rgba(232,182,92,.95)', 8, 'center', k2);
       if (k > 0) shown.push(I.title); if (k2 > 0) shown.push(I.subtitle);
       caption(I.who, t, 1.0, b.t1 - .15); }
-    if (b.id === 'plan') caption(I.line, t, b.t0 + .3, b.t1 - .15);
+    if (b.id === 'plan') {
+      pin(I.start, I.start_place, PLAN[0], t, b.t0 + .4, b.t0 + 4.4, -1);
+      pin(I.end, I.end_place, PLAN[PLAN.length - 1], t, T_RULES - 2.4, b.t1 - .1, 1);
+      caption(I.line, t, b.t0 + .3, b.t1 - .15); }
     if (b.id === 'rules') { const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5);
       { const g = x.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, 760); g.addColorStop(0, `rgba(0,0,0,${.6 * k})`); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); }
       txt(I.rules_kicker, W / 2, H / 2 - 150, '500 26px Disp', '#E8B65C', 8, 'center', k);

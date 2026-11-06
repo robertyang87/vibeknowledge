@@ -164,7 +164,11 @@
   "rules_src": "出自他的官网",
   "title": "回家，走了二十八年",
   "subtitle": "卡尔·布什比",
-  "subtitle_en": "KARL BUSHBY"
+  "subtitle_en": "KARL BUSHBY",
+  "start": "起点",
+  "start_place": "智利 · 蓬塔阿雷纳斯",
+  "end": "终点",
+  "end_place": "英国 · 赫尔"
  },
  "credits": [
   "影像：Sentinel-2 cloudless 2016，EOX IT Services（CC BY 4.0，含经处理的 Copernicus Sentinel 数据）",
