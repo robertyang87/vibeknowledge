@@ -45,7 +45,7 @@ Research date: 6 November 2026. Format per item: link / date / short excerpt or 
   **Licensing:** © Karl Bushby; use via Westward / site "Press and rights" route (asks/04).
 
 - **Link:** https://www.davestravelcorner.com/interviews/karl-bushby-adventurer-and-author/
-  **Date:** published 8 Nov 2022
+  **Date:** published Nov 2022 (page date reads 8 or 9 Nov depending on timezone)
   **Paraphrase:** His route-planning method in his own words: waypoints are large towns roughly a day's walk (~30 km) apart. The interview contains **no mention of Mongolia** (checked by full-text find) and nothing on the China entry.
   **Licensing:** © Dave's Travel Corner. Short quotation for reporting only.
 
@@ -121,7 +121,7 @@ Research date: 6 November 2026. Format per item: link / date / short excerpt or 
 
 **⚠️ Cross-flag for asks/02 (new first-person source found during this research):** asks/02 concluded the "~700 miles lost" figure had NO source. That verdict needs one amendment — the figure exists **in Bushby's own words**, as the *planned* backtrack's cost, not as a completed re-walk:
 - **Link:** https://www.davestravelcorner.com/interviews/karl-bushby-adventurer-and-author/
-  **Date:** published 8 Nov 2022
+  **Date:** published Nov 2022 (page date reads 8 or 9 Nov depending on timezone)
   **Excerpt (his own words, short):** "Backtracking to Uzbekistan from Turkmenistan, losing almost 700 miles of progress. Then switching north up into Kazakhstan and into Russia."
   **Licensing:** © Dave's Travel Corner. Short quotation for reporting only.
   OnTheGoSolo's 13 Nov 2022 summary of the same interview adds that the revised plan would "add about 1,000 miles (1,610 km) of walking." This does **not** overturn asks/02's mechanism verdict (the executed line was a Bukhara restart, not a re-walk, and the map arithmetic Bukhara→Iran border ≈700 *km* still stands) — but the 700-*mile* number is no longer sourceless: it is his own pre-execution estimate of what the Turkmenistan expulsion cost him. FACTS-card wording should attribute it exactly that way if used.
