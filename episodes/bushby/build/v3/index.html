@@ -1,8 +1,11 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><title>Bushby v3</title>
 <style>
-@font-face{font-family:Serif;src:url(fonts/serif.ttf)}
-@font-face{font-family:Sans;src:url(fonts/sans.ttf)}
+@font-face{font-family:Serif;src:url(fonts/serif.ttf);font-weight:200 900}
+@font-face{font-family:Sans;src:url(fonts/sans.ttf);font-weight:100 900}
+/* display face: Noto Serif SC for Chinese, Cormorant Garamond for Latin letters and digits (declared last so it wins in its range) */
+@font-face{font-family:Disp;src:url(fonts/serif.ttf);font-weight:200 900}
+@font-face{font-family:Disp;src:url(fonts/latin.ttf);font-weight:300 700;unicode-range:U+0020-007E,U+00A0-00FF,U+2010-2027}
 html,body{margin:0;background:#000;overflow:hidden}#stage,#ov{position:absolute;left:0;top:0}canvas{display:block}
 </style>
 <script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>

@@ -22,16 +22,19 @@ const DAY = 86400000;
 const dayOf = (y, m, d) => Date.UTC(y, m - 1, d) / DAY;
 const D_START = dayOf(1998, 11, 1), BORN = Date.UTC(1969, 2, 30);
 const BEATS = [   // shot: 'map' (the globe) or a story scene; r0/r1: route segments drawn across a map shot
-  { id: 'hook', shot: 'map', t0: 0, t1: 4.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
-  { id: 'depart', shot: 'map', t0: 4.6, t1: 8.0, d0: D_START, d1: D_START + 3, r0: 0, r1: 1 },
-  { id: 'departS', shot: 'patagonia', t0: 8.0, t1: 12.8, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
-  { id: 'andes', shot: 'map', t0: 12.8, t1: 17.0, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 1, r1: 25 },
-  { id: 'darien', shot: 'map', t0: 17.0, t1: 21.0, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 4), r0: 25, r1: 30 },
-  { id: 'darienS', shot: 'jungle', t0: 21.0, t1: 25.8, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
-  { id: 'jail', shot: 'cell', t0: 25.8, t1: 30.8, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
-  { id: 'rewalk', shot: 'map', t0: 30.8, t1: 36.3, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
+  { id: 'who', shot: 'map', t0: 0, t1: 7.2, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'plan', shot: 'map', t0: 7.2, t1: 14.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'rules', shot: 'map', t0: 14.6, t1: 20.6, d0: D_START, d1: D_START, r0: 0, r1: 0 },
+  { id: 'depart', shot: 'map', t0: 20.6, t1: 24.8, d0: D_START, d1: D_START + 3, r0: 0, r1: 1 },
+  { id: 'departS', shot: 'patagonia', t0: 24.8, t1: 29.6, d0: D_START + 3, d1: dayOf(1998, 12, 20) },
+  { id: 'andes', shot: 'map', t0: 29.6, t1: 33.8, d0: dayOf(1999, 1, 1), d1: dayOf(2000, 11, 1), r0: 1, r1: 25 },
+  { id: 'darien', shot: 'map', t0: 33.8, t1: 38.4, d0: dayOf(2001, 1, 15), d1: dayOf(2001, 2, 4), r0: 25, r1: 30 },
+  { id: 'darienS', shot: 'jungle', t0: 38.4, t1: 44.0, d0: dayOf(2001, 2, 5), d1: dayOf(2001, 2, 15) },
+  { id: 'jail', shot: 'cell', t0: 44.0, t1: 49.0, d0: dayOf(2001, 2, 16), d1: dayOf(2001, 3, 6) },
+  { id: 'rewalk', shot: 'map', t0: 49.0, t1: 54.5, d0: dayOf(2001, 3, 6), d1: dayOf(2001, 3, 10), r0: 32, r1: 34 },
 ];
-const DUR = 36.3, RULE_T = 32.2;
+const DUR = 54.5, RULE_T = 50.4;
+const INTRO = new Set(['who', 'plan', 'rules']);
 const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length - 1];
 const calAt = t => { const b = beatAt(t); return lerp(b.d0, b.d1, eio(seg(t, b.t0 + .3, b.t1 - .3))); };
 const ymd = d => new Date(d * DAY);
@@ -99,27 +102,29 @@ const globeMat = new THREE.ShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: 
       vec3 col = mix(ocean, ground, land);
       col += vec3(.30,.56,.88) * coast * .55 * coastAmt;
       col += vec3(.10,.25,.45) * fres * .35;
-      fragColor = vec4(col, 1.);
+      if (any(isnan(col)) || any(isinf(col))) col = vec3(0.);   // a stray NaN would bloom into a white square
+      fragColor = vec4(clamp(col, 0., 4.), 1.);
     }` });
 world.add(new THREE.Mesh(new THREE.SphereGeometry(1, 256, 128), globeMat));
 world.add(new THREE.Mesh(new THREE.SphereGeometry(1.025, 128, 64), new THREE.ShaderMaterial({
   side: THREE.BackSide, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
   vertexShader: `varying vec3 vN; varying vec3 vP; void main(){ vN = normalize(mat3(modelMatrix)*normal); vec4 wp = modelMatrix*vec4(position,1.); vP = wp.xyz; gl_Position = projectionMatrix*viewMatrix*wp; }`,
-  fragmentShader: `varying vec3 vN; varying vec3 vP; void main(){ vec3 V = normalize(cameraPosition - vP); float f = pow(max(dot(V, -vN)+.18, 0.), 6.); gl_FragColor = vec4(vec3(.25,.55,1.)*f*1.6, 1.); }` })));
+  fragmentShader: `varying vec3 vN; varying vec3 vP; void main(){ vec3 V = normalize(cameraPosition - vP); float f = pow(clamp(dot(V, -vN) + .18, 0., 1.), 6.); vec3 c = vec3(.25,.55,1.) * f * 1.6; if (any(isnan(c)) || any(isinf(c))) c = vec3(0.); gl_FragColor = vec4(clamp(c, 0., 2.), 1.); }` })));
 const rnd = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(7);
 { const n = 2500, p = new Float32Array(n * 3);
   for (let i = 0; i < n; i++) { const v = new THREE.Vector3(rnd() * 2 - 1, rnd() * 2 - 1, rnd() * 2 - 1).normalize().multiplyScalar(30); p.set([v.x, v.y, v.z], i * 3); }
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(p, 3));
   world.add(new THREE.Points(g, new THREE.PointsMaterial({ size: 1.2, sizeAttenuation: false, color: 0x8899bb, transparent: true, opacity: .55 }))); }
+const DETAIL_LINES = [];   // [lines, altitude above which they fade out]
 { const L = await (await fetch('assets/lines.json')).json();
   const mk = (arcs, r, color, op) => { const p = [];
     for (const a of arcs) for (let i = 0; i < a.length - 1; i++) { if (Math.abs(a[i][0] - a[i + 1][0]) > 180) continue; const u = ll(...a[i], r), v = ll(...a[i + 1], r); p.push(u.x, u.y, u.z, v.x, v.y, v.z); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
-    world.add(new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color, transparent: true, opacity: op, depthWrite: false }))); };
+    const o = new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color, transparent: true, opacity: op, depthWrite: false })); o.userData.op = op; world.add(o); return o; };
   const outside = a => a.every(([lo, la]) => lo < -130 || lo > -20 || la < -60 || la > 35);
   mk(L.border.filter(outside), 1.00005, 0x8a9bb8, .22);   // the coastline itself is drawn by the globe shader from the land mask
   const L10 = await (await fetch('assets/lines10.json')).json();
-  mk(L10.lake, 1.00005, 0x5f8fc4, .5); mk(L10.river, 1.00004, 0x4f7fb4, .42); mk(L10.border, 1.00004, 0x9aa8c2, .22); mk(L10.road, 1.00004, 0xb7a684, .28); }
+  mk(L10.lake, 1.00005, 0x5f8fc4, .5); DETAIL_LINES.push([mk(L10.river, 1.00004, 0x4f7fb4, .42), 1.2], [mk(L10.road, 1.00004, 0xb7a684, .28), .6]); mk(L10.border, 1.00004, 0x9aa8c2, .22); }
 
 // ---------- route: one polyline with arc length; segment ends indexed ----------
 const R = await (await fetch('assets/route.json')).json();
@@ -139,6 +144,14 @@ const core = new Line2(routeGeo, lineMat(2.6, GOLD.clone().multiplyScalar(1.15),
 const halo = new Line2(routeGeo, lineMat(10, GOLD.clone().multiplyScalar(.5), .22, true));
 core.renderOrder = 3; halo.renderOrder = 2; world.add(halo, core);
 const setDrawn = s => { let n = ARC.findIndex(a => a >= s); if (n < 0) n = RP.length - 1; routeGeo.instanceCount = Math.max(0, n); };
+// the plan he and his father drew: a schematic line, dashed, never the walked route
+const PLAN = [[-70.9, -53.2], [-71.5, -33], [-77, -12], [-79.5, 9], [-99, 19.4], [-118, 34], [-123, 49], [-150, 61], [-165.4, 64.5], [-169.7, 65.9], [-180, 66.5], [170, 67], [150, 65], [130, 62.0], [100, 58], [60, 56.5], [37.6, 55.8], [13.4, 52.5], [-0.33, 53.74]];
+const PLAN_P = []; for (let i = 0; i < PLAN.length - 1; i++) { const a = ll(...PLAN[i]), b = ll(...PLAN[i + 1]); const n = Math.max(2, Math.ceil(a.angleTo(b) / .004)); for (let k = 0; k < n; k++) PLAN_P.push(a.clone().lerp(b, k / n).normalize().multiplyScalar(1.004)); }
+PLAN_P.push(ll(...PLAN[PLAN.length - 1], 1.004));
+const planGeo = new LineGeometry(); planGeo.setPositions(PLAN_P.flatMap(p => [p.x, p.y, p.z]));
+const planMat = new LineMaterial({ color: 0xF2DDB0, linewidth: 2, dashed: true, dashSize: .012, gapSize: .009, transparent: true, opacity: .85, depthWrite: false, toneMapped: false, resolution: new THREE.Vector2(W, H) });
+const plan = new Line2(planGeo, planMat); plan.computeLineDistances(); world.add(plan);
+const planTip = k => PLAN_P[Math.min(PLAN_P.length - 1, Math.floor(k * (PLAN_P.length - 1)))];
 // the escorted stretch (boat and helicopter, Boca de Cupe -> La Palma -> Meteti): dashed red, never part of the walk
 const ESC = [[-77.58, 8.03], [-77.85, 8.2], [-78.14, 8.41], [-78.05, 8.47], [-77.98, 8.5]];
 const escort = (() => { const p = []; for (let i = 0; i < ESC.length - 1; i++) { const a = ll(...ESC[i], 1.0028), b = ll(...ESC[i + 1], 1.0028); const n = 40; for (let k = 0; k < n; k++) p.push(a.clone().lerp(b, k / n)); } p.push(ll(...ESC[ESC.length - 1], 1.0028));
@@ -205,7 +218,6 @@ const SCENES = { patagonia: makePatagonia(W, H), jungle: makeJungle(W, H) };
 const routeS = t => { const b = beatAt(t); if (b.r0 === undefined) return 0; const k = b.id === 'darien' ? eio(seg(t, b.t0 + .2, b.t1 - .6)) : eio(seg(t, b.t0 + .4, b.t1 - .2)); return lerp(arcAtSeg(b.r0), arcAtSeg(b.r1), k); };
 // a rig: camera offset from the head (lon, lat degrees, altitude) and a look-at offset
 const RIGS = {
-  hook: () => ({ abs: true, c: [-62, -18, 2.4], l: [-62, -18, 0] }),
   depart: () => ({ o: [-.35, -1.9, .045], l: [.05, .5, 0] }),
   andes: () => ({ o: [-.9, -5.2, .12], l: [.15, .9, 0] }),
   darien: () => ({ o: [-1.4, -6.5, .11], l: [.2, .2, 0] }),
@@ -215,11 +227,22 @@ function rigPose(id, head) { const r = RIGS[id](); const [hl, ha] = toLL(head);
   if (r.abs) return { c: r.c, l: r.l };
   return { c: [hl + r.o[0], ha + r.o[1], r.o[2]], l: [hl + r.l[0], ha + r.l[1], r.l[2]] }; }
 const mixPose = (a, b, k) => ({ c: a.c.map((v, i) => i === 2 ? Math.exp(lerp(Math.log(v), Math.log(b.c[i]), k)) : lerp(v, b.c[i], k)), l: a.l.map((v, i) => lerp(v, b.l[i], k)) });
+// intro: the globe from space; the camera drifts with the tip of the plan line while it is drawn
+const T_PLAN = 7.2, T_RULES = 14.6, T_DEPART = 20.6;
+const planK = t => eio(seg(t, T_PLAN + .6, T_RULES - .6));
+const lonLerp = (a, b, k) => { let d = b - a; if (d > 180) d -= 360; if (d < -180) d += 360; return a + d * k; };
+function introPose(t) {
+  const [tl, ta] = toLL(planTip(planK(t)));
+  if (t < T_PLAN) { const k = eio(seg(t, 0, T_PLAN)); return { c: [lerp(-48, -62, k), lerp(-5, -18, k), 2.9], l: [-62, -18, 0] }; }
+  if (t < T_RULES) { const k = eio(seg(t, T_PLAN, T_PLAN + 1.4)); return { c: [lonLerp(-62, tl, k), lerp(-18, ta - 10, k), 2.9], l: [lonLerp(-62, tl, k), lerp(-18, ta, k), 0] }; }
+  const [el, ea] = toLL(planTip(1)), k = eio(seg(t, T_RULES, T_DEPART));
+  return { c: [lonLerp(el, -60, k), lerp(ea - 10, -30, k), 2.9], l: [lonLerp(el, -60, k), lerp(ea, -30, k), 0] };
+}
 function worldPose(t) {
   const b = beatAt(t), head = pointAt(routeS(t));
-  let p = rigPose(b.id, head);
-  if (b.id === 'hook') { const k = eio(seg(t, 0, 4.6)); p = { c: [lerp(-55, -66, k), lerp(-8, -30, k), lerp(2.9, 2.2, k)], l: [-60, -22, 0] }; }
-  if (b.id === 'depart') { const from = { c: [-66, -30, 2.2], l: [-60, -22, 0] }; p = mixPose(from, p, eio(seg(t, b.t0, b.t0 + 3.0))); }
+  let p = INTRO.has(b.id) ? null : rigPose(b.id, head);
+  if (INTRO.has(b.id)) p = introPose(t);
+  if (b.id === 'depart') { const from = introPose(b.t0 - .001); p = mixPose(from, p, eio(seg(t, b.t0, b.t0 + 3.0))); }
   if (b.id === 'andes') { const k = eio(seg(t, b.t0, b.t0 + 1.6)); p.c[2] = Math.exp(lerp(Math.log(.35), Math.log(p.c[2]), k)); }
   if (b.id === 'darien') { p = mixPose(rigPose('andes', head), p, eio(seg(t, b.t0, b.t0 + 1.4))); const k = eio(seg(t, b.t0 + 1, b.t1)); p.c[2] = Math.exp(lerp(Math.log(p.c[2]), Math.log(.05), k)); p.c[1] = lerp(p.c[1], p.c[1] + 3.6, k); }
   if (b.id === 'rewalk') { const k = eio(seg(t, b.t0, b.t1)); p.c[2] *= lerp(1.25, .95, k); p.c[1] += lerp(-.12, 0, k); }
@@ -230,7 +253,7 @@ function worldPose(t) {
 
 // ---------- overlay ----------
 const ov = document.getElementById('ov'), x = ov.getContext('2d');
-await Promise.all([document.fonts.load('100px Serif', C.hook1 + C.hook2), document.fonts.load('30px Sans', C.hook1)]);
+await Promise.all([document.fonts.load('900 100px Disp', C.intro.name + 'KARL 0123456789'), document.fonts.load('400 30px Disp', 'DAY CHAPTER'), document.fonts.load('400 30px Disp', C.hud.date)]);
 const proj = v => { const p = v.clone().project(camera); return [(p.x + 1) / 2 * W, (1 - p.y) / 2 * H, p.z]; };
 const visible = v => v.clone().normalize().dot(camera.position.clone().sub(v).normalize()) > .05;
 function txt(s, X, Y, font, fill, ls = 0, align = 'left', a = 1) { x.globalAlpha = a; x.font = font; x.fillStyle = fill; x.textAlign = align; x.letterSpacing = ls + 'px'; x.fillText(s, X, Y); x.letterSpacing = '0px'; x.globalAlpha = 1; }
@@ -239,30 +262,30 @@ const shown = [];   // texts on screen this frame, for TEXTS(t)
 
 function chapter(ch, t, a, b) {
   const k = fadeIO(t, a, b, .5), dy = (1 - eo(seg(t, a, a + .8))) * 18; if (k <= 0) return;
-  txt(ch.kicker, 120, 150 + dy, '500 20px Sans', '#E8B65C', 4, 'left', k);
+  txt(ch.kicker, 120, 150 + dy, '500 20px Disp', '#E8B65C', 4, 'left', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(232,182,92,.9)'; x.fillRect(120, 168 + dy, 40 * eo(seg(t, a, a + .8)), 2); x.globalAlpha = 1;
-  txt(ch.title, 112, 300 + dy, '700 132px Serif', '#F4EEE2', 6, 'left', k);
-  txt(ch.en, 122, 352 + dy, '400 22px Sans', 'rgba(220,214,200,.7)', 9, 'left', k);
-  ch.desc.forEach((d, i) => txt(d, 122, 420 + i * 44 + dy, '400 30px Serif', 'rgba(236,230,218,.88)', 2, 'left', k * fadeIO(t, a + .3 + i * .25, b, .5)));
+  txt(ch.title, 112, 300 + dy, '900 132px Disp', '#F4EEE2', 4, 'left', k);
+  txt(ch.en, 122, 352 + dy, '400 22px Disp', 'rgba(220,214,200,.7)', 9, 'left', k);
+  ch.desc.forEach((d, i) => txt(d, 122, 420 + i * 44 + dy, '400 30px Disp', 'rgba(236,230,218,.88)', 2, 'left', k * fadeIO(t, a + .3 + i * .25, b, .5)));
   shown.push(ch.title, ...ch.desc);
 }
 function hud(t, b) {
   const d = calAt(t), day = Math.floor(d - D_START) + 1, rx = W - 120, k = fadeIO(t, b.t0 + .2, b.t1 + 1, .5); if (k <= 0) return;
-  txt(C.hud.day, rx - 210, 128, '500 18px Sans', 'rgba(220,214,200,.6)', 6, 'left', k);
-  txt(String(day).padStart(4, '0'), rx, 150, '300 64px Sans', '#F4EEE2', 4, 'right', k);
+  txt(C.hud.day, rx - 210, 128, '500 18px Disp', 'rgba(220,214,200,.6)', 6, 'left', k);
+  txt(String(day).padStart(4, '0'), rx, 150, '300 64px Disp', '#F4EEE2', 4, 'right', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(255,255,255,.18)'; x.fillRect(rx - 300, 178, 300, 1); x.globalAlpha = 1;
   const rows = [[C.hud.date, fmtDate(d)], [C.hud.age, ageAt(d) + C.hud.age_unit], [C.hud.sleep, C.sleep[b.id] || '']];
-  rows.forEach(([kk, v], i) => { txt(kk, rx - 300, 220 + i * 40, '400 19px Sans', 'rgba(220,214,200,.55)', 2, 'left', k); txt(v, rx, 220 + i * 40, '500 22px Sans', 'rgba(244,238,226,.92)', 1, 'right', k); });
+  rows.forEach(([kk, v], i) => { txt(kk, rx - 300, 220 + i * 40, '400 19px Disp', 'rgba(220,214,200,.55)', 2, 'left', k); txt(v, rx, 220 + i * 40, '500 22px Disp', 'rgba(244,238,226,.92)', 1, 'right', k); });
   const yrs = (d - D_START) / 365.25, by = 360;
-  txt(C.hud.plan, rx - 300, by, '400 17px Sans', 'rgba(220,214,200,.55)', 2, 'left', k);
-  txt(C.hud.done.replace('{y}', yrs.toFixed(1)), rx, by, '400 17px Sans', 'rgba(232,182,92,.9)', 1, 'right', k);
+  txt(C.hud.plan, rx - 300, by, '400 17px Disp', 'rgba(220,214,200,.55)', 2, 'left', k);
+  txt(C.hud.done.replace('{y}', yrs.toFixed(1)), rx, by, '400 17px Disp', 'rgba(232,182,92,.9)', 1, 'right', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(255,255,255,.12)'; x.fillRect(rx - 300, by + 14, 300, 3);
   x.fillStyle = '#E8B65C'; x.fillRect(rx - 300, by + 14, 300 * clamp(yrs / 12), 3); x.globalAlpha = 1;
 }
 function caption(parts, t, a, b) {
   const k = fadeIO(t, a, b, .3); if (k <= 0) return;
   const g = x.createLinearGradient(0, H - 260, 0, H); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${.72 * k})`); x.fillStyle = g; x.fillRect(0, H - 260, W, 260);
-  x.font = '600 44px Serif'; x.letterSpacing = '2px';
+  x.font = '600 44px Disp'; x.letterSpacing = '2px';
   const wsum = parts.reduce((s, [p]) => s + x.measureText(p).width, 0); let cx = W / 2 - wsum / 2; x.textAlign = 'left';
   x.globalAlpha = k; x.shadowColor = 'rgba(0,0,0,.8)'; x.shadowBlur = 18;
   for (const [p, hi] of parts) { x.fillStyle = hi ? '#F2C063' : '#F4EEE2'; x.fillText(p, cx, H - 92 + (1 - k) * 8); cx += x.measureText(p).width; }
@@ -272,26 +295,35 @@ function caption(parts, t, a, b) {
 function label(name, v, t, a, color = 'rgba(235,228,214,.8)', side = 1) {
   if (!visible(v)) return; const [px, py] = proj(v), k = seg(t, a, a + .5); if (k <= 0) return;
   x.globalAlpha = k; x.strokeStyle = color; x.lineWidth = 1; x.beginPath(); x.moveTo(px + 6 * side, py); x.lineTo(px + 34 * side, py); x.stroke();
-  txt(name, px + 40 * side, py + 6, '400 19px Sans', color, 1, side > 0 ? 'left' : 'right', k); x.globalAlpha = 1;
+  txt(name, px + 40 * side, py + 6, '400 19px Disp', color, 1, side > 0 ? 'left' : 'right', k); x.globalAlpha = 1;
 }
 
 function sceneTags(t, b) {   // story scenes: a place tag and the date, top left; the cell adds the day count held
   { const g = x.createRadialGradient(120, 160, 0, 120, 160, 520); g.addColorStop(0, 'rgba(0,0,0,.45)'); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, 900, 520); }
   const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5), tag = C.tags[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : 'jail'];
-  txt(tag, 120, 150, '500 20px Sans', '#E8B65C', 4, 'left', k);
+  txt(tag, 120, 150, '500 20px Disp', '#E8B65C', 4, 'left', k);
   x.globalAlpha = k; x.fillStyle = 'rgba(232,182,92,.9)'; x.fillRect(120, 168, 40, 2); x.globalAlpha = 1;
-  txt(fmtDate(calAt(t)), 120, 216, '400 30px Serif', 'rgba(240,234,222,.9)', 3, 'left', k);
+  txt(fmtDate(calAt(t)), 120, 216, '400 30px Disp', 'rgba(240,234,222,.9)', 3, 'left', k);
   if (b.id === 'jail') { const n = Math.min(18, 1 + Math.floor(seg(t, b.t0 + .4, b.t1 - .4) * 18));
-    txt(C.hud.jail.replace('{n}', n), W - 120, 150, '500 30px Serif', '#FF6A5E', 3, 'right', k); }
+    txt(C.hud.jail.replace('{n}', n), W - 120, 150, '500 30px Disp', '#FF6A5E', 3, 'right', k); }
 }
 function overlay(t, head) {
   x.clearRect(0, 0, W, H); shown.length = 0;
   const b = beatAt(t);
-  if (b.id === 'hook') {
-    const k1 = fadeIO(t, .2, 4.5, .5), k2 = fadeIO(t, 1.3, 4.5, .5);
-    txt(C.hook1, W / 2, H / 2 - 30 + (1 - eo(seg(t, .2, 1))) * 14, '500 68px Serif', '#F4EEE2', 8, 'center', k1);
-    txt(C.hook2, W / 2, H / 2 + 70 + (1 - eo(seg(t, 1.3, 2.1))) * 14, '700 76px Serif', '#F2C063', 8, 'center', k2);
-    if (k1 > 0) shown.push(C.hook1); if (k2 > 0) shown.push(C.hook2);
+  if (INTRO.has(b.id)) {
+    const I = C.intro;
+    if (b.id === 'who') { const k = fadeIO(t, .4, b.t1 - .1, .6), dy = (1 - eo(seg(t, .4, 1.4))) * 16;
+      txt(I.name, W / 2, H / 2 - 10 + dy, '900 112px Disp', '#F4EEE2', 10, 'center', k);
+      txt(I.name_en, W / 2, H / 2 + 52 + dy, '500 30px Disp', 'rgba(232,182,92,.95)', 18, 'center', k);
+      if (k > 0) shown.push(I.name);
+      caption(I.who, t, 1.0, b.t1 - .15); }
+    if (b.id === 'plan') caption(I.line, t, b.t0 + .3, b.t1 - .15);
+    if (b.id === 'rules') { const k = fadeIO(t, b.t0 + .3, b.t1 - .1, .5);
+      { const g = x.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, 760); g.addColorStop(0, `rgba(0,0,0,${.6 * k})`); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H); }
+      txt(I.rules_kicker, W / 2, H / 2 - 150, '500 26px Disp', '#E8B65C', 8, 'center', k);
+      x.globalAlpha = k; x.fillStyle = 'rgba(232,182,92,.9)'; x.fillRect(W / 2 - 24, H / 2 - 128, 48, 2); x.globalAlpha = 1;
+      I.rules.forEach((r, i) => { const kk = k * fadeIO(t, b.t0 + .6 + i * .5, b.t1 - .1, .5); txt(r, W / 2, H / 2 - 30 + i * 96 + (1 - kk) * 10, '700 62px Disp', '#F4EEE2', 6, 'center', kk); if (kk > 0) shown.push(r); });
+      txt(I.rules_src, W / 2, H / 2 + 200, '400 20px Disp', 'rgba(220,214,200,.55)', 4, 'center', k); }
     return;
   }
   if (b.shot !== 'map') { sceneTags(t, b); caption(C.captions[b.id === 'departS' ? 'depart' : b.id === 'darienS' ? 'darien' : b.id], t, b.t0 + .35, b.t1 - .15); return; }
@@ -331,8 +363,9 @@ function renderAt(t) {
     post.dof.scene = world; post.dof.camera = camera;
     const s = routeS(t); setDrawn(s); head = worldPose(t);
     const hv = head.clone().multiplyScalar(1.0003); h1.position.copy(hv); h2.position.copy(hv); const dc = camera.position.distanceTo(hv); h1.scale.setScalar(dc * .03); h2.scale.setScalar(dc * .075);
-    h1.visible = h2.visible = b.id !== 'hook';
-    core.visible = halo.visible = b.id !== 'hook';
+    h1.visible = h2.visible = !INTRO.has(b.id); plan.visible = (INTRO.has(b.id) && t >= T_PLAN) || b.id === 'depart'; planGeo.instanceCount = Math.floor((b.id === 'plan' ? planK(t) : t < T_PLAN ? 0 : 1) * (PLAN_P.length - 1)); planMat.opacity = b.id === 'depart' ? .85 * (1 - seg(t, b.t0, b.t0 + 1.5)) : .85;
+    core.visible = halo.visible = !INTRO.has(b.id);
+    { const alt = camera.position.length() - 1; for (const [o, top] of DETAIL_LINES) o.material.opacity = o.userData.op * clamp((top - alt) / (top * .6)); }
   }
   // dips to black where the shot changes (map <-> scene) and at the ends
   let dip = Math.min(seg(t, 0, .5), 1 - seg(t, DUR - .5, DUR));
