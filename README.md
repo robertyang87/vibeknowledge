@@ -89,6 +89,21 @@ Rules for the vendored copy:
 
 How we use it, step by step: see `docs/lemo-opuscar.md`.
 
+## Production skills: GIF Factory
+
+[GIF Factory](https://github.com/WoYun520/gif-factory) is pinned at
+`vendor/gif-factory` as a second production toolkit. It includes animated
+stickers, posters, signatures, titles, storybooks, and mechanism explainers.
+Codex discovers its project-local skill entry points in `.agents/skills/`.
+
+```bash
+git submodule update --init --depth 1 vendor/gif-factory
+```
+
+Start a new Codex session in this repository and invoke
+`$pixel-gif-sticker-pack`, or use `$paper-mechanism-explainer` for a knowledge
+explainer. See [installation and runtime notes](docs/gif-factory.md).
+
 ## Language policy
 
 **English only, with one narrow exception.**
