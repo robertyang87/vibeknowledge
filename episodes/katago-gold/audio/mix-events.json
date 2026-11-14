@@ -1,0 +1,634 @@
+{
+  "duration": 301.5,
+  "sample_rate": 48000,
+  "channels": 2,
+  "estimated_bpm": 75,
+  "music": "We Never (Remix) - Hi Noise / Qiu Cheng",
+  "music_source": "user repository library",
+  "loop_edit": {
+    "start": 176,
+    "source_restart": 25.6,
+    "crossfade_seconds": 3.2
+  },
+  "events": [
+    {
+      "time": 0.12,
+      "scene": "hook",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 0.35,
+      "scene": "hook",
+      "type": "stone",
+      "action": "intersection-pulse"
+    },
+    {
+      "time": 0.45,
+      "scene": "hook",
+      "type": "air",
+      "action": "point-grid-forms"
+    },
+    {
+      "time": 10.253333,
+      "scene": "identity",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 9.953333,
+      "scene": "identity",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 23.353333,
+      "scene": "input",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 23.053333,
+      "scene": "input",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 27.615708,
+      "scene": "input",
+      "type": "tick",
+      "action": "history"
+    },
+    {
+      "time": 28.675249,
+      "scene": "input",
+      "type": "tick",
+      "action": "rules"
+    },
+    {
+      "time": 29.401416,
+      "scene": "input",
+      "type": "tick",
+      "action": "komi"
+    },
+    {
+      "time": 36.62,
+      "scene": "policy",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 36.32,
+      "scene": "policy",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 38.408583,
+      "scene": "policy",
+      "type": "tick",
+      "action": "prior"
+    },
+    {
+      "time": 37.0,
+      "scene": "policy",
+      "type": "stone",
+      "action": "intersection-pulse"
+    },
+    {
+      "time": 37.0,
+      "scene": "policy",
+      "type": "tick",
+      "action": "candidate-A"
+    },
+    {
+      "time": 37.22,
+      "scene": "policy",
+      "type": "tick",
+      "action": "candidate-B"
+    },
+    {
+      "time": 37.44,
+      "scene": "policy",
+      "type": "tick",
+      "action": "candidate-C"
+    },
+    {
+      "time": 50.353333,
+      "scene": "value",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 50.053333,
+      "scene": "value",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 52.296666,
+      "scene": "value",
+      "type": "tick",
+      "action": "win"
+    },
+    {
+      "time": 53.534749,
+      "scene": "value",
+      "type": "tick",
+      "action": "score"
+    },
+    {
+      "time": 54.963333,
+      "scene": "value",
+      "type": "tick",
+      "action": "ownership"
+    },
+    {
+      "time": 62.42,
+      "scene": "tree",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 62.12,
+      "scene": "tree",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 66.765708,
+      "scene": "tree",
+      "type": "tick",
+      "action": "edge"
+    },
+    {
+      "time": 69.73,
+      "scene": "tree",
+      "type": "tick",
+      "action": "reply"
+    },
+    {
+      "time": 72.087125,
+      "scene": "tree",
+      "type": "tick",
+      "action": "again"
+    },
+    {
+      "time": 74.52,
+      "scene": "selection",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 74.22,
+      "scene": "selection",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 75.4,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 77.07,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 78.74,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 80.41,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 82.08,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 83.75,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 85.42,
+      "scene": "selection",
+      "type": "tick",
+      "action": "search-forward"
+    },
+    {
+      "time": 87.92,
+      "scene": "leaf",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 87.62,
+      "scene": "leaf",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 88.8,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 90.47,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 92.14,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 93.81,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 95.48,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 97.15,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 98.82,
+      "scene": "leaf",
+      "type": "tick",
+      "action": "evaluation-return"
+    },
+    {
+      "time": 101.12,
+      "scene": "update",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 100.82,
+      "scene": "update",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 108.227625,
+      "scene": "update",
+      "type": "tick",
+      "action": "revision"
+    },
+    {
+      "time": 116.586667,
+      "scene": "decision",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 116.286667,
+      "scene": "decision",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 116.966667,
+      "scene": "decision",
+      "type": "stone",
+      "action": "intersection-pulse"
+    },
+    {
+      "time": 117.866667,
+      "scene": "decision",
+      "type": "tick",
+      "action": "selected-path-highlight"
+    },
+    {
+      "time": 130.386667,
+      "scene": "training",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 130.086667,
+      "scene": "training",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 132.766667,
+      "scene": "training",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 135.766667,
+      "scene": "training",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 138.766667,
+      "scene": "training",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 144.286667,
+      "scene": "loop",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 143.986667,
+      "scene": "loop",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 146.666667,
+      "scene": "loop",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 149.666667,
+      "scene": "loop",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 152.666667,
+      "scene": "loop",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 158.02,
+      "scene": "targets",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 157.72,
+      "scene": "targets",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 163.187125,
+      "scene": "targets",
+      "type": "tick",
+      "action": "win"
+    },
+    {
+      "time": 164.639541,
+      "scene": "targets",
+      "type": "tick",
+      "action": "score"
+    },
+    {
+      "time": 165.449041,
+      "scene": "targets",
+      "type": "tick",
+      "action": "ownership"
+    },
+    {
+      "time": 172.22,
+      "scene": "ownership",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 171.92,
+      "scene": "ownership",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 175.172875,
+      "scene": "ownership",
+      "type": "tick",
+      "action": "detailed"
+    },
+    {
+      "time": 186.353333,
+      "scene": "budget",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 186.053333,
+      "scene": "budget",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 191.818083,
+      "scene": "budget",
+      "type": "tick",
+      "action": "quick"
+    },
+    {
+      "time": 195.103791,
+      "scene": "budget",
+      "type": "tick",
+      "action": "deep"
+    },
+    {
+      "time": 188.733333,
+      "scene": "budget",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 191.733333,
+      "scene": "budget",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 194.733333,
+      "scene": "budget",
+      "type": "stone",
+      "action": "feedback-node-contact"
+    },
+    {
+      "time": 199.72,
+      "scene": "global",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 199.42,
+      "scene": "global",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 200.33,
+      "scene": "global",
+      "type": "tick",
+      "action": "pool"
+    },
+    {
+      "time": 201.0,
+      "scene": "global",
+      "type": "tick",
+      "action": "selected-path-highlight"
+    },
+    {
+      "time": 213.32,
+      "scene": "dashboard",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 213.02,
+      "scene": "dashboard",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 228.32,
+      "scene": "calibration",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 228.02,
+      "scene": "calibration",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 241.186667,
+      "scene": "rules",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 240.886667,
+      "scene": "rules",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 257.453333,
+      "scene": "limits",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 257.153333,
+      "scene": "limits",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 273.053333,
+      "scene": "payoff",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 272.753333,
+      "scene": "payoff",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    },
+    {
+      "time": 277.863333,
+      "scene": "payoff",
+      "type": "tick",
+      "action": "first"
+    },
+    {
+      "time": 279.541916,
+      "scene": "payoff",
+      "type": "tick",
+      "action": "second"
+    },
+    {
+      "time": 280.732374,
+      "scene": "payoff",
+      "type": "tick",
+      "action": "third"
+    },
+    {
+      "time": 274.333333,
+      "scene": "payoff",
+      "type": "tick",
+      "action": "selected-path-highlight"
+    },
+    {
+      "time": 287.72,
+      "scene": "ending",
+      "type": "air",
+      "action": "filament-draw-on"
+    },
+    {
+      "time": 287.42,
+      "scene": "ending",
+      "type": "sweep",
+      "action": "camera-pulse-transition"
+    }
+  ],
+  "silence_windows": [
+    [
+      256.583333,
+      257.433333
+    ],
+    [
+      272.183333,
+      273.033333
+    ]
+  ],
+  "voice_to_background_active_db": 17.0,
+  "measured_master": {
+    "input_i": "-14.08",
+    "input_tp": "-1.56",
+    "input_lra": "4.10",
+    "input_thresh": "-24.92",
+    "output_i": "-13.91",
+    "output_tp": "-1.00",
+    "output_lra": "3.90",
+    "output_thresh": "-24.69",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.09"
+  },
+  "premaster": {
+    "input_i": "-14.60",
+    "input_tp": "-1.49",
+    "input_lra": "4.10",
+    "input_thresh": "-25.51",
+    "output_i": "-14.05",
+    "output_tp": "-1.40",
+    "output_lra": "4.00",
+    "output_thresh": "-24.89",
+    "normalization_type": "dynamic",
+    "target_offset": "0.05"
+  },
+  "foley_synthesis": true,
+  "background_music_original": false
+}

@@ -1,0 +1,41 @@
+KataGo spatial gold edition: original educational film for the user.
+
+Visual reference: user-supplied compressed_under_10MB.mp4.
+Only its lighting, depth, particle and camera grammar inform this film.
+No reference frames, music, narration, factual claims, creator branding or
+watermark are copied into the deliverable. See research/VISUAL-REFERENCE.md.
+
+Lemo-Opuscar by Lemomo (LemoLab), workflow and gold-line implementation:
+https://github.com/lemomo-ai/lemo-opuscar
+Library commit: 3a7132b996be0241c1ea0ab180d519f06e6f10b6
+Actual adapted code: Art Deco demo/engine/deco.js, specifically gline and
+its metal-gradient path support for narrative overlays. MIT notice included
+next to the copied engine. This is a reference-led adaptation, not a claim
+that every Art Deco style invariant is reproduced. The supplied reference
+and the user's requested We Never music override the period architecture
+and jazz defaults. No demo plot, character, frame, sign-off or watermark.
+
+Blender 4.3.2: original 19-line coordinate lattice, 361 modeled nodes,
+metallic/emissive materials, editable .blend and exported glTF geometry.
+Remotion 4.0.543 + Three.js: perspective cameras, original procedural spatial
+search/neural/feedback geometry, shaders, moving signals, particle depth,
+bloom, Chinese type, captions, audio sequencing and H.264 export.
+https://www.remotion.dev/license
+
+Fonts: Noto Serif CJK SC Regular and Bold subsets, SIL Open Font License 1.1.
+Original font copyright and OFL notice included beside the font assets.
+
+Narration: existing synthetic Microsoft Edge TTS, zh-CN-YunxiNeural, +5%.
+The reviewed Mandarin recording is reused, not regenerated.
+
+User-selected music: We Never (Remix), Hi Noise / Qiu Cheng.
+Repository path: assets/music/we-never-remix-hi-noise-qiucheng.m4a
+Source/identity notes: assets/music/README.md in the source repository.
+Music rights remain with the owners. The source-code notices grant no music
+license. The raw song is not a standalone asset in the archive; a final mixed
+soundtrack is supplied for rebuilding the film.
+All added effects are original procedural synthesis, not sampled field audio.
+
+Scientific sources and illustration limits: ../research/FACTS.md.
+KataGo is an independent project by David J. Wu and contributors. No
+endorsement is implied.

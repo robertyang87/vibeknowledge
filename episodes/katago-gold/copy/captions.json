@@ -1,0 +1,698 @@
+[
+  {
+    "text": "一张十九路棋盘，有三百六十一个交叉点。",
+    "startMs": 277.625,
+    "endMs": 3775.25,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "hook"
+  },
+  {
+    "text": "KataGo没有算完所有未来，",
+    "startMs": 3775.25,
+    "endMs": 6144.291,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "hook"
+  },
+  {
+    "text": "为什么还能下出远超人类顶尖棋手的棋？",
+    "startMs": 6144.291,
+    "endMs": 8941.916,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "hook"
+  },
+  {
+    "text": "它是大卫·吴发起的开源围棋引擎。",
+    "startMs": 10410.958333333334,
+    "endMs": 13920.458333333332,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "identity"
+  },
+  {
+    "text": "核心可以拆成两部分：神经网络提供直觉，",
+    "startMs": 13920.458333333332,
+    "endMs": 17622.874333333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "identity"
+  },
+  {
+    "text": "树搜索检验变化。",
+    "startMs": 17622.874333333333,
+    "endMs": 19587.124333333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "identity"
+  },
+  {
+    "text": "两者配合，才决定下一手。",
+    "startMs": 19587.124333333333,
+    "endMs": 22039.499333333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "identity"
+  },
+  {
+    "text": "先把局面交给网络。输入不只有黑白子，",
+    "startMs": 23510.958333333336,
+    "endMs": 27151.416333333334,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "input"
+  },
+  {
+    "text": "还包括行棋历史、规则、贴目等信息。",
+    "startMs": 27151.416333333334,
+    "endMs": 30937.124333333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "input"
+  },
+  {
+    "text": "同样的棋形，换了规则或贴目，判断也可能改变。",
+    "startMs": 30937.124333333333,
+    "endMs": 35270.45733333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "input"
+  },
+  {
+    "text": "网络的策略输出，给合法落点分配不同的偏好。",
+    "startMs": 36777.625,
+    "endMs": 41346.666,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "policy"
+  },
+  {
+    "text": "就像高手扫一眼，先挑出值得研究的几手。",
+    "startMs": 41346.666,
+    "endMs": 45108.583,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "policy"
+  },
+  {
+    "text": "注意：偏好高，不代表这手已经被证明最好。",
+    "startMs": 45108.583,
+    "endMs": 49025.249,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "policy"
+  },
+  {
+    "text": "另一组输出判断局面：谁更可能赢，预计领先多少，",
+    "startMs": 50510.958333333336,
+    "endMs": 54963.33333333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "value"
+  },
+  {
+    "text": "各处最终可能归谁。",
+    "startMs": 54963.33333333333,
+    "endMs": 56901.41633333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "value"
+  },
+  {
+    "text": "这些都是预测；中盘的归属图，不是已经围好的地盘。",
+    "startMs": 56901.41633333333,
+    "endMs": 61103.791333333334,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "value"
+  },
+  {
+    "text": "接着进入蒙特卡洛树搜索。",
+    "startMs": 62577.625,
+    "endMs": 65039.541,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "tree"
+  },
+  {
+    "text": "根节点是现在的局面，一条边是一手棋。",
+    "startMs": 65039.541,
+    "endMs": 68503.791,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "tree"
+  },
+  {
+    "text": "往下一层，是对手的回应；",
+    "startMs": 68503.791,
+    "endMs": 70932.375,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "tree"
+  },
+  {
+    "text": "再下一层，又轮到自己。",
+    "startMs": 70932.375,
+    "endMs": 73194.291,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "tree"
+  },
+  {
+    "text": "搜索不会平均查看所有分支。",
+    "startMs": 74677.62499999999,
+    "endMs": 77425.25,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "selection"
+  },
+  {
+    "text": "它既偏向目前评估好的选择，",
+    "startMs": 77425.25,
+    "endMs": 79746.666,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "selection"
+  },
+  {
+    "text": "也给先验较高、但还没看够的选择探索机会。",
+    "startMs": 79746.666,
+    "endMs": 83568.083,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "selection"
+  },
+  {
+    "text": "这是在利用经验和寻找意外之间取舍。",
+    "startMs": 83568.083,
+    "endMs": 86579.999,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "selection"
+  },
+  {
+    "text": "走到尚未展开的局面，通常再请神经网络评估，",
+    "startMs": 88077.625,
+    "endMs": 91756.208,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "leaf"
+  },
+  {
+    "text": "然后把结果沿路回传。",
+    "startMs": 91756.208,
+    "endMs": 93849.041,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "leaf"
+  },
+  {
+    "text": "这里的模拟，不等于每次都随机下一整盘；",
+    "startMs": 93849.041,
+    "endMs": 97265.708,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "leaf"
+  },
+  {
+    "text": "真到终局，才使用实际结果。",
+    "startMs": 97265.708,
+    "endMs": 99765.708,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "leaf"
+  },
+  {
+    "text": "这样的选择、展开、评估、回传反复进行。",
+    "startMs": 101277.625,
+    "endMs": 106263.333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "update"
+  },
+  {
+    "text": "某手一开始很受青睐，",
+    "startMs": 106263.333,
+    "endMs": 108227.625,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "update"
+  },
+  {
+    "text": "深入后却可能暴露问题。搜索预算越充足，",
+    "startMs": 108227.625,
+    "endMs": 112489.541,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "update"
+  },
+  {
+    "text": "通常越有机会纠正第一眼的判断。",
+    "startMs": 112489.541,
+    "endMs": 115239.541,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "update"
+  },
+  {
+    "text": "最终选择综合搜索证据，",
+    "startMs": 116744.29166666667,
+    "endMs": 118851.41666666669,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "decision"
+  },
+  {
+    "text": "也受具体配置影响。",
+    "startMs": 118851.41666666669,
+    "endMs": 120801.41666666669,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "decision"
+  },
+  {
+    "text": "重点不是背住每条公式，",
+    "startMs": 120801.41666666669,
+    "endMs": 122968.08266666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "decision"
+  },
+  {
+    "text": "而是这条分工：网络缩小关注范围，",
+    "startMs": 122968.08266666667,
+    "endMs": 126146.66666666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "decision"
+  },
+  {
+    "text": "搜索把更多计算交给值得检验的变化。",
+    "startMs": 126146.66666666667,
+    "endMs": 129063.33266666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "decision"
+  },
+  {
+    "text": "那网络的直觉从哪来？",
+    "startMs": 130544.29166666669,
+    "endMs": 132601.4166666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "training"
+  },
+  {
+    "text": "KataGo的强化学习主线，",
+    "startMs": 132601.4166666667,
+    "endMs": 134553.7916666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "training"
+  },
+  {
+    "text": "靠自我对弈产生棋局。",
+    "startMs": 134553.7916666667,
+    "endMs": 136744.2916666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "training"
+  },
+  {
+    "text": "搜索给出更好的落子分布，",
+    "startMs": 136744.2916666667,
+    "endMs": 138863.33266666668,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "training"
+  },
+  {
+    "text": "终局给出胜负和计分反馈，再用这些数据训练网络。",
+    "startMs": 138863.33266666668,
+    "endMs": 142946.6666666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "training"
+  },
+  {
+    "text": "更新后的网络再去下棋，",
+    "startMs": 144444.2916666667,
+    "endMs": 146765.70766666668,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "loop"
+  },
+  {
+    "text": "形成循环。但你电脑上分析一盘棋时，",
+    "startMs": 146765.70766666668,
+    "endMs": 150251.4166666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "loop"
+  },
+  {
+    "text": "通常是在使用已经训练好的参数，",
+    "startMs": 150251.4166666667,
+    "endMs": 152549.0416666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "loop"
+  },
+  {
+    "text": "加上现场搜索；不是每落一子，都重新训练一次大脑。",
+    "startMs": 152549.0416666667,
+    "endMs": 156679.9996666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "loop"
+  },
+  {
+    "text": "KataGo的特色，也不只是会搜索。",
+    "startMs": 158177.625,
+    "endMs": 160949.04100000003,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "targets"
+  },
+  {
+    "text": "作者特别改进了学习效率：",
+    "startMs": 160949.04100000003,
+    "endMs": 163187.125,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "targets"
+  },
+  {
+    "text": "除了胜负，还学习目差和逐点归属。",
+    "startMs": 163187.125,
+    "endMs": 166710.958,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "targets"
+  },
+  {
+    "text": "就像考试不只给总分，",
+    "startMs": 166710.958,
+    "endMs": 168615.708,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "targets"
+  },
+  {
+    "text": "还让你看见分数来自哪里。",
+    "startMs": 168615.708,
+    "endMs": 170889.541,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "targets"
+  },
+  {
+    "text": "一盘棋的输赢，反馈很粗。",
+    "startMs": 172377.625,
+    "endMs": 175172.875,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ownership"
+  },
+  {
+    "text": "哪些区域最后属于谁、最终差多少目，",
+    "startMs": 175172.875,
+    "endMs": 178458.583,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ownership"
+  },
+  {
+    "text": "提供了更细的监督信号。",
+    "startMs": 178458.583,
+    "endMs": 180613.333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ownership"
+  },
+  {
+    "text": "这些辅助目标，帮助同一个网络学出更有用的局面表示。",
+    "startMs": 180613.333,
+    "endMs": 185006.207,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ownership"
+  },
+  {
+    "text": "另一个办法，是在训练自我对弈时混合较浅和较深的搜索。",
+    "startMs": 186510.9583333333,
+    "endMs": 191818.08333333334,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "budget"
+  },
+  {
+    "text": "浅搜索有利于更快产生更多完整棋局；",
+    "startMs": 191818.08333333334,
+    "endMs": 195103.79133333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "budget"
+  },
+  {
+    "text": "较深搜索，提供更高质量的策略学习样本。",
+    "startMs": 195103.79133333333,
+    "endMs": 198389.5403333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "budget"
+  },
+  {
+    "text": "它还用全局信息汇总，",
+    "startMs": 199877.625,
+    "endMs": 201746.666,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "global"
+  },
+  {
+    "text": "让局部棋形的处理能参考整盘棋。",
+    "startMs": 201746.666,
+    "endMs": 205018.08299999998,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "global"
+  },
+  {
+    "text": "这些设计一起服务于一个目标：",
+    "startMs": 205018.08299999998,
+    "endMs": 207303.791,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "global"
+  },
+  {
+    "text": "把有限计算，变成更有效的学习，",
+    "startMs": 207303.791,
+    "endMs": 210065.708,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "global"
+  },
+  {
+    "text": "而不是只把网络越堆越大。",
+    "startMs": 210065.708,
+    "endMs": 212030.0,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "global"
+  },
+  {
+    "text": "看复盘界面时，要分清胜率和目差。",
+    "startMs": 213477.625,
+    "endMs": 217106.208,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "dashboard"
+  },
+  {
+    "text": "胜率回答模型认为赢面怎样；",
+    "startMs": 217106.208,
+    "endMs": 219725.25,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "dashboard"
+  },
+  {
+    "text": "目差回答预计领先多少。",
+    "startMs": 219725.25,
+    "endMs": 222249.041,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "dashboard"
+  },
+  {
+    "text": "赢一目和赢十目都算赢，",
+    "startMs": 222249.041,
+    "endMs": 224272.875,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "dashboard"
+  },
+  {
+    "text": "所以这两个数不能互相替代。",
+    "startMs": 224272.875,
+    "endMs": 226999.041,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "dashboard"
+  },
+  {
+    "text": "九成胜率，也不是保证你接下来十盘能赢九盘。",
+    "startMs": 228477.625,
+    "endMs": 232832.37499999997,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "calibration"
+  },
+  {
+    "text": "它依赖模型、搜索量和对后续行棋的判断，",
+    "startMs": 232832.37499999997,
+    "endMs": 236689.541,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "calibration"
+  },
+  {
+    "text": "并不等于你这个棋手在实战中的兑现能力。",
+    "startMs": 236689.541,
+    "endMs": 239856.166,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "calibration"
+  },
+  {
+    "text": "比较两次分析，先核对规则、贴目、模型和搜索预算。",
+    "startMs": 241344.29166666666,
+    "endMs": 246865.70766666668,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "rules"
+  },
+  {
+    "text": "看似同一个局面，如果条件不同，数值就可能不同。",
+    "startMs": 246865.70766666668,
+    "endMs": 251508.58266666665,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "rules"
+  },
+  {
+    "text": "发现推荐反常，先加算、看变化，再核对设置。",
+    "startMs": 251508.58266666665,
+    "endMs": 256103.79066666667,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "rules"
+  },
+  {
+    "text": "研究者也发现过，针对特定版本和设置构造的对抗棋形，",
+    "startMs": 257610.9583333333,
+    "endMs": 262765.7083333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "limits"
+  },
+  {
+    "text": "能让很强的围棋人工智能犯错。",
+    "startMs": 262765.7083333333,
+    "endMs": 265834.74933333334,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "limits"
+  },
+  {
+    "text": "这不抹掉它的棋力，但提醒我们：高水平表现，",
+    "startMs": 265834.74933333334,
+    "endMs": 269644.29133333336,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "limits"
+  },
+  {
+    "text": "不等于对所有局面都可靠。",
+    "startMs": 269644.29133333336,
+    "endMs": 271715.7073333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "limits"
+  },
+  {
+    "text": "所以，KataGo的强大，",
+    "startMs": 273210.9583333333,
+    "endMs": 275258.5833333333,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "payoff"
+  },
+  {
+    "text": "不在于穷举所有未来。",
+    "startMs": 275258.5833333333,
+    "endMs": 277351.41633333336,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "payoff"
+  },
+  {
+    "text": "而在于用学来的直觉指路，",
+    "startMs": 277351.41633333336,
+    "endMs": 279541.91633333336,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "payoff"
+  },
+  {
+    "text": "用搜索检验，用自我对弈的反馈继续改进。",
+    "startMs": 279541.91633333336,
+    "endMs": 283244.29133333336,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "payoff"
+  },
+  {
+    "text": "这才是它没算完，却依然很强的原因。",
+    "startMs": 283244.29133333336,
+    "endMs": 286399.04033333337,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "payoff"
+  },
+  {
+    "text": "学棋时，别只记住它推荐哪一手。",
+    "startMs": 287877.625,
+    "endMs": 290875.25000000006,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ending"
+  },
+  {
+    "text": "更值得追问的是：这一手解决了什么问题？",
+    "startMs": 290875.25000000006,
+    "endMs": 294220.458,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ending"
+  },
+  {
+    "text": "对手最强的回应又是什么？",
+    "startMs": 294220.458,
+    "endMs": 296780.00000000006,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ending"
+  },
+  {
+    "text": "让人工智能给出线索，也让自己学会检验。",
+    "startMs": 296780.00000000006,
+    "endMs": 300291.916,
+    "timestampMs": null,
+    "confidence": null,
+    "scene": "ending"
+  }
+]

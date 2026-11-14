@@ -1,0 +1,18 @@
+{
+  "assets/music/we-never-remix-hi-noise-qiucheng.m4a": {
+    "bytes": 2312293,
+    "sha256": "8de153de06ce48fdcbe0d06bc1fcb7566daf2360994b8122db5297338561329b"
+  },
+  "episodes/katago-gold/audio/narration.wav": {
+    "bytes": 28944078,
+    "sha256": "415f68634891a0c9a80b1da36d55d3b1c279643886ea3792992f06f6cb2a028f"
+  },
+  "tools/remotion/public/gold-katago/abstract/katago-spatial-lattice.blend": {
+    "bytes": 3050620,
+    "sha256": "6c3c25021324b5b40bd85b6908a55c16f871bbe57f6170035f2f118c97673f39"
+  },
+  "tools/remotion/public/gold-katago/abstract/katago-spatial-lattice.glb": {
+    "bytes": 3603352,
+    "sha256": "48e79e4b345abcc8d0cae784e5259b832c69862117786a4902ba1fbabc46c41c"
+  }
+}

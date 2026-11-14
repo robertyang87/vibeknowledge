@@ -35,3 +35,18 @@ AGENTS.md and docs/release-delivery.md. Do not commit node_modules or out/.
 Remotion is a rendering/composition toolchain here; it is not represented as
 an installed third-party MCP server. The available Remotion skills guide its
 CLI and project workflows. Licensing: https://www.remotion.dev/license
+
+## KataGo spatial film
+
+`KataGoGold` is the production composition for the revised spatial gold
+edition. It uses an original Blender glTF lattice, procedural Three.js scene
+geometry, real perspective cameras, frame-driven particle/signal shaders,
+selective bloom, Chinese typography and a reviewed narration/music/effects
+mix. `KataGoSpatialProof` is a separate ten-second visual motion study.
+
+Large production assets are supplied in the episode's Release project ZIP.
+The archive preserves repository paths. Run
+`sh episodes/katago-gold/project/build.sh` from the extracted root. For this
+CPU cloud computer, `--gl=swangle` is the verified browser renderer. On another
+machine choose the appropriate supported OpenGL backend. The source contains
+no animation driven by wall time or the R3F `useFrame()` hook.

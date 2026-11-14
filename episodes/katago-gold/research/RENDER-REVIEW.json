@@ -1,0 +1,110 @@
+{
+  "video": {
+    "codec_name": "h264",
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "30/1",
+    "nb_frames": "9045",
+    "duration": "301.500000",
+    "pix_fmt": "yuv420p"
+  },
+  "audio": {
+    "codec_name": "aac",
+    "sample_rate": "48000",
+    "channels": 2,
+    "duration": "301.504000"
+  },
+  "post_encoding_loudness": {
+    "input_i": "-14.08",
+    "input_tp": "-1.50",
+    "input_lra": "4.10",
+    "input_thresh": "-24.93",
+    "output_i": "-13.91",
+    "output_tp": "-1.00",
+    "output_lra": "3.90",
+    "output_thresh": "-24.70",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.09"
+  },
+  "audio_preservation": {
+    "aac_payload_identical": true,
+    "sha256": {
+      "katago-gold-remotion-raw.mp4": "2f44c4707bf6afd70eda494799c4988826e00089ccb131d239ee2690654bd2ec",
+      "katago-gold.mp4": "2f44c4707bf6afd70eda494799c4988826e00089ccb131d239ee2690654bd2ec"
+    }
+  },
+  "finishing_edit": {
+    "pickup": {
+      "scene": "selection",
+      "first_frame": 2232,
+      "last_frame_exclusive": 2634,
+      "frames": 402,
+      "reason": "Treat prior/visits as exploration inputs"
+    },
+    "board_scope_windows": [
+      [
+        697,
+        1094
+      ],
+      [
+        1095,
+        1506
+      ],
+      [
+        1507,
+        1868
+      ],
+      [
+        3030,
+        3493
+      ],
+      [
+        3494,
+        3907
+      ],
+      [
+        5163,
+        5586
+      ],
+      [
+        5988,
+        6395
+      ],
+      [
+        7720,
+        8187
+      ]
+    ],
+    "audio_copied": true,
+    "fps": 30,
+    "video_crf": 16,
+    "generation": "frame-exact pickup assembly and final delivery encode"
+  },
+  "source_checks": {
+    "eslint_typescript": "passed",
+    "python_syntax": "passed",
+    "new_source_language": "passed",
+    "repository_language_baseline_violating_files": 48,
+    "archive_extracted_lint": "passed",
+    "archive_cover_rebuild_mean_absolute_pixel_error": 0
+  },
+  "speech_recognition": {
+    "scenes": 22,
+    "passed_after_targeted_rechecks": 22
+  },
+  "visual_review": {
+    "all_22_scene_frames_reviewed": true,
+    "encoded_board_selection_ending_frames_reviewed": true
+  },
+  "sha256": {
+    "katago-gold.mp4": "8c15a64fe3bdb189e0fb29541bd8797bab4c0d77e7f8e5f1794cb27689aa2451",
+    "cover.png": "c65ea985767048a6f5d9d2eddb8e49ffac05465240c6ee56f9260e063eabe369",
+    "katago-gold.srt": "c48047efd701bff2849beeb8fb5a2c3748d8a3cffc08fa820435119bb5faaaeb"
+  },
+  "file_validation": {
+    "full_decode_passed": true,
+    "archive_crc_passed": true,
+    "video_frames": 9045,
+    "video_duration_seconds": 301.5
+  }
+}

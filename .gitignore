@@ -6,3 +6,4 @@ episodes/**/*.mp4
 episodes/**/*.mp3
 episodes/**/*.wav
 episodes/**/*.zip
+tools/remotion/public/gold-katago/
