@@ -1,0 +1,44 @@
+name: Publish video release assets
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag
+        required: true
+      manifest_sha:
+        description: Git blob SHA of the transient upload manifest
+        required: true
+permissions:
+  contents: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Reconstruct and verify staged assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          MANIFEST_SHA: ${{ inputs.manifest_sha }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        shell: python
+        run: |
+          import base64, hashlib, json, os, pathlib, re, subprocess, urllib.request
+          repo=os.environ['REPO']; sha=os.environ['MANIFEST_SHA']
+          if not re.fullmatch(r'[0-9a-f]{40}',sha): raise ValueError('Invalid manifest SHA')
+          def blob(sha):
+              if not re.fullmatch(r'[0-9a-f]{40}',sha): raise ValueError('Invalid blob SHA')
+              req=urllib.request.Request(f'https://api.github.com/repos/{repo}/git/blobs/{sha}',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','User-Agent':'video-release-publisher'})
+              with urllib.request.urlopen(req) as response: value=json.load(response)
+              return base64.b64decode(value['content'])
+          subprocess.run(['gh','release','view',os.environ['RELEASE_TAG'],'--repo',repo],check=True)
+          manifest=json.loads(blob(sha)); out=pathlib.Path('release-assets'); out.mkdir()
+          for asset in manifest['assets']:
+              name=asset['name']
+              if pathlib.PurePath(name).name!=name or name.startswith('.'): raise ValueError('Unsafe asset name')
+              path=out/name
+              with path.open('wb') as f:
+                  for part in asset['chunks']: f.write(blob(part))
+              if path.stat().st_size!=asset['size'] or hashlib.sha256(path.read_bytes()).hexdigest()!=asset['sha256']: raise ValueError('Asset integrity check failed: '+name)
+              print('Verified',name,path.stat().st_size)
+          subprocess.run(['gh','release','upload',os.environ['RELEASE_TAG'],'--repo',repo,*map(str,out.iterdir())],check=True)
