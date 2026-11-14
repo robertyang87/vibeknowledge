@@ -1,3 +1,8 @@
 .venv-gif-factory/
 __pycache__/
 *.pyc
+episodes/**/renders/
+episodes/**/*.mp4
+episodes/**/*.mp3
+episodes/**/*.wav
+episodes/**/*.zip

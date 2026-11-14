@@ -104,6 +104,14 @@ Start a new Codex session in this repository and invoke
 `$pixel-gif-sticker-pack`, or use `$paper-mechanism-explainer` for a knowledge
 explainer. See [installation and runtime notes](docs/gif-factory.md).
 
+## Video releases
+
+Finished videos are delivered through this repository's
+[GitHub Releases](https://github.com/robertyang87/vibeknowledge/releases),
+with the MP4, cover, subtitles, and editable project archive when available.
+Large media files stay in release assets rather than Git history.
+See [release delivery](docs/release-delivery.md).
+
 ## Language policy
 
 **English only, with one narrow exception.**
