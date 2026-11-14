@@ -21,7 +21,15 @@ deliverables there; do not ask again for routine release delivery.
 
 See [release delivery](docs/release-delivery.md) for the workflow.
 
-## Existing conventions
+## Production tools
+
+Blender MCP and Remotion are configured on the cloud computer. Read
+`docs/video-tooling.md`, `tools/blender/README.md`, and
+`tools/remotion/README.md` before using or changing those integrations. The
+Blender launcher can start the local bridge; the Remotion project pins package
+versions and includes a verified Blender-input composition.
+
+## Source conventions
 
 Follow CONTRIBUTING.md and the README's English-only policy for our code and
 documentation. Audience-facing video copy belongs in `scripts/` or

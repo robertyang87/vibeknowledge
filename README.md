@@ -104,6 +104,14 @@ Start a new Codex session in this repository and invoke
 `$pixel-gif-sticker-pack`, or use `$paper-mechanism-explainer` for a knowledge
 explainer. See [installation and runtime notes](docs/gif-factory.md).
 
+## Blender and Remotion tooling
+
+The cloud workspace includes a live Blender MCP bridge and a pinned Remotion
+project. Blender handles 3D scenes and rendering; Remotion handles editable
+timelines, typography, captions, transitions, and audio composition.
+The integration has been verified with a real Blender render composed into a
+Remotion H.264 test clip. See [tooling setup and checks](docs/video-tooling.md).
+
 ## Video releases
 
 Finished videos are delivered through this repository's
