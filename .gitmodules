@@ -2,3 +2,6 @@
 	path = vendor/lemo-opuscar
 	url = https://github.com/lemomo-ai/lemo-opuscar.git
 	branch = main
+[submodule "vendor/gif-factory"]
+	path = vendor/gif-factory
+	url = https://github.com/WoYun520/gif-factory.git
